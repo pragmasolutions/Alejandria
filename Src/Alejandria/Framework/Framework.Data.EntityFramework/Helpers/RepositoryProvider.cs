@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using Framework.Data.Interfaces;
 using Framework.Data.Repository;
 
 namespace Framework.Data.EntityFramework.Helpers
@@ -36,7 +35,7 @@ namespace Framework.Data.EntityFramework.Helpers
         /// <remarks>
         /// If can't find repository in cache, use a factory to create one.
         /// </remarks>
-        public IRepository<T> GetRepositoryForEntityType<T>() where T : class, IEntity
+        public IRepository<T> GetRepositoryForEntityType<T>() where T : class
         {
             return GetRepository<IRepository<T>>(
                 _repositoryFactories.GetRepositoryFactoryForEntityType<T>());

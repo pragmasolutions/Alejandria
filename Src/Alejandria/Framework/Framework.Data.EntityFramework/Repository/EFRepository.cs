@@ -4,7 +4,6 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using Framework.Data.Helpers;
-using Framework.Data.Interfaces;
 using Framework.Data.Repository;
 
 namespace Framework.Data.EntityFramework.Repository
@@ -13,7 +12,7 @@ namespace Framework.Data.EntityFramework.Repository
     /// The EF-dependent, generic repository for data access
     /// </summary>
     /// <typeparam name="T">Type of entity for this Repository.</typeparam>
-    public class EFRepository<T> : EFBaseRepository, IRepository<T> where T : class, IEntity
+    public class EFRepository<T> : EFBaseRepository, IRepository<T> where T : class
     {
         public EFRepository(DbContext dbContext)
             : base(dbContext)
@@ -25,12 +24,12 @@ namespace Framework.Data.EntityFramework.Repository
 
         public virtual IQueryable<T> GetAll()
         {
-            return DbSet.Where(x => !x.IsDeleted);
+            return DbSet;
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> whereClause,params Expression<Func<T, object>>[] includes)
         {
-            var dbset = DbSet.Where(x => !x.IsDeleted).AsQueryable();
+            var dbset = DbSet.AsQueryable();
             if (whereClause != null)
             {
                 dbset = dbset.Where(whereClause).AsQueryable();
@@ -53,7 +52,7 @@ namespace Framework.Data.EntityFramework.Repository
         {
             PagedResultList<T> result = new PagedResultList<T>();
 
-            var data = DbSet.Where(x => !x.IsDeleted);
+            var data = DbSet.Where(x => true);
             int totalRecords = data.Count();
 
             foreach (var include in includes)
@@ -81,7 +80,7 @@ namespace Framework.Data.EntityFramework.Repository
         {
             PagedResultList<T> result = new PagedResultList<T>();
 
-            var data = DbSet.Where(x => !x.IsDeleted);
+            var data = DbSet.Where(x => true);
             int totalRecords = data.Count(whereClause);
 
             foreach (var include in includes)
@@ -99,14 +98,15 @@ namespace Framework.Data.EntityFramework.Repository
             return result;
         }
 
-        public virtual T Get(Guid id)
+        public virtual T Get(int id)
         {
-            return DbSet.FirstOrDefault(x => x.Id == id && !x.IsDeleted);
+            return DbSet.Find(id);
         }
 
         public virtual T Get(Expression<Func<T, bool>> whereClause, params Expression<Func<T, object>>[] includes)
         {
-            var dbset = DbSet.Where(x => !x.IsDeleted).AsQueryable();
+            var dbset = DbSet.AsQueryable();
+            var list = dbset.ToList();
             foreach (var include in includes)
             {
                 dbset = dbset.Include(include);
@@ -117,10 +117,6 @@ namespace Framework.Data.EntityFramework.Repository
         public virtual void Add(T entity)
         {
             DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
-            entity.CreatedDate = DateTime.Now;
-            entity.IsDeleted = false;
-            entity.Id = Guid.NewGuid();
-
             if (dbEntityEntry.State != EntityState.Detached)
             {
                 dbEntityEntry.State = EntityState.Added;
@@ -143,12 +139,19 @@ namespace Framework.Data.EntityFramework.Repository
 
         public virtual void Delete(T entity)
         {
-            //DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
-            entity.IsDeleted = true;
-            Edit(entity);
+            DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+            if (dbEntityEntry.State != EntityState.Deleted)
+            {
+                dbEntityEntry.State = EntityState.Deleted;
+            }
+            else
+            {
+                DbSet.Attach(entity);
+                DbSet.Remove(entity);
+            }
         }
 
-        public virtual void Delete(Guid id)
+        public virtual void Delete(int id)
         {
             var entity = Get(id);
             if (entity == null) return; // not found; assume already deleted.

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.Entity;
-using Framework.Data.Interfaces;
 using Framework.Data.Repository;
 
 namespace Framework.Data.EntityFramework.Helpers
@@ -28,7 +27,7 @@ namespace Framework.Data.EntityFramework.Helpers
         /// <typeparam name="T">
         /// Root entity type of the <see cref="IRepository{T}"/>.
         /// </typeparam>
-        IRepository<T> GetRepositoryForEntityType<T>() where T : class, IEntity;
+        IRepository<T> GetRepositoryForEntityType<T>() where T : class;
 
         /// <summary>
         /// Get a repository of type T.

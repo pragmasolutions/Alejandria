@@ -39,8 +39,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AlejandriaModel.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CategoriaOperador.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CondicionesIVA.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CondicionesVenta.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Especialidad.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadosCliente.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Localidad.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Operador.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Personal.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profesion.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provincia.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sucursal.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposDocumentosIdentidad.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zona.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AlejandriaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AlejandriaModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
