@@ -76,5 +76,7 @@
     <Build Include="Tables\Operadores.sql" />
     <Build Include="Tables\CondicionesIVA.sql" />
     <Build Include="Tables\CondicionesVenta.sql" />
+    <Build Include="Tables\Clientes.sql" />
+    <Build Include="Tables\Vendedores.sql" />
   </ItemGroup>
 </Project>
