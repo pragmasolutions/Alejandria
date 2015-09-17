@@ -14,6 +14,11 @@ namespace Alejandria.Entities
     
     public partial class Especialidad
     {
+        public Especialidad()
+        {
+            this.Clientes = new HashSet<Cliente>();
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public int ProfesionId { get; set; }
@@ -25,5 +30,6 @@ namespace Alejandria.Entities
         public Nullable<int> SucursalModificacionId { get; set; }
     
         public virtual Profesion Profesion { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }

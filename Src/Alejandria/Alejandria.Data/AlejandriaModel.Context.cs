@@ -39,5 +39,7 @@ namespace Alejandria.Data
         public virtual DbSet<Sucursal> Sucursals { get; set; }
         public virtual DbSet<TiposDocumentosIdentidad> TiposDocumentosIdentidads { get; set; }
         public virtual DbSet<Zona> Zonas { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Vendedor> Vendedors { get; set; }
     }
 }

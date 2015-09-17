@@ -17,6 +17,7 @@ namespace Alejandria.Entities
         public Localidad()
         {
             this.Sucursales = new HashSet<Sucursal>();
+            this.Clientes = new HashSet<Cliente>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,6 @@ namespace Alejandria.Entities
         public Nullable<int> SucursalModificacionId { get; set; }
     
         public virtual ICollection<Sucursal> Sucursales { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }

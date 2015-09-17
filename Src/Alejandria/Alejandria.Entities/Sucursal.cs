@@ -14,6 +14,13 @@ namespace Alejandria.Entities
     
     public partial class Sucursal
     {
+        public Sucursal()
+        {
+            this.Clientes = new HashSet<Cliente>();
+            this.Clientes1 = new HashSet<Cliente>();
+            this.Clientes2 = new HashSet<Cliente>();
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string NombreCorto { get; set; }
@@ -37,5 +44,8 @@ namespace Alejandria.Entities
     
         public virtual Localidad Localidad { get; set; }
         public virtual Provincia Provincia { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Cliente> Clientes1 { get; set; }
+        public virtual ICollection<Cliente> Clientes2 { get; set; }
     }
 }

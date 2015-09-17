@@ -14,6 +14,12 @@ namespace Alejandria.Entities
     
     public partial class Operador
     {
+        public Operador()
+        {
+            this.Clientes = new HashSet<Cliente>();
+            this.Clientes1 = new HashSet<Cliente>();
+        }
+    
         public System.Guid Id { get; set; }
         public string Usuario { get; set; }
         public string Clave { get; set; }
@@ -29,5 +35,7 @@ namespace Alejandria.Entities
         public bool Habilitado { get; set; }
     
         public virtual Personal Personal { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Cliente> Clientes1 { get; set; }
     }
 }

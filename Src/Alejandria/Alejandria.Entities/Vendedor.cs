@@ -12,9 +12,9 @@ namespace Alejandria.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Zona
+    public partial class Vendedor
     {
-        public Zona()
+        public Vendedor()
         {
             this.Clientes = new HashSet<Cliente>();
         }
@@ -22,12 +22,8 @@ namespace Alejandria.Entities
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Abreviatura { get; set; }
-        public Nullable<System.DateTime> FechaAlta { get; set; }
-        public Nullable<System.Guid> OperadorAltaId { get; set; }
-        public Nullable<int> SucursalAltaId { get; set; }
-        public Nullable<System.DateTime> FechaModificacion { get; set; }
-        public Nullable<System.Guid> OperadorModificacionId { get; set; }
-        public Nullable<int> SucursalModificacionId { get; set; }
+        public Nullable<System.DateTime> FechaGeneracion { get; set; }
+        public Nullable<System.Guid> OperadorId { get; set; }
     
         public virtual ICollection<Cliente> Clientes { get; set; }
     }

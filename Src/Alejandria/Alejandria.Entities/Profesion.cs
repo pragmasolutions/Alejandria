@@ -17,6 +17,7 @@ namespace Alejandria.Entities
         public Profesion()
         {
             this.Especialidades = new HashSet<Especialidad>();
+            this.Clientes = new HashSet<Cliente>();
         }
     
         public int Id { get; set; }
@@ -32,5 +33,6 @@ namespace Alejandria.Entities
         public Nullable<int> SucursalModificacionId { get; set; }
     
         public virtual ICollection<Especialidad> Especialidades { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }

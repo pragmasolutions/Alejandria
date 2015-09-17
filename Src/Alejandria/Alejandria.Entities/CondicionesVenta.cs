@@ -14,6 +14,11 @@ namespace Alejandria.Entities
     
     public partial class CondicionesVenta
     {
+        public CondicionesVenta()
+        {
+            this.Clientes = new HashSet<Cliente>();
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Abreviatura { get; set; }
@@ -25,5 +30,7 @@ namespace Alejandria.Entities
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
         public Nullable<int> SucursalModificacionId { get; set; }
+    
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }

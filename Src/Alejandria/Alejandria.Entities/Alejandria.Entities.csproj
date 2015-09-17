@@ -47,6 +47,9 @@
     <Compile Include="CategoriaOperador.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cliente.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CondicionesIVA.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
@@ -79,6 +82,9 @@
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TiposDocumentosIdentidad.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedor.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zona.cs">
