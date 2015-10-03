@@ -50,6 +50,9 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClientesCuentasCorriente.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CondicionesIVA.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
@@ -60,6 +63,9 @@
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EstadosCliente.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadosVenta.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Localidad.cs">
@@ -81,10 +87,16 @@
     <Compile Include="Sucursal.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TiposComprobante.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TiposDocumentosIdentidad.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vendedor.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Venta.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zona.cs">

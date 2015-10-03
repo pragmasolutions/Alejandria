@@ -64,6 +64,28 @@
           <Property Name="MandarMail" Type="bit" />
           <Property Name="Llamar" Type="bit" />
         </EntityType>
+        <EntityType Name="ClientesCuentasCorriente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VentaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClienteId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Cuota" Type="tinyint" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="FechaVencimiento" Type="datetime" />
+          <Property Name="FechaUltimoPago" Type="datetime" />
+          <Property Name="Importe" Type="real" />
+          <Property Name="Pagado" Type="real" />
+          <Property Name="FechaGeneracion" Type="datetime" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="255" />
+          <Property Name="FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="SucursalAltaId" Type="int" Nullable="false" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="SucursalModificacionId" Type="int" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="CondicionesIVA">
           <Key>
             <PropertyRef Name="Id" />
@@ -122,6 +144,22 @@
           <Property Name="FechaAlta" Type="datetime" />
           <Property Name="OperadorAltaId" Type="uniqueidentifier" />
           <Property Name="SucursalAltaId" Type="int" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+          <Property Name="SucursalModificacionId" Type="int" />
+        </EntityType>
+        <EntityType Name="EstadosVenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Abreviatura" Type="nvarchar" MaxLength="10" />
+          <Property Name="Decripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prioridad" Type="int" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SucursalAltaId" Type="int" Nullable="false" />
           <Property Name="FechaModificacion" Type="datetime" />
           <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
           <Property Name="SucursalModificacionId" Type="int" />
@@ -243,6 +281,24 @@
           <Property Name="MaximoNroLineasPorVenta" Type="int" Nullable="false" />
           <Property Name="SucursalNumero" Type="int" />
         </EntityType>
+        <EntityType Name="TiposComprobantes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Abreviatura" Type="nvarchar" MaxLength="10" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prioridad" Type="int" />
+          <Property Name="Comprobante" Type="nchar" MaxLength="10" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="SucursalAltaId" Type="int" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="SucursalModificacionId" Type="int" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="TiposDocumentosIdentidad">
           <Key>
             <PropertyRef Name="Id" />
@@ -268,6 +324,36 @@
           <Property Name="Abreviatura" Type="nvarchar" MaxLength="10" />
           <Property Name="FechaGeneracion" Type="datetime" />
           <Property Name="OperadorId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LCN" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="ComprobanteId" Type="int" Nullable="false" />
+          <Property Name="ClienteId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LetraComprobante" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PuntoVenta" Type="int" Nullable="false" />
+          <Property Name="NumeroComprobante" Type="int" Nullable="false" />
+          <Property Name="FechaComprobante" Type="datetime" />
+          <Property Name="FechaVencimiento" Type="datetime" />
+          <Property Name="CondicionVentaId" Type="int" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImporteNeto" Type="money" Nullable="false" />
+          <Property Name="ImporteIva" Type="money" Nullable="false" />
+          <Property Name="ImporteSena" Type="money" />
+          <Property Name="FechaUltimoPago" Type="datetime" />
+          <Property Name="TotalPagado" Type="money" />
+          <Property Name="EstadoVentaId" Type="int" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="SucursalAltaId" Type="int" Nullable="false" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="SucursalModificacionId" Type="int" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+          <Property Name="OperadorAutoriza" Type="uniqueidentifier" />
+          <Property Name="ValidacionUsuario" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Zonas">
           <Key>
@@ -463,6 +549,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ClientesCuentasCorriente_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="ClientesCuentasCorriente" Type="Self.ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_OperadorAltaId">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="ClientesCuentasCorriente" Type="Self.ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_OperadorModificacionId">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="ClientesCuentasCorriente" Type="Self.ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_SucursalAltaId">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+          <End Role="ClientesCuentasCorriente" Type="Self.ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_SucursalModificacionId">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="ClientesCuentasCorriente" Type="Self.ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_VentasId">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="1" />
+          <End Role="ClientesCuentasCorriente" Type="Self.ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="VentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Especialidades_Profesion">
           <End Role="Profesiones" Type="Self.Profesiones" Multiplicity="1" />
           <End Role="Especialidades" Type="Self.Especialidades" Multiplicity="*" />
@@ -472,6 +630,54 @@
             </Principal>
             <Dependent Role="Especialidades">
               <PropertyRef Name="ProfesionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_OperadorAltaId">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="1" />
+          <End Role="EstadosVenta" Type="Self.EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_OperadorModificacionId">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="EstadosVenta" Type="Self.EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_SucursalAltaId">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+          <End Role="EstadosVenta" Type="Self.EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_SucursalModificacionId">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="EstadosVenta" Type="Self.EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="SucursalModificacionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -523,21 +729,133 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Ventas_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Comprobante">
+          <End Role="TiposComprobantes" Type="Self.TiposComprobantes" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposComprobantes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_CondicionVenta">
+          <End Role="CondicionesVenta" Type="Self.CondicionesVenta" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CondicionesVenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="CondicionVentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_EstadoVenta">
+          <End Role="EstadosVenta" Type="Self.EstadosVenta" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosVenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="EstadoVentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_OperadorAlta">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_OperadorAutoriza">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="OperadorAutoriza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_OperadorModificacion">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_SucursalAlta">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_SucursalModificacion">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AlejandriaModelStoreContainer">
           <EntitySet Name="CategoriasOperadores" EntityType="Self.CategoriasOperadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientesCuentasCorriente" EntityType="Self.ClientesCuentasCorriente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CondicionesIVA" EntityType="Self.CondicionesIVA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CondicionesVenta" EntityType="Self.CondicionesVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Especialidades" EntityType="Self.Especialidades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EstadosCliente" EntityType="Self.EstadosCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadosVenta" EntityType="Self.EstadosVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Localidades" EntityType="Self.Localidades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Operadores" EntityType="Self.Operadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profesiones" EntityType="Self.Profesiones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provincias" EntityType="Self.Provincias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposComprobantes" EntityType="Self.TiposComprobantes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TiposDocumentosIdentidad" EntityType="Self.TiposDocumentosIdentidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vendedores" EntityType="Self.Vendedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zonas" EntityType="Self.Zonas" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Clientes_CondicionIva" Association="Self.FK_Clientes_CondicionIva">
             <End Role="CondicionesIVA" EntitySet="CondicionesIVA" />
@@ -599,9 +917,49 @@
             <End Role="Zonas" EntitySet="Zonas" />
             <End Role="Clientes" EntitySet="Clientes" />
           </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_Clientes" Association="Self.FK_ClientesCuentasCorriente_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_OperadorAltaId" Association="Self.FK_ClientesCuentasCorriente_OperadorAltaId">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_OperadorModificacionId" Association="Self.FK_ClientesCuentasCorriente_OperadorModificacionId">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_SucursalAltaId" Association="Self.FK_ClientesCuentasCorriente_SucursalAltaId">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_SucursalModificacionId" Association="Self.FK_ClientesCuentasCorriente_SucursalModificacionId">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_VentasId" Association="Self.FK_ClientesCuentasCorriente_VentasId">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
           <AssociationSet Name="FK_Especialidades_Profesion" Association="Self.FK_Especialidades_Profesion">
             <End Role="Profesiones" EntitySet="Profesiones" />
             <End Role="Especialidades" EntitySet="Especialidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_OperadorAltaId" Association="Self.FK_EstadosVenta_OperadorAltaId">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="EstadosVenta" EntitySet="EstadosVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_OperadorModificacionId" Association="Self.FK_EstadosVenta_OperadorModificacionId">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="EstadosVenta" EntitySet="EstadosVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_SucursalAltaId" Association="Self.FK_EstadosVenta_SucursalAltaId">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="EstadosVenta" EntitySet="EstadosVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_SucursalModificacionId" Association="Self.FK_EstadosVenta_SucursalModificacionId">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="EstadosVenta" EntitySet="EstadosVenta" />
           </AssociationSet>
           <AssociationSet Name="FK_Operadores_Personal" Association="Self.FK_Operadores_Personal">
             <End Role="Personal" EntitySet="Personal" />
@@ -618,6 +976,42 @@
           <AssociationSet Name="FK_Sucursales_Provincias" Association="Self.FK_Sucursales_Provincias">
             <End Role="Provincias" EntitySet="Provincias" />
             <End Role="Sucursales" EntitySet="Sucursales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Cliente" Association="Self.FK_Ventas_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Comprobante" Association="Self.FK_Ventas_Comprobante">
+            <End Role="TiposComprobantes" EntitySet="TiposComprobantes" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_CondicionVenta" Association="Self.FK_Ventas_CondicionVenta">
+            <End Role="CondicionesVenta" EntitySet="CondicionesVenta" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_EstadoVenta" Association="Self.FK_Ventas_EstadoVenta">
+            <End Role="EstadosVenta" EntitySet="EstadosVenta" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_OperadorAlta" Association="Self.FK_Ventas_OperadorAlta">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_OperadorAutoriza" Association="Self.FK_Ventas_OperadorAutoriza">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_OperadorModificacion" Association="Self.FK_Ventas_OperadorModificacion">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_SucursalAlta" Association="Self.FK_Ventas_SucursalAlta">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_SucursalModificacion" Association="Self.FK_Ventas_SucursalModificacion">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Ventas" EntitySet="Ventas" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -674,6 +1068,7 @@
           <Property Name="OperadorModificacionId" Type="Guid" />
           <Property Name="SucursalModificacionId" Type="Int32" />
           <NavigationProperty Name="Clientes" Relationship="AlejandriaModel.FK_Clientes_CondicionVenta" FromRole="CondicionesVenta" ToRole="Cliente" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_CondicionVenta" FromRole="CondicionesVenta" ToRole="Venta" />
         </EntityType>
         <EntityType Name="Especialidad">
           <Key>
@@ -745,6 +1140,13 @@
           <NavigationProperty Name="Personal" Relationship="Self.FK_Operadores_Personal" FromRole="Operadores" ToRole="Personal" />
           <NavigationProperty Name="Clientes" Relationship="AlejandriaModel.FK_Clientes_OperadorAlta" FromRole="Operador" ToRole="Cliente" />
           <NavigationProperty Name="Clientes1" Relationship="AlejandriaModel.FK_Clientes_OperadorModificacion" FromRole="Operador" ToRole="Cliente" />
+          <NavigationProperty Name="ClientesCuentasCorrientes" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId" FromRole="Operador" ToRole="ClientesCuentasCorriente" />
+          <NavigationProperty Name="ClientesCuentasCorrientes1" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId" FromRole="Operador" ToRole="ClientesCuentasCorriente" />
+          <NavigationProperty Name="EstadosVentas" Relationship="AlejandriaModel.FK_EstadosVenta_OperadorAltaId" FromRole="Operador" ToRole="EstadosVenta" />
+          <NavigationProperty Name="EstadosVentas1" Relationship="AlejandriaModel.FK_EstadosVenta_OperadorModificacionId" FromRole="Operador" ToRole="EstadosVenta" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_OperadorAlta" FromRole="Operador" ToRole="Venta" />
+          <NavigationProperty Name="Ventas1" Relationship="AlejandriaModel.FK_Ventas_OperadorAutoriza" FromRole="Operador" ToRole="Venta" />
+          <NavigationProperty Name="Ventas2" Relationship="AlejandriaModel.FK_Ventas_OperadorModificacion" FromRole="Operador" ToRole="Venta" />
         </EntityType>
         <EntityType Name="Personal">
           <Key>
@@ -840,6 +1242,12 @@
           <NavigationProperty Name="Clientes" Relationship="AlejandriaModel.FK_Clientes_SucursalAlta" FromRole="Sucursal" ToRole="Cliente" />
           <NavigationProperty Name="Clientes1" Relationship="AlejandriaModel.FK_Clientes_Sucursales" FromRole="Sucursal" ToRole="Cliente" />
           <NavigationProperty Name="Clientes2" Relationship="AlejandriaModel.FK_Clientes_SucursalModificacion" FromRole="Sucursal" ToRole="Cliente" />
+          <NavigationProperty Name="ClientesCuentasCorrientes" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalAltaId" FromRole="Sucursal" ToRole="ClientesCuentasCorriente" />
+          <NavigationProperty Name="ClientesCuentasCorrientes1" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalModificacionId" FromRole="Sucursal" ToRole="ClientesCuentasCorriente" />
+          <NavigationProperty Name="EstadosVentas" Relationship="AlejandriaModel.FK_EstadosVenta_SucursalAltaId" FromRole="Sucursal" ToRole="EstadosVenta" />
+          <NavigationProperty Name="EstadosVentas1" Relationship="AlejandriaModel.FK_EstadosVenta_SucursalModificacionId" FromRole="Sucursal" ToRole="EstadosVenta" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_SucursalAlta" FromRole="Sucursal" ToRole="Venta" />
+          <NavigationProperty Name="Ventas1" Relationship="AlejandriaModel.FK_Ventas_SucursalModificacion" FromRole="Sucursal" ToRole="Venta" />
         </EntityType>
         <EntityType Name="TiposDocumentosIdentidad">
           <Key>
@@ -1029,6 +1437,86 @@
             <End Role="Zona" EntitySet="Zonas" />
             <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
+          <EntitySet Name="ClientesCuentasCorrientes" EntityType="AlejandriaModel.ClientesCuentasCorriente" />
+          <EntitySet Name="EstadosVentas" EntityType="AlejandriaModel.EstadosVenta" />
+          <EntitySet Name="TiposComprobantes" EntityType="AlejandriaModel.TiposComprobante" />
+          <EntitySet Name="Ventas" EntityType="AlejandriaModel.Venta" />
+          <AssociationSet Name="FK_ClientesCuentasCorriente_Clientes" Association="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorrientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Cliente" Association="AlejandriaModel.FK_Ventas_Cliente">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_OperadorAltaId" Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorrientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_OperadorModificacionId" Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorrientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_SucursalAltaId" Association="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalAltaId">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorrientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_SucursalModificacionId" Association="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalModificacionId">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorrientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesCuentasCorriente_VentasId" Association="AlejandriaModel.FK_ClientesCuentasCorriente_VentasId">
+            <End Role="Venta" EntitySet="Ventas" />
+            <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorrientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_CondicionVenta" Association="AlejandriaModel.FK_Ventas_CondicionVenta">
+            <End Role="CondicionesVenta" EntitySet="CondicionesVentas" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_OperadorAltaId" Association="AlejandriaModel.FK_EstadosVenta_OperadorAltaId">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="EstadosVenta" EntitySet="EstadosVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_OperadorModificacionId" Association="AlejandriaModel.FK_EstadosVenta_OperadorModificacionId">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="EstadosVenta" EntitySet="EstadosVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_SucursalAltaId" Association="AlejandriaModel.FK_EstadosVenta_SucursalAltaId">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="EstadosVenta" EntitySet="EstadosVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstadosVenta_SucursalModificacionId" Association="AlejandriaModel.FK_EstadosVenta_SucursalModificacionId">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="EstadosVenta" EntitySet="EstadosVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_EstadoVenta" Association="AlejandriaModel.FK_Ventas_EstadoVenta">
+            <End Role="EstadosVenta" EntitySet="EstadosVentas" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_OperadorAlta" Association="AlejandriaModel.FK_Ventas_OperadorAlta">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_OperadorAutoriza" Association="AlejandriaModel.FK_Ventas_OperadorAutoriza">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_OperadorModificacion" Association="AlejandriaModel.FK_Ventas_OperadorModificacion">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_SucursalAlta" Association="AlejandriaModel.FK_Ventas_SucursalAlta">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_SucursalModificacion" Association="AlejandriaModel.FK_Ventas_SucursalModificacion">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Comprobante" Association="AlejandriaModel.FK_Ventas_Comprobante">
+            <End Role="TiposComprobante" EntitySet="TiposComprobantes" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -1087,6 +1575,8 @@
           <NavigationProperty Name="TiposDocumentosIdentidad" Relationship="AlejandriaModel.FK_Clientes_TipoDocumento" FromRole="Cliente" ToRole="TiposDocumentosIdentidad" />
           <NavigationProperty Name="Vendedor" Relationship="AlejandriaModel.FK_Clientes_Vendedores" FromRole="Cliente" ToRole="Vendedore" />
           <NavigationProperty Name="Zona" Relationship="AlejandriaModel.FK_Clientes_Zona" FromRole="Cliente" ToRole="Zona" />
+          <NavigationProperty Name="ClientesCuentasCorrientes" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes" FromRole="Cliente" ToRole="ClientesCuentasCorriente" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_Cliente" FromRole="Cliente" ToRole="Venta" />
         </EntityType>
         <EntityType Name="Vendedor">
           <Key>
@@ -1276,6 +1766,342 @@
             </Principal>
             <Dependent Role="Cliente">
               <PropertyRef Name="ZonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ClientesCuentasCorriente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="VentaId" Type="Guid" Nullable="false" />
+          <Property Name="ClienteId" Type="Guid" Nullable="false" />
+          <Property Name="Cuota" Type="Byte" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="3" />
+          <Property Name="FechaUltimoPago" Type="DateTime" Precision="3" />
+          <Property Name="Importe" Type="Single" />
+          <Property Name="Pagado" Type="Single" />
+          <Property Name="FechaGeneracion" Type="DateTime" Precision="3" />
+          <Property Name="Observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SucursalAltaId" Type="Int32" Nullable="false" />
+          <Property Name="OperadorAltaId" Type="Guid" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <NavigationProperty Name="Cliente" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes" FromRole="ClientesCuentasCorriente" ToRole="Cliente" />
+          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId" FromRole="ClientesCuentasCorriente" ToRole="Operador" />
+          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId" FromRole="ClientesCuentasCorriente" ToRole="Operador" />
+          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalAltaId" FromRole="ClientesCuentasCorriente" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalModificacionId" FromRole="ClientesCuentasCorriente" ToRole="Sucursal" />
+          <NavigationProperty Name="Venta" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_VentasId" FromRole="ClientesCuentasCorriente" ToRole="Venta" />
+        </EntityType>
+        <EntityType Name="EstadosVenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Abreviatura" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Decripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prioridad" Type="Int32" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="OperadorAltaId" Type="Guid" Nullable="false" />
+          <Property Name="SucursalAltaId" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_EstadosVenta_OperadorAltaId" FromRole="EstadosVenta" ToRole="Operador" />
+          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_EstadosVenta_OperadorModificacionId" FromRole="EstadosVenta" ToRole="Operador" />
+          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_EstadosVenta_SucursalAltaId" FromRole="EstadosVenta" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_EstadosVenta_SucursalModificacionId" FromRole="EstadosVenta" ToRole="Sucursal" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_EstadoVenta" FromRole="EstadosVenta" ToRole="Venta" />
+        </EntityType>
+        <EntityType Name="TiposComprobante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Abreviatura" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prioridad" Type="Int32" />
+          <Property Name="Comprobante" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Concepto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="SucursalAltaId" Type="Int32" />
+          <Property Name="OperadorAltaId" Type="Guid" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_Comprobante" FromRole="TiposComprobante" ToRole="Venta" />
+        </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="LCN" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="ComprobanteId" Type="Int32" Nullable="false" />
+          <Property Name="ClienteId" Type="Guid" Nullable="false" />
+          <Property Name="LetraComprobante" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PuntoVenta" Type="Int32" Nullable="false" />
+          <Property Name="NumeroComprobante" Type="Int32" Nullable="false" />
+          <Property Name="FechaComprobante" Type="DateTime" Precision="3" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="3" />
+          <Property Name="CondicionVentaId" Type="Int32" />
+          <Property Name="Concepto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImporteNeto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ImporteIva" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ImporteSena" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FechaUltimoPago" Type="DateTime" Precision="3" />
+          <Property Name="TotalPagado" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="EstadoVentaId" Type="Int32" Nullable="false" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="SucursalAltaId" Type="Int32" Nullable="false" />
+          <Property Name="OperadorAltaId" Type="Guid" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <Property Name="OperadorAutoriza" Type="Guid" />
+          <Property Name="ValidacionUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cliente" Relationship="AlejandriaModel.FK_Ventas_Cliente" FromRole="Venta" ToRole="Cliente" />
+          <NavigationProperty Name="ClientesCuentasCorrientes" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_VentasId" FromRole="Venta" ToRole="ClientesCuentasCorriente" />
+          <NavigationProperty Name="CondicionesVenta" Relationship="AlejandriaModel.FK_Ventas_CondicionVenta" FromRole="Venta" ToRole="CondicionesVenta" />
+          <NavigationProperty Name="EstadosVenta" Relationship="AlejandriaModel.FK_Ventas_EstadoVenta" FromRole="Venta" ToRole="EstadosVenta" />
+          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Ventas_OperadorAlta" FromRole="Venta" ToRole="Operador" />
+          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Ventas_OperadorAutoriza" FromRole="Venta" ToRole="Operador" />
+          <NavigationProperty Name="Operadore2" Relationship="AlejandriaModel.FK_Ventas_OperadorModificacion" FromRole="Venta" ToRole="Operador" />
+          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Ventas_SucursalAlta" FromRole="Venta" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Ventas_SucursalModificacion" FromRole="Venta" ToRole="Sucursal" />
+          <NavigationProperty Name="TiposComprobante" Relationship="AlejandriaModel.FK_Ventas_Comprobante" FromRole="Venta" ToRole="TiposComprobante" />
+        </EntityType>
+        <Association Name="FK_ClientesCuentasCorriente_Clientes">
+          <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="AlejandriaModel.ClientesCuentasCorriente" Role="ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Cliente">
+          <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_OperadorAltaId">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesCuentasCorriente" Role="ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_OperadorModificacionId">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesCuentasCorriente" Role="ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_SucursalAltaId">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="AlejandriaModel.ClientesCuentasCorriente" Role="ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_SucursalModificacionId">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesCuentasCorriente" Role="ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesCuentasCorriente_VentasId">
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="1" />
+          <End Type="AlejandriaModel.ClientesCuentasCorriente" Role="ClientesCuentasCorriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesCuentasCorriente">
+              <PropertyRef Name="VentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_CondicionVenta">
+          <End Type="AlejandriaModel.CondicionesVenta" Role="CondicionesVenta" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CondicionesVenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="CondicionVentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_OperadorAltaId">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="1" />
+          <End Type="AlejandriaModel.EstadosVenta" Role="EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_OperadorModificacionId">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.EstadosVenta" Role="EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_SucursalAltaId">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="AlejandriaModel.EstadosVenta" Role="EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstadosVenta_SucursalModificacionId">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.EstadosVenta" Role="EstadosVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstadosVenta">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_EstadoVenta">
+          <End Type="AlejandriaModel.EstadosVenta" Role="EstadosVenta" Multiplicity="1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosVenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="EstadoVentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_OperadorAlta">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_OperadorAutoriza">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="OperadorAutoriza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_OperadorModificacion">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_SucursalAlta">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_SucursalModificacion">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ventas_Comprobante">
+          <End Type="AlejandriaModel.TiposComprobante" Role="TiposComprobante" Multiplicity="1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposComprobante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="ComprobanteId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1574,6 +2400,96 @@
                 <ScalarProperty Name="FechaGeneracion" ColumnName="FechaGeneracion" />
                 <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientesCuentasCorrientes">
+            <EntityTypeMapping TypeName="AlejandriaModel.ClientesCuentasCorriente">
+              <MappingFragment StoreEntitySet="ClientesCuentasCorriente">
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="FechaGeneracion" ColumnName="FechaGeneracion" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="FechaUltimoPago" ColumnName="FechaUltimoPago" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadosVentas">
+            <EntityTypeMapping TypeName="AlejandriaModel.EstadosVenta">
+              <MappingFragment StoreEntitySet="EstadosVenta">
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+                <ScalarProperty Name="Decripcion" ColumnName="Decripcion" />
+                <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposComprobantes">
+            <EntityTypeMapping TypeName="AlejandriaModel.TiposComprobante">
+              <MappingFragment StoreEntitySet="TiposComprobantes">
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
+                <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="AlejandriaModel.Venta">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="ValidacionUsuario" ColumnName="ValidacionUsuario" />
+                <ScalarProperty Name="OperadorAutoriza" ColumnName="OperadorAutoriza" />
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="EstadoVentaId" ColumnName="EstadoVentaId" />
+                <ScalarProperty Name="TotalPagado" ColumnName="TotalPagado" />
+                <ScalarProperty Name="FechaUltimoPago" ColumnName="FechaUltimoPago" />
+                <ScalarProperty Name="ImporteSena" ColumnName="ImporteSena" />
+                <ScalarProperty Name="ImporteIva" ColumnName="ImporteIva" />
+                <ScalarProperty Name="ImporteNeto" ColumnName="ImporteNeto" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="CondicionVentaId" ColumnName="CondicionVentaId" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="FechaComprobante" ColumnName="FechaComprobante" />
+                <ScalarProperty Name="NumeroComprobante" ColumnName="NumeroComprobante" />
+                <ScalarProperty Name="PuntoVenta" ColumnName="PuntoVenta" />
+                <ScalarProperty Name="LetraComprobante" ColumnName="LetraComprobante" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+                <ScalarProperty Name="LCN" ColumnName="LCN" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

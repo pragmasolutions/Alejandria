@@ -40,6 +40,29 @@
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_TipoDocumento" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Vendedores" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Zona" />
+        <EntityTypeShape EntityType="AlejandriaModel.ClientesCuentasCorriente" Width="1.5" PointX="7.5" PointY="12.875" />
+        <EntityTypeShape EntityType="AlejandriaModel.EstadosVenta" Width="1.5" PointX="5.25" PointY="26.25" />
+        <EntityTypeShape EntityType="AlejandriaModel.TiposComprobante" Width="1.5" PointX="5.25" PointY="21.75" />
+        <EntityTypeShape EntityType="AlejandriaModel.Venta" Width="1.5" PointX="7.5" PointY="22.25" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_Cliente" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalAltaId" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalModificacionId" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_VentasId" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_CondicionVenta" />
+        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_OperadorAltaId" />
+        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_OperadorModificacionId" />
+        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_SucursalAltaId" />
+        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_SucursalModificacionId" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_EstadoVenta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorAutoriza" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_Comprobante" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

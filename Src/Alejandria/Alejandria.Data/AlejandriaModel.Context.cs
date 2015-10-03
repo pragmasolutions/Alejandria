@@ -41,5 +41,9 @@ namespace Alejandria.Data
         public virtual DbSet<Zona> Zonas { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Vendedor> Vendedors { get; set; }
+        public virtual DbSet<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
+        public virtual DbSet<EstadosVenta> EstadosVentas { get; set; }
+        public virtual DbSet<TiposComprobante> TiposComprobantes { get; set; }
+        public virtual DbSet<Venta> Ventas { get; set; }
     }
 }

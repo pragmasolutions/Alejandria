@@ -14,6 +14,12 @@ namespace Alejandria.Entities
     
     public partial class Cliente
     {
+        public Cliente()
+        {
+            this.ClientesCuentasCorrientes = new HashSet<ClientesCuentasCorriente>();
+            this.Ventas = new HashSet<Venta>();
+        }
+    
         public System.Guid Id { get; set; }
         public Nullable<int> SucursalId { get; set; }
         public Nullable<int> Cuenta { get; set; }
@@ -68,5 +74,7 @@ namespace Alejandria.Entities
         public virtual TiposDocumentosIdentidad TiposDocumentosIdentidad { get; set; }
         public virtual Vendedor Vendedor { get; set; }
         public virtual Zona Zona { get; set; }
+        public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

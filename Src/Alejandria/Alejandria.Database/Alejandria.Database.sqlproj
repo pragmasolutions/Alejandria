@@ -78,5 +78,9 @@
     <Build Include="Tables\CondicionesVenta.sql" />
     <Build Include="Tables\Clientes.sql" />
     <Build Include="Tables\Vendedores.sql" />
+    <Build Include="Tables\ClientesCuentasCorriente.sql" />
+    <Build Include="Tables\Ventas.sql" />
+    <Build Include="Tables\EstadosVenta.sql" />
+    <Build Include="Tables\TiposComprobantes.sql" />
   </ItemGroup>
 </Project>

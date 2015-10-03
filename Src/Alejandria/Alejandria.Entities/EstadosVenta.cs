@@ -12,27 +12,29 @@ namespace Alejandria.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class CondicionesVenta
+    public partial class EstadosVenta
     {
-        public CondicionesVenta()
+        public EstadosVenta()
         {
-            this.Clientes = new HashSet<Cliente>();
             this.Ventas = new HashSet<Venta>();
         }
     
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Abreviatura { get; set; }
-        public string Descripcion { get; set; }
+        public string Decripcion { get; set; }
         public Nullable<int> Prioridad { get; set; }
         public Nullable<System.DateTime> FechaAlta { get; set; }
-        public Nullable<System.Guid> OperadorAltaId { get; set; }
-        public Nullable<int> SucursalAltaId { get; set; }
+        public System.Guid OperadorAltaId { get; set; }
+        public int SucursalAltaId { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
         public Nullable<int> SucursalModificacionId { get; set; }
     
-        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
+        public virtual Sucursal Sucursale { get; set; }
+        public virtual Sucursal Sucursale1 { get; set; }
         public virtual ICollection<Venta> Ventas { get; set; }
     }
 }
