@@ -196,3 +196,6 @@ FakesAssemblies/
 *.opt
 Src/Alejandria/Alejandria.Data/App.Config
 Src/Alejandria/Alejandria.Data/App.Config
+Src/Alejandria/Alejandria.Win/Forms/Form1.cs
+Src/Alejandria/Alejandria.Data/App.Config
+Src/Alejandria/Alejandria.Win/Forms/Form1.Designer.cs
