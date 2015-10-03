@@ -50,6 +50,8 @@ namespace Alejandria.Data
             }
         }
 
+        public bool IsDisposed { get; private set; }
+
         /// <summary>
         /// Save pending changes to the database
         /// </summary>
