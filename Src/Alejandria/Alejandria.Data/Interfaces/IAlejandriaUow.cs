@@ -24,5 +24,8 @@ namespace Alejandria.Data.Interfaces
 
 
         AlejandriaDbContext DbContext { get; }
+        bool IsDisposed { get; }
+
+        void Commit();
     }
 }
