@@ -32,7 +32,12 @@ namespace Alejandria.Data
         public IRepository<Provincia> Provincias { get { return GetStandardRepo<Provincia>(); } }
         public IRepository<Sucursal> Sucursales { get { return GetStandardRepo<Sucursal>(); } }
         public IRepository<TiposDocumentosIdentidad> TiposDocumentosIdentidades { get { return GetStandardRepo<TiposDocumentosIdentidad>(); } }
-
+        public IRepository<Venta> Ventas {get { return GetStandardRepo<Venta>(); } }
+        public IRepository<Cliente> Clientes { get { return GetStandardRepo<Cliente>(); } }
+        public IRepository<ClientesCuentasCorriente> ClientesCuentasCorrientes { get { return GetStandardRepo<ClientesCuentasCorriente>(); } }
+        public IRepository<TiposComprobante> TiposComprobantes { get { return GetStandardRepo<TiposComprobante>(); } }
+        public IRepository<EstadosVenta> EstadosVentas { get { return GetStandardRepo<EstadosVenta>(); } }
+        
         public string ConnectionString
         {
             get

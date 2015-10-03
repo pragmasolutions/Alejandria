@@ -17,6 +17,11 @@ namespace Alejandria.Data.Interfaces
         IRepository<Provincia> Provincias { get; }
         IRepository<Sucursal> Sucursales { get; }
         IRepository<TiposDocumentosIdentidad> TiposDocumentosIdentidades { get; }
+        IRepository<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; }
+        IRepository<EstadosVenta> EstadosVentas{ get; }
+        IRepository<TiposComprobante> TiposComprobantes { get; }
+        IRepository<Venta> Ventas { get; }
+
 
         AlejandriaDbContext DbContext { get; }
     }
