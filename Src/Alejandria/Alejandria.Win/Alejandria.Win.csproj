@@ -74,21 +74,33 @@
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.WinControls, Version=2011.1.11.315, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Lib\Telerik\Bin40\Telerik.WinControls.dll</HintPath>
+      <HintPath>..\..\..\Lib\Telerik\Telerik.WinControls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.WinControls.GridView, Version=2011.1.11.315, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Libreria\Codigo\LaPaz\Controles\Telerik\Telerik.WinControls.GridView.dll</HintPath>
+      <HintPath>..\..\..\Lib\Telerik\Telerik.WinControls.GridView.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.WinControls.Themes.TelerikMetro">
-      <HintPath>..\..\..\Lib\Telerik\Bin40\Telerik.WinControls.Themes.TelerikMetro.dll</HintPath>
+      <HintPath>..\..\..\Lib\Telerik\Telerik.WinControls.Themes.TelerikMetro.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.TelerikMetroTouch">
-      <HintPath>..\..\..\Lib\Telerik\Bin40\Telerik.WinControls.Themes.TelerikMetroTouch.dll</HintPath>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue">
+      <HintPath>..\..\..\Lib\Telerik\Telerik.WinControls.Themes.TelerikMetroBlue.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.WinControls.UI, Version=2011.1.11.315, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Libreria\Codigo\LaPaz\Controles\Telerik\Telerik.WinControls.UI.dll</HintPath>
+      <HintPath>..\..\..\Lib\Telerik\Telerik.WinControls.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI.Design, Version=2011.1.11.315, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Telerik\Telerik.WinControls.UI.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2011.1.11.315, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Telerik\TelerikCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikData, Version=2011.1.11.315, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Telerik\TelerikData.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

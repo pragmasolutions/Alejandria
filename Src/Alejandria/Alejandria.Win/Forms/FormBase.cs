@@ -17,7 +17,7 @@ namespace Alejandria.Win.Forms
 {
     public class FormBase : RadForm
     {
-        private TelerikMetroTouchTheme metroTheme;
+        private TelerikMetroTheme metroTheme;
 
         public FormBase()
         {
@@ -37,7 +37,7 @@ namespace Alejandria.Win.Forms
         private void SetTheme()
         {
             this.ThemeName = "TelerikMetro";
-            this.metroTheme = new TelerikMetroTouchTheme();
+            this.metroTheme = new TelerikMetroTheme();
         }
 
         private void SetDefaultProperties()
