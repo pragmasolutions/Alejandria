@@ -37,7 +37,7 @@ namespace Alejandria.Data
         public IRepository<ClientesCuentasCorriente> ClientesCuentasCorrientes { get { return GetStandardRepo<ClientesCuentasCorriente>(); } }
         public IRepository<TiposComprobante> TiposComprobantes { get { return GetStandardRepo<TiposComprobante>(); } }
         public IRepository<EstadosVenta> EstadosVentas { get { return GetStandardRepo<EstadosVenta>(); } }
-        
+
         public string ConnectionString
         {
             get
@@ -67,7 +67,7 @@ namespace Alejandria.Data
 
         protected void CreateDbContext()
         {
-            DbContext = new AlejandriaDbContext(ConnectionString);  
+            DbContext = new AlejandriaDbContext();  
 
             // Do NOT enable proxied entities, else serialization fails
             DbContext.Configuration.ProxyCreationEnabled = false;
