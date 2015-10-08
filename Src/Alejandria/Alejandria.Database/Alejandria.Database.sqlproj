@@ -82,5 +82,8 @@
     <Build Include="Tables\Ventas.sql" />
     <Build Include="Tables\EstadosVenta.sql" />
     <Build Include="Tables\TiposComprobantes.sql" />
+    <Build Include="Tables\Cajas.sql" />
+    <Build Include="Tables\CajasMovimientos.sql" />
+    <Build Include="Tables\TiposMovimientosCajas.sql" />
   </ItemGroup>
 </Project>
