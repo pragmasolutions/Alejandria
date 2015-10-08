@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Alejandria.Production.Win;
+using Alejandria.Win.Forms;
 using Avicola.Production.Win;
 using Framework.Common.Win.CustomProviders;
 using Framework.Ioc;
@@ -46,27 +47,27 @@ namespace Alejandria.Win
 
                 //MessageBoxDisplayService = Ioc.Container.Get<IMessageBoxDisplayService>();
 
-                //Create a custom principal with an anonymous identity at startup
-                //var laPazPrincipal = new LaPazPrincipal();
-                //AppDomain.CurrentDomain.SetThreadPrincipal(laPazPrincipal);
+                ////  Create a custom principal with an anonymous identity at startup
+                //var alejandriaPrincipal = new alejandriaPrincipal();
+                //AppDomain.CurrentDomain.SetThreadPrincipal(alejandriaPrincipal);
 
-                //#if(MOCK_SECURITY)
-                //                MockUser();
-                //#else
-                //                using (var login = kernel.Get<FrmCreateMeasureWizard>())
-                //                {
-                //                    var result = login.ShowDialog();
+//#if(MOCK_SECURITY)
+//                                MockUser();
+//#else
+//                using (var login = kernel.Get<FrmCreateMeasureWizard>())
+//                {
+//                    var result = login.ShowDialog();
 
-                //                    if (result == DialogResult.Cancel)
-                //                    {
-                //                        Application.Exit();
-                //                        return;
-                //                    } 
-                //                }
-                //#endif
-                //var mainForm = kernel.Get<FrmPrincipal>();
+//                    if (result == DialogResult.Cancel)
+//                    {
+//                        Application.Exit();
+//                        return;
+//                    }
+//                }
+//#endif
+                var mainForm = kernel.Get<FrmPrincipal>();
 
-                //Application.Run(mainForm);
+                Application.Run(mainForm);
             }
         }
 
