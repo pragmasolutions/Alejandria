@@ -44,6 +44,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Caja.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CajasMovimiento.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CategoriaOperador.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
@@ -91,6 +97,9 @@
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TiposDocumentosIdentidad.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposMovimientosCaja.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vendedor.cs">

@@ -5,6 +5,61 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AlejandriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cajas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+          <Property Name="OperadorId" Type="uniqueidentifier" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="FCierre" Type="datetime" />
+          <Property Name="Inicio" Type="real" />
+          <Property Name="Ingresos" Type="real" />
+          <Property Name="Egresos" Type="real" />
+          <Property Name="Saldo" Type="real" />
+          <Property Name="Cheques" Type="real" />
+          <Property Name="Bonos" Type="real" />
+          <Property Name="PcAlta" Type="nvarchar" MaxLength="20" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" />
+          <Property Name="SucursalAltaId" Type="int" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+          <Property Name="SucursalModificacionId" Type="int" />
+        </EntityType>
+        <EntityType Name="CajasMovimientos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CajaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TipoMovimientoCajaId" Type="int" />
+          <Property Name="TipoComprobante" Type="int" />
+          <Property Name="ComprobanteId" Type="uniqueidentifier" />
+          <Property Name="Senia" Type="money" />
+          <Property Name="Recargo" Type="money" />
+          <Property Name="Importe" Type="money" />
+          <Property Name="ImpFac" Type="money" />
+          <Property Name="Efectivo" Type="money" />
+          <Property Name="Tarjeta" Type="money" />
+          <Property Name="Cheque" Type="money" />
+          <Property Name="Bono" Type="money" />
+          <Property Name="fpcBono" Type="nvarchar" MaxLength="20" />
+          <Property Name="Deposito" Type="money" />
+          <Property Name="CajaIdAnt" Type="nchar" MaxLength="20" />
+          <Property Name="CompIdAnt" Type="nchar" MaxLength="20" />
+          <Property Name="CompLcnAnt" Type="nchar" MaxLength="20" />
+          <Property Name="FacturaReservadas" Type="int" />
+          <Property Name="PcAlta" Type="nvarchar" MaxLength="20" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" />
+          <Property Name="SucursalAltaId" Type="int" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+          <Property Name="SucursalModificacionId" Type="int" />
+          <Property Name="Transferencia" Type="money" />
+        </EntityType>
         <EntityType Name="CategoriasOperadores">
           <Key>
             <PropertyRef Name="Id" />
@@ -315,6 +370,22 @@
           <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
           <Property Name="SucursalModificacionId" Type="int" />
         </EntityType>
+        <EntityType Name="TiposMovimientosCajas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Abreviatura" Type="nvarchar" MaxLength="15" />
+          <Property Name="TipoMovimiento" Type="int" />
+          <Property Name="CodTipoAnt" Type="int" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" />
+          <Property Name="SucursalAltaId" Type="int" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+          <Property Name="SucursalModificacionId" Type="int" />
+        </EntityType>
         <EntityType Name="Vendedores">
           <Key>
             <PropertyRef Name="Id" />
@@ -369,6 +440,150 @@
           <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
           <Property Name="SucursalModificacionId" Type="int" />
         </EntityType>
+        <Association Name="FK_Cajas_Operador">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cajas">
+              <PropertyRef Name="OperadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_OperadorAlta">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cajas">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_OperadorModificacion">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cajas">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_Sucursal">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+          <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cajas">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_SucursalAlta">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cajas">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_SucursalModificacion">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cajas">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_OperadorAlta">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="CajasMovimientos" Type="Self.CajasMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimientos">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_OperadorModificacion">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="CajasMovimientos" Type="Self.CajasMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimientos">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_SucursalAlta">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="CajasMovimientos" Type="Self.CajasMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimientos">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_SucursalModificacion">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="CajasMovimientos" Type="Self.CajasMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimientos">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_TipoComprobante">
+          <End Role="TiposComprobantes" Type="Self.TiposComprobantes" Multiplicity="0..1" />
+          <End Role="CajasMovimientos" Type="Self.CajasMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposComprobantes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimientos">
+              <PropertyRef Name="TipoComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_TipoMovimientoCaja">
+          <End Role="TiposMovimientosCajas" Type="Self.TiposMovimientosCajas" Multiplicity="0..1" />
+          <End Role="CajasMovimientos" Type="Self.CajasMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposMovimientosCajas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimientos">
+              <PropertyRef Name="TipoMovimientoCajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Clientes_CondicionIva">
           <End Role="CondicionesIVA" Type="Self.CondicionesIVA" Multiplicity="0..1" />
           <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
@@ -838,6 +1053,8 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AlejandriaModelStoreContainer">
+          <EntitySet Name="Cajas" EntityType="Self.Cajas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CajasMovimientos" EntityType="Self.CajasMovimientos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoriasOperadores" EntityType="Self.CategoriasOperadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientesCuentasCorriente" EntityType="Self.ClientesCuentasCorriente" Schema="dbo" store:Type="Tables" />
@@ -854,9 +1071,58 @@
           <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TiposComprobantes" EntityType="Self.TiposComprobantes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TiposDocumentosIdentidad" EntityType="Self.TiposDocumentosIdentidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposMovimientosCajas" EntityType="Self.TiposMovimientosCajas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vendedores" EntityType="Self.Vendedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zonas" EntityType="Self.Zonas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cajas_Operador" Association="Self.FK_Cajas_Operador">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Cajas" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_OperadorAlta" Association="Self.FK_Cajas_OperadorAlta">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Cajas" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_OperadorModificacion" Association="Self.FK_Cajas_OperadorModificacion">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Cajas" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_Sucursal" Association="Self.FK_Cajas_Sucursal">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Cajas" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_SucursalAlta" Association="Self.FK_Cajas_SucursalAlta">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Cajas" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_SucursalModificacion" Association="Self.FK_Cajas_SucursalModificacion">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Cajas" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_OperadorAlta" Association="Self.FK_CajasMovimientos_OperadorAlta">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="CajasMovimientos" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_OperadorModificacion" Association="Self.FK_CajasMovimientos_OperadorModificacion">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="CajasMovimientos" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_SucursalAlta" Association="Self.FK_CajasMovimientos_SucursalAlta">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="CajasMovimientos" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_SucursalModificacion" Association="Self.FK_CajasMovimientos_SucursalModificacion">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="CajasMovimientos" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_TipoComprobante" Association="Self.FK_CajasMovimientos_TipoComprobante">
+            <End Role="TiposComprobantes" EntitySet="TiposComprobantes" />
+            <End Role="CajasMovimientos" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_TipoMovimientoCaja" Association="Self.FK_CajasMovimientos_TipoMovimientoCaja">
+            <End Role="TiposMovimientosCajas" EntitySet="TiposMovimientosCajas" />
+            <End Role="CajasMovimientos" EntitySet="CajasMovimientos" />
+          </AssociationSet>
           <AssociationSet Name="FK_Clientes_CondicionIva" Association="Self.FK_Clientes_CondicionIva">
             <End Role="CondicionesIVA" EntitySet="CondicionesIVA" />
             <End Role="Clientes" EntitySet="Clientes" />
@@ -1147,6 +1413,11 @@
           <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_OperadorAlta" FromRole="Operador" ToRole="Venta" />
           <NavigationProperty Name="Ventas1" Relationship="AlejandriaModel.FK_Ventas_OperadorAutoriza" FromRole="Operador" ToRole="Venta" />
           <NavigationProperty Name="Ventas2" Relationship="AlejandriaModel.FK_Ventas_OperadorModificacion" FromRole="Operador" ToRole="Venta" />
+          <NavigationProperty Name="Cajas" Relationship="AlejandriaModel.FK_Cajas_Operador" FromRole="Operador" ToRole="Caja" />
+          <NavigationProperty Name="Cajas1" Relationship="AlejandriaModel.FK_Cajas_OperadorAlta" FromRole="Operador" ToRole="Caja" />
+          <NavigationProperty Name="Cajas2" Relationship="AlejandriaModel.FK_Cajas_OperadorModificacion" FromRole="Operador" ToRole="Caja" />
+          <NavigationProperty Name="CajasMovimientos" Relationship="AlejandriaModel.FK_CajasMovimientos_OperadorAlta" FromRole="Operador" ToRole="CajasMovimiento" />
+          <NavigationProperty Name="CajasMovimientos1" Relationship="AlejandriaModel.FK_CajasMovimientos_OperadorModificacion" FromRole="Operador" ToRole="CajasMovimiento" />
         </EntityType>
         <EntityType Name="Personal">
           <Key>
@@ -1248,6 +1519,11 @@
           <NavigationProperty Name="EstadosVentas1" Relationship="AlejandriaModel.FK_EstadosVenta_SucursalModificacionId" FromRole="Sucursal" ToRole="EstadosVenta" />
           <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_SucursalAlta" FromRole="Sucursal" ToRole="Venta" />
           <NavigationProperty Name="Ventas1" Relationship="AlejandriaModel.FK_Ventas_SucursalModificacion" FromRole="Sucursal" ToRole="Venta" />
+          <NavigationProperty Name="Cajas" Relationship="AlejandriaModel.FK_Cajas_Sucursal" FromRole="Sucursal" ToRole="Caja" />
+          <NavigationProperty Name="Cajas1" Relationship="AlejandriaModel.FK_Cajas_SucursalAlta" FromRole="Sucursal" ToRole="Caja" />
+          <NavigationProperty Name="Cajas2" Relationship="AlejandriaModel.FK_Cajas_SucursalModificacion" FromRole="Sucursal" ToRole="Caja" />
+          <NavigationProperty Name="CajasMovimientos" Relationship="AlejandriaModel.FK_CajasMovimientos_SucursalAlta" FromRole="Sucursal" ToRole="CajasMovimiento" />
+          <NavigationProperty Name="CajasMovimientos1" Relationship="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion" FromRole="Sucursal" ToRole="CajasMovimiento" />
         </EntityType>
         <EntityType Name="TiposDocumentosIdentidad">
           <Key>
@@ -1516,6 +1792,57 @@
           <AssociationSet Name="FK_Ventas_Comprobante" Association="AlejandriaModel.FK_Ventas_Comprobante">
             <End Role="TiposComprobante" EntitySet="TiposComprobantes" />
             <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <EntitySet Name="Cajas" EntityType="AlejandriaModel.Caja" />
+          <EntitySet Name="CajasMovimientos" EntityType="AlejandriaModel.CajasMovimiento" />
+          <EntitySet Name="TiposMovimientosCajas" EntityType="AlejandriaModel.TiposMovimientosCaja" />
+          <AssociationSet Name="FK_Cajas_Operador" Association="AlejandriaModel.FK_Cajas_Operador">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Caja" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_OperadorAlta" Association="AlejandriaModel.FK_Cajas_OperadorAlta">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Caja" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_OperadorModificacion" Association="AlejandriaModel.FK_Cajas_OperadorModificacion">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Caja" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_Sucursal" Association="AlejandriaModel.FK_Cajas_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="Caja" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_SucursalAlta" Association="AlejandriaModel.FK_Cajas_SucursalAlta">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="Caja" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cajas_SucursalModificacion" Association="AlejandriaModel.FK_Cajas_SucursalModificacion">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="Caja" EntitySet="Cajas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_OperadorAlta" Association="AlejandriaModel.FK_CajasMovimientos_OperadorAlta">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="CajasMovimiento" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_OperadorModificacion" Association="AlejandriaModel.FK_CajasMovimientos_OperadorModificacion">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="CajasMovimiento" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_SucursalAlta" Association="AlejandriaModel.FK_CajasMovimientos_SucursalAlta">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="CajasMovimiento" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_SucursalModificacion" Association="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="CajasMovimiento" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_TipoComprobante" Association="AlejandriaModel.FK_CajasMovimientos_TipoComprobante">
+            <End Role="TiposComprobante" EntitySet="TiposComprobantes" />
+            <End Role="CajasMovimiento" EntitySet="CajasMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CajasMovimientos_TipoMovimientoCaja" Association="AlejandriaModel.FK_CajasMovimientos_TipoMovimientoCaja">
+            <End Role="TiposMovimientosCaja" EntitySet="TiposMovimientosCajas" />
+            <End Role="CajasMovimiento" EntitySet="CajasMovimientos" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cliente">
@@ -1836,6 +2163,7 @@
           <Property Name="SucursalModificacionId" Type="Int32" />
           <Property Name="OperadorModificacionId" Type="Guid" />
           <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_Comprobante" FromRole="TiposComprobante" ToRole="Venta" />
+          <NavigationProperty Name="CajasMovimientos" Relationship="AlejandriaModel.FK_CajasMovimientos_TipoComprobante" FromRole="TiposComprobante" ToRole="CajasMovimiento" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
@@ -2102,6 +2430,234 @@
             </Principal>
             <Dependent Role="Venta">
               <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Caja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="OperadorId" Type="Guid" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FCierre" Type="DateTime" Precision="3" />
+          <Property Name="Inicio" Type="Single" />
+          <Property Name="Ingresos" Type="Single" />
+          <Property Name="Egresos" Type="Single" />
+          <Property Name="Saldo" Type="Single" />
+          <Property Name="Cheques" Type="Single" />
+          <Property Name="Bonos" Type="Single" />
+          <Property Name="PcAlta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="OperadorAltaId" Type="Guid" />
+          <Property Name="SucursalAltaId" Type="Int32" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Cajas_Operador" FromRole="Caja" ToRole="Operador" />
+          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Cajas_OperadorAlta" FromRole="Caja" ToRole="Operador" />
+          <NavigationProperty Name="Operadore2" Relationship="AlejandriaModel.FK_Cajas_OperadorModificacion" FromRole="Caja" ToRole="Operador" />
+          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Cajas_Sucursal" FromRole="Caja" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Cajas_SucursalAlta" FromRole="Caja" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursale2" Relationship="AlejandriaModel.FK_Cajas_SucursalModificacion" FromRole="Caja" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="CajasMovimiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CajaId" Type="Guid" Nullable="false" />
+          <Property Name="TipoMovimientoCajaId" Type="Int32" />
+          <Property Name="TipoComprobante" Type="Int32" />
+          <Property Name="ComprobanteId" Type="Guid" />
+          <Property Name="Senia" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Recargo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Importe" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ImpFac" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Efectivo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Tarjeta" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Cheque" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Bono" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fpcBono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Deposito" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CajaIdAnt" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="CompIdAnt" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="CompLcnAnt" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="FacturaReservadas" Type="Int32" />
+          <Property Name="PcAlta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="OperadorAltaId" Type="Guid" />
+          <Property Name="SucursalAltaId" Type="Int32" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <Property Name="Transferencia" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_CajasMovimientos_OperadorAlta" FromRole="CajasMovimiento" ToRole="Operador" />
+          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_CajasMovimientos_OperadorModificacion" FromRole="CajasMovimiento" ToRole="Operador" />
+          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_CajasMovimientos_SucursalAlta" FromRole="CajasMovimiento" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion" FromRole="CajasMovimiento" ToRole="Sucursal" />
+          <NavigationProperty Name="TiposComprobante" Relationship="AlejandriaModel.FK_CajasMovimientos_TipoComprobante" FromRole="CajasMovimiento" ToRole="TiposComprobante" />
+          <NavigationProperty Name="TiposMovimientosCaja" Relationship="AlejandriaModel.FK_CajasMovimientos_TipoMovimientoCaja" FromRole="CajasMovimiento" ToRole="TiposMovimientosCaja" />
+        </EntityType>
+        <EntityType Name="TiposMovimientosCaja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Abreviatura" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="TipoMovimiento" Type="Int32" />
+          <Property Name="CodTipoAnt" Type="Int32" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="OperadorAltaId" Type="Guid" />
+          <Property Name="SucursalAltaId" Type="Int32" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <NavigationProperty Name="CajasMovimientos" Relationship="AlejandriaModel.FK_CajasMovimientos_TipoMovimientoCaja" FromRole="TiposMovimientosCaja" ToRole="CajasMovimiento" />
+        </EntityType>
+        <Association Name="FK_Cajas_Operador">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Caja" Role="Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="OperadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_OperadorAlta">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Caja" Role="Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_OperadorModificacion">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Caja" Role="Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_Sucursal">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="AlejandriaModel.Caja" Role="Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_SucursalAlta">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Caja" Role="Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cajas_SucursalModificacion">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Caja" Role="Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_OperadorAlta">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.CajasMovimiento" Role="CajasMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimiento">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_OperadorModificacion">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.CajasMovimiento" Role="CajasMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimiento">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_SucursalAlta">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.CajasMovimiento" Role="CajasMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimiento">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_SucursalModificacion">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.CajasMovimiento" Role="CajasMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimiento">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_TipoComprobante">
+          <End Type="AlejandriaModel.TiposComprobante" Role="TiposComprobante" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.CajasMovimiento" Role="CajasMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposComprobante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimiento">
+              <PropertyRef Name="TipoComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CajasMovimientos_TipoMovimientoCaja">
+          <End Type="AlejandriaModel.TiposMovimientosCaja" Role="TiposMovimientosCaja" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.CajasMovimiento" Role="CajasMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposMovimientosCaja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CajasMovimiento">
+              <PropertyRef Name="TipoMovimientoCajaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2490,6 +3046,80 @@
                 <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
                 <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
                 <ScalarProperty Name="LCN" ColumnName="LCN" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cajas">
+            <EntityTypeMapping TypeName="AlejandriaModel.Caja">
+              <MappingFragment StoreEntitySet="Cajas">
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="PcAlta" ColumnName="PcAlta" />
+                <ScalarProperty Name="Bonos" ColumnName="Bonos" />
+                <ScalarProperty Name="Cheques" ColumnName="Cheques" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Egresos" ColumnName="Egresos" />
+                <ScalarProperty Name="Ingresos" ColumnName="Ingresos" />
+                <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+                <ScalarProperty Name="FCierre" ColumnName="FCierre" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="OperadorId" ColumnName="OperadorId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CajasMovimientos">
+            <EntityTypeMapping TypeName="AlejandriaModel.CajasMovimiento">
+              <MappingFragment StoreEntitySet="CajasMovimientos">
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="PcAlta" ColumnName="PcAlta" />
+                <ScalarProperty Name="FacturaReservadas" ColumnName="FacturaReservadas" />
+                <ScalarProperty Name="CompLcnAnt" ColumnName="CompLcnAnt" />
+                <ScalarProperty Name="CompIdAnt" ColumnName="CompIdAnt" />
+                <ScalarProperty Name="CajaIdAnt" ColumnName="CajaIdAnt" />
+                <ScalarProperty Name="Deposito" ColumnName="Deposito" />
+                <ScalarProperty Name="fpcBono" ColumnName="fpcBono" />
+                <ScalarProperty Name="Bono" ColumnName="Bono" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Tarjeta" ColumnName="Tarjeta" />
+                <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+                <ScalarProperty Name="ImpFac" ColumnName="ImpFac" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Recargo" ColumnName="Recargo" />
+                <ScalarProperty Name="Senia" ColumnName="Senia" />
+                <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+                <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+                <ScalarProperty Name="TipoMovimientoCajaId" ColumnName="TipoMovimientoCajaId" />
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposMovimientosCajas">
+            <EntityTypeMapping TypeName="AlejandriaModel.TiposMovimientosCaja">
+              <MappingFragment StoreEntitySet="TiposMovimientosCajas">
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="CodTipoAnt" ColumnName="CodTipoAnt" />
+                <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
+                <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

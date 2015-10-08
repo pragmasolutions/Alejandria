@@ -25,6 +25,11 @@ namespace Alejandria.Entities
             this.Ventas = new HashSet<Venta>();
             this.Ventas1 = new HashSet<Venta>();
             this.Ventas2 = new HashSet<Venta>();
+            this.Cajas = new HashSet<Caja>();
+            this.Cajas1 = new HashSet<Caja>();
+            this.Cajas2 = new HashSet<Caja>();
+            this.CajasMovimientos = new HashSet<CajasMovimiento>();
+            this.CajasMovimientos1 = new HashSet<CajasMovimiento>();
         }
     
         public System.Guid Id { get; set; }
@@ -51,5 +56,10 @@ namespace Alejandria.Entities
         public virtual ICollection<Venta> Ventas { get; set; }
         public virtual ICollection<Venta> Ventas1 { get; set; }
         public virtual ICollection<Venta> Ventas2 { get; set; }
+        public virtual ICollection<Caja> Cajas { get; set; }
+        public virtual ICollection<Caja> Cajas1 { get; set; }
+        public virtual ICollection<Caja> Cajas2 { get; set; }
+        public virtual ICollection<CajasMovimiento> CajasMovimientos { get; set; }
+        public virtual ICollection<CajasMovimiento> CajasMovimientos1 { get; set; }
     }
 }

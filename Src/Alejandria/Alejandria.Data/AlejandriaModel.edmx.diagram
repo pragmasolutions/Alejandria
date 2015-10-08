@@ -63,6 +63,21 @@
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_Comprobante" />
+        <EntityTypeShape EntityType="AlejandriaModel.Caja" Width="1.5" PointX="5.25" PointY="15" />
+        <EntityTypeShape EntityType="AlejandriaModel.CajasMovimiento" Width="1.5" PointX="10.5" PointY="20.125" />
+        <EntityTypeShape EntityType="AlejandriaModel.TiposMovimientosCaja" Width="1.5" PointX="8.25" PointY="31.125" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_Operador" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_Sucursal" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_SucursalAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_SucursalModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_SucursalAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoComprobante" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoMovimientoCaja" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

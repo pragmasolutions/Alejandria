@@ -21,6 +21,9 @@ namespace Alejandria.Data.Interfaces
         IRepository<EstadosVenta> EstadosVentas{ get; }
         IRepository<TiposComprobante> TiposComprobantes { get; }
         IRepository<Venta> Ventas { get; }
+        IRepository<Caja> Cajas { get; }
+        IRepository<CajasMovimiento> CajasMovimientos { get; }
+        IRepository<TiposMovimientosCaja> TiposMovimientosCajas { get; }
 
 
         AlejandriaDbContext DbContext { get; }

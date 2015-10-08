@@ -12,29 +12,25 @@ namespace Alejandria.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TiposComprobante
+    public partial class TiposMovimientosCaja
     {
-        public TiposComprobante()
+        public TiposMovimientosCaja()
         {
-            this.Ventas = new HashSet<Venta>();
             this.CajasMovimientos = new HashSet<CajasMovimiento>();
         }
     
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Abreviatura { get; set; }
-        public string Descripcion { get; set; }
-        public Nullable<int> Prioridad { get; set; }
-        public string Comprobante { get; set; }
-        public string Concepto { get; set; }
+        public Nullable<int> TipoMovimiento { get; set; }
+        public Nullable<int> CodTipoAnt { get; set; }
         public Nullable<System.DateTime> FechaAlta { get; set; }
-        public Nullable<int> SucursalAltaId { get; set; }
         public Nullable<System.Guid> OperadorAltaId { get; set; }
+        public Nullable<int> SucursalAltaId { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
-        public Nullable<int> SucursalModificacionId { get; set; }
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
+        public Nullable<int> SucursalModificacionId { get; set; }
     
-        public virtual ICollection<Venta> Ventas { get; set; }
         public virtual ICollection<CajasMovimiento> CajasMovimientos { get; set; }
     }
 }
