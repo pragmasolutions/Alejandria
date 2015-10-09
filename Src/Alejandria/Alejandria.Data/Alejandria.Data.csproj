@@ -65,8 +65,22 @@
       <DependentUpon>AlejandriaModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="AlejandriaUow.cs" />
+    <Compile Include="Helpers\DynamicQueryable.cs" />
+    <Compile Include="Helpers\IRepositoryProvider.cs" />
+    <Compile Include="Helpers\PagedMetadata.cs" />
+    <Compile Include="Helpers\PagedResultList.cs" />
+    <Compile Include="Helpers\PagingCriteria.cs" />
+    <Compile Include="Helpers\PredicateBuilder.cs" />
+    <Compile Include="Helpers\RepositoryFactories.cs" />
+    <Compile Include="Helpers\RepositoryProvider.cs" />
+    <Compile Include="Helpers\SortHelper.cs" />
+    <Compile Include="Helpers\UowFactory.cs" />
     <Compile Include="Interfaces\IAlejandriaUow.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUowFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EFBaseRepository.cs" />
+    <Compile Include="Repository\EFRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="AlejandriaModel.edmx">
@@ -100,6 +114,10 @@
     <ProjectReference Include="..\Framework\Framework.Data\Framework.Data.csproj">
       <Project>{CB41F702-99FB-49AE-8BC0-1B7F0193EFAB}</Project>
       <Name>Framework.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework\Framework.Ioc\Framework.Ioc.csproj">
+      <Project>{9f222811-5858-42ed-958f-96c228d67808}</Project>
+      <Name>Framework.Ioc</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,7 +4,7 @@ using Framework.Ioc;
 using Ninject;
 using Ninject.Extensions.Conventions;
 
-namespace Alejandria.Production.Win
+namespace Alejandria.Win
 {
     public class IoCConfig
     {

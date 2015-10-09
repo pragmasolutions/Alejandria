@@ -52,6 +52,10 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.3-unstable-012\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -104,8 +108,60 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\IoCConfig.cs" />
     <Compile Include="App_Start\MetadataTypesRegister.cs" />
+    <Compile Include="Controls\DeleteColumn.cs" />
+    <Compile Include="Controls\DetailsColumn.cs" />
+    <Compile Include="Controls\EditColumn.cs" />
+    <Compile Include="Controls\PayColumn.cs" />
     <Compile Include="Enums\FormMode.cs" />
+    <Compile Include="Forms\Clientes\FrmBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmBuscarCliente.Designer.cs">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmClienteListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmClienteListado.Designer.cs">
+      <DependentUpon>FrmClienteListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmClientesListadoResumido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmClientesListadoResumido.Designer.cs">
+      <DependentUpon>FrmClientesListadoResumido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmCrearEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmCrearEditarCliente.Designer.cs">
+      <DependentUpon>FrmCrearEditarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmDetalleEliminarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmDetalleEliminarCliente.Designer.cs">
+      <DependentUpon>FrmDetalleEliminarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmGestionCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmGestionCliente.Designer.cs">
+      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\UcFiltrosClientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\UcFiltrosClientes.Designer.cs">
+      <DependentUpon>UcFiltrosClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBaseListado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmPrincipal.cs">
@@ -114,41 +170,129 @@
     <Compile Include="Forms\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Util\UcProgressSpinner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Util\UcProgressSpinner.Designer.cs">
+      <DependentUpon>UcProgressSpinner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\IFormRegistry.cs" />
     <Compile Include="IFormFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Clientes\FrmBuscarCliente.resx">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\FrmClienteListado.resx">
+      <DependentUpon>FrmClienteListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\FrmClientesListadoResumido.resx">
+      <DependentUpon>FrmClientesListadoResumido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\FrmCrearEditarCliente.resx">
+      <DependentUpon>FrmCrearEditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\FrmDetalleEliminarCliente.resx">
+      <DependentUpon>FrmDetalleEliminarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\FrmGestionCliente.resx">
+      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\UcFiltrosClientes.resx">
+      <DependentUpon>UcFiltrosClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormBaseListado.resx">
+      <DependentUpon>FormBaseListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControlBase.resx">
+      <DependentUpon>UserControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Util\UcProgressSpinner.resx">
+      <DependentUpon>UcProgressSpinner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\Add-New-blue.png" />
+    <Content Include="Resources\Bank.png" />
+    <Content Include="Resources\Book-Open.png" />
+    <Content Include="Resources\Bullets.png" />
+    <Content Include="Resources\cancel-cross.png" />
+    <Content Include="Resources\Cash.png" />
+    <Content Include="Resources\Cheque-01.png" />
+    <Content Include="Resources\ConsignacionCliente.png" />
+    <Content Include="Resources\Counting-Machine.png" />
+    <Content Include="Resources\Customer.png" />
+    <Content Include="Resources\Data-Edit-Con.png" />
+    <Content Include="Resources\Data-Edit-Con1.png" />
+    <Content Include="Resources\Data-Edit.png" />
+    <Content Include="Resources\Data-Files.png" />
+    <Content Include="Resources\devoluviones.png" />
+    <Content Include="Resources\devolver.png" />
+    <Content Include="Resources\error.png" />
+    <Content Include="Resources\Garbage-Closed.png" />
+    <Content Include="Resources\loading.gif" />
+    <Content Include="Resources\Login-01.png" />
+    <Content Include="Resources\Login-01_16x16.png" />
+    <Content Include="Resources\logo.ico" />
+    <Content Include="Resources\logo.png" />
+    <Content Include="Resources\Money-Credit-Card.png" />
+    <Content Include="Resources\Pagar.png" />
+    <Content Include="Resources\Print-16x16.png" />
+    <Content Include="Resources\Purchase-Order.png" />
+    <Content Include="Resources\Reload.png" />
+    <Content Include="Resources\Reload_16x16.png" />
+    <Content Include="Resources\RendirConsignacion.png" />
+    <Content Include="Resources\reporte.png" />
+    <Content Include="Resources\reservada.png" />
+    <Content Include="Resources\save-disk.png" />
+    <Content Include="Resources\settings.png" />
+    <Content Include="Resources\seña.png" />
+    <Content Include="Resources\Van - 01.png" />
+    <Content Include="Resources\Van - 02.png" />
+    <Content Include="Resources\van.png" />
+    <Content Include="Resources\View-Details.png" />
+    <Content Include="Resources\Warning.bmp" />
+    <Content Include="Resources\warning.png" />
+    <Content Include="Resources\Wrong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alejandria.Business\Alejandria.Business.csproj">
+      <Project>{d61a7021-e8f7-4a80-bc7a-b6384a142607}</Project>
+      <Name>Alejandria.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Alejandria.Data\Alejandria.Data.csproj">
       <Project>{b6a55d5d-fd74-417d-8f0e-f56dbcc0072f}</Project>
       <Name>Alejandria.Data</Name>
@@ -156,6 +300,10 @@
     <ProjectReference Include="..\Alejandria.Entities\Alejandria.Entities.csproj">
       <Project>{10481cdb-87d9-4d21-8e05-cafe2e530356}</Project>
       <Name>Alejandria.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alejandria.Security\Alejandria.Security.csproj">
+      <Project>{336cb85a-bbbb-47d4-911d-14968b3a1924}</Project>
+      <Name>Alejandria.Security</Name>
     </ProjectReference>
     <ProjectReference Include="..\Alejandria.Services\Alejandria.Services.csproj">
       <Project>{0a643337-4800-4ab8-b2c2-125c36c674e2}</Project>
@@ -184,6 +332,14 @@
     <ProjectReference Include="..\Framework\Framework.Security\Framework.Security.csproj">
       <Project>{c3282245-96c8-4c3b-bbd1-59d581bd3f97}</Project>
       <Name>Framework.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework\Framework.WinForm.Comun\Framework.WinForm.Comun.csproj">
+      <Project>{6a56cf7d-7fc0-460e-84d4-7088c569e04c}</Project>
+      <Name>Framework.WinForm.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework\Framework.WinForm.Controls\Framework.WinForm.Controls.csproj">
+      <Project>{2f38fda6-9199-43b0-a0e1-67e5520a3170}</Project>
+      <Name>Framework.WinForm.Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

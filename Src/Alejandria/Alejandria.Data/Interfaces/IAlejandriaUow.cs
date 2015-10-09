@@ -24,6 +24,7 @@ namespace Alejandria.Data.Interfaces
         IRepository<Caja> Cajas { get; }
         IRepository<CajasMovimiento> CajasMovimientos { get; }
         IRepository<TiposMovimientosCaja> TiposMovimientosCajas { get; }
+        IRepository<Cliente> Clientes { get; }
 
 
         AlejandriaDbContext DbContext { get; }

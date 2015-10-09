@@ -16,5 +16,7 @@ namespace Framework.Ioc
         void Inject(object item);
         T TryGet<T>();
         IEnumerable<T> GetAll<T>();
+
+        void Release(object instance);
     }
 }

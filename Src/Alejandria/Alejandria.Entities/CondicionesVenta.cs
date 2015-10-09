@@ -20,7 +20,7 @@ namespace Alejandria.Entities
             this.Ventas = new HashSet<Venta>();
         }
     
-        public int Id { get; set; }
+        public Alejandria.Entities.Enums.CondicionVentaEnum Id { get; set; }
         public string Nombre { get; set; }
         public string Abreviatura { get; set; }
         public string Descripcion { get; set; }

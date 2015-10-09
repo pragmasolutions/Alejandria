@@ -34,7 +34,7 @@ namespace Alejandria.Entities
         public Nullable<int> VendedorId { get; set; }
         public Nullable<int> ProvinciaId { get; set; }
         public Nullable<int> LocalidadId { get; set; }
-        public Nullable<int> CondicionVentaId { get; set; }
+        public Nullable<Alejandria.Entities.Enums.CondicionVentaEnum> CondicionVentaId { get; set; }
         public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public Nullable<bool> PagoLocal { get; set; }
         public Nullable<int> ZonaId { get; set; }
@@ -43,7 +43,7 @@ namespace Alejandria.Entities
         public string Contacto { get; set; }
         public Nullable<int> ProfesionId { get; set; }
         public Nullable<int> EspecialidadId { get; set; }
-        public Nullable<int> EstadoClienteId { get; set; }
+        public Nullable<Alejandria.Entities.Enums.EstadoCliente> EstadoClienteId { get; set; }
         public Nullable<bool> AceptaConsig { get; set; }
         public string Imagen { get; set; }
         public string Comentarios { get; set; }

@@ -1322,7 +1322,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="AlejandriaModel.CondicionVentaEnum" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Abreviatura" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1356,7 +1356,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="AlejandriaModel.EstadoCliente" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Abreviatura" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1863,7 +1863,7 @@
           <Property Name="VendedorId" Type="Int32" />
           <Property Name="ProvinciaId" Type="Int32" />
           <Property Name="LocalidadId" Type="Int32" />
-          <Property Name="CondicionVentaId" Type="Int32" />
+          <Property Name="CondicionVentaId" Type="AlejandriaModel.CondicionVentaEnum" />
           <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
           <Property Name="PagoLocal" Type="Boolean" />
           <Property Name="ZonaId" Type="Int32" />
@@ -1872,7 +1872,7 @@
           <Property Name="Contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ProfesionId" Type="Int32" />
           <Property Name="EspecialidadId" Type="Int32" />
-          <Property Name="EstadoClienteId" Type="Int32" />
+          <Property Name="EstadoClienteId" Type="AlejandriaModel.EstadoCliente" />
           <Property Name="AceptaConsig" Type="Boolean" />
           <Property Name="Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Comentarios" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -2178,7 +2178,7 @@
           <Property Name="NumeroComprobante" Type="Int32" Nullable="false" />
           <Property Name="FechaComprobante" Type="DateTime" Precision="3" />
           <Property Name="FechaVencimiento" Type="DateTime" Precision="3" />
-          <Property Name="CondicionVentaId" Type="Int32" />
+          <Property Name="CondicionVentaId" Type="AlejandriaModel.CondicionVentaEnum" />
           <Property Name="Concepto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ImporteNeto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="ImporteIva" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
@@ -2661,6 +2661,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="CondicionVentaEnum" a:ExternalTypeName="Alejandria.Entities.Enums.CondicionVentaEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="EstadoCliente" a:ExternalTypeName="Alejandria.Entities.Enums.EstadoCliente" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

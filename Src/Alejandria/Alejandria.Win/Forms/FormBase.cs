@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Framework.Common.Attributes;
-using Framework.Data.Repository;
 using Framework.Ioc;
 using Alejandria.Data.Interfaces;
 using Alejandria.Entities;

@@ -2,11 +2,9 @@
 using System.Configuration;
 using System.Data.Entity.Core.EntityClient;
 using System.Threading.Tasks;
+using Alejandria.Data.Helpers;
 using Alejandria.Data.Interfaces;
 using Alejandria.Entities;
-using Framework.Data.EntityFramework.Helpers;
-using Framework.Data.Interfaces;
-using Framework.Data.Repository;
 
 namespace Alejandria.Data
 {
@@ -93,6 +91,7 @@ namespace Alejandria.Data
 
         private IRepository<T> GetStandardRepo<T>() where T : class
         {
+            //return RepositoryProvider.GetRepositoryForEntityType<T>();
             return RepositoryProvider.GetRepositoryForEntityType<T>();
         }
 

@@ -28,7 +28,7 @@ namespace Alejandria.Entities
         public int NumeroComprobante { get; set; }
         public Nullable<System.DateTime> FechaComprobante { get; set; }
         public Nullable<System.DateTime> FechaVencimiento { get; set; }
-        public Nullable<int> CondicionVentaId { get; set; }
+        public Nullable<Alejandria.Entities.Enums.CondicionVentaEnum> CondicionVentaId { get; set; }
         public string Concepto { get; set; }
         public decimal ImporteNeto { get; set; }
         public decimal ImporteIva { get; set; }

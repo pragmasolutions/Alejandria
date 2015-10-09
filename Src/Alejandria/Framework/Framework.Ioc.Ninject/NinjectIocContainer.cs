@@ -13,6 +13,11 @@ namespace Framework.Ioc
             _kernel = kernel;
         }
 
+        public IKernel Kernel
+        {
+            get { return _kernel; }
+        }
+
         public object Get(Type type)
         {
             return _kernel.Get(type);
@@ -45,6 +50,11 @@ namespace Framework.Ioc
         public void Inject(object item)
         {
             _kernel.Inject(item);
+        }
+
+        public void Release(object instance)
+        {
+            Kernel.Release(instance);
         }
     }
 }

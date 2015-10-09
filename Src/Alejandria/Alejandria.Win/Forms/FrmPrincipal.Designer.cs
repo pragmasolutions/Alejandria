@@ -28,20 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.BtnClientes = new Telerik.WinControls.UI.RadButton();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // FrmPrincipal1
+            // BtnClientes
+            // 
+            this.BtnClientes.Location = new System.Drawing.Point(35, 37);
+            this.BtnClientes.Name = "BtnClientes";
+            this.BtnClientes.Size = new System.Drawing.Size(130, 24);
+            this.BtnClientes.TabIndex = 0;
+            this.BtnClientes.Text = "Clientes";
+            this.BtnClientes.ThemeName = "TelerikMetro";
+            this.BtnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
+            // 
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "FrmPrincipal1";
+            this.ClientSize = new System.Drawing.Size(713, 366);
+            this.Controls.Add(this.BtnClientes);
+            this.Name = "FrmPrincipal";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "FrmPrincipal1";
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Telerik.WinControls.UI.RadButton BtnClientes;
     }
 }

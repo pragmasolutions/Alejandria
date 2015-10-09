@@ -5,7 +5,7 @@ using System.Reflection;
 using AutoMapper;
 using Framework.Common.Mapping;
 
-namespace Avicola.Production.Win
+namespace Alejandria.Win
 {
     public class AutoMapperConfig
     {
@@ -14,7 +14,7 @@ namespace Avicola.Production.Win
             var types = Assembly
                            .GetExecutingAssembly()
                            .GetReferencedAssemblies()
-                           .Where(x => x.Name.StartsWith("Avicola") || x.Name.StartsWith("Framework"))
+                           .Where(x => x.Name.StartsWith("Alejandria") || x.Name.StartsWith("Framework"))
                            .Select(x => Assembly.Load(x))
                            .SelectMany(x => x.GetTypes())
                            .ToArray();

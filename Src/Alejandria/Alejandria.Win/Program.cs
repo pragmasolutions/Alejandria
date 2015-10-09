@@ -4,17 +4,19 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Alejandria.Production.Win;
+using Alejandria.Security;
+using Alejandria.Win;
 using Alejandria.Win.Forms;
-using Avicola.Production.Win;
-using Framework.Common.Win.CustomProviders;
 using Framework.Ioc;
+using Framework.WinForm.Comun.Notification;
 using Ninject;
+using log4net;
 
 namespace Alejandria.Win
 {
     static class Program
     {
+        private static IMessageBoxDisplayService MessageBoxDisplayService;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -43,28 +45,28 @@ namespace Alejandria.Win
                 Ioc.Container = new NinjectIocContainer(kernel);
 
                 //Config log4net
-                //log4net.Config.DOMConfigurator.Configure();
+                log4net.Config.DOMConfigurator.Configure();
 
-                //MessageBoxDisplayService = Ioc.Container.Get<IMessageBoxDisplayService>();
+                MessageBoxDisplayService = Ioc.Container.Get<IMessageBoxDisplayService>();
 
                 ////  Create a custom principal with an anonymous identity at startup
-                //var alejandriaPrincipal = new alejandriaPrincipal();
-                //AppDomain.CurrentDomain.SetThreadPrincipal(alejandriaPrincipal);
+                var alejandriaPrincipal = new AlejandriaPrincipal();
+                AppDomain.CurrentDomain.SetThreadPrincipal(alejandriaPrincipal);
 
-//#if(MOCK_SECURITY)
-//                                MockUser();
-//#else
-//                using (var login = kernel.Get<FrmCreateMeasureWizard>())
-//                {
-//                    var result = login.ShowDialog();
+            #if(MOCK_SECURITY)
+                            MockUser();
+            #else
+                            //using (var login = kernel.Get<FrmLogin>())
+                            //{
+                            //    var result = login.ShowDialog();
 
-//                    if (result == DialogResult.Cancel)
-//                    {
-//                        Application.Exit();
-//                        return;
-//                    }
-//                }
-//#endif
+                            //    if (result == DialogResult.Cancel)
+                            //    {
+                            //        Application.Exit();
+                            //        return;
+                            //    }
+                            //}
+            #endif
                 var mainForm = kernel.Get<FrmPrincipal>();
 
                 Application.Run(mainForm);

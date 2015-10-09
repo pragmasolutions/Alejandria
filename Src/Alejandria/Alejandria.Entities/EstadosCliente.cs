@@ -19,7 +19,7 @@ namespace Alejandria.Entities
             this.Clientes = new HashSet<Cliente>();
         }
     
-        public int Id { get; set; }
+        public Alejandria.Entities.Enums.EstadoCliente Id { get; set; }
         public string Nombre { get; set; }
         public string Abreviatura { get; set; }
         public string Descripcion { get; set; }

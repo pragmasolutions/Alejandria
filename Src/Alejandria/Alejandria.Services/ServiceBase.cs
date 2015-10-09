@@ -1,7 +1,6 @@
 ﻿using System;
 using Alejandria.Data.Interfaces;
 using Alejandria.Services.Interfaces;
-using Framework.Data.Repository;
 
 namespace Alejandria.Services
 {
