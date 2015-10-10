@@ -302,10 +302,10 @@ namespace Alejandria.Win.Forms.Clientes
 
        private void CargarNroCuenta()
        {
-           var cuenta = Uow.Clientes.Listado().OrderByDescending(c => c.Cuenta).FirstOrDefault().Cuenta;
+           var cuenta = Uow.Clientes.Listado().OrderByDescending(c => c.Cuenta).FirstOrDefault();
            if (cuenta == null)
-               cuenta = 0;
-           Cuenta = cuenta + 1;
+               cuenta.Cuenta = 0;
+           Cuenta = cuenta.Cuenta + 1;
        }
 
         private void BtnGuardar_Click(object sender, EventArgs e)

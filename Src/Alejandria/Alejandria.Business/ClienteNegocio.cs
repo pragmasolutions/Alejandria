@@ -58,7 +58,7 @@ namespace Alejandria.Business
             Expression<Func<Cliente, bool>> where =
               x =>
               (string.IsNullOrEmpty(denominacionFormateado) 
-            //  || SqlFunctions.PatIndex(denominacionFormateado, x.Denominacion) > 0
+              || SqlFunctions.PatIndex(denominacionFormateado, x.Denominacion) > 0
               )
              // && (string.IsNullOrEmpty(cuit) || SqlFunctions.PatIndex(cuitFormateado, x.Cuit) > 0)
               && (!activo.HasValue || x.Activo == activo)
