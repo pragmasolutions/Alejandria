@@ -304,8 +304,9 @@ namespace Alejandria.Win.Forms.Clientes
        {
            var cuenta = Uow.Clientes.Listado().OrderByDescending(c => c.Cuenta).FirstOrDefault();
            if (cuenta == null)
-               cuenta.Cuenta = 0;
-           Cuenta = cuenta.Cuenta + 1;
+                Cuenta = 1;
+           else
+                Cuenta = cuenta.Cuenta + 1;
        }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
