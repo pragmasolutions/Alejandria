@@ -19,7 +19,7 @@ namespace Alejandria.Win.Forms
 {
     public class UserControlBase : UserControl
     {
-        private Telerik.WinControls.Themes.TelerikMetroBlueTheme metroBlueTheme;
+        private Telerik.WinControls.Themes.TelerikMetroTheme metroTheme;
 
         public UserControlBase()
         {
@@ -27,7 +27,7 @@ namespace Alejandria.Win.Forms
             this.UserControlErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             //this.UserControlErrorProvider.Icon = Icon.FromHandle(Resources.ErrorIcon.GetHicon());
 
-            this.metroBlueTheme = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
+            this.metroTheme = new Telerik.WinControls.Themes.TelerikMetroTheme();
 
             //SetAppContext();
         }

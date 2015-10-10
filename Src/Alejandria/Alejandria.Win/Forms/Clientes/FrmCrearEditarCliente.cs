@@ -15,6 +15,7 @@ using Alejandria.Win.Enums;
 using Alejandria.Win.Forms;
 using Alejandria.Win.Properties;
 using Framework.Common.Utility;
+using Ninject.Activation;
 
 namespace Alejandria.Win.Forms.Clientes
 {
@@ -24,9 +25,6 @@ namespace Alejandria.Win.Forms.Clientes
         private readonly IClock _clock;
         private readonly ActionFormMode _formMode;
         private Cliente _cliente;
-
-        private BackgroundWorker bw = new BackgroundWorker();
-
 
         public FrmCrearEditarCliente(IAlejandriaUow uow, IClock clock, Guid id, ActionFormMode mode)
         {
@@ -58,6 +56,19 @@ namespace Alejandria.Win.Forms.Clientes
         {
             get { return txtDni.Text; }
             set { txtDni.Text = value; }
+        }
+
+        public int? Cuenta
+        {
+            get
+            {
+                int cuenta;
+                return int.TryParse(TxtNroCliente.Text, out cuenta) ? cuenta : (int?)null;
+            }
+            set
+            {
+                TxtNroCliente.Text = value.HasValue ? value.Value.ToString() : string.Empty;
+            }
         }
 
         public string Domicilio
@@ -165,10 +176,11 @@ namespace Alejandria.Win.Forms.Clientes
         {
             DefinirCombos();
             CargarCombos();
+            CargarNroCuenta();
             CargarCliente(_clienteId);
         }
 
-        private void CargarCliente(Guid clienteId)
+       private void CargarCliente(Guid clienteId)
         {
             if (clienteId == default(Guid))
             {
@@ -188,14 +200,15 @@ namespace Alejandria.Win.Forms.Clientes
             this.Mail = _cliente.Mail;
             this.ProvinciaId = _cliente.ProvinciaId;
             this.LocalidadId = _cliente.LocalidadId;
-            this.ProfesionId = _cliente.ProfesionId;
-            this.EspecialidadId = _cliente.EspecialidadId;
+            //this.ProfesionId = _cliente.ProfesionId;
+            //this.EspecialidadId = _cliente.EspecialidadId;
             this.TipoDocumentoId = _cliente.TipoDocumentoId;
             this.Cuit = _cliente.Cuit;
-            this.EstadoClienteId = (EstadoCliente?)_cliente.EstadoClienteId ?? EstadoCliente.Activo;
-            this.CondicionVentaId = _cliente.CondicionVentaId;
-            this.MandarMail = _cliente.MandarMail;
-            this.Llamar = _cliente.Llamar;
+            this.Cuenta = _cliente.Cuenta ?? Cuenta;
+            //this.EstadoClienteId = (EstadoCliente?)_cliente.EstadoClienteId ?? EstadoCliente.Activo;
+            //this.CondicionVentaId = _cliente.CondicionVentaId;
+            //this.MandarMail = _cliente.MandarMail;
+            //this.Llamar = _cliente.Llamar;
             this.Comentarios = _cliente.Comentarios;
         }
 
@@ -205,16 +218,16 @@ namespace Alejandria.Win.Forms.Clientes
             cbxProvincia.DisplayMember = "Nombre";
             cbxProvincia.ValueMember = "Id";
 
-            //Profesion
-            cbxProfesion.DisplayMember = "Nombre";
-            cbxProfesion.ValueMember = "Id";
+            ////Profesion
+            //cbxProfesion.DisplayMember = "Nombre";
+            //cbxProfesion.ValueMember = "Id";
 
-            //Condiciones Venta
-            cbxCondicionVenta.DisplayMember = "Nombre";
-            cbxCondicionVenta.ValueMember = "Id";
+            ////Condiciones Venta
+            //cbxCondicionVenta.DisplayMember = "Nombre";
+            //cbxCondicionVenta.ValueMember = "Id";
 
-            cbxTipo.DisplayMember = "Nombre";
-            cbxTipo.ValueMember = "Id";
+            //cbxTipo.DisplayMember = "Nombre";
+            //cbxTipo.ValueMember = "Id";
 
             cbxTipoDocumento.DisplayMember = "Nombre";
             cbxTipoDocumento.ValueMember = "Id";
@@ -233,21 +246,21 @@ namespace Alejandria.Win.Forms.Clientes
            
             
 
-            var profesiones = Uow.Profesiones.Listado().OrderBy(p => p.Nombre).ToList();
-            profesiones.Insert(0, new Profesion() { Id = 0, Nombre = "SELECCIONE PROFESION" });
+            //var profesiones = Uow.Profesiones.Listado().OrderBy(p => p.Nombre).ToList();
+            //profesiones.Insert(0, new Profesion() { Id = 0, Nombre = "SELECCIONE PROFESION" });
 
-            cbxProfesion.DataSource = profesiones;
+            //cbxProfesion.DataSource = profesiones;
 
-            var condicionesVenta = Uow.CondicionesVentas.Listado().Where(c => c.Id == CondicionVentaEnum.CuentaCorriente || c.Id == CondicionVentaEnum.Contado).ToList();
-            condicionesVenta.Insert(0, new CondicionesVenta() { Id = 0, Nombre = "SELECCIONE CONDICION" });
-            cbxCondicionVenta.DataSource = condicionesVenta;
+            //var condicionesVenta = Uow.CondicionesVentas.Listado().Where(c => c.Id == CondicionVentaEnum.CuentaCorriente || c.Id == CondicionVentaEnum.Contado).ToList();
+            //condicionesVenta.Insert(0, new CondicionesVenta() { Id = 0, Nombre = "SELECCIONE CONDICION" });
+            //cbxCondicionVenta.DataSource = condicionesVenta;
 
-            var estadosClientes =
-                Uow.EstadosClientes.Listado()
-                    .Where(e => e.Id == EstadoCliente.Activo || e.Id == EstadoCliente.Afectado || e.Id == EstadoCliente.Atrasado || e.Id == EstadoCliente.EstudioJuridico)
-                    .OrderBy(e => e.Nombre).ToList();
-            estadosClientes.Insert(0, new EstadosCliente() { Id = 0, Nombre = "SELECCIONE ESTADO" });
-            cbxTipo.DataSource = estadosClientes;
+            //var estadosClientes =
+            //    Uow.EstadosClientes.Listado()
+            //        .Where(e => e.Id == EstadoCliente.Activo || e.Id == EstadoCliente.Afectado || e.Id == EstadoCliente.Atrasado || e.Id == EstadoCliente.EstudioJuridico)
+            //        .OrderBy(e => e.Nombre).ToList();
+            //estadosClientes.Insert(0, new EstadosCliente() { Id = 0, Nombre = "SELECCIONE ESTADO" });
+            //cbxTipo.DataSource = estadosClientes;
 
             var tiposDocumentos = Uow.TiposDocumentosIdentidades.Listado().ToList();
             //  tiposDocumentos.Insert(0, new TiposDocumentosIdentidad(){ Id = 0, Nombre = "SELECCIONE" });
@@ -255,7 +268,7 @@ namespace Alejandria.Win.Forms.Clientes
             cbxTipoDocumento.SelectedValue = 2;
 
             ProvinciaId = 3;
-            CondicionVentaId = CondicionVentaEnum.Contado;
+            CondicionVentaId = CondicionVentaEnum.CuentaCorriente;
             EstadoClienteId= EstadoCliente.Activo;
             // 
         }
@@ -268,24 +281,32 @@ namespace Alejandria.Win.Forms.Clientes
             cbxLocalidad.DataSource = localidades;
         }
 
-        private void CargarEspecialidad(int? profesionId)
-        {
-            var especialidades = Uow.Especialidades.Listado().Where(e => e.ProfesionId == profesionId).ToList();
-            especialidades.Insert(0, new Especialidad() { Id = 0, Nombre = "SELECCIONE ESPECIALIDAD" });
-            cbxEspecialidad.DisplayMember = "Nombre";
-            cbxEspecialidad.ValueMember = "Id";
-            cbxEspecialidad.DataSource = especialidades;
-        }
+        //private void CargarEspecialidad(int? profesionId)
+        //{
+        //    var especialidades = Uow.Especialidades.Listado().Where(e => e.ProfesionId == profesionId).ToList();
+        //    especialidades.Insert(0, new Especialidad() { Id = 0, Nombre = "SELECCIONE ESPECIALIDAD" });
+        //    cbxEspecialidad.DisplayMember = "Nombre";
+        //    cbxEspecialidad.ValueMember = "Id";
+        //    cbxEspecialidad.DataSource = especialidades;
+        //}
 
        private void cbxProvincia_SelectedValueChanged(object sender, EventArgs e)
         {
             CargarLocalidad((int?)cbxProvincia.SelectedValue);
         }
 
-        private void cbxProfesion_SelectedValueChanged(object sender, EventArgs e)
-        {
-            CargarEspecialidad((int?)cbxProfesion.SelectedValue);
-        }
+        //private void cbxProfesion_SelectedValueChanged(object sender, EventArgs e)
+        //{
+        //    CargarEspecialidad((int?)cbxProfesion.SelectedValue);
+        //}
+
+       private void CargarNroCuenta()
+       {
+           var cuenta = Uow.Clientes.Listado().OrderByDescending(c => c.Cuenta).FirstOrDefault().Cuenta;
+           if (cuenta == null)
+               cuenta = 0;
+           Cuenta = cuenta + 1;
+       }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
@@ -339,22 +360,23 @@ namespace Alejandria.Win.Forms.Clientes
             _cliente.Mail = Mail;
             _cliente.ProvinciaId = ProvinciaId;
             _cliente.LocalidadId = LocalidadId;
-            _cliente.ProfesionId = ProfesionId;
-            _cliente.EspecialidadId = EspecialidadId;
+         //   _cliente.ProfesionId = ProfesionId;
+           // _cliente.EspecialidadId = EspecialidadId;
             _cliente.TipoDocumentoId = TipoDocumentoId;
             _cliente.Cuit = Cuit.PadLeft(11,'0');
-            _cliente.EstadoClienteId =  (EstadoCliente)EstadoClienteId;
-            _cliente.CondicionVentaId = CondicionVentaId;
-            _cliente.MandarMail = MandarMail;
-            _cliente.Llamar = Llamar;
+            _cliente.Cuenta = Cuenta;
+           // _cliente.EstadoClienteId =  (EstadoCliente)EstadoClienteId;
+           // _cliente.CondicionVentaId = CondicionVentaId;
+           // _cliente.MandarMail = MandarMail;
+           // _cliente.Llamar = Llamar;
             _cliente.Comentarios = Comentarios;
             //Fechas.
             _cliente.FechaAlta = _formMode == ActionFormMode.Create ? _clock.Now : _cliente.FechaAlta;
             _cliente.FechaModificacion = _formMode == ActionFormMode.Create ? (DateTime?)null : _clock.Now;
 
-            //_cliente.SucursalAltaId = _formMode == ActionFormMode.Create
-            //                              ? Context.SucursalActual.Id
-            //                              : _cliente.SucursalAltaId;
+            _cliente.SucursalAltaId = _formMode == ActionFormMode.Create
+                                          ? 1
+                                          : _cliente.SucursalAltaId;
 
             _cliente.SucursalModificacionId = _formMode == ActionFormMode.Create
                                                   ? null
@@ -385,6 +407,8 @@ namespace Alejandria.Win.Forms.Clientes
             this.ValidarControl(txtCelular, "Celular");
             this.ValidarControl(txtMail, "Mail");
             this.ValidarControl(cbxCondicionVenta, "CondicionVentaId");
+            this.ValidarControl(cbxLocalidad, "LocalidadId");
+            this.ValidarControl(TxtNroCliente, "Cuenta");
          }
 
         public void SetearDni(string dni)

@@ -63,6 +63,8 @@ namespace Alejandria.Win.Forms.Clientes
             this.metroLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.TxtComentarios = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            this.TxtNroCliente = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EpvCliente)).BeginInit();
@@ -95,6 +97,8 @@ namespace Alejandria.Win.Forms.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.metroLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtComentarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtNroCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,23 +106,23 @@ namespace Alejandria.Win.Forms.Clientes
             // 
             this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(792, 359);
+            this.BtnCancelar.Location = new System.Drawing.Point(339, 481);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(100, 30);
-            this.BtnCancelar.TabIndex = 40;
+            this.BtnCancelar.TabIndex = 12;
             this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.ThemeName = "TelerikMetroBlue";
+            this.BtnCancelar.ThemeName = "TelerikMetro";
             // 
             // BtnGuardar
             // 
             this.BtnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.Location = new System.Drawing.Point(679, 359);
+            this.BtnGuardar.Location = new System.Drawing.Point(226, 481);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(100, 30);
-            this.BtnGuardar.TabIndex = 41;
+            this.BtnGuardar.TabIndex = 11;
             this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.ThemeName = "TelerikMetroBlue";
+            this.BtnGuardar.ThemeName = "TelerikMetro";
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // EpvCliente
@@ -137,7 +141,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxTipoDocumento.ShowImageInEditorArea = true;
             this.cbxTipoDocumento.Size = new System.Drawing.Size(61, 27);
             this.cbxTipoDocumento.TabIndex = 2;
-            this.cbxTipoDocumento.ThemeName = "TelerikMetroBlue";
+            this.cbxTipoDocumento.ThemeName = "TelerikMetro";
             // 
             // cbxTipo
             // 
@@ -145,13 +149,14 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxTipo.DropDownAnimationEnabled = true;
             this.cbxTipo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.cbxTipo.Location = new System.Drawing.Point(612, 227);
+            this.cbxTipo.Location = new System.Drawing.Point(613, 228);
             this.cbxTipo.MaxDropDownItems = 15;
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.ShowImageInEditorArea = true;
-            this.cbxTipo.Size = new System.Drawing.Size(277, 27);
+            this.cbxTipo.Size = new System.Drawing.Size(128, 27);
             this.cbxTipo.TabIndex = 15;
-            this.cbxTipo.ThemeName = "TelerikMetroBlue";
+            this.cbxTipo.ThemeName = "TelerikMetro";
+            this.cbxTipo.Visible = false;
             // 
             // cbxCondicionVenta
             // 
@@ -159,13 +164,14 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxCondicionVenta.DropDownAnimationEnabled = true;
             this.cbxCondicionVenta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCondicionVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.cbxCondicionVenta.Location = new System.Drawing.Point(612, 185);
+            this.cbxCondicionVenta.Location = new System.Drawing.Point(613, 186);
             this.cbxCondicionVenta.MaxDropDownItems = 15;
             this.cbxCondicionVenta.Name = "cbxCondicionVenta";
             this.cbxCondicionVenta.ShowImageInEditorArea = true;
-            this.cbxCondicionVenta.Size = new System.Drawing.Size(277, 27);
+            this.cbxCondicionVenta.Size = new System.Drawing.Size(128, 27);
             this.cbxCondicionVenta.TabIndex = 14;
-            this.cbxCondicionVenta.ThemeName = "TelerikMetroBlue";
+            this.cbxCondicionVenta.ThemeName = "TelerikMetro";
+            this.cbxCondicionVenta.Visible = false;
             // 
             // cbxEspecialidad
             // 
@@ -173,13 +179,14 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxEspecialidad.DropDownAnimationEnabled = true;
             this.cbxEspecialidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEspecialidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.cbxEspecialidad.Location = new System.Drawing.Point(612, 143);
+            this.cbxEspecialidad.Location = new System.Drawing.Point(613, 144);
             this.cbxEspecialidad.MaxDropDownItems = 15;
             this.cbxEspecialidad.Name = "cbxEspecialidad";
             this.cbxEspecialidad.ShowImageInEditorArea = true;
-            this.cbxEspecialidad.Size = new System.Drawing.Size(277, 27);
+            this.cbxEspecialidad.Size = new System.Drawing.Size(128, 27);
             this.cbxEspecialidad.TabIndex = 13;
-            this.cbxEspecialidad.ThemeName = "TelerikMetroBlue";
+            this.cbxEspecialidad.ThemeName = "TelerikMetro";
+            this.cbxEspecialidad.Visible = false;
             // 
             // cbxProfesion
             // 
@@ -187,14 +194,14 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxProfesion.DropDownAnimationEnabled = true;
             this.cbxProfesion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxProfesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.cbxProfesion.Location = new System.Drawing.Point(612, 101);
+            this.cbxProfesion.Location = new System.Drawing.Point(613, 102);
             this.cbxProfesion.MaxDropDownItems = 15;
             this.cbxProfesion.Name = "cbxProfesion";
             this.cbxProfesion.ShowImageInEditorArea = true;
-            this.cbxProfesion.Size = new System.Drawing.Size(277, 27);
+            this.cbxProfesion.Size = new System.Drawing.Size(128, 27);
             this.cbxProfesion.TabIndex = 12;
-            this.cbxProfesion.ThemeName = "TelerikMetroBlue";
-            this.cbxProfesion.SelectedValueChanged += new System.EventHandler(this.cbxProfesion_SelectedValueChanged);
+            this.cbxProfesion.ThemeName = "TelerikMetro";
+            this.cbxProfesion.Visible = false;
             // 
             // cbxLocalidad
             // 
@@ -202,49 +209,51 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxLocalidad.DropDownAnimationEnabled = true;
             this.cbxLocalidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxLocalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.cbxLocalidad.Location = new System.Drawing.Point(612, 59);
+            this.cbxLocalidad.Location = new System.Drawing.Point(161, 334);
             this.cbxLocalidad.MaxDropDownItems = 15;
             this.cbxLocalidad.Name = "cbxLocalidad";
             this.cbxLocalidad.ShowImageInEditorArea = true;
             this.cbxLocalidad.Size = new System.Drawing.Size(277, 27);
-            this.cbxLocalidad.TabIndex = 11;
-            this.cbxLocalidad.ThemeName = "TelerikMetroBlue";
+            this.cbxLocalidad.TabIndex = 9;
+            this.cbxLocalidad.ThemeName = "TelerikMetro";
             // 
             // ckbLlamar
             // 
             this.ckbLlamar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbLlamar.Location = new System.Drawing.Point(328, 268);
+            this.ckbLlamar.Location = new System.Drawing.Point(637, 259);
             this.ckbLlamar.Name = "ckbLlamar";
             this.ckbLlamar.Size = new System.Drawing.Size(70, 24);
             this.ckbLlamar.TabIndex = 9;
             this.ckbLlamar.Text = "Llamar";
-            this.ckbLlamar.ThemeName = "TelerikMetroBlue";
+            this.ckbLlamar.ThemeName = "TelerikMetro";
+            this.ckbLlamar.Visible = false;
             // 
             // ckbMail
             // 
             this.ckbMail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbMail.Location = new System.Drawing.Point(161, 268);
+            this.ckbMail.Location = new System.Drawing.Point(469, 258);
             this.ckbMail.Name = "ckbMail";
             this.ckbMail.Size = new System.Drawing.Size(106, 24);
             this.ckbMail.TabIndex = 8;
             this.ckbMail.Text = "Enviar Email";
-            this.ckbMail.ThemeName = "TelerikMetroBlue";
+            this.ckbMail.ThemeName = "TelerikMetro";
+            this.ckbMail.Visible = false;
             // 
             // txtMail
             // 
             this.txtMail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMail.Location = new System.Drawing.Point(161, 223);
+            this.txtMail.Location = new System.Drawing.Point(161, 250);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(277, 26);
             this.txtMail.TabIndex = 7;
             this.txtMail.TabStop = false;
-            this.txtMail.ThemeName = "TelerikMetroBlue";
+            this.txtMail.ThemeName = "TelerikMetro";
             // 
             // metroLabel13
             // 
             this.metroLabel13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel13.Location = new System.Drawing.Point(24, 228);
+            this.metroLabel13.Location = new System.Drawing.Point(24, 255);
             this.metroLabel13.Name = "metroLabel13";
             this.metroLabel13.Size = new System.Drawing.Size(47, 24);
             this.metroLabel13.TabIndex = 92;
@@ -257,13 +266,13 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxProvincia.DropDownAnimationEnabled = true;
             this.cbxProvincia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxProvincia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.cbxProvincia.Location = new System.Drawing.Point(612, 17);
+            this.cbxProvincia.Location = new System.Drawing.Point(161, 292);
             this.cbxProvincia.MaxDropDownItems = 15;
             this.cbxProvincia.Name = "cbxProvincia";
             this.cbxProvincia.ShowImageInEditorArea = true;
             this.cbxProvincia.Size = new System.Drawing.Size(277, 27);
-            this.cbxProvincia.TabIndex = 10;
-            this.cbxProvincia.ThemeName = "TelerikMetroBlue";
+            this.cbxProvincia.TabIndex = 8;
+            this.cbxProvincia.ThemeName = "TelerikMetro";
             this.cbxProvincia.SelectedValueChanged += new System.EventHandler(this.cbxProvincia_SelectedValueChanged);
             // 
             // metroLabel2
@@ -275,6 +284,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.metroLabel2.TabIndex = 91;
             this.metroLabel2.Text = "Especialidad:";
             this.metroLabel2.ThemeName = "TelerikMetroBlue";
+            this.metroLabel2.Visible = false;
             // 
             // metroLabel12
             // 
@@ -295,6 +305,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.metroLabel11.TabIndex = 89;
             this.metroLabel11.Text = "Profesión:";
             this.metroLabel11.ThemeName = "TelerikMetroBlue";
+            this.metroLabel11.Visible = false;
             // 
             // metroLabel10
             // 
@@ -305,6 +316,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.metroLabel10.TabIndex = 88;
             this.metroLabel10.Text = "Tipo de Cliente:";
             this.metroLabel10.ThemeName = "TelerikMetroBlue";
+            this.metroLabel10.Visible = false;
             // 
             // metroLabel9
             // 
@@ -315,11 +327,12 @@ namespace Alejandria.Win.Forms.Clientes
             this.metroLabel9.TabIndex = 87;
             this.metroLabel9.Text = "Condición de Venta:";
             this.metroLabel9.ThemeName = "TelerikMetroBlue";
+            this.metroLabel9.Visible = false;
             // 
             // metroLabel8
             // 
             this.metroLabel8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel8.Location = new System.Drawing.Point(461, 60);
+            this.metroLabel8.Location = new System.Drawing.Point(24, 334);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(76, 24);
             this.metroLabel8.TabIndex = 86;
@@ -329,33 +342,33 @@ namespace Alejandria.Win.Forms.Clientes
             // txtCelular
             // 
             this.txtCelular.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(161, 182);
+            this.txtCelular.Location = new System.Drawing.Point(161, 209);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(277, 26);
             this.txtCelular.TabIndex = 6;
             this.txtCelular.TabStop = false;
-            this.txtCelular.ThemeName = "TelerikMetroBlue";
+            this.txtCelular.ThemeName = "TelerikMetro";
             // 
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(161, 141);
+            this.txtTelefono.Location = new System.Drawing.Point(161, 168);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(277, 26);
             this.txtTelefono.TabIndex = 5;
             this.txtTelefono.TabStop = false;
-            this.txtTelefono.ThemeName = "TelerikMetroBlue";
+            this.txtTelefono.ThemeName = "TelerikMetro";
             // 
             // txtDomicilio
             // 
             this.txtDomicilio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDomicilio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomicilio.Location = new System.Drawing.Point(161, 100);
+            this.txtDomicilio.Location = new System.Drawing.Point(161, 127);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(277, 26);
             this.txtDomicilio.TabIndex = 4;
             this.txtDomicilio.TabStop = false;
-            this.txtDomicilio.ThemeName = "TelerikMetroBlue";
+            this.txtDomicilio.ThemeName = "TelerikMetro";
             // 
             // txtDni
             // 
@@ -365,13 +378,13 @@ namespace Alejandria.Win.Forms.Clientes
             this.txtDni.Size = new System.Drawing.Size(210, 26);
             this.txtDni.TabIndex = 3;
             this.txtDni.TabStop = false;
-            this.txtDni.ThemeName = "TelerikMetroBlue";
+            this.txtDni.ThemeName = "TelerikMetro";
             this.txtDni.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDni_KeyUp);
             // 
             // metroLabel7
             // 
             this.metroLabel7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel7.Location = new System.Drawing.Point(461, 18);
+            this.metroLabel7.Location = new System.Drawing.Point(24, 292);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(73, 24);
             this.metroLabel7.TabIndex = 85;
@@ -381,7 +394,7 @@ namespace Alejandria.Win.Forms.Clientes
             // metroLabel6
             // 
             this.metroLabel6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel6.Location = new System.Drawing.Point(24, 186);
+            this.metroLabel6.Location = new System.Drawing.Point(24, 213);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(58, 24);
             this.metroLabel6.TabIndex = 84;
@@ -391,7 +404,7 @@ namespace Alejandria.Win.Forms.Clientes
             // metroLabel5
             // 
             this.metroLabel5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel5.Location = new System.Drawing.Point(24, 144);
+            this.metroLabel5.Location = new System.Drawing.Point(24, 171);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(71, 24);
             this.metroLabel5.TabIndex = 83;
@@ -401,7 +414,7 @@ namespace Alejandria.Win.Forms.Clientes
             // metroLabel4
             // 
             this.metroLabel4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel4.Location = new System.Drawing.Point(24, 102);
+            this.metroLabel4.Location = new System.Drawing.Point(24, 129);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(75, 24);
             this.metroLabel4.TabIndex = 82;
@@ -417,7 +430,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.txtApellidoNombre.Size = new System.Drawing.Size(277, 26);
             this.txtApellidoNombre.TabIndex = 1;
             this.txtApellidoNombre.TabStop = false;
-            this.txtApellidoNombre.ThemeName = "TelerikMetroBlue";
+            this.txtApellidoNombre.ThemeName = "TelerikMetro";
             // 
             // metroLabel1
             // 
@@ -432,7 +445,7 @@ namespace Alejandria.Win.Forms.Clientes
             // radLabel1
             // 
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(24, 298);
+            this.radLabel1.Location = new System.Drawing.Point(24, 375);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(97, 24);
             this.radLabel1.TabIndex = 93;
@@ -443,23 +456,47 @@ namespace Alejandria.Win.Forms.Clientes
             // 
             this.TxtComentarios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtComentarios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtComentarios.Location = new System.Drawing.Point(151, 298);
+            this.TxtComentarios.Location = new System.Drawing.Point(161, 375);
             this.TxtComentarios.Multiline = true;
             this.TxtComentarios.Name = "TxtComentarios";
             // 
             // 
             // 
             this.TxtComentarios.RootElement.StretchVertically = true;
-            this.TxtComentarios.Size = new System.Drawing.Size(455, 91);
-            this.TxtComentarios.TabIndex = 94;
+            this.TxtComentarios.Size = new System.Drawing.Size(277, 91);
+            this.TxtComentarios.TabIndex = 10;
             this.TxtComentarios.TabStop = false;
-            this.TxtComentarios.ThemeName = "TelerikMetroBlue";
+            this.TxtComentarios.ThemeName = "TelerikMetro";
+            // 
+            // radLabel2
+            // 
+            this.radLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel2.Location = new System.Drawing.Point(24, 95);
+            this.radLabel2.Name = "radLabel2";
+            this.radLabel2.Size = new System.Drawing.Size(116, 24);
+            this.radLabel2.TabIndex = 94;
+            this.radLabel2.Text = "Número cliente:";
+            this.radLabel2.ThemeName = "TelerikMetroBlue";
+            // 
+            // TxtNroCliente
+            // 
+            this.TxtNroCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtNroCliente.Enabled = false;
+            this.TxtNroCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNroCliente.Location = new System.Drawing.Point(161, 93);
+            this.TxtNroCliente.Name = "TxtNroCliente";
+            this.TxtNroCliente.Size = new System.Drawing.Size(277, 26);
+            this.TxtNroCliente.TabIndex = 5;
+            this.TxtNroCliente.TabStop = false;
+            this.TxtNroCliente.ThemeName = "TelerikMetro";
             // 
             // FrmCrearEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 418);
+            this.ClientSize = new System.Drawing.Size(577, 526);
+            this.Controls.Add(this.TxtNroCliente);
+            this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.TxtComentarios);
             this.Controls.Add(this.radLabel1);
             this.Controls.Add(this.cbxTipoDocumento);
@@ -532,6 +569,8 @@ namespace Alejandria.Win.Forms.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.metroLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtComentarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtNroCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -572,5 +611,7 @@ namespace Alejandria.Win.Forms.Clientes
         private Telerik.WinControls.UI.RadLabel metroLabel1;
         private Telerik.WinControls.UI.RadTextBox TxtComentarios;
         private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadTextBox TxtNroCliente;
+        private Telerik.WinControls.UI.RadLabel radLabel2;
     }
 }

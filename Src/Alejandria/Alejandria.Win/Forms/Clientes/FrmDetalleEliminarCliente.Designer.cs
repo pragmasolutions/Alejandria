@@ -95,7 +95,7 @@
             // 
             this.BtnEliminar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BtnEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.Location = new System.Drawing.Point(676, 305);
+            this.BtnEliminar.Location = new System.Drawing.Point(225, 389);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(100, 30);
             this.BtnEliminar.TabIndex = 42;
@@ -107,7 +107,7 @@
             // 
             this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(789, 305);
+            this.BtnCancelar.Location = new System.Drawing.Point(338, 389);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(100, 30);
             this.BtnCancelar.TabIndex = 41;
@@ -117,7 +117,7 @@
             // txtTipoDni
             // 
             this.txtTipoDni.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoDni.Location = new System.Drawing.Point(161, 58);
+            this.txtTipoDni.Location = new System.Drawing.Point(161, 90);
             this.txtTipoDni.Name = "txtTipoDni";
             this.txtTipoDni.ReadOnly = true;
             this.txtTipoDni.Size = new System.Drawing.Size(61, 26);
@@ -135,6 +135,7 @@
             this.txtEstado.TabIndex = 97;
             this.txtEstado.TabStop = false;
             this.txtEstado.ThemeName = "TelerikMetroBlue";
+            this.txtEstado.Visible = false;
             // 
             // txtEspecialidad
             // 
@@ -146,6 +147,7 @@
             this.txtEspecialidad.TabIndex = 96;
             this.txtEspecialidad.TabStop = false;
             this.txtEspecialidad.ThemeName = "TelerikMetroBlue";
+            this.txtEspecialidad.Visible = false;
             // 
             // txtProfesion
             // 
@@ -157,11 +159,12 @@
             this.txtProfesion.TabIndex = 95;
             this.txtProfesion.TabStop = false;
             this.txtProfesion.ThemeName = "TelerikMetroBlue";
+            this.txtProfesion.Visible = false;
             // 
             // txtLocalidad
             // 
             this.txtLocalidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocalidad.Location = new System.Drawing.Point(612, 59);
+            this.txtLocalidad.Location = new System.Drawing.Point(160, 339);
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.ReadOnly = true;
             this.txtLocalidad.Size = new System.Drawing.Size(277, 26);
@@ -172,7 +175,7 @@
             // txtProvincia
             // 
             this.txtProvincia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProvincia.Location = new System.Drawing.Point(612, 18);
+            this.txtProvincia.Location = new System.Drawing.Point(160, 298);
             this.txtProvincia.Name = "txtProvincia";
             this.txtProvincia.ReadOnly = true;
             this.txtProvincia.Size = new System.Drawing.Size(277, 26);
@@ -190,33 +193,36 @@
             this.txtCondicion.TabIndex = 92;
             this.txtCondicion.TabStop = false;
             this.txtCondicion.ThemeName = "TelerikMetroBlue";
+            this.txtCondicion.Visible = false;
             // 
             // ckbLlamar
             // 
             this.ckbLlamar.Enabled = false;
             this.ckbLlamar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbLlamar.Location = new System.Drawing.Point(328, 268);
+            this.ckbLlamar.Location = new System.Drawing.Point(612, 285);
             this.ckbLlamar.Name = "ckbLlamar";
             this.ckbLlamar.Size = new System.Drawing.Size(70, 24);
             this.ckbLlamar.TabIndex = 79;
             this.ckbLlamar.Text = "Llamar";
             this.ckbLlamar.ThemeName = "TelerikMetroBlue";
+            this.ckbLlamar.Visible = false;
             // 
             // ckbMail
             // 
             this.ckbMail.Enabled = false;
             this.ckbMail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbMail.Location = new System.Drawing.Point(161, 268);
+            this.ckbMail.Location = new System.Drawing.Point(612, 255);
             this.ckbMail.Name = "ckbMail";
             this.ckbMail.Size = new System.Drawing.Size(106, 24);
             this.ckbMail.TabIndex = 78;
             this.ckbMail.Text = "Enviar Email";
             this.ckbMail.ThemeName = "TelerikMetroBlue";
+            this.ckbMail.Visible = false;
             // 
             // txtMail
             // 
             this.txtMail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMail.Location = new System.Drawing.Point(161, 227);
+            this.txtMail.Location = new System.Drawing.Point(161, 259);
             this.txtMail.Name = "txtMail";
             this.txtMail.ReadOnly = true;
             this.txtMail.Size = new System.Drawing.Size(277, 26);
@@ -227,7 +233,7 @@
             // metroLabel13
             // 
             this.metroLabel13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel13.Location = new System.Drawing.Point(24, 228);
+            this.metroLabel13.Location = new System.Drawing.Point(24, 260);
             this.metroLabel13.Name = "metroLabel13";
             this.metroLabel13.Size = new System.Drawing.Size(47, 24);
             this.metroLabel13.TabIndex = 91;
@@ -243,11 +249,12 @@
             this.metroLabel2.TabIndex = 90;
             this.metroLabel2.Text = "Especialidad:";
             this.metroLabel2.ThemeName = "TelerikMetroBlue";
+            this.metroLabel2.Visible = false;
             // 
             // metroLabel12
             // 
             this.metroLabel12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel12.Location = new System.Drawing.Point(24, 60);
+            this.metroLabel12.Location = new System.Drawing.Point(24, 92);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(125, 24);
             this.metroLabel12.TabIndex = 89;
@@ -263,6 +270,7 @@
             this.metroLabel11.TabIndex = 88;
             this.metroLabel11.Text = "Profesión:";
             this.metroLabel11.ThemeName = "TelerikMetroBlue";
+            this.metroLabel11.Visible = false;
             // 
             // metroLabel10
             // 
@@ -273,6 +281,7 @@
             this.metroLabel10.TabIndex = 87;
             this.metroLabel10.Text = "Tipo de Cliente:";
             this.metroLabel10.ThemeName = "TelerikMetroBlue";
+            this.metroLabel10.Visible = false;
             // 
             // metroLabel9
             // 
@@ -283,11 +292,12 @@
             this.metroLabel9.TabIndex = 86;
             this.metroLabel9.Text = "Condición de Venta:";
             this.metroLabel9.ThemeName = "TelerikMetroBlue";
+            this.metroLabel9.Visible = false;
             // 
             // metroLabel8
             // 
             this.metroLabel8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel8.Location = new System.Drawing.Point(461, 60);
+            this.metroLabel8.Location = new System.Drawing.Point(24, 343);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(76, 24);
             this.metroLabel8.TabIndex = 85;
@@ -297,7 +307,7 @@
             // txtCelular
             // 
             this.txtCelular.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(161, 185);
+            this.txtCelular.Location = new System.Drawing.Point(161, 217);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.ReadOnly = true;
             this.txtCelular.Size = new System.Drawing.Size(277, 26);
@@ -308,7 +318,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(161, 143);
+            this.txtTelefono.Location = new System.Drawing.Point(161, 175);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(277, 26);
@@ -319,7 +329,7 @@
             // txtDomicilio
             // 
             this.txtDomicilio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomicilio.Location = new System.Drawing.Point(161, 101);
+            this.txtDomicilio.Location = new System.Drawing.Point(161, 133);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.ReadOnly = true;
             this.txtDomicilio.Size = new System.Drawing.Size(277, 26);
@@ -330,7 +340,7 @@
             // txtDni
             // 
             this.txtDni.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDni.Location = new System.Drawing.Point(228, 59);
+            this.txtDni.Location = new System.Drawing.Point(228, 91);
             this.txtDni.Name = "txtDni";
             this.txtDni.ReadOnly = true;
             this.txtDni.Size = new System.Drawing.Size(210, 26);
@@ -341,7 +351,7 @@
             // metroLabel7
             // 
             this.metroLabel7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel7.Location = new System.Drawing.Point(461, 19);
+            this.metroLabel7.Location = new System.Drawing.Point(24, 300);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(73, 24);
             this.metroLabel7.TabIndex = 84;
@@ -351,7 +361,7 @@
             // metroLabel6
             // 
             this.metroLabel6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel6.Location = new System.Drawing.Point(24, 186);
+            this.metroLabel6.Location = new System.Drawing.Point(24, 218);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(58, 24);
             this.metroLabel6.TabIndex = 83;
@@ -361,7 +371,7 @@
             // metroLabel5
             // 
             this.metroLabel5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel5.Location = new System.Drawing.Point(24, 144);
+            this.metroLabel5.Location = new System.Drawing.Point(24, 176);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(71, 24);
             this.metroLabel5.TabIndex = 82;
@@ -371,7 +381,7 @@
             // metroLabel4
             // 
             this.metroLabel4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel4.Location = new System.Drawing.Point(24, 102);
+            this.metroLabel4.Location = new System.Drawing.Point(24, 134);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(75, 24);
             this.metroLabel4.TabIndex = 81;
@@ -381,7 +391,7 @@
             // txtApellidoNombre
             // 
             this.txtApellidoNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoNombre.Location = new System.Drawing.Point(161, 17);
+            this.txtApellidoNombre.Location = new System.Drawing.Point(161, 49);
             this.txtApellidoNombre.Name = "txtApellidoNombre";
             this.txtApellidoNombre.ReadOnly = true;
             this.txtApellidoNombre.Size = new System.Drawing.Size(277, 26);
@@ -392,7 +402,7 @@
             // metroLabel1
             // 
             this.metroLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel1.Location = new System.Drawing.Point(24, 18);
+            this.metroLabel1.Location = new System.Drawing.Point(24, 50);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(131, 24);
             this.metroLabel1.TabIndex = 80;
@@ -402,18 +412,19 @@
             // btnSenas
             // 
             this.btnSenas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSenas.Location = new System.Drawing.Point(922, 19);
+            this.btnSenas.Location = new System.Drawing.Point(612, 54);
             this.btnSenas.Name = "btnSenas";
             this.btnSenas.Size = new System.Drawing.Size(126, 30);
             this.btnSenas.TabIndex = 99;
             this.btnSenas.Text = "Señas y Creditos";
             this.btnSenas.ThemeName = "TelerikMetroBlue";
+            this.btnSenas.Visible = false;
             // 
             // FrmDetalleEliminarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 347);
+            this.ClientSize = new System.Drawing.Size(531, 476);
             this.Controls.Add(this.btnSenas);
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.txtTipoDni);

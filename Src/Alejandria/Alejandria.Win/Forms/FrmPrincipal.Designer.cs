@@ -35,11 +35,16 @@
             // 
             // BtnClientes
             // 
+            this.BtnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnClientes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClientes.Image = global::Alejandria.Win.Properties.Resources.CustomerAlejandria;
+            this.BtnClientes.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.BtnClientes.Location = new System.Drawing.Point(35, 37);
             this.BtnClientes.Name = "BtnClientes";
-            this.BtnClientes.Size = new System.Drawing.Size(130, 24);
+            this.BtnClientes.Size = new System.Drawing.Size(156, 148);
             this.BtnClientes.TabIndex = 0;
             this.BtnClientes.Text = "Clientes";
+            this.BtnClientes.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnClientes.ThemeName = "TelerikMetro";
             this.BtnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
             // 
@@ -54,7 +59,7 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "FrmPrincipal1";
+            this.Text = "Alejandria";
             ((System.ComponentModel.ISupportInitialize)(this.BtnClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);

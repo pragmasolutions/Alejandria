@@ -72,7 +72,7 @@ namespace Framework.WinForm.Comun.Notification
 
         public void ShowConfirmationDialog(string message, string title, Action okAction)
         {
-            RadMessageBox.Instance.ThemeName = "TelerikMetroBlue";
+            RadMessageBox.Instance.ThemeName = "TelerikMetro";
             RadMessageBox.Instance.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             var result = RadMessageBox.Show(Form.ActiveForm, message, title, MessageBoxButtons.OKCancel);
 

@@ -41,7 +41,6 @@
             Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn2 = new Telerik.WinControls.UI.GridViewCommandColumn();
             Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn3 = new Telerik.WinControls.UI.GridViewCommandColumn();
             Telerik.WinControls.Data.FilterDescriptor filterDescriptor1 = new Telerik.WinControls.Data.FilterDescriptor();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ClienteDetalle = new Alejandria.Win.Controls.DetailCell.DetailsColumn();
             this.ClienteEditar = new Alejandria.Win.Controls.EditCell.EditColumn();
             this.ClienteEliminar = new Alejandria.Win.Controls.DeleteCell.DeleteColumn();
@@ -54,7 +53,6 @@
             this.BtnCrearCliente = new Telerik.WinControls.UI.RadButton();
             this.ucProgressSpinner1 = new Alejandria.Win.Forms.Util.UcProgressSpinner();
             this.dgvClientes = new Telerik.WinControls.UI.RadGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,10 +64,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(Alejandria.Entities.Cliente);
             // 
             // ClienteDetalle
             // 
@@ -128,7 +122,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvClientes);
-            this.splitContainer1.Size = new System.Drawing.Size(1182, 788);
+            this.splitContainer1.Size = new System.Drawing.Size(782, 784);
             this.splitContainer1.SplitterDistance = 220;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -146,14 +140,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1182, 220);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(782, 220);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ClientesPager
             // 
             this.ClientesPager.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ClientesPager.CurrentPage = 1;
-            this.ClientesPager.Location = new System.Drawing.Point(798, 178);
+            this.ClientesPager.Location = new System.Drawing.Point(398, 178);
             this.ClientesPager.Margin = new System.Windows.Forms.Padding(94, 3, 3, 3);
             this.ClientesPager.Name = "ClientesPager";
             this.ClientesPager.PageSize = 50;
@@ -170,7 +164,7 @@
             this.UcFiltrosClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UcFiltrosClientes.Location = new System.Drawing.Point(3, 43);
             this.UcFiltrosClientes.Name = "UcFiltrosClientes";
-            this.UcFiltrosClientes.Size = new System.Drawing.Size(1176, 129);
+            this.UcFiltrosClientes.Size = new System.Drawing.Size(776, 129);
             this.UcFiltrosClientes.TabIndex = 14;
             // 
             // tableLayoutPanel2
@@ -185,7 +179,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1176, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(776, 34);
             this.tableLayoutPanel2.TabIndex = 15;
             // 
             // BtnCrearCliente
@@ -198,13 +192,13 @@
             this.BtnCrearCliente.Size = new System.Drawing.Size(75, 28);
             this.BtnCrearCliente.TabIndex = 14;
             this.BtnCrearCliente.Text = "Crear";
-            this.BtnCrearCliente.ThemeName = "TelerikMetroBlue";
+            this.BtnCrearCliente.ThemeName = "TelerikMetro";
             this.BtnCrearCliente.Click += new System.EventHandler(this.BtnCrearCliente_Click);
             // 
             // ucProgressSpinner1
             // 
             this.ucProgressSpinner1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ucProgressSpinner1.Location = new System.Drawing.Point(1011, 3);
+            this.ucProgressSpinner1.Location = new System.Drawing.Point(611, 3);
             this.ucProgressSpinner1.Name = "ucProgressSpinner1";
             this.ucProgressSpinner1.Size = new System.Drawing.Size(162, 27);
             this.ucProgressSpinner1.TabIndex = 15;
@@ -233,37 +227,37 @@
             gridViewTextBoxColumn2.HeaderText = "Apellido, Nombre";
             gridViewTextBoxColumn2.Name = "Denominacion";
             gridViewTextBoxColumn2.ReadOnly = true;
-            gridViewTextBoxColumn2.Width = 206;
+            gridViewTextBoxColumn2.Width = 130;
             gridViewTextBoxColumn3.FieldName = "TiposDocumentosIdentidadNombre";
             gridViewTextBoxColumn3.HeaderText = "Tipo Doc.";
             gridViewTextBoxColumn3.Name = "TipoDocumentoDi";
             gridViewTextBoxColumn3.ReadOnly = true;
-            gridViewTextBoxColumn3.Width = 140;
+            gridViewTextBoxColumn3.Width = 88;
             gridViewTextBoxColumn4.FieldName = "Cuit";
             gridViewTextBoxColumn4.HeaderText = "Numero";
             gridViewTextBoxColumn4.Name = "Cuit";
             gridViewTextBoxColumn4.ReadOnly = true;
-            gridViewTextBoxColumn4.Width = 137;
+            gridViewTextBoxColumn4.Width = 86;
             gridViewTextBoxColumn5.FieldName = "Telefono";
             gridViewTextBoxColumn5.HeaderText = "Teléfono";
             gridViewTextBoxColumn5.Name = "Telefono";
             gridViewTextBoxColumn5.ReadOnly = true;
-            gridViewTextBoxColumn5.Width = 136;
+            gridViewTextBoxColumn5.Width = 86;
             gridViewTextBoxColumn6.FieldName = "Celular";
             gridViewTextBoxColumn6.HeaderText = "Celular";
             gridViewTextBoxColumn6.Name = "Celular";
             gridViewTextBoxColumn6.ReadOnly = true;
-            gridViewTextBoxColumn6.Width = 136;
+            gridViewTextBoxColumn6.Width = 86;
             gridViewTextBoxColumn7.FieldName = "Domicilio";
             gridViewTextBoxColumn7.HeaderText = "Domicilio";
             gridViewTextBoxColumn7.Name = "Domicilio";
             gridViewTextBoxColumn7.ReadOnly = true;
-            gridViewTextBoxColumn7.Width = 206;
+            gridViewTextBoxColumn7.Width = 130;
             gridViewTextBoxColumn8.FieldName = "mail";
             gridViewTextBoxColumn8.HeaderText = "Email";
             gridViewTextBoxColumn8.Name = "Mail";
             gridViewTextBoxColumn8.ReadOnly = true;
-            gridViewTextBoxColumn8.Width = 118;
+            gridViewTextBoxColumn8.Width = 73;
             gridViewCommandColumn1.HeaderText = "";
             gridViewCommandColumn1.Image = global::Alejandria.Win.Properties.Resources.View_Details;
             gridViewCommandColumn1.ImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -304,19 +298,17 @@
             filterDescriptor1});
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(1182, 564);
+            this.dgvClientes.Size = new System.Drawing.Size(782, 560);
             this.dgvClientes.TabIndex = 12;
-            this.dgvClientes.ThemeName = "TelerikMetroBlue";
+            this.dgvClientes.ThemeName = "TelerikMetro";
             this.dgvClientes.CommandCellClick += new Telerik.WinControls.UI.CommandCellClickEventHandler(this.dgvClientes_CommandCellClick);
             // 
             // FrmClienteListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 788);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(782, 584);
             this.Controls.Add(this.splitContainer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmClienteListado";
             // 
             // 
@@ -324,7 +316,6 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.FrmClienteListado_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -341,7 +332,6 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource clienteBindingSource;
         private Telerik.WinControls.UI.GridViewTextBoxColumn dataGridViewButtonColumn1;
         private Telerik.WinControls.UI.GridViewTextBoxColumn dataGridViewButtonColumn2;
         private Telerik.WinControls.UI.GridViewTextBoxColumn dataGridViewButtonColumn3;
