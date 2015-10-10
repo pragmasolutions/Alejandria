@@ -31,5 +31,9 @@ namespace Alejandria.Entities
     
         public virtual Profesion Profesion { get; set; }
         public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
+        public virtual Sucursal Sucursale { get; set; }
+        public virtual Sucursal Sucursale1 { get; set; }
     }
 }

@@ -32,6 +32,31 @@ namespace Alejandria.Entities
             this.CajasMovimientos1 = new HashSet<CajasMovimiento>();
             this.Cobradores = new HashSet<Cobradore>();
             this.Cobradores1 = new HashSet<Cobradore>();
+            this.CategoriasOperadores = new HashSet<CategoriaOperador>();
+            this.CategoriasOperadores1 = new HashSet<CategoriaOperador>();
+            this.CondicionesIVAs = new HashSet<CondicionesIVA>();
+            this.CondicionesIVAs1 = new HashSet<CondicionesIVA>();
+            this.Especialidades = new HashSet<Especialidad>();
+            this.Especialidades1 = new HashSet<Especialidad>();
+            this.Localidades = new HashSet<Localidad>();
+            this.Localidades1 = new HashSet<Localidad>();
+            this.Operadores1 = new HashSet<Operador>();
+            this.Operadores11 = new HashSet<Operador>();
+            this.Personals = new HashSet<Personal>();
+            this.Personals1 = new HashSet<Personal>();
+            this.Profesiones = new HashSet<Profesion>();
+            this.Profesiones1 = new HashSet<Profesion>();
+            this.Provincias = new HashSet<Provincia>();
+            this.Provincias1 = new HashSet<Provincia>();
+            this.Sucursales = new HashSet<Sucursal>();
+            this.Sucursales1 = new HashSet<Sucursal>();
+            this.TiposComprobantes = new HashSet<TiposComprobante>();
+            this.TiposComprobantes1 = new HashSet<TiposComprobante>();
+            this.TiposDocumentosIdentidads = new HashSet<TiposDocumentosIdentidad>();
+            this.TiposDocumentosIdentidads1 = new HashSet<TiposDocumentosIdentidad>();
+            this.Vendedores = new HashSet<Vendedor>();
+            this.Zonas = new HashSet<Zona>();
+            this.Zonas1 = new HashSet<Zona>();
         }
     
         public System.Guid Id { get; set; }
@@ -65,5 +90,34 @@ namespace Alejandria.Entities
         public virtual ICollection<CajasMovimiento> CajasMovimientos1 { get; set; }
         public virtual ICollection<Cobradore> Cobradores { get; set; }
         public virtual ICollection<Cobradore> Cobradores1 { get; set; }
+        public virtual ICollection<CategoriaOperador> CategoriasOperadores { get; set; }
+        public virtual ICollection<CategoriaOperador> CategoriasOperadores1 { get; set; }
+        public virtual ICollection<CondicionesIVA> CondicionesIVAs { get; set; }
+        public virtual ICollection<CondicionesIVA> CondicionesIVAs1 { get; set; }
+        public virtual ICollection<Especialidad> Especialidades { get; set; }
+        public virtual ICollection<Especialidad> Especialidades1 { get; set; }
+        public virtual ICollection<Localidad> Localidades { get; set; }
+        public virtual ICollection<Localidad> Localidades1 { get; set; }
+        public virtual ICollection<Operador> Operadores1 { get; set; }
+        public virtual Operador Operadore1 { get; set; }
+        public virtual ICollection<Operador> Operadores11 { get; set; }
+        public virtual Operador Operadore2 { get; set; }
+        public virtual Sucursal Sucursale { get; set; }
+        public virtual Sucursal Sucursale1 { get; set; }
+        public virtual ICollection<Personal> Personals { get; set; }
+        public virtual ICollection<Personal> Personals1 { get; set; }
+        public virtual ICollection<Profesion> Profesiones { get; set; }
+        public virtual ICollection<Profesion> Profesiones1 { get; set; }
+        public virtual ICollection<Provincia> Provincias { get; set; }
+        public virtual ICollection<Provincia> Provincias1 { get; set; }
+        public virtual ICollection<Sucursal> Sucursales { get; set; }
+        public virtual ICollection<Sucursal> Sucursales1 { get; set; }
+        public virtual ICollection<TiposComprobante> TiposComprobantes { get; set; }
+        public virtual ICollection<TiposComprobante> TiposComprobantes1 { get; set; }
+        public virtual ICollection<TiposDocumentosIdentidad> TiposDocumentosIdentidads { get; set; }
+        public virtual ICollection<TiposDocumentosIdentidad> TiposDocumentosIdentidads1 { get; set; }
+        public virtual ICollection<Vendedor> Vendedores { get; set; }
+        public virtual ICollection<Zona> Zonas { get; set; }
+        public virtual ICollection<Zona> Zonas1 { get; set; }
     }
 }

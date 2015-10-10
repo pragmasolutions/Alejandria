@@ -15,7 +15,11 @@
  CONSTRAINT [PK_TiposComprobantes] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY], 
+    CONSTRAINT [FK_TiposComprobantes_OperadorAlta] FOREIGN KEY (OperadorAltaId) REFERENCES Operadores(Id), 
+    CONSTRAINT [FK_TiposComprobantes_OperadorModificacion] FOREIGN KEY (OperadorModificacionId) REFERENCES Operadores(Id), 
+    CONSTRAINT [FK_TiposComprobantes_SucursalesAlta] FOREIGN KEY (SucursalAltaId) REFERENCES  Sucursales(Id), 
+    CONSTRAINT [FK_TiposComprobantes_SucursalesModificacion] FOREIGN KEY (SucursalModificacionId) REFERENCES  Sucursales(Id)
 ) ON [PRIMARY]
 
 GO

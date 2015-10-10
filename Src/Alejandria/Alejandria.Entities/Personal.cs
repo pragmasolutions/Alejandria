@@ -45,5 +45,12 @@ namespace Alejandria.Entities
     
         public virtual CategoriaOperador CategoriasOperador { get; set; }
         public virtual ICollection<Operador> Operadores { get; set; }
+        public virtual Localidad Localidade { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
+        public virtual Provincia Provincia { get; set; }
+        public virtual Sucursal Sucursale { get; set; }
+        public virtual Sucursal Sucursale1 { get; set; }
+        public virtual Sucursal Sucursale2 { get; set; }
     }
 }

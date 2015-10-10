@@ -26,5 +26,6 @@ namespace Alejandria.Entities
         public Nullable<System.Guid> OperadorId { get; set; }
     
         public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual Operador Operadore { get; set; }
     }
 }

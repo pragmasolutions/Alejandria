@@ -87,4 +87,7 @@
     <Build Include="Tables\TiposMovimientosCajas.sql" />
     <Build Include="Tables\Cobradores.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Alejandria.Database.refactorlog" />
+  </ItemGroup>
 </Project>

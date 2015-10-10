@@ -18,6 +18,8 @@ namespace Alejandria.Entities
         {
             this.Sucursales = new HashSet<Sucursal>();
             this.Clientes = new HashSet<Cliente>();
+            this.Localidades = new HashSet<Localidad>();
+            this.Personals = new HashSet<Personal>();
         }
     
         public int Id { get; set; }
@@ -33,5 +35,11 @@ namespace Alejandria.Entities
     
         public virtual ICollection<Sucursal> Sucursales { get; set; }
         public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Localidad> Localidades { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
+        public virtual ICollection<Personal> Personals { get; set; }
+        public virtual Sucursal Sucursale { get; set; }
+        public virtual Sucursal Sucursale1 { get; set; }
     }
 }

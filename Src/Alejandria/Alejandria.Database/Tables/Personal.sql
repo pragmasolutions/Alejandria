@@ -25,7 +25,14 @@
  CONSTRAINT [PK_Personal] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY], 
+    CONSTRAINT [FK_Personal_Provincia] FOREIGN KEY (ProvinciaId) REFERENCES Provincias(Id), 
+    CONSTRAINT [FK_Personal_Localidad] FOREIGN KEY (LocalidadId) REFERENCES Localidades(Id), 
+    CONSTRAINT [FK_Personal_Sucursal] FOREIGN KEY (SucursalId) REFERENCES Sucursales(Id), 
+    CONSTRAINT [FK_Personal_OperadorAlta] FOREIGN KEY (OperadorAltaId) REFERENCES Operadores(Id), 
+    CONSTRAINT [FK_Personal_OperadorModificacion] FOREIGN KEY (OperadorModificacionId) REFERENCES Operadores(Id), 
+    CONSTRAINT [FK_Personal_SucursalAlta] FOREIGN KEY (SucursalAltaId) REFERENCES Sucursales(Id), 
+	CONSTRAINT [FK_Personal_SucursalModificacion] FOREIGN KEY (SucursalModificacionId) REFERENCES Sucursales(Id)
 ) ON [PRIMARY]
 
 GO
