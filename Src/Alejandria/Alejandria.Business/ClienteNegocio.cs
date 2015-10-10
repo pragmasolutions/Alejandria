@@ -24,7 +24,7 @@ namespace Alejandria.Business
         public ClienteNegocio(IAlejandriaUow uow, IClock clock)//,IUowFactory uowFactory)
         {
             Uow = uow;
-           // UowFactory = uowFactory;
+            //UowFactory = uowFactory;
 
             _clock = clock;
         }
@@ -58,18 +58,22 @@ namespace Alejandria.Business
             Expression<Func<Cliente, bool>> where =
               x =>
               (string.IsNullOrEmpty(denominacionFormateado) 
-              || SqlFunctions.PatIndex(denominacionFormateado, x.Denominacion) > 0
+               || x.Denominacion.Contains(denominacion)
               )
-             // && (string.IsNullOrEmpty(cuit) || SqlFunctions.PatIndex(cuitFormateado, x.Cuit) > 0)
+             && (string.IsNullOrEmpty(cuit) 
+             || x.Cuit.Contains(cuit)
+             )
               && (!activo.HasValue || x.Activo == activo)
               ;
 
+       
             var resultados = Uow.Clientes.Listado(criteros,
                                                     where,
                                                     x => x.TiposDocumentosIdentidad,
-                                                    x => x.Localidad,
-                                                    x => x.Profesione,
-                                                    x => x.Especialidad);
+                                                    x => x.Localidad
+                                                    //, x => x.Profesione,
+                                                    //x => x.Especialidad
+                                                    );
 
             pageTotal = resultados.PagedMetadata.TotalItemCount;
 

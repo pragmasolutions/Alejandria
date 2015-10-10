@@ -260,6 +260,7 @@
     <Content Include="Resources\RendirConsignacion.png" />
     <Content Include="Resources\reporte.png" />
     <Content Include="Resources\reservada.png" />
+    <None Include="Resources\Sales-Order.png" />
     <Content Include="Resources\save-disk.png" />
     <Content Include="Resources\settings.png" />
     <Content Include="Resources\seña.png" />

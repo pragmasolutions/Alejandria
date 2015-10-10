@@ -52,22 +52,25 @@
             // 
             // BtnVentas
             // 
-            this.BtnVentas.Location = new System.Drawing.Point(189, 37);
+            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.Image = global::Alejandria.Win.Properties.Resources.Sales_Order;
+            this.BtnVentas.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnVentas.Location = new System.Drawing.Point(218, 37);
             this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Size = new System.Drawing.Size(130, 24);
-            this.BtnVentas.TabIndex = 1;
+            this.BtnVentas.Size = new System.Drawing.Size(156, 148);
+            this.BtnVentas.TabIndex = 2;
             this.BtnVentas.Text = "Ventas";
+            this.BtnVentas.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnVentas.ThemeName = "TelerikMetro";
             this.BtnVentas.Click += new System.EventHandler(this.radButton1_Click);
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 456);
+            this.ClientSize = new System.Drawing.Size(712, 366);
             this.Controls.Add(this.BtnVentas);
             this.Controls.Add(this.BtnClientes);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmPrincipal";
             // 
             // 
