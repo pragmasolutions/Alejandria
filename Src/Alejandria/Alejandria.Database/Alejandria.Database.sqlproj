@@ -58,9 +58,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Alejandria.Database.publish.xml" />
+    <None Include="Alejandria_1.Database.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Zonas.sql" />
@@ -86,6 +88,7 @@
     <Build Include="Tables\CajasMovimientos.sql" />
     <Build Include="Tables\TiposMovimientosCajas.sql" />
     <Build Include="Tables\Cobradores.sql" />
+    <Build Include="Stored Procedures\ComprobantesByVentaId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Alejandria.Database.refactorlog" />

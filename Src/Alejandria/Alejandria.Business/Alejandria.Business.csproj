@@ -57,6 +57,7 @@
     <Compile Include="BusinessBase.cs" />
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="Interfaces\IClienteNegocio.cs" />
+    <Compile Include="Interfaces\IReporteNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

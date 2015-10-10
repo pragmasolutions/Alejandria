@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1">
-        <EntityTypeShape EntityType="AlejandriaModel.CategoriaOperador" Width="1.5" PointX="1.5" PointY="30.75" IsExpanded="true" />
+      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="AlejandriaModel.CategoriaOperador" Width="1.5" PointX="9.75" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.CondicionesIVA" Width="1.5" PointX="3" PointY="43.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.CondicionesVenta" Width="1.5" PointX="3" PointY="47.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.Especialidad" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.CondicionesVenta" Width="1.5" PointX="7.25" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.Especialidad" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.EstadosCliente" Width="1.5" PointX="3" PointY="35.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.Localidad" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.Operador" Width="1.5" PointX="3" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.Localidad" Width="1.5" PointX="1.375" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.Operador" Width="1.5" PointX="3.375" PointY="21.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.Personal" Width="1.5" PointX="0.75" PointY="23.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.Profesion" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.Profesion" Width="1.5" PointX="3.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.Provincia" Width="1.5" PointX="3" PointY="39.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.Sucursal" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.TiposDocumentosIdentidad" Width="1.5" PointX="3" PointY="55" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.Zona" Width="1.5" PointX="3" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.Sucursal" Width="1.5" PointX="14.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.TiposDocumentosIdentidad" Width="1.5" PointX="11.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlejandriaModel.Zona" Width="1.5" PointX="1" PointY="45.25" IsExpanded="true" />
         <AssociationConnector Association="AlejandriaModel.FK_Personal_CategoriasOperadores" ManuallyRouted="false" />
         <AssociationConnector Association="AlejandriaModel.FK_Especialidades_Profesion" ManuallyRouted="false" />
         <AssociationConnector Association="AlejandriaModel.FK_Sucursales_Localidades" ManuallyRouted="false" />
         <AssociationConnector Association="AlejandriaModel.FK_Operadores_Personal" ManuallyRouted="false" />
         <AssociationConnector Association="AlejandriaModel.FK_Sucursales_Provincias" ManuallyRouted="false" />
         <EntityTypeShape EntityType="AlejandriaModel.Cliente" Width="1.5" PointX="5.25" PointY="1.375" />
-        <EntityTypeShape EntityType="AlejandriaModel.Vendedor" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="AlejandriaModel.Vendedor" Width="1.5" PointX="0.625" PointY="12.25" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_CondicionIva" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_CondicionVenta" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Especialidad" />
@@ -40,9 +40,9 @@
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_TipoDocumento" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Vendedores" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Zona" />
-        <EntityTypeShape EntityType="AlejandriaModel.ClientesCuentasCorriente" Width="1.5" PointX="7.5" PointY="12.875" />
+        <EntityTypeShape EntityType="AlejandriaModel.ClientesCuentasCorriente" Width="1.5" PointX="8.875" PointY="7.125" />
         <EntityTypeShape EntityType="AlejandriaModel.EstadosVenta" Width="1.5" PointX="5.25" PointY="26.25" />
-        <EntityTypeShape EntityType="AlejandriaModel.TiposComprobante" Width="1.5" PointX="5.25" PointY="21.75" />
+        <EntityTypeShape EntityType="AlejandriaModel.TiposComprobante" Width="1.5" PointX="5.25" PointY="18.75" />
         <EntityTypeShape EntityType="AlejandriaModel.Venta" Width="1.5" PointX="7.5" PointY="22.25" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_Cliente" />
@@ -63,8 +63,8 @@
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_Comprobante" />
-        <EntityTypeShape EntityType="AlejandriaModel.Caja" Width="1.5" PointX="5.25" PointY="15" />
-        <EntityTypeShape EntityType="AlejandriaModel.CajasMovimiento" Width="1.5" PointX="10.5" PointY="20.125" />
+        <EntityTypeShape EntityType="AlejandriaModel.Caja" Width="1.5" PointX="14.875" PointY="14.5" />
+        <EntityTypeShape EntityType="AlejandriaModel.CajasMovimiento" Width="1.5" PointX="11.5" PointY="15.125" />
         <EntityTypeShape EntityType="AlejandriaModel.TiposMovimientosCaja" Width="1.5" PointX="8.25" PointY="31.125" />
         <AssociationConnector Association="AlejandriaModel.FK_Cajas_Operador" />
         <AssociationConnector Association="AlejandriaModel.FK_Cajas_OperadorAlta" />

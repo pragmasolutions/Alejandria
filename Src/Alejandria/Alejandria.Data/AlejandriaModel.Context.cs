@@ -13,6 +13,8 @@ namespace Alejandria.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using Alejandria.Entities;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AlejandriaDbContext : DbContext
     {
@@ -49,5 +51,14 @@ namespace Alejandria.Data
         public virtual DbSet<CajasMovimiento> CajasMovimientos { get; set; }
         public virtual DbSet<TiposMovimientosCaja> TiposMovimientosCajas { get; set; }
         public virtual DbSet<Cobradore> Cobradores { get; set; }
+    
+        public virtual ObjectResult<ComprobantesByVentaId_Result> ComprobantesByVentaId(Nullable<System.Guid> ventaId)
+        {
+            var ventaIdParameter = ventaId.HasValue ?
+                new ObjectParameter("ventaId", ventaId) :
+                new ObjectParameter("ventaId", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ComprobantesByVentaId_Result>("ComprobantesByVentaId", ventaIdParameter);
+        }
     }
 }

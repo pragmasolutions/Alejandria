@@ -1750,6 +1750,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ComprobantesByVentaId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ventaId" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <EntityContainer Name="AlejandriaModelStoreContainer">
           <EntitySet Name="Cajas" EntityType="Self.Cajas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CajasMovimientos" EntityType="Self.CajasMovimientos" Schema="dbo" store:Type="Tables" />
@@ -3105,6 +3108,9 @@
             <End Role="Sucursal" EntitySet="Sucursals" />
             <End Role="Zona" EntitySet="Zonas" />
           </AssociationSet>
+          <FunctionImport Name="ComprobantesByVentaId" ReturnType="Collection(AlejandriaModel.ComprobantesByVentaId_Result)">
+            <Parameter Name="ventaId" Mode="In" Type="Guid" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -4631,6 +4637,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="ComprobantesByVentaId_Result">
+          <Property Type="Int32" Name="Cuenta" Nullable="true" />
+          <Property Type="String" Name="Denominacion" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Domicilio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Concepto" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Anticipo" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="Cuotas" Nullable="true" />
+          <Property Type="Single" Name="ValorCuota" Nullable="true" />
+          <Property Type="Byte" Name="Cuota" Nullable="false" />
+          <Property Type="String" Name="Vendedor" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5109,6 +5127,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ComprobantesByVentaId" FunctionName="AlejandriaModel.Store.ComprobantesByVentaId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AlejandriaModel.ComprobantesByVentaId_Result">
+                <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Anticipo" ColumnName="Anticipo" />
+                <ScalarProperty Name="Cuotas" ColumnName="Cuotas" />
+                <ScalarProperty Name="ValorCuota" ColumnName="ValorCuota" />
+                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

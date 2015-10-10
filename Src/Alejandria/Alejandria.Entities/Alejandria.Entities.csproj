@@ -63,6 +63,9 @@
     <Compile Include="Cobradore.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ComprobantesByVentaId_Result.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CondicionesIVA.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
