@@ -113,12 +113,6 @@
     <Compile Include="Controls\EditColumn.cs" />
     <Compile Include="Controls\PayColumn.cs" />
     <Compile Include="Enums\FormMode.cs" />
-    <Compile Include="Forms\Clientes\FrmBuscarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Clientes\FrmBuscarCliente.Designer.cs">
-      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Clientes\FrmClienteListado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,12 +130,6 @@
     </Compile>
     <Compile Include="Forms\Clientes\FrmDetalleEliminarCliente.Designer.cs">
       <DependentUpon>FrmDetalleEliminarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Clientes\FrmGestionCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Clientes\FrmGestionCliente.Designer.cs">
-      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Clientes\UcFiltrosClientes.cs">
       <SubType>UserControl</SubType>
@@ -183,9 +171,6 @@
     <Compile Include="IFormFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Clientes\FrmBuscarCliente.resx">
-      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\FrmClienteListado.resx">
       <DependentUpon>FrmClienteListado.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,9 +179,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\FrmDetalleEliminarCliente.resx">
       <DependentUpon>FrmDetalleEliminarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Clientes\FrmGestionCliente.resx">
-      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\UcFiltrosClientes.resx">
       <DependentUpon>UcFiltrosClientes.cs</DependentUpon>

@@ -141,6 +141,20 @@
           <Property Name="SucursalModificacionId" Type="int" />
           <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="Cobradores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Abreviatura" Type="nvarchar" MaxLength="10" />
+          <Property Name="FechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SucursalAltaId" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SucursalModificacionId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="CondicionesIVA">
           <Key>
             <PropertyRef Name="Id" />
@@ -401,7 +415,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="LCN" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="LCN" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="ComprobanteId" Type="int" Nullable="false" />
           <Property Name="ClienteId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LetraComprobante" Type="char" MaxLength="1" Nullable="false" />
@@ -836,6 +850,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Cobradores_OperadorAlta">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="1" />
+          <End Role="Cobradores" Type="Self.Cobradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradores">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cobradores_OperadorModificacion">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="1" />
+          <End Role="Cobradores" Type="Self.Cobradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradores">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cobradores_SucursalAlta">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+          <End Role="Cobradores" Type="Self.Cobradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradores">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cobradores_SucursalModificacion">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+          <End Role="Cobradores" Type="Self.Cobradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradores">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Especialidades_Profesion">
           <End Role="Profesiones" Type="Self.Profesiones" Multiplicity="1" />
           <End Role="Especialidades" Type="Self.Especialidades" Multiplicity="*" />
@@ -1058,6 +1120,7 @@
           <EntitySet Name="CategoriasOperadores" EntityType="Self.CategoriasOperadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientesCuentasCorriente" EntityType="Self.ClientesCuentasCorriente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cobradores" EntityType="Self.Cobradores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CondicionesIVA" EntityType="Self.CondicionesIVA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CondicionesVenta" EntityType="Self.CondicionesVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Especialidades" EntityType="Self.Especialidades" Schema="dbo" store:Type="Tables" />
@@ -1206,6 +1269,22 @@
           <AssociationSet Name="FK_ClientesCuentasCorriente_VentasId" Association="Self.FK_ClientesCuentasCorriente_VentasId">
             <End Role="Ventas" EntitySet="Ventas" />
             <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cobradores_OperadorAlta" Association="Self.FK_Cobradores_OperadorAlta">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Cobradores" EntitySet="Cobradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cobradores_OperadorModificacion" Association="Self.FK_Cobradores_OperadorModificacion">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="Cobradores" EntitySet="Cobradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cobradores_SucursalAlta" Association="Self.FK_Cobradores_SucursalAlta">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Cobradores" EntitySet="Cobradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cobradores_SucursalModificacion" Association="Self.FK_Cobradores_SucursalModificacion">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Cobradores" EntitySet="Cobradores" />
           </AssociationSet>
           <AssociationSet Name="FK_Especialidades_Profesion" Association="Self.FK_Especialidades_Profesion">
             <End Role="Profesiones" EntitySet="Profesiones" />
@@ -1418,6 +1497,8 @@
           <NavigationProperty Name="Cajas2" Relationship="AlejandriaModel.FK_Cajas_OperadorModificacion" FromRole="Operador" ToRole="Caja" />
           <NavigationProperty Name="CajasMovimientos" Relationship="AlejandriaModel.FK_CajasMovimientos_OperadorAlta" FromRole="Operador" ToRole="CajasMovimiento" />
           <NavigationProperty Name="CajasMovimientos1" Relationship="AlejandriaModel.FK_CajasMovimientos_OperadorModificacion" FromRole="Operador" ToRole="CajasMovimiento" />
+          <NavigationProperty Name="Cobradores" Relationship="AlejandriaModel.FK_Cobradores_OperadorAlta" FromRole="Operador" ToRole="Cobradore" />
+          <NavigationProperty Name="Cobradores1" Relationship="AlejandriaModel.FK_Cobradores_OperadorModificacion" FromRole="Operador" ToRole="Cobradore" />
         </EntityType>
         <EntityType Name="Personal">
           <Key>
@@ -1524,6 +1605,8 @@
           <NavigationProperty Name="Cajas2" Relationship="AlejandriaModel.FK_Cajas_SucursalModificacion" FromRole="Sucursal" ToRole="Caja" />
           <NavigationProperty Name="CajasMovimientos" Relationship="AlejandriaModel.FK_CajasMovimientos_SucursalAlta" FromRole="Sucursal" ToRole="CajasMovimiento" />
           <NavigationProperty Name="CajasMovimientos1" Relationship="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion" FromRole="Sucursal" ToRole="CajasMovimiento" />
+          <NavigationProperty Name="Cobradores" Relationship="AlejandriaModel.FK_Cobradores_SucursalAlta" FromRole="Sucursal" ToRole="Cobradore" />
+          <NavigationProperty Name="Cobradores1" Relationship="AlejandriaModel.FK_Cobradores_SucursalModificacion" FromRole="Sucursal" ToRole="Cobradore" />
         </EntityType>
         <EntityType Name="TiposDocumentosIdentidad">
           <Key>
@@ -1844,6 +1927,23 @@
             <End Role="TiposMovimientosCaja" EntitySet="TiposMovimientosCajas" />
             <End Role="CajasMovimiento" EntitySet="CajasMovimientos" />
           </AssociationSet>
+          <EntitySet Name="Cobradores" EntityType="AlejandriaModel.Cobradore" />
+          <AssociationSet Name="FK_Cobradores_OperadorAlta" Association="AlejandriaModel.FK_Cobradores_OperadorAlta">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Cobradore" EntitySet="Cobradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cobradores_OperadorModificacion" Association="AlejandriaModel.FK_Cobradores_OperadorModificacion">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="Cobradore" EntitySet="Cobradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cobradores_SucursalAlta" Association="AlejandriaModel.FK_Cobradores_SucursalAlta">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="Cobradore" EntitySet="Cobradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cobradores_SucursalModificacion" Association="AlejandriaModel.FK_Cobradores_SucursalModificacion">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="Cobradore" EntitySet="Cobradores" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -1889,16 +1989,16 @@
           <Property Name="Llamar" Type="Boolean" />
           <NavigationProperty Name="CondicionesIVA" Relationship="AlejandriaModel.FK_Clientes_CondicionIva" FromRole="Cliente" ToRole="CondicionesIVA" />
           <NavigationProperty Name="CondicionesVenta" Relationship="AlejandriaModel.FK_Clientes_CondicionVenta" FromRole="Cliente" ToRole="CondicionesVenta" />
-          <NavigationProperty Name="Especialidade" Relationship="AlejandriaModel.FK_Clientes_Especialidad" FromRole="Cliente" ToRole="Especialidad" />
+          <NavigationProperty Name="Especialidad" Relationship="AlejandriaModel.FK_Clientes_Especialidad" FromRole="Cliente" ToRole="Especialidad" />
           <NavigationProperty Name="EstadosCliente" Relationship="AlejandriaModel.FK_Clientes_EstadoClienteId" FromRole="Cliente" ToRole="EstadosCliente" />
-          <NavigationProperty Name="Localidade" Relationship="AlejandriaModel.FK_Clientes_Localidad" FromRole="Cliente" ToRole="Localidad" />
-          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Clientes_OperadorAlta" FromRole="Cliente" ToRole="Operador" />
-          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Clientes_OperadorModificacion" FromRole="Cliente" ToRole="Operador" />
+          <NavigationProperty Name="Localidad" Relationship="AlejandriaModel.FK_Clientes_Localidad" FromRole="Cliente" ToRole="Localidad" />
+          <NavigationProperty Name="OperadorAlta" Relationship="AlejandriaModel.FK_Clientes_OperadorAlta" FromRole="Cliente" ToRole="Operador" />
+          <NavigationProperty Name="OperadorModificacion" Relationship="AlejandriaModel.FK_Clientes_OperadorModificacion" FromRole="Cliente" ToRole="Operador" />
           <NavigationProperty Name="Profesione" Relationship="AlejandriaModel.FK_Clientes_Profesion" FromRole="Cliente" ToRole="Profesion" />
           <NavigationProperty Name="Provincia" Relationship="AlejandriaModel.FK_Clientes_Provincia" FromRole="Cliente" ToRole="Provincia" />
-          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Clientes_SucursalAlta" FromRole="Cliente" ToRole="Sucursal" />
-          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Clientes_Sucursales" FromRole="Cliente" ToRole="Sucursal" />
-          <NavigationProperty Name="Sucursale2" Relationship="AlejandriaModel.FK_Clientes_SucursalModificacion" FromRole="Cliente" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursal" Relationship="AlejandriaModel.FK_Clientes_SucursalAlta" FromRole="Cliente" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalAlta" Relationship="AlejandriaModel.FK_Clientes_Sucursales" FromRole="Cliente" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalModificacion" Relationship="AlejandriaModel.FK_Clientes_SucursalModificacion" FromRole="Cliente" ToRole="Sucursal" />
           <NavigationProperty Name="TiposDocumentosIdentidad" Relationship="AlejandriaModel.FK_Clientes_TipoDocumento" FromRole="Cliente" ToRole="TiposDocumentosIdentidad" />
           <NavigationProperty Name="Vendedor" Relationship="AlejandriaModel.FK_Clientes_Vendedores" FromRole="Cliente" ToRole="Vendedore" />
           <NavigationProperty Name="Zona" Relationship="AlejandriaModel.FK_Clientes_Zona" FromRole="Cliente" ToRole="Zona" />
@@ -2118,10 +2218,10 @@
           <Property Name="SucursalModificacionId" Type="Int32" />
           <Property Name="OperadorModificacionId" Type="Guid" />
           <NavigationProperty Name="Cliente" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes" FromRole="ClientesCuentasCorriente" ToRole="Cliente" />
-          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId" FromRole="ClientesCuentasCorriente" ToRole="Operador" />
-          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId" FromRole="ClientesCuentasCorriente" ToRole="Operador" />
-          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalAltaId" FromRole="ClientesCuentasCorriente" ToRole="Sucursal" />
-          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalModificacionId" FromRole="ClientesCuentasCorriente" ToRole="Sucursal" />
+          <NavigationProperty Name="OperadorAlta" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId" FromRole="ClientesCuentasCorriente" ToRole="Operador" />
+          <NavigationProperty Name="OperadorModificacion" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId" FromRole="ClientesCuentasCorriente" ToRole="Operador" />
+          <NavigationProperty Name="SucursalAlta" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalAltaId" FromRole="ClientesCuentasCorriente" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalModificacion" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalModificacionId" FromRole="ClientesCuentasCorriente" ToRole="Sucursal" />
           <NavigationProperty Name="Venta" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_VentasId" FromRole="ClientesCuentasCorriente" ToRole="Venta" />
         </EntityType>
         <EntityType Name="EstadosVenta">
@@ -2170,7 +2270,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="LCN" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="LCN" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ComprobanteId" Type="Int32" Nullable="false" />
           <Property Name="ClienteId" Type="Guid" Nullable="false" />
           <Property Name="LetraComprobante" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -2455,12 +2555,12 @@
           <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
           <Property Name="OperadorModificacionId" Type="Guid" />
           <Property Name="SucursalModificacionId" Type="Int32" />
-          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Cajas_Operador" FromRole="Caja" ToRole="Operador" />
-          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Cajas_OperadorAlta" FromRole="Caja" ToRole="Operador" />
-          <NavigationProperty Name="Operadore2" Relationship="AlejandriaModel.FK_Cajas_OperadorModificacion" FromRole="Caja" ToRole="Operador" />
-          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Cajas_Sucursal" FromRole="Caja" ToRole="Sucursal" />
-          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Cajas_SucursalAlta" FromRole="Caja" ToRole="Sucursal" />
-          <NavigationProperty Name="Sucursale2" Relationship="AlejandriaModel.FK_Cajas_SucursalModificacion" FromRole="Caja" ToRole="Sucursal" />
+          <NavigationProperty Name="Operador" Relationship="AlejandriaModel.FK_Cajas_Operador" FromRole="Caja" ToRole="Operador" />
+          <NavigationProperty Name="OperadorAlta" Relationship="AlejandriaModel.FK_Cajas_OperadorAlta" FromRole="Caja" ToRole="Operador" />
+          <NavigationProperty Name="OperadorModificacion" Relationship="AlejandriaModel.FK_Cajas_OperadorModificacion" FromRole="Caja" ToRole="Operador" />
+          <NavigationProperty Name="Sucursal" Relationship="AlejandriaModel.FK_Cajas_Sucursal" FromRole="Caja" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalAlta" Relationship="AlejandriaModel.FK_Cajas_SucursalAlta" FromRole="Caja" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalModificacion" Relationship="AlejandriaModel.FK_Cajas_SucursalModificacion" FromRole="Caja" ToRole="Sucursal" />
         </EntityType>
         <EntityType Name="CajasMovimiento">
           <Key>
@@ -2663,6 +2763,72 @@
         </Association>
         <EnumType Name="CondicionVentaEnum" a:ExternalTypeName="Alejandria.Entities.Enums.CondicionVentaEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <EnumType Name="EstadoCliente" a:ExternalTypeName="Alejandria.Entities.Enums.EstadoCliente" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="Cobradore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Abreviatura" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperadorAltaId" Type="Guid" Nullable="false" />
+          <Property Name="SucursalAltaId" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperadorModificacionId" Type="Guid" Nullable="false" />
+          <Property Name="SucursalModificacionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Cobradores_OperadorAlta" FromRole="Cobradore" ToRole="Operador" />
+          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Cobradores_OperadorModificacion" FromRole="Cobradore" ToRole="Operador" />
+          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Cobradores_SucursalAlta" FromRole="Cobradore" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Cobradores_SucursalModificacion" FromRole="Cobradore" ToRole="Sucursal" />
+        </EntityType>
+        <Association Name="FK_Cobradores_OperadorAlta">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="1" />
+          <End Type="AlejandriaModel.Cobradore" Role="Cobradore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradore">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cobradores_OperadorModificacion">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="1" />
+          <End Type="AlejandriaModel.Cobradore" Role="Cobradore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradore">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cobradores_SucursalAlta">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="AlejandriaModel.Cobradore" Role="Cobradore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradore">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cobradores_SucursalModificacion">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="AlejandriaModel.Cobradore" Role="Cobradore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cobradore">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3120,6 +3286,21 @@
                 <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
                 <ScalarProperty Name="CodTipoAnt" ColumnName="CodTipoAnt" />
                 <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
+                <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cobradores">
+            <EntityTypeMapping TypeName="AlejandriaModel.Cobradore">
+              <MappingFragment StoreEntitySet="Cobradores">
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
                 <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

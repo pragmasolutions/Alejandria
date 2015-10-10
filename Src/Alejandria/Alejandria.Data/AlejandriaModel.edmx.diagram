@@ -78,6 +78,11 @@
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoComprobante" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoMovimientoCaja" />
+        <EntityTypeShape EntityType="AlejandriaModel.Cobradore" Width="1.5" PointX="11.25" PointY="28.25" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalModificacion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
