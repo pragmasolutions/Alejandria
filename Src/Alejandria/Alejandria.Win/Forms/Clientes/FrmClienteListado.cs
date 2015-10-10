@@ -19,10 +19,9 @@ namespace Alejandria.Win.Forms.Clientes
     {
         private readonly IClienteNegocio _clienteNegocio;
 
-        //public FrmClienteListado(IFormFactory formFactory, IAlejandriaUow uow, IClienteNegocio clienteNegocio)
-        public FrmClienteListado(IAlejandriaUow uow, IClienteNegocio clienteNegocio)
+        public FrmClienteListado(IFormFactory formFactory, IAlejandriaUow uow, IClienteNegocio clienteNegocio)
         {
-           // FormFactory = formFactory;
+            FormFactory = formFactory;
 
             Uow = uow;
             SortColumn = "Denominacion";
@@ -46,7 +45,7 @@ namespace Alejandria.Win.Forms.Clientes
 
         private void InicializarPaginador()
         {
-            //ClientesPager.RefreshActionAsync = RefrescarListado;
+            ClientesPager.RefreshActionAsync = RefrescarListado;
         }
 
         private void FrmClienteListado_Load(object sender, EventArgs e)
@@ -77,7 +76,7 @@ namespace Alejandria.Win.Forms.Clientes
 
             dgvClientes.DataSource = clientes;
 
-            //ClientesPager.UpdateState(pageTotal);
+            ClientesPager.UpdateState(pageTotal);
 
             return pageTotal;
         }

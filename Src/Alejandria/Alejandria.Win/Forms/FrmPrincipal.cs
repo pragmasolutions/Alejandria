@@ -25,7 +25,7 @@ namespace Alejandria.Win.Forms
         private void BtnClientes_Click(object sender, EventArgs e)
         {
             var frm = FormFactory.Create<FrmClienteListado>();
-            frm.Show();
+            frm.ShowDialog();
         }
     }
 }
