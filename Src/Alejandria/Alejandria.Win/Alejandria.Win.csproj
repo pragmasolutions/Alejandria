@@ -173,6 +173,12 @@
     <Compile Include="Forms\Util\UcProgressSpinner.Designer.cs">
       <DependentUpon>UcProgressSpinner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\IFormRegistry.cs" />
     <Compile Include="IFormFactory.cs" />
     <Compile Include="Program.cs" />
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Util\UcProgressSpinner.resx">
       <DependentUpon>UcProgressSpinner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

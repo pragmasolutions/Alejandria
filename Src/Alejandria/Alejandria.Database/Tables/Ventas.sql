@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Ventas](
 	[Id] [uniqueidentifier] NOT NULL,
-	[LCN] [varchar](13) NOT NULL,
+	[LCN] [varchar](15) NOT NULL,
 	[ComprobanteId] [int] NOT NULL,
 	[ClienteId] [uniqueidentifier] NOT NULL,
 	[LetraComprobante] [char](1) NOT NULL,
