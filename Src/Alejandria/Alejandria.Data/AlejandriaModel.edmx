@@ -2449,10 +2449,10 @@
           <Property Name="SucursalModificacionId" Type="Int32" />
           <NavigationProperty Name="Especialidades" Relationship="Self.FK_Especialidades_Profesion" FromRole="Profesiones" ToRole="Especialidades" />
           <NavigationProperty Name="Clientes" Relationship="AlejandriaModel.FK_Clientes_Profesion" FromRole="Profesion" ToRole="Cliente" />
-          <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Profesiones_OperadorAlta" FromRole="Profesion" ToRole="Operador" />
-          <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Profesiones_OperadorModificacion" FromRole="Profesion" ToRole="Operador" />
-          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Profesiones_SucursalAlta" FromRole="Profesion" ToRole="Sucursal" />
-          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Profesiones_SucursalModificacion" FromRole="Profesion" ToRole="Sucursal" />
+          <NavigationProperty Name="OperadorAlta" Relationship="AlejandriaModel.FK_Profesiones_OperadorAlta" FromRole="Profesion" ToRole="Operador" />
+          <NavigationProperty Name="OperadorModificacion" Relationship="AlejandriaModel.FK_Profesiones_OperadorModificacion" FromRole="Profesion" ToRole="Operador" />
+          <NavigationProperty Name="SucursalAlta" Relationship="AlejandriaModel.FK_Profesiones_SucursalAlta" FromRole="Profesion" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalModificacion" Relationship="AlejandriaModel.FK_Profesiones_SucursalModificacion" FromRole="Profesion" ToRole="Sucursal" />
         </EntityType>
         <EntityType Name="Provincia">
           <Key>
