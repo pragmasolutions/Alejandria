@@ -61,16 +61,16 @@ namespace Alejandria.Entities
     
         public virtual CondicionesIVA CondicionesIVA { get; set; }
         public virtual CondicionesVenta CondicionesVenta { get; set; }
-        public virtual Especialidad Especialidade { get; set; }
+        public virtual Especialidad Especialidad { get; set; }
         public virtual EstadosCliente EstadosCliente { get; set; }
-        public virtual Localidad Localidade { get; set; }
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
+        public virtual Localidad Localidad { get; set; }
+        public virtual Operador OperadorAlta { get; set; }
+        public virtual Operador OperadorModificacion { get; set; }
         public virtual Profesion Profesione { get; set; }
         public virtual Provincia Provincia { get; set; }
-        public virtual Sucursal Sucursale { get; set; }
-        public virtual Sucursal Sucursale1 { get; set; }
-        public virtual Sucursal Sucursale2 { get; set; }
+        public virtual Sucursal Sucursal { get; set; }
+        public virtual Sucursal SucursalAlta { get; set; }
+        public virtual Sucursal SucursalModificacion { get; set; }
         public virtual TiposDocumentosIdentidad TiposDocumentosIdentidad { get; set; }
         public virtual Vendedor Vendedor { get; set; }
         public virtual Zona Zona { get; set; }

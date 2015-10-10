@@ -159,7 +159,7 @@ namespace Alejandria.Win.Forms.Clientes
         private void CargarCliente(Guid clienteId)
         {
             Cliente cliente = Uow.Clientes.Obtener(c => c.Id == clienteId, c => c.Provincia,
-                                                    c => c.Localidade, c => c.Profesione, c => c.Especialidade,
+                                                    c => c.Localidad, c => c.Profesione, c => c.Especialidad,
                                                     c => c.CondicionesVenta, c => c.EstadosCliente,
                                                     c => c.TiposDocumentosIdentidad);
 
@@ -169,9 +169,9 @@ namespace Alejandria.Win.Forms.Clientes
             this.Celular = cliente.Celular;
             this.Mail = cliente.Mail;
             this.Provincia = cliente.Provincia != null ? cliente.Provincia.Nombre : string.Empty;
-            this.Localidad = cliente.Localidade != null ? cliente.Localidade.Nombre : string.Empty;
+            this.Localidad = cliente.Localidad != null ? cliente.Localidad.Nombre : string.Empty;
             this.Profesion = cliente.Profesione != null ? cliente.Profesione.Nombre : string.Empty;
-            this.Especialidad = cliente.Especialidade != null ? cliente.Especialidade.Nombre : string.Empty;
+            this.Especialidad = cliente.Especialidad != null ? cliente.Especialidad.Nombre : string.Empty;
             this.TipoDocumento = cliente.TiposDocumentosIdentidad != null ? cliente.TiposDocumentosIdentidad.Nombre : string.Empty;
             this.Cuit = cliente.Cuit;
             this.EstadoCliente = cliente.EstadosCliente != null ? cliente.EstadosCliente.Nombre : string.Empty;

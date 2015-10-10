@@ -30,6 +30,7 @@ namespace Alejandria.Win.Forms.Ventas
         #endregion
 
         #region Properties
+        
         #endregion
     }
 }

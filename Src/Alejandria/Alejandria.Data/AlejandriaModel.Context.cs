@@ -48,5 +48,6 @@ namespace Alejandria.Data
         public virtual DbSet<Caja> Cajas { get; set; }
         public virtual DbSet<CajasMovimiento> CajasMovimientos { get; set; }
         public virtual DbSet<TiposMovimientosCaja> TiposMovimientosCajas { get; set; }
+        public virtual DbSet<Cobradore> Cobradores { get; set; }
     }
 }

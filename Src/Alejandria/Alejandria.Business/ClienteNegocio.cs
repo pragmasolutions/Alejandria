@@ -33,7 +33,7 @@ namespace Alejandria.Business
         {
             using (var uow = UowFactory.Create<IAlejandriaUow>())
             {
-                return uow.Clientes.Obtener(c => c.Id == clienteId, c => c.Localidade, c => c.Provincia, c => c.CondicionesVenta);    
+                return uow.Clientes.Obtener(c => c.Id == clienteId, c => c.Localidad, c => c.Provincia, c => c.CondicionesVenta);    
             }
         }
 
@@ -67,9 +67,9 @@ namespace Alejandria.Business
             var resultados = Uow.Clientes.Listado(criteros,
                                                     where,
                                                     x => x.TiposDocumentosIdentidad,
-                                                    x => x.Localidade,
+                                                    x => x.Localidad,
                                                     x => x.Profesione,
-                                                    x => x.Especialidade);
+                                                    x => x.Especialidad);
 
             pageTotal = resultados.PagedMetadata.TotalItemCount;
 

@@ -85,5 +85,6 @@
     <Build Include="Tables\Cajas.sql" />
     <Build Include="Tables\CajasMovimientos.sql" />
     <Build Include="Tables\TiposMovimientosCajas.sql" />
+    <Build Include="Tables\Cobradores.sql" />
   </ItemGroup>
 </Project>
