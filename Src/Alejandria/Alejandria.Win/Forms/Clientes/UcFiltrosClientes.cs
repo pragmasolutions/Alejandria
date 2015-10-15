@@ -31,7 +31,7 @@ namespace Alejandria.Win.Forms.Clientes
 
         #region Eventos
         public EventHandler Filtered;
-        //public event EventHandler<List<Cliente>> BuscarFinished;
+        public event EventHandler<List<Cliente>> BuscarFinished;
         #endregion
 
         #region Propiedades
@@ -64,23 +64,7 @@ namespace Alejandria.Win.Forms.Clientes
 
         #region Metodos
 
-        private void UcFiltrosClientes_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtTextoBuscar_TextChanged(object sender, EventArgs e)
-        {
-            //if (!_limpiandoFiltros)
-            //    OnFiltered();
-        }
-
-        private void TxtCuit_TextChanged(object sender, EventArgs e)
-        {
-            //if (!_limpiandoFiltros)
-            //    OnFiltered();
-        }
-        private void OnFiltered()
+       private void OnFiltered()
         {
             if (Filtered != null)
             {
@@ -100,23 +84,44 @@ namespace Alejandria.Win.Forms.Clientes
 
         private void BtnBuscarCliente_Click(object sender, EventArgs e)
         {
-            OnFiltered();
-            //var textBuscarDenominacion = TxtTextoBuscar.Text;
-            //var textBuscarCuit = TxtTextoBuscar.Text.PadLeft(11, '0');
+            var textBuscarDenominacion = TxtTextoBuscar.Text;
+            var textBuscarCuit = TxtCuit.Text.PadLeft(11, '0');
 
             //Expression<Func<Cliente, bool>> where =
             //    x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
 
-            //Cursor.Current = Cursors.WaitCursor;
+            Expression<Func<Cliente, bool>> where =
+            x =>
+            (string.IsNullOrEmpty(textBuscarDenominacion)
+             || x.Denominacion.Contains(textBuscarDenominacion)
+            )
+           && (string.IsNullOrEmpty(textBuscarCuit)
+           || x.Cuit.Contains(textBuscarCuit)
+           )
+            ;
 
-            //var clientes = Uow.Clientes.Listado(x => x.CondicionesVenta, x => x.Localidad, x => x.Provincia)
-            //                           .Where(where)
-            //                           .ToList();
+            Cursor.Current = Cursors.WaitCursor;
 
-            //Cursor.Current = Cursors.Default;
+            var clientes = Uow.Clientes.Listado(x => x.CondicionesVenta, x => x.Localidad, x => x.Provincia)
+                                       .Where(where)
+                                       .ToList();
 
-            //OnBuscarFinished(clientes);
+           
+
+            Cursor.Current = Cursors.Default;
+
+            OnBuscarFinished(clientes);
+            OnFiltered();
         }
+
+        private void OnBuscarFinished(List<Cliente> clientes)
+        {
+            if (BuscarFinished != null)
+            {
+                BuscarFinished(this, clientes);
+            }
+        }
+
 
         #endregion
 
@@ -138,6 +143,8 @@ namespace Alejandria.Win.Forms.Clientes
                     OnFiltered();
             }
         }
+
+
 
     }
 }

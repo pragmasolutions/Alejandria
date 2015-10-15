@@ -134,6 +134,18 @@
     <Compile Include="Forms\Clientes\FrmDetalleEliminarCliente.Designer.cs">
       <DependentUpon>FrmDetalleEliminarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Clientes\FrmSeleccionarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmSeleccionarCliente.Designer.cs">
+      <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\UcClienteDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\UcClienteDetalle.Designer.cs">
+      <DependentUpon>UcClienteDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Clientes\UcFiltrosClientes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\FrmDetalleEliminarCliente.resx">
       <DependentUpon>FrmDetalleEliminarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\FrmSeleccionarCliente.resx">
+      <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\UcClienteDetalle.resx">
+      <DependentUpon>UcClienteDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\UcFiltrosClientes.resx">
       <DependentUpon>UcFiltrosClientes.cs</DependentUpon>

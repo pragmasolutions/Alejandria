@@ -57,10 +57,10 @@ namespace Alejandria.Business
 
             Expression<Func<Cliente, bool>> where =
               x =>
-              (string.IsNullOrEmpty(denominacionFormateado) 
+              (string.IsNullOrEmpty(denominacionFormateado)
                || x.Denominacion.Contains(denominacion)
               )
-             && (string.IsNullOrEmpty(cuit) 
+             && (string.IsNullOrEmpty(cuit)
              || x.Cuit.Contains(cuit)
              )
               && (!activo.HasValue || x.Activo == activo)
