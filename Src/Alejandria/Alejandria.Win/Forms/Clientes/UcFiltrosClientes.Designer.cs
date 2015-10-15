@@ -45,9 +45,10 @@
             // metroLabel1
             // 
             this.metroLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel1.Location = new System.Drawing.Point(5, 15);
+            this.metroLabel1.Location = new System.Drawing.Point(7, 18);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(67, 24);
+            this.metroLabel1.Size = new System.Drawing.Size(83, 29);
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Nombre:";
             this.metroLabel1.ThemeName = "TelerikMetroBlue";
@@ -56,9 +57,10 @@
             // 
             this.TxtTextoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtTextoBuscar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTextoBuscar.Location = new System.Drawing.Point(81, 14);
+            this.TxtTextoBuscar.Location = new System.Drawing.Point(108, 17);
+            this.TxtTextoBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtTextoBuscar.Name = "TxtTextoBuscar";
-            this.TxtTextoBuscar.Size = new System.Drawing.Size(277, 25);
+            this.TxtTextoBuscar.Size = new System.Drawing.Size(369, 30);
             this.TxtTextoBuscar.TabIndex = 1;
             this.TxtTextoBuscar.TabStop = false;
             this.TxtTextoBuscar.ThemeName = "TelerikMetroBlue";
@@ -68,31 +70,34 @@
             // BtnBuscarCliente
             // 
             this.BtnBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscarCliente.Location = new System.Drawing.Point(123, 93);
+            this.BtnBuscarCliente.Location = new System.Drawing.Point(164, 114);
+            this.BtnBuscarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnBuscarCliente.Name = "BtnBuscarCliente";
-            this.BtnBuscarCliente.Size = new System.Drawing.Size(113, 29);
+            this.BtnBuscarCliente.Size = new System.Drawing.Size(151, 36);
             this.BtnBuscarCliente.TabIndex = 2;
             this.BtnBuscarCliente.Text = "Buscar";
-            this.BtnBuscarCliente.ThemeName = "TelerikMetroBlue";
+            this.BtnBuscarCliente.ThemeName = "TelerikMetro";
             this.BtnBuscarCliente.Click += new System.EventHandler(this.BtnBuscarCliente_Click);
             // 
             // BtnLimpiarFiltros
             // 
             this.BtnLimpiarFiltros.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiarFiltros.Location = new System.Drawing.Point(5, 93);
+            this.BtnLimpiarFiltros.Location = new System.Drawing.Point(7, 114);
+            this.BtnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnLimpiarFiltros.Name = "BtnLimpiarFiltros";
-            this.BtnLimpiarFiltros.Size = new System.Drawing.Size(113, 29);
+            this.BtnLimpiarFiltros.Size = new System.Drawing.Size(151, 36);
             this.BtnLimpiarFiltros.TabIndex = 35;
             this.BtnLimpiarFiltros.Text = "Limpiar Filtros";
-            this.BtnLimpiarFiltros.ThemeName = "TelerikMetroBlue";
+            this.BtnLimpiarFiltros.ThemeName = "TelerikMetro";
             this.BtnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
             // 
             // TxtCuit
             // 
             this.TxtCuit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCuit.Location = new System.Drawing.Point(81, 53);
+            this.TxtCuit.Location = new System.Drawing.Point(108, 65);
+            this.TxtCuit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtCuit.Name = "TxtCuit";
-            this.TxtCuit.Size = new System.Drawing.Size(277, 25);
+            this.TxtCuit.Size = new System.Drawing.Size(369, 30);
             this.TxtCuit.TabIndex = 36;
             this.TxtCuit.TabStop = false;
             this.TxtCuit.ThemeName = "TelerikMetroBlue";
@@ -102,16 +107,17 @@
             // metroLabel2
             // 
             this.metroLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroLabel2.Location = new System.Drawing.Point(5, 54);
+            this.metroLabel2.Location = new System.Drawing.Point(7, 66);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(76, 24);
+            this.metroLabel2.Size = new System.Drawing.Size(94, 29);
             this.metroLabel2.TabIndex = 37;
             this.metroLabel2.Text = "CUIT/DNI:";
             this.metroLabel2.ThemeName = "TelerikMetroBlue";
             // 
             // UcFiltrosClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.TxtCuit);
@@ -119,8 +125,9 @@
             this.Controls.Add(this.BtnBuscarCliente);
             this.Controls.Add(this.TxtTextoBuscar);
             this.Controls.Add(this.metroLabel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UcFiltrosClientes";
-            this.Size = new System.Drawing.Size(371, 123);
+            this.Size = new System.Drawing.Size(495, 151);
             this.Load += new System.EventHandler(this.UcFiltrosClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtTextoBuscar)).EndInit();
