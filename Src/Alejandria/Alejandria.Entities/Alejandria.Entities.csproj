@@ -60,7 +60,7 @@
     <Compile Include="ClientesCuentasCorriente.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Cobradore.cs">
+    <Compile Include="Cobrador.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ComprobantesByVentaId_Result.cs">

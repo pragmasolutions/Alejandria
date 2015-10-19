@@ -17,6 +17,7 @@ namespace Alejandria.Entities
         public TiposDocumentosIdentidad()
         {
             this.Clientes = new HashSet<Cliente>();
+            this.Cobradores = new HashSet<Cobrador>();
         }
     
         public int Id { get; set; }
@@ -36,5 +37,6 @@ namespace Alejandria.Entities
         public virtual Operador Operadore1 { get; set; }
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
+        public virtual ICollection<Cobrador> Cobradores { get; set; }
     }
 }

@@ -152,6 +152,12 @@
     <Compile Include="Forms\Clientes\UcFiltrosClientes.Designer.cs">
       <DependentUpon>UcFiltrosClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Cobradores\FrmCrearEditarCobrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cobradores\FrmCrearEditarCobrador.Designer.cs">
+      <DependentUpon>FrmCrearEditarCobrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     <EmbeddedResource Include="Forms\Clientes\UcFiltrosClientes.resx">
       <DependentUpon>UcFiltrosClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cobradores\FrmCrearEditarCobrador.resx">
+      <DependentUpon>FrmCrearEditarCobrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +273,7 @@
     <Content Include="Resources\cancel-cross.png" />
     <Content Include="Resources\Cash.png" />
     <Content Include="Resources\Cheque-01.png" />
+    <None Include="Resources\cobradores.png" />
     <Content Include="Resources\ConsignacionCliente.png" />
     <Content Include="Resources\Counting-Machine.png" />
     <Content Include="Resources\Customer.png" />

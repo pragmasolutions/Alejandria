@@ -30,8 +30,7 @@ namespace Alejandria.Entities
             this.Cajas2 = new HashSet<Caja>();
             this.CajasMovimientos = new HashSet<CajasMovimiento>();
             this.CajasMovimientos1 = new HashSet<CajasMovimiento>();
-            this.Cobradores = new HashSet<Cobradore>();
-            this.Cobradores1 = new HashSet<Cobradore>();
+            this.Cobradores = new HashSet<Cobrador>();
             this.CategoriasOperadores = new HashSet<CategoriaOperador>();
             this.CategoriasOperadores1 = new HashSet<CategoriaOperador>();
             this.CondicionesIVAs = new HashSet<CondicionesIVA>();
@@ -57,6 +56,7 @@ namespace Alejandria.Entities
             this.TiposDocumentosIdentidads1 = new HashSet<TiposDocumentosIdentidad>();
             this.Zonas = new HashSet<Zona>();
             this.Zonas1 = new HashSet<Zona>();
+            this.Cobradores1 = new HashSet<Cobrador>();
         }
     
         public int Id { get; set; }
@@ -96,8 +96,7 @@ namespace Alejandria.Entities
         public virtual ICollection<Caja> Cajas2 { get; set; }
         public virtual ICollection<CajasMovimiento> CajasMovimientos { get; set; }
         public virtual ICollection<CajasMovimiento> CajasMovimientos1 { get; set; }
-        public virtual ICollection<Cobradore> Cobradores { get; set; }
-        public virtual ICollection<Cobradore> Cobradores1 { get; set; }
+        public virtual ICollection<Cobrador> Cobradores { get; set; }
         public virtual ICollection<CategoriaOperador> CategoriasOperadores { get; set; }
         public virtual ICollection<CategoriaOperador> CategoriasOperadores1 { get; set; }
         public virtual ICollection<CondicionesIVA> CondicionesIVAs { get; set; }
@@ -127,5 +126,6 @@ namespace Alejandria.Entities
         public virtual ICollection<TiposDocumentosIdentidad> TiposDocumentosIdentidads1 { get; set; }
         public virtual ICollection<Zona> Zonas { get; set; }
         public virtual ICollection<Zona> Zonas1 { get; set; }
+        public virtual ICollection<Cobrador> Cobradores1 { get; set; }
     }
 }

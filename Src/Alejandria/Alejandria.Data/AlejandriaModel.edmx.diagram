@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1" ZoomLevel="40">
+      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1" ZoomLevel="62">
         <EntityTypeShape EntityType="AlejandriaModel.CategoriaOperador" Width="1.5" PointX="9.75" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.CondicionesIVA" Width="1.5" PointX="3" PointY="43.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.CondicionesVenta" Width="1.5" PointX="7.25" PointY="45.375" IsExpanded="true" />
@@ -78,11 +78,9 @@
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoComprobante" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoMovimientoCaja" />
-        <EntityTypeShape EntityType="AlejandriaModel.Cobradore" Width="1.5" PointX="11.25" PointY="28.25" />
+        <EntityTypeShape EntityType="AlejandriaModel.Cobrador" Width="1.5" PointX="11.25" PointY="28.25" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_OperadorAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_SucursalAlta" />
@@ -136,6 +134,11 @@
         <AssociationConnector Association="AlejandriaModel.FK_TiposDocumentosIdentidad_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Zonas_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Zonas_SucursalModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_Localidad" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_Provincia" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_TipoDocumento" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalModificacion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

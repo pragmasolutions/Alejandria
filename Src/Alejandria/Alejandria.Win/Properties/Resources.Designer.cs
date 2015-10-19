@@ -121,6 +121,16 @@ namespace Alejandria.Win.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cobradores {
+            get {
+                object obj = ResourceManager.GetObject("cobradores", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECCIONE LOCALIDAD.
         /// </summary>
         internal static string ComboBoxOptionSeleccinarLocalidad {
@@ -531,6 +541,15 @@ namespace Alejandria.Win.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Crear Cobrador.
+        /// </summary>
+        internal static string LabelCrearCobrador {
+            get {
+                return ResourceManager.GetString("LabelCrearCobrador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Crear Cuenta.
         /// </summary>
         internal static string LabelCrearCuenta {
@@ -761,6 +780,15 @@ namespace Alejandria.Win.Properties {
         internal static string LabelEditarCliente {
             get {
                 return ResourceManager.GetString("LabelEditarCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Cobrador.
+        /// </summary>
+        internal static string LabelEditarCobrador {
+            get {
+                return ResourceManager.GetString("LabelEditarCobrador", resourceCulture);
             }
         }
         
