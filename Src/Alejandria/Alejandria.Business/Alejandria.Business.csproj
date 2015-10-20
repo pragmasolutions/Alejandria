@@ -58,7 +58,9 @@
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="Interfaces\IClienteNegocio.cs" />
     <Compile Include="Interfaces\IReporteNegocio.cs" />
+    <Compile Include="Interfaces\IVentaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentaNegocio.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

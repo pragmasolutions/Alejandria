@@ -43,12 +43,19 @@
             this.ucFiltrosClientes = new Alejandria.Win.Forms.Clientes.UcFiltrosClientes();
             this.DtpVencimiento = new Telerik.WinControls.UI.RadDateTimePicker();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            this.BtnGuardar = new Telerik.WinControls.UI.RadButton();
             this.ucClienteDetalle = new Alejandria.Win.Forms.Clientes.UcClienteDetalle();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
+            this.TxtLCN = new Framework.WinForm.Controls.CustomControls.DecimalTextBox();
+            this.DdlLocalidad = new Telerik.WinControls.UI.RadDropDownList();
+            this.DdlCobradores = new Telerik.WinControls.UI.RadDropDownList();
+            this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel8 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel7 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
+            this.TxtConcepto = new Framework.WinForm.Controls.CustomControls.DecimalTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
@@ -63,76 +70,83 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtpVencimiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
             this.radPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
             this.radPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtLCN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlLocalidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlCobradores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtConcepto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radLabel1
             // 
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(31, 242);
+            this.radLabel1.Location = new System.Drawing.Point(36, 277);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(98, 24);
+            this.radLabel1.Size = new System.Drawing.Size(101, 24);
             this.radLabel1.TabIndex = 1;
-            this.radLabel1.Text = "Monto Cuota";
+            this.radLabel1.Text = "Monto Cuota:";
             // 
             // radLabel2
             // 
             this.radLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(65, 119);
+            this.radLabel2.Location = new System.Drawing.Point(70, 154);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(60, 24);
+            this.radLabel2.Size = new System.Drawing.Size(64, 24);
             this.radLabel2.TabIndex = 2;
-            this.radLabel2.Text = "Adeuda";
+            this.radLabel2.Text = "Adeuda:";
             // 
             // radLabel3
             // 
             this.radLabel3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel3.Location = new System.Drawing.Point(65, 79);
+            this.radLabel3.Location = new System.Drawing.Point(70, 114);
             this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(64, 24);
+            this.radLabel3.Size = new System.Drawing.Size(68, 24);
             this.radLabel3.TabIndex = 2;
-            this.radLabel3.Text = "Anticipo";
+            this.radLabel3.Text = "Anticipo:";
             // 
             // radLabel4
             // 
             this.radLabel4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel4.Location = new System.Drawing.Point(74, 159);
+            this.radLabel4.Location = new System.Drawing.Point(79, 194);
             this.radLabel4.Name = "radLabel4";
-            this.radLabel4.Size = new System.Drawing.Size(55, 24);
+            this.radLabel4.Size = new System.Drawing.Size(58, 24);
             this.radLabel4.TabIndex = 2;
-            this.radLabel4.Text = "Cuotas";
+            this.radLabel4.Text = "Cuotas:";
             // 
             // radLabel5
             // 
             this.radLabel5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel5.Location = new System.Drawing.Point(32, 39);
+            this.radLabel5.Location = new System.Drawing.Point(37, 74);
             this.radLabel5.Name = "radLabel5";
-            this.radLabel5.Size = new System.Drawing.Size(97, 24);
+            this.radLabel5.Size = new System.Drawing.Size(101, 24);
             this.radLabel5.TabIndex = 2;
-            this.radLabel5.Text = "Monto Venta";
+            this.radLabel5.Text = "Monto Venta:";
             // 
             // radLabel6
             // 
             this.radLabel6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel6.Location = new System.Drawing.Point(10, 199);
+            this.radLabel6.Location = new System.Drawing.Point(15, 234);
             this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(119, 24);
+            this.radLabel6.Size = new System.Drawing.Size(122, 24);
             this.radLabel6.TabIndex = 2;
-            this.radLabel6.Text = "1er Vencimiento";
+            this.radLabel6.Text = "1er Vencimiento:";
             // 
             // TxtMontoVenta
             // 
             this.TxtMontoVenta.AceptaNegativos = false;
             this.TxtMontoVenta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMontoVenta.Location = new System.Drawing.Point(135, 39);
+            this.TxtMontoVenta.Location = new System.Drawing.Point(140, 74);
             this.TxtMontoVenta.Name = "TxtMontoVenta";
             this.TxtMontoVenta.Size = new System.Drawing.Size(241, 26);
             this.TxtMontoVenta.TabIndex = 3;
@@ -145,7 +159,7 @@
             // 
             this.TxtAnticipo.AceptaNegativos = false;
             this.TxtAnticipo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAnticipo.Location = new System.Drawing.Point(135, 79);
+            this.TxtAnticipo.Location = new System.Drawing.Point(140, 114);
             this.TxtAnticipo.Name = "TxtAnticipo";
             this.TxtAnticipo.Size = new System.Drawing.Size(241, 26);
             this.TxtAnticipo.TabIndex = 4;
@@ -158,7 +172,7 @@
             // 
             this.TxtAdeuda.AceptaNegativos = false;
             this.TxtAdeuda.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdeuda.Location = new System.Drawing.Point(135, 119);
+            this.TxtAdeuda.Location = new System.Drawing.Point(140, 154);
             this.TxtAdeuda.Name = "TxtAdeuda";
             this.TxtAdeuda.Size = new System.Drawing.Size(241, 26);
             this.TxtAdeuda.TabIndex = 4;
@@ -169,7 +183,7 @@
             // TxtCuotas
             // 
             this.TxtCuotas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCuotas.Location = new System.Drawing.Point(135, 159);
+            this.TxtCuotas.Location = new System.Drawing.Point(140, 194);
             this.TxtCuotas.Name = "TxtCuotas";
             this.TxtCuotas.Size = new System.Drawing.Size(241, 26);
             this.TxtCuotas.TabIndex = 5;
@@ -181,7 +195,7 @@
             // 
             this.TxtMontoCuota.AceptaNegativos = false;
             this.TxtMontoCuota.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMontoCuota.Location = new System.Drawing.Point(135, 242);
+            this.TxtMontoCuota.Location = new System.Drawing.Point(140, 277);
             this.TxtMontoCuota.Name = "TxtMontoCuota";
             this.TxtMontoCuota.Size = new System.Drawing.Size(241, 26);
             this.TxtMontoCuota.TabIndex = 5;
@@ -202,7 +216,7 @@
             // 
             this.DtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DtpVencimiento.Location = new System.Drawing.Point(135, 199);
+            this.DtpVencimiento.Location = new System.Drawing.Point(140, 234);
             this.DtpVencimiento.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DtpVencimiento.MinDate = new System.DateTime(((long)(0)));
             this.DtpVencimiento.Name = "DtpVencimiento";
@@ -217,7 +231,9 @@
             // 
             // radPanel1
             // 
-            this.radPanel1.Controls.Add(this.radButton1);
+            this.radPanel1.Controls.Add(this.radLabel10);
+            this.radPanel1.Controls.Add(this.TxtConcepto);
+            this.radPanel1.Controls.Add(this.BtnGuardar);
             this.radPanel1.Controls.Add(this.radLabel5);
             this.radPanel1.Controls.Add(this.DtpVencimiento);
             this.radPanel1.Controls.Add(this.radLabel1);
@@ -236,15 +252,16 @@
             this.radPanel1.TabIndex = 8;
             this.radPanel1.ThemeName = "TelerikMetro";
             // 
-            // radButton1
+            // BtnGuardar
             // 
-            this.radButton1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radButton1.Location = new System.Drawing.Point(246, 289);
-            this.radButton1.Name = "radButton1";
-            this.radButton1.Size = new System.Drawing.Size(130, 33);
-            this.radButton1.TabIndex = 8;
-            this.radButton1.Text = "Guardar";
-            this.radButton1.ThemeName = "TelerikMetro";
+            this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.Location = new System.Drawing.Point(246, 312);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(130, 33);
+            this.BtnGuardar.TabIndex = 8;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.ThemeName = "TelerikMetro";
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // ucClienteDetalle
             // 
@@ -271,7 +288,7 @@
             // radPanel3
             // 
             this.radPanel3.Controls.Add(this.ucClienteDetalle);
-            this.radPanel3.Location = new System.Drawing.Point(4, 180);
+            this.radPanel3.Location = new System.Drawing.Point(4, 339);
             this.radPanel3.Name = "radPanel3";
             this.radPanel3.Size = new System.Drawing.Size(682, 204);
             this.radPanel3.TabIndex = 11;
@@ -279,12 +296,73 @@
             // 
             // radPanel4
             // 
+            this.radPanel4.Controls.Add(this.TxtLCN);
+            this.radPanel4.Controls.Add(this.DdlLocalidad);
+            this.radPanel4.Controls.Add(this.DdlCobradores);
+            this.radPanel4.Controls.Add(this.radLabel9);
+            this.radPanel4.Controls.Add(this.radLabel8);
             this.radPanel4.Controls.Add(this.radLabel7);
-            this.radPanel4.Location = new System.Drawing.Point(4, 40);
+            this.radPanel4.Location = new System.Drawing.Point(4, 180);
             this.radPanel4.Name = "radPanel4";
             this.radPanel4.Size = new System.Drawing.Size(682, 134);
             this.radPanel4.TabIndex = 12;
             this.radPanel4.ThemeName = "TelerikMetro";
+            // 
+            // TxtLCN
+            // 
+            this.TxtLCN.AceptaNegativos = false;
+            this.TxtLCN.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtLCN.Location = new System.Drawing.Point(153, 23);
+            this.TxtLCN.Name = "TxtLCN";
+            this.TxtLCN.Size = new System.Drawing.Size(339, 26);
+            this.TxtLCN.TabIndex = 8;
+            this.TxtLCN.TabStop = false;
+            this.TxtLCN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtLCN.ThemeName = "TelerikMetro";
+            // 
+            // DdlLocalidad
+            // 
+            this.DdlLocalidad.DropDownAnimationEnabled = true;
+            this.DdlLocalidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DdlLocalidad.Location = new System.Drawing.Point(153, 89);
+            this.DdlLocalidad.MaxDropDownItems = 0;
+            this.DdlLocalidad.Name = "DdlLocalidad";
+            this.DdlLocalidad.ShowImageInEditorArea = true;
+            this.DdlLocalidad.Size = new System.Drawing.Size(339, 27);
+            this.DdlLocalidad.TabIndex = 7;
+            this.DdlLocalidad.ThemeName = "TelerikMetro";
+            this.DdlLocalidad.SelectedValueChanged += new System.EventHandler(this.DdlLocalidad_SelectedValueChanged);
+            // 
+            // DdlCobradores
+            // 
+            this.DdlCobradores.DropDownAnimationEnabled = true;
+            this.DdlCobradores.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DdlCobradores.Location = new System.Drawing.Point(153, 56);
+            this.DdlCobradores.MaxDropDownItems = 0;
+            this.DdlCobradores.Name = "DdlCobradores";
+            this.DdlCobradores.ShowImageInEditorArea = true;
+            this.DdlCobradores.Size = new System.Drawing.Size(339, 27);
+            this.DdlCobradores.TabIndex = 6;
+            this.DdlCobradores.ThemeName = "TelerikMetro";
+            this.DdlCobradores.SelectedValueChanged += new System.EventHandler(this.DdlCobradores_SelectedValueChanged);
+            // 
+            // radLabel9
+            // 
+            this.radLabel9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel9.Location = new System.Drawing.Point(16, 92);
+            this.radLabel9.Name = "radLabel9";
+            this.radLabel9.Size = new System.Drawing.Size(76, 24);
+            this.radLabel9.TabIndex = 5;
+            this.radLabel9.Text = "Localidad:";
+            // 
+            // radLabel8
+            // 
+            this.radLabel8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel8.Location = new System.Drawing.Point(16, 59);
+            this.radLabel8.Name = "radLabel8";
+            this.radLabel8.Size = new System.Drawing.Size(75, 24);
+            this.radLabel8.TabIndex = 4;
+            this.radLabel8.Text = "Cobrador:";
             // 
             // radLabel7
             // 
@@ -294,6 +372,27 @@
             this.radLabel7.Size = new System.Drawing.Size(130, 24);
             this.radLabel7.TabIndex = 3;
             this.radLabel7.Text = "Número de venta:";
+            // 
+            // radLabel10
+            // 
+            this.radLabel10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel10.Location = new System.Drawing.Point(57, 34);
+            this.radLabel10.Name = "radLabel10";
+            this.radLabel10.Size = new System.Drawing.Size(77, 24);
+            this.radLabel10.TabIndex = 9;
+            this.radLabel10.Text = "Concepto:";
+            // 
+            // TxtConcepto
+            // 
+            this.TxtConcepto.AceptaNegativos = false;
+            this.TxtConcepto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtConcepto.Location = new System.Drawing.Point(140, 34);
+            this.TxtConcepto.Name = "TxtConcepto";
+            this.TxtConcepto.Size = new System.Drawing.Size(241, 26);
+            this.TxtConcepto.TabIndex = 10;
+            this.TxtConcepto.TabStop = false;
+            this.TxtConcepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtConcepto.ThemeName = "TelerikMetro";
             // 
             // FrmVentas
             // 
@@ -326,7 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             this.radPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
             this.radPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
@@ -334,7 +433,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
             this.radPanel4.ResumeLayout(false);
             this.radPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtLCN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlLocalidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlCobradores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtConcepto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -359,9 +465,16 @@
         private Clientes.UcClienteDetalle ucClienteDetalle;
         private Telerik.WinControls.UI.RadPanel radPanel2;
         private Telerik.WinControls.UI.RadPanel radPanel3;
-        private Telerik.WinControls.UI.RadButton radButton1;
+        private Telerik.WinControls.UI.RadButton BtnGuardar;
         private Telerik.WinControls.UI.RadPanel radPanel4;
         private Telerik.WinControls.UI.RadLabel radLabel7;
+        private Telerik.WinControls.UI.RadDropDownList DdlLocalidad;
+        private Telerik.WinControls.UI.RadDropDownList DdlCobradores;
+        private Telerik.WinControls.UI.RadLabel radLabel9;
+        private Telerik.WinControls.UI.RadLabel radLabel8;
+        private Framework.WinForm.Controls.CustomControls.DecimalTextBox TxtLCN;
+        private Telerik.WinControls.UI.RadLabel radLabel10;
+        private Framework.WinForm.Controls.CustomControls.DecimalTextBox TxtConcepto;
 
     }
 }

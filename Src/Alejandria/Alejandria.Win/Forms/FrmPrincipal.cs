@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Alejandria.Data.Interfaces;
+using Alejandria.Win.Enums;
 using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Forms.Cobradores;
 using Alejandria.Win.Forms.Ventas;
@@ -32,13 +33,13 @@ namespace Alejandria.Win.Forms
 
         private void radButton1_Click(object sender, EventArgs e)
         {
-            var frm = FormFactory.Create<FrmVentas>();
+            var frm = FormFactory.Create<FrmVentas>(default(int), ActionFormMode.Create);
             frm.ShowDialog();
         }
 
         private void BtnCobradores_Click(object sender, EventArgs e)
         {
-            var frm = FormFactory.Create<FrmCrearEditarCobrador>();
+            var frm = FormFactory.Create<FrmCrearEditarCobrador>(default (int), ActionFormMode.Create);
             frm.ShowDialog();
         }
 

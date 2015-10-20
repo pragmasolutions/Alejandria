@@ -6,8 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Alejandria.Business.Interfaces;
 using Alejandria.Data.Interfaces;
 using Alejandria.Entities;
+using Alejandria.Entities.Enums;
 using Alejandria.Win.Enums;
 using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Properties;
@@ -24,13 +26,18 @@ namespace Alejandria.Win.Forms.Ventas
         private Venta _venta;
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
         private Cliente _cliente;
+        int ProvinciaId = 1;
+        private int localidad = 0;
+        private int cobrador = 0;
+        private int nroComprobante = 0;
+        private int cuenta = 0;
 
-        public FrmVentas(IAlejandriaUow uow,IClock clock,IMessageBoxDisplayService messageBoxDisplayService, IFormFactory formFactory)
+        public FrmVentas(IAlejandriaUow uow,IClock clock,IMessageBoxDisplayService messageBoxDisplayService,
+            IFormFactory formFactory)
         {
             FormFactory = formFactory;
             Uow = uow;
             _clock = clock;
-
             InitializeComponent();
         }
 
@@ -104,6 +111,17 @@ namespace Alejandria.Win.Forms.Ventas
             }
         }
 
+        public string Concepto
+        {
+            get
+            {
+                return TxtConcepto.Text;
+            }
+            set
+            {
+                TxtConcepto.Text = value;
+            }
+        }
         #endregion
 
         #region Funciones
@@ -113,6 +131,51 @@ namespace Alejandria.Win.Forms.Ventas
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
             DtpVencimiento.Value = DateTime.Now.AddMonths(1);
             Cuotas = 1;
+            DefinirCombos();
+            CargarCombos();
+            nroComprobante = NumeroComprobante();
+            DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
+        }
+
+        private string DefinirLCN(int? cobrador, int? localidad, int? cuenta, int numeroComprobante)
+        {
+            var cob = (cobrador ?? 0).ToString().PadLeft(3, '0');
+            var loc = (localidad ?? 0).ToString().PadLeft(4, '0');
+            var cuen = (cuenta ?? 0).ToString().PadLeft(4, '0');
+            var comprobante = numeroComprobante.ToString().PadLeft(4, '0');
+            TxtLCN.Text = cob + '-' + loc + '-' + cuen + '-' + comprobante;
+            return cob  + loc  + cuen +  comprobante;
+        }
+
+        public int NumeroComprobante()
+        {
+            var numeroFactura = 0;
+            var numeroComprobante = Uow.Ventas.Listado().OrderByDescending(v => v.FechaAlta).FirstOrDefault();
+            if (numeroComprobante == null)
+                numeroFactura = 0;
+            else
+                numeroFactura = (numeroComprobante.NumeroComprobante);
+            return numeroFactura + 1;
+        }
+
+        private void CargarCombos()
+        {
+            var cobradores = Uow.Cobradores.Listado().Where(c=>c.Activo).ToList();
+            cobradores.Insert(0, new Cobrador { Id = 0, Nombre = "SELECCIONE ..." });
+            DdlCobradores.DataSource = cobradores;
+
+            var localidades = Uow.Localidades.Listado().Where(l => l.ProvinciaId == ProvinciaId).ToList();
+            DdlLocalidad.DataSource = localidades;
+
+        }
+
+        private void DefinirCombos()
+        {
+            DdlLocalidad.DisplayMember = "Nombre";
+            DdlLocalidad.ValueMember = "Id";
+
+            DdlCobradores.DisplayMember = "Nombre";
+            DdlCobradores.ValueMember = "Id";
         }
 
         private void UcFiltrosClienteOnBuscarFinished(object sender, List<Cliente> clientes)
@@ -159,6 +222,8 @@ namespace Alejandria.Win.Forms.Ventas
             var deudaVencida = 0;// _clienteNegocio.DeudaVencida(_cliente.Id, this.Context.SucursalActual.Id);
 
             ucClienteDetalle.ActualizarCliente(_cliente, deudaTotal, deudaVencida);
+            cuenta = _cliente.Cuenta?? 0;
+            DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
         }
 
         private void CrearCliente()
@@ -199,6 +264,61 @@ namespace Alejandria.Win.Forms.Ventas
             MontoCuota = Adeuda / Cuotas;
         }
 
-       
+        private void DdlCobradores_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cobrador=  int.TryParse(DdlCobradores.SelectedValue.ToString(), out cobrador) ? cobrador : 0;
+            DefinirLCN(cobrador,localidad,cuenta,nroComprobante);
+        }
+
+        private void DdlLocalidad_SelectedValueChanged(object sender, EventArgs e)
+        {
+            localidad = int.TryParse(DdlLocalidad.SelectedValue.ToString(), out localidad) ? localidad : 0;
+            DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            AgregarVenta()
+
+            //CuentaCorriente
+
+            //Caja
+        }
+
+        private Venta AgregarVenta()
+        {
+            var venta = new Venta();
+
+            venta.Id = Guid.NewGuid();
+
+            venta.NumeroComprobante = nroComprobante;
+            
+            venta.LetraComprobante = "X";
+            venta.LCN = DefinirLCN(cobrador,localidad,cuenta,nroComprobante);
+            venta.ComprobanteId = 1; // FAC.VTA.CTA.CTE.
+            venta.ClienteId = _cliente.Id;
+
+            venta.PuntoVenta = 1;
+            venta.FechaComprobante = _clock.Now;
+            venta.FechaVencimiento = _clock.Now;
+            venta.CondicionVentaId = CondicionVentaEnum.CuentaCorriente; //CUENTA CORRIENTE
+
+            venta.Concepto = ventaData.TipoComprobanteSeleccionado.ToString();
+            venta.ImporteNeto = ventaData.TotalPagar.GetValueOrDefault();
+            venta.ImporteIva = ImporteIva;
+
+            venta.ImporteSena = ventaData.Senas + ventaData.CreditosDevolucion;
+            venta.FechaUltimoPago = _clock.Now;
+            venta.TotalPagado = ventaData.TotalPagar;
+            venta.EstadoVentaId = EstadoVentaEnum.Entregada;
+
+            venta.FechaAlta = _clock.Now;
+            venta.SucursalAltaId = ventaData.SucursalId;
+            venta.OperadorAltaId = ventaData.OperadorId;
+
+            Uow.Ventas.Agregar(venta);
+
+            return venta;
+        }
     }
 }

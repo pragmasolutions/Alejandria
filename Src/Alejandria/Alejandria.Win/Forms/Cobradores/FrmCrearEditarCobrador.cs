@@ -277,9 +277,9 @@ namespace Alejandria.Win.Forms.Cobradores
                                                   ? null
                                                   : _cobrador.SucursalModificacionId;
 
-            //_cliente.OperadorAltaId = _formMode == ActionFormMode.Create
-            //                              ? Context.OperadorActual.Id
-            //                              : _cliente.OperadorAltaId;
+            _cobrador.OperadorAltaId = _formMode == ActionFormMode.Create
+                                          ? Guid.Empty
+                                          : _cobrador.OperadorAltaId;
 
             _cobrador.OperadorModificacionId = _formMode == ActionFormMode.Create
                                                   ? null
