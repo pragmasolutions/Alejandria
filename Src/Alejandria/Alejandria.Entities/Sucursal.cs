@@ -57,6 +57,8 @@ namespace Alejandria.Entities
             this.Zonas = new HashSet<Zona>();
             this.Zonas1 = new HashSet<Zona>();
             this.Cobradores1 = new HashSet<Cobrador>();
+            this.ClientesMovimientoes = new HashSet<ClientesMovimiento>();
+            this.ClientesMovimientoes1 = new HashSet<ClientesMovimiento>();
         }
     
         public int Id { get; set; }
@@ -127,5 +129,7 @@ namespace Alejandria.Entities
         public virtual ICollection<Zona> Zonas { get; set; }
         public virtual ICollection<Zona> Zonas1 { get; set; }
         public virtual ICollection<Cobrador> Cobradores1 { get; set; }
+        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
+        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes1 { get; set; }
     }
 }

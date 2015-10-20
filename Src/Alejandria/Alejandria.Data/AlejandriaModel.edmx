@@ -141,6 +141,26 @@
           <Property Name="SucursalModificacionId" Type="int" />
           <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="ClientesMovimiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTipoComprobante" Type="int" />
+          <Property Name="IdComprobante" Type="uniqueidentifier" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Debe" Type="money" />
+          <Property Name="Haber" Type="money" />
+          <Property Name="Observaciones" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaGeneracion" Type="datetime" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="SucursalAltaId" Type="int" />
+          <Property Name="OperadorAltaId" Type="uniqueidentifier" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="SucursalModificacionId" Type="int" />
+          <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="Cobradores">
           <Key>
             <PropertyRef Name="Id" />
@@ -904,6 +924,78 @@
             </Principal>
             <Dependent Role="ClientesCuentasCorriente">
               <PropertyRef Name="VentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="ClientesMovimiento" Type="Self.ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_OperadorAlta">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="ClientesMovimiento" Type="Self.ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_OperadorModificacion">
+          <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
+          <End Role="ClientesMovimiento" Type="Self.ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_SucursalAlta">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="ClientesMovimiento" Type="Self.ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_SucursalModificacion">
+          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+          <End Role="ClientesMovimiento" Type="Self.ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_TipoComprobante">
+          <End Role="TiposComprobantes" Type="Self.TiposComprobantes" Multiplicity="0..1" />
+          <End Role="ClientesMovimiento" Type="Self.ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposComprobantes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="IdTipoComprobante" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1804,6 +1896,7 @@
           <EntitySet Name="CategoriasOperadores" EntityType="Self.CategoriasOperadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientesCuentasCorriente" EntityType="Self.ClientesCuentasCorriente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientesMovimiento" EntityType="Self.ClientesMovimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cobradores" EntityType="Self.Cobradores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CondicionesIVA" EntityType="Self.CondicionesIVA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CondicionesVenta" EntityType="Self.CondicionesVenta" Schema="dbo" store:Type="Tables" />
@@ -1969,6 +2062,30 @@
           <AssociationSet Name="FK_ClientesCuentasCorriente_VentasId" Association="Self.FK_ClientesCuentasCorriente_VentasId">
             <End Role="Ventas" EntitySet="Ventas" />
             <End Role="ClientesCuentasCorriente" EntitySet="ClientesCuentasCorriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_Cliente" Association="Self.FK_ClientesMovimiento_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_OperadorAlta" Association="Self.FK_ClientesMovimiento_OperadorAlta">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_OperadorModificacion" Association="Self.FK_ClientesMovimiento_OperadorModificacion">
+            <End Role="Operadores" EntitySet="Operadores" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_SucursalAlta" Association="Self.FK_ClientesMovimiento_SucursalAlta">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_SucursalModificacion" Association="Self.FK_ClientesMovimiento_SucursalModificacion">
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_TipoComprobante" Association="Self.FK_ClientesMovimiento_TipoComprobante">
+            <End Role="TiposComprobantes" EntitySet="TiposComprobantes" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimiento" />
           </AssociationSet>
           <AssociationSet Name="FK_Cobradores_Localidad" Association="Self.FK_Cobradores_Localidad">
             <End Role="Localidades" EntitySet="Localidades" />
@@ -2455,6 +2572,8 @@
           <NavigationProperty Name="Zonas" Relationship="AlejandriaModel.FK_Zonas_OperadorAlta" FromRole="Operador" ToRole="Zona" />
           <NavigationProperty Name="Zonas1" Relationship="AlejandriaModel.FK_Zonas_OperadorModificacion" FromRole="Operador" ToRole="Zona" />
           <NavigationProperty Name="Cobradores1" Relationship="AlejandriaModel.FK_Cobradores_OperadorModificacion" FromRole="Operador" ToRole="Cobradores" />
+          <NavigationProperty Name="ClientesMovimientoes" Relationship="AlejandriaModel.FK_ClientesMovimiento_OperadorAlta" FromRole="Operador" ToRole="ClientesMovimiento" />
+          <NavigationProperty Name="ClientesMovimientoes1" Relationship="AlejandriaModel.FK_ClientesMovimiento_OperadorModificacion" FromRole="Operador" ToRole="ClientesMovimiento" />
         </EntityType>
         <EntityType Name="Personal">
           <Key>
@@ -2610,6 +2729,8 @@
           <NavigationProperty Name="Zonas" Relationship="AlejandriaModel.FK_Zonas_SucursalAlta" FromRole="Sucursal" ToRole="Zona" />
           <NavigationProperty Name="Zonas1" Relationship="AlejandriaModel.FK_Zonas_SucursalModificacion" FromRole="Sucursal" ToRole="Zona" />
           <NavigationProperty Name="Cobradores1" Relationship="AlejandriaModel.FK_Cobradores_SucursalModificacion" FromRole="Sucursal" ToRole="Cobradores" />
+          <NavigationProperty Name="ClientesMovimientoes" Relationship="AlejandriaModel.FK_ClientesMovimiento_SucursalAlta" FromRole="Sucursal" ToRole="ClientesMovimiento" />
+          <NavigationProperty Name="ClientesMovimientoes1" Relationship="AlejandriaModel.FK_ClientesMovimiento_SucursalModificacion" FromRole="Sucursal" ToRole="ClientesMovimiento" />
         </EntityType>
         <EntityType Name="TiposDocumentosIdentidad">
           <Key>
@@ -3183,6 +3304,31 @@
             <End Role="Sucursal" EntitySet="Sucursals" />
             <End Role="Cobradores" EntitySet="Cobrador" />
           </AssociationSet>
+          <EntitySet Name="ClientesMovimientoes" EntityType="AlejandriaModel.ClientesMovimiento" />
+          <AssociationSet Name="FK_ClientesMovimiento_Cliente" Association="AlejandriaModel.FK_ClientesMovimiento_Cliente">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimientoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_OperadorAlta" Association="AlejandriaModel.FK_ClientesMovimiento_OperadorAlta">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimientoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_OperadorModificacion" Association="AlejandriaModel.FK_ClientesMovimiento_OperadorModificacion">
+            <End Role="Operador" EntitySet="Operadors" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimientoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_SucursalAlta" Association="AlejandriaModel.FK_ClientesMovimiento_SucursalAlta">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimientoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_SucursalModificacion" Association="AlejandriaModel.FK_ClientesMovimiento_SucursalModificacion">
+            <End Role="Sucursal" EntitySet="Sucursals" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimientoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientesMovimiento_TipoComprobante" Association="AlejandriaModel.FK_ClientesMovimiento_TipoComprobante">
+            <End Role="TiposComprobante" EntitySet="TiposComprobantes" />
+            <End Role="ClientesMovimiento" EntitySet="ClientesMovimientoes" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -3243,6 +3389,7 @@
           <NavigationProperty Name="Zona" Relationship="AlejandriaModel.FK_Clientes_Zona" FromRole="Cliente" ToRole="Zona" />
           <NavigationProperty Name="ClientesCuentasCorrientes" Relationship="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes" FromRole="Cliente" ToRole="ClientesCuentasCorriente" />
           <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_Cliente" FromRole="Cliente" ToRole="Venta" />
+          <NavigationProperty Name="ClientesMovimientoes" Relationship="AlejandriaModel.FK_ClientesMovimiento_Cliente" FromRole="Cliente" ToRole="ClientesMovimiento" />
         </EntityType>
         <EntityType Name="Vendedor">
           <Key>
@@ -3508,6 +3655,7 @@
           <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_TiposComprobantes_OperadorModificacion" FromRole="TiposComprobante" ToRole="Operador" />
           <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_TiposComprobantes_SucursalesAlta" FromRole="TiposComprobante" ToRole="Sucursal" />
           <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_TiposComprobantes_SucursalesModificacion" FromRole="TiposComprobante" ToRole="Sucursal" />
+          <NavigationProperty Name="ClientesMovimientoes" Relationship="AlejandriaModel.FK_ClientesMovimiento_TipoComprobante" FromRole="TiposComprobante" ToRole="ClientesMovimiento" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
@@ -4769,6 +4917,104 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ClientesMovimiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="Guid" Nullable="false" />
+          <Property Name="IdTipoComprobante" Type="Int32" />
+          <Property Name="IdComprobante" Type="Guid" />
+          <Property Name="Concepto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Debe" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Haber" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaGeneracion" Type="DateTime" Precision="3" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="SucursalAltaId" Type="Int32" />
+          <Property Name="OperadorAltaId" Type="Guid" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="SucursalModificacionId" Type="Int32" />
+          <Property Name="OperadorModificacionId" Type="Guid" />
+          <NavigationProperty Name="Cliente" Relationship="AlejandriaModel.FK_ClientesMovimiento_Cliente" FromRole="ClientesMovimiento" ToRole="Cliente" />
+          <NavigationProperty Name="OperadorAlta" Relationship="AlejandriaModel.FK_ClientesMovimiento_OperadorAlta" FromRole="ClientesMovimiento" ToRole="Operador" />
+          <NavigationProperty Name="OperadorModificacion" Relationship="AlejandriaModel.FK_ClientesMovimiento_OperadorModificacion" FromRole="ClientesMovimiento" ToRole="Operador" />
+          <NavigationProperty Name="SucursalAlta" Relationship="AlejandriaModel.FK_ClientesMovimiento_SucursalAlta" FromRole="ClientesMovimiento" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalModificacion" Relationship="AlejandriaModel.FK_ClientesMovimiento_SucursalModificacion" FromRole="ClientesMovimiento" ToRole="Sucursal" />
+          <NavigationProperty Name="TiposComprobante" Relationship="AlejandriaModel.FK_ClientesMovimiento_TipoComprobante" FromRole="ClientesMovimiento" ToRole="TiposComprobante" />
+        </EntityType>
+        <Association Name="FK_ClientesMovimiento_Cliente">
+          <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="AlejandriaModel.ClientesMovimiento" Role="ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_OperadorAlta">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesMovimiento" Role="ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="OperadorAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_OperadorModificacion">
+          <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesMovimiento" Role="ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="OperadorModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_SucursalAlta">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesMovimiento" Role="ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="SucursalAltaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_SucursalModificacion">
+          <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesMovimiento" Role="ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="SucursalModificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientesMovimiento_TipoComprobante">
+          <End Type="AlejandriaModel.TiposComprobante" Role="TiposComprobante" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.ClientesMovimiento" Role="ClientesMovimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposComprobante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientesMovimiento">
+              <PropertyRef Name="IdTipoComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5272,6 +5518,27 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="ClientesMovimientoes">
+            <EntityTypeMapping TypeName="AlejandriaModel.ClientesMovimiento">
+              <MappingFragment StoreEntitySet="ClientesMovimiento">
+                <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />
+                <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="OperadorAltaId" ColumnName="OperadorAltaId" />
+                <ScalarProperty Name="SucursalAltaId" ColumnName="SucursalAltaId" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="FechaGeneracion" ColumnName="FechaGeneracion" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Haber" ColumnName="Haber" />
+                <ScalarProperty Name="Debe" ColumnName="Debe" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="IdTipoComprobante" ColumnName="IdTipoComprobante" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

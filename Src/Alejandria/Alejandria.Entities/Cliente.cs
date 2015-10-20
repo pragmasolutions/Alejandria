@@ -18,6 +18,7 @@ namespace Alejandria.Entities
         {
             this.ClientesCuentasCorrientes = new HashSet<ClientesCuentasCorriente>();
             this.Ventas = new HashSet<Venta>();
+            this.ClientesMovimientoes = new HashSet<ClientesMovimiento>();
         }
     
         public System.Guid Id { get; set; }
@@ -76,5 +77,6 @@ namespace Alejandria.Entities
         public virtual Zona Zona { get; set; }
         public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
         public virtual ICollection<Venta> Ventas { get; set; }
+        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
     }
 }

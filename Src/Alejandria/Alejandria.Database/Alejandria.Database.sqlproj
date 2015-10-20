@@ -89,6 +89,7 @@
     <Build Include="Tables\TiposMovimientosCajas.sql" />
     <Build Include="Tables\Cobradores.sql" />
     <Build Include="Stored Procedures\ComprobantesByVentaId.sql" />
+    <Build Include="Tables\ClientesMovimiento.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Alejandria.Database.refactorlog" />

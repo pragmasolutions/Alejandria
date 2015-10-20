@@ -39,6 +39,8 @@ namespace Alejandria.Data
         public IRepository<CajasMovimiento> CajasMovimientos { get { return GetStandardRepo<CajasMovimiento>(); } }
         public IRepository<TiposMovimientosCaja> TiposMovimientosCajas { get { return GetStandardRepo<TiposMovimientosCaja>(); } }
         public IRepository<Cobrador> Cobradores { get { return GetStandardRepo<Cobrador>(); } }
+        public IRepository<ClientesMovimiento> ClientesMovimientos { get { return GetStandardRepo<ClientesMovimiento>(); } }
+
 
 
         public string ConnectionString

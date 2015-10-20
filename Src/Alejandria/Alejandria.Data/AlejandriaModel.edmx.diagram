@@ -139,6 +139,13 @@
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_TipoDocumento" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalModificacion" />
+        <EntityTypeShape EntityType="AlejandriaModel.ClientesMovimiento" Width="1.5" PointX="17.5" PointY="15.375" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_Cliente" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_SucursalAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_SucursalModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_TipoComprobante" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

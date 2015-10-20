@@ -12,22 +12,17 @@ namespace Alejandria.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TiposComprobante
+    public partial class ClientesMovimiento
     {
-        public TiposComprobante()
-        {
-            this.Ventas = new HashSet<Venta>();
-            this.CajasMovimientos = new HashSet<CajasMovimiento>();
-            this.ClientesMovimientoes = new HashSet<ClientesMovimiento>();
-        }
-    
         public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Abreviatura { get; set; }
-        public string Descripcion { get; set; }
-        public Nullable<int> Prioridad { get; set; }
-        public string Comprobante { get; set; }
+        public System.Guid IdCliente { get; set; }
+        public Nullable<int> IdTipoComprobante { get; set; }
+        public Nullable<System.Guid> IdComprobante { get; set; }
         public string Concepto { get; set; }
+        public Nullable<decimal> Debe { get; set; }
+        public Nullable<decimal> Haber { get; set; }
+        public string Observaciones { get; set; }
+        public Nullable<System.DateTime> FechaGeneracion { get; set; }
         public Nullable<System.DateTime> FechaAlta { get; set; }
         public Nullable<int> SucursalAltaId { get; set; }
         public Nullable<System.Guid> OperadorAltaId { get; set; }
@@ -35,12 +30,11 @@ namespace Alejandria.Entities
         public Nullable<int> SucursalModificacionId { get; set; }
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
     
-        public virtual ICollection<Venta> Ventas { get; set; }
-        public virtual ICollection<CajasMovimiento> CajasMovimientos { get; set; }
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
-        public virtual Sucursal Sucursale { get; set; }
-        public virtual Sucursal Sucursale1 { get; set; }
-        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Operador OperadorAlta { get; set; }
+        public virtual Operador OperadorModificacion { get; set; }
+        public virtual Sucursal SucursalAlta { get; set; }
+        public virtual Sucursal SucursalModificacion { get; set; }
+        public virtual TiposComprobante TiposComprobante { get; set; }
     }
 }
