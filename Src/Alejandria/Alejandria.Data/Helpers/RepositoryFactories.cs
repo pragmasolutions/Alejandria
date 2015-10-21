@@ -34,7 +34,7 @@ namespace Alejandria.Data.Helpers
         {
             return new Dictionary<Type, Func<DbContext, object>>
              {
-                //  {typeof(IReporteRepository), dbContext => new ReporteRepository(dbContext)},
+                  {typeof(IReporteRepository), dbContext => new ReporteRepository(dbContext)},
                   //{typeof(ITituloRepository), dbContext => new TituloRepository(dbContext)},
                   //{typeof(IConsignacionVendidaRepository), dbContext => new ConsignacionVendidaRepository(dbContext)},
                   //{typeof(IConsignacionDevueltaRepository), dbContext => new ConsignacionDevueltaRepository(dbContext)}

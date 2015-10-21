@@ -19,23 +19,19 @@ namespace Alejandria.Win.Forms.Ventas
     {
         private readonly IClock _clock;
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
-        private Guid _ventaId;
+        public Guid _ventaId;
         private readonly IReporteNegocio _reporteNegocio;
 
-        public FrmComprobantes(IClock clock,
-                             IFormFactory formFactory,
-                             IMessageBoxDisplayService messageBoxDisplayService,
-                             IReporteNegocio reporteNegocio,
-                             IAlejandriaUow uow, Guid id)
+        public FrmComprobantes(IFormFactory formFactory,
+                            IAlejandriaUow uow,
+                            Guid id)
         {
             FormFactory = formFactory;
             Uow = uow;
 
-            _clock = clock;
-            _messageBoxDisplayService = messageBoxDisplayService;
+           // _clock = clock;
+            //_messageBoxDisplayService = messageBoxDisplayService;
             _ventaId = id;
-            _reporteNegocio = reporteNegocio;
-
             InitializeComponent();
         }
 
@@ -70,8 +66,18 @@ namespace Alejandria.Win.Forms.Ventas
             string reportPath = @"\RDLS\Comprobantes.rdl";
             RvComprobantes.LocalReport.ReportPath = appPath + reportPath;
 
-            var comprobantes = _reporteNegocio.ComprobantesByVentaId(_ventaId);
+            var comprobantes = Uow.Reportes.ComprobantesByVentaId(_ventaId);
            RvComprobantes.LocalReport.DataSources.Add(new ReportDataSource("Comprobantes",comprobantes));
+           
+            var parametros = new List<ReportParameter>
+                                 {
+                                     new ReportParameter("ventaId", _ventaId.ToString())
+                                     
+                                 };
+
+            RvComprobantes.LocalReport.SetParameters(parametros);
+            this.RvComprobantes.RefreshReport();
+           this.Cursor = Cursors.Default;
 
         }
     }

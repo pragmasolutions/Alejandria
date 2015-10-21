@@ -8,15 +8,6 @@ namespace Alejandria.Entities.Enums
 {
     public enum CondicionVentaEnum
     {
-        Efectivo = 1,
-        Dinners = 5,
-        Visa = 7,
-        Mastercard = 10,
-        CteContrareembolso,
-        MesCompraTrei,
-        CuentaCorriente,
-        TreintaDiasFactura,
-        MesCompra10,
-        Contado = 16
+        CuentaCorriente = 1
     }
 }

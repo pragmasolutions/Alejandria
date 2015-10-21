@@ -41,6 +41,7 @@ namespace Alejandria.Data
         public IRepository<Cobrador> Cobradores { get { return GetStandardRepo<Cobrador>(); } }
         public IRepository<ClientesMovimiento> ClientesMovimientos { get { return GetStandardRepo<ClientesMovimiento>(); } }
 
+        public IReporteRepository Reportes { get { return GetRepo<IReporteRepository>(); } }
 
 
         public string ConnectionString

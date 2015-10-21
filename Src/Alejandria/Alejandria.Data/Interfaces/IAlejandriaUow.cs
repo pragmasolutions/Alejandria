@@ -27,6 +27,7 @@ namespace Alejandria.Data.Interfaces
         IRepository<Cliente> Clientes { get; }
         IRepository<Cobrador> Cobradores { get; }
         IRepository<ClientesMovimiento> ClientesMovimientos { get; }
+        IReporteRepository Reportes { get; }
 
 
         AlejandriaDbContext DbContext { get; }

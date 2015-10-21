@@ -23,7 +23,6 @@ namespace Alejandria.Win.Forms.Ventas
     public partial class FrmVentas : FormBase
     {
         private readonly IClock _clock;
-        private Venta _venta;
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
         private Cliente _cliente;
         int ProvinciaId = 1;
@@ -31,6 +30,8 @@ namespace Alejandria.Win.Forms.Ventas
         private int cobrador = 0;
         private int nroComprobante = 0;
         private int cuenta = 0;
+        private Venta venta = new Venta();
+        private Caja _caja;
 
         public FrmVentas(IAlejandriaUow uow,IClock clock,IMessageBoxDisplayService messageBoxDisplayService,
             IFormFactory formFactory)
@@ -245,8 +246,146 @@ namespace Alejandria.Win.Forms.Ventas
             }
         }
 
+        private void AgregarVenta()
+        {
+            venta.Id = Guid.NewGuid();
+
+            venta.NumeroComprobante = nroComprobante;
+
+            venta.LetraComprobante = "X";
+            venta.LCN = DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
+            venta.ComprobanteId = 1; // FAC.VTA.CTA.CTE.
+            venta.ClienteId = _cliente.Id;
+
+            venta.PuntoVenta = 1;
+            venta.FechaComprobante = _clock.Now;
+            venta.FechaVencimiento = _clock.Now;
+            venta.CondicionVentaId = CondicionVentaEnum.CuentaCorriente; //CUENTA CORRIENTE
+
+            venta.Concepto = Concepto;
+            venta.ImporteNeto = MontoVenta ?? 0;
+            venta.ImporteIva = 0;
+
+            venta.ImporteSena = 0;
+            venta.FechaUltimoPago = _clock.Now;
+            venta.TotalPagado = Anticipo;
+            venta.EstadoVentaId = 1; //Entregada
+
+            venta.FechaAlta = _clock.Now;
+            venta.SucursalAltaId = 1;
+            venta.OperadorAltaId = Guid.Empty;
+
+            Uow.Ventas.Agregar(venta);
+           // Uow.Commit();
+        }
+
+        private void AgregarCuentaCorriente()
+        {
+            var cuotas = Cuotas;
+            for (int i = 1; i <= cuotas; i++)
+            {
+                var clienteCuentaCorriente = new ClientesCuentasCorriente();
+                clienteCuentaCorriente.Id = Guid.NewGuid();
+                clienteCuentaCorriente.VentaId = venta.Id;
+                clienteCuentaCorriente.ClienteId = _cliente.Id;
+                clienteCuentaCorriente.Cuota = (byte)i;
+                clienteCuentaCorriente.Fecha = _clock.Now;
+                DateTime venc = DtpVencimiento.Value;
+                clienteCuentaCorriente.FechaVencimiento = venc.AddMonths(i - 1);
+                clienteCuentaCorriente.Importe = (float) MontoCuota;
+                clienteCuentaCorriente.Pagado = 0;
+                clienteCuentaCorriente.FechaGeneracion = _clock.Now;
+                clienteCuentaCorriente.FechaAlta = _clock.Now;
+                clienteCuentaCorriente.SucursalAltaId = 1;
+                clienteCuentaCorriente.OperadorAltaId = Guid.Empty;
+
+                Uow.ClientesCuentasCorrientes.Agregar(clienteCuentaCorriente);
+               // Uow.Commit();
+            }
+        }
+
+        private void AgregarClienteMovimiento()
+        {
+            var clientesMovimiento = new ClientesMovimiento();
+
+            clientesMovimiento.IdCliente = _cliente.Id;
+            clientesMovimiento.IdTipoComprobante = 1; // FAC.VTA.CTA.CTE.
+            clientesMovimiento.IdComprobante = venta.Id;
+            clientesMovimiento.Concepto = "FAC.VTA.CTA.CTE.";
+            clientesMovimiento.Haber = Anticipo;
+            clientesMovimiento.Debe = MontoVenta - Anticipo;
+            clientesMovimiento.FechaGeneracion = _clock.Now;
+            clientesMovimiento.FechaAlta = _clock.Now;
+            clientesMovimiento.SucursalAltaId = 1;
+            clientesMovimiento.OperadorAltaId = Guid.Empty;
+
+            Uow.ClientesMovimientos.Agregar(clientesMovimiento);
+           // Uow.Commit();
+        }
+
+        private void ModificarCaja()
+        {
+             _caja = Uow.Cajas.Listado().OrderByDescending(c=>c.FechaAlta).FirstOrDefault();
+            var estado = 1; //Modificar Caja
+            if (_caja == null)
+            {
+                _caja = new Caja();
+                _caja.FechaAlta = _clock.Now;
+                _caja.SucursalAltaId = 1;
+                _caja.OperadorAltaId = Guid.Empty;
+                _caja.Fecha = _clock.Now;
+                _caja.SucursalId = 1;
+                estado = 0; //AgregarCaja
+            }
+
+
+            if (_caja.Ingresos == null)
+                _caja.Ingresos = 0;
+            _caja.Ingresos += (float?)venta.TotalPagado;
+            if (_caja.Saldo == null)
+                _caja.Saldo = 0;
+            _caja.Saldo += (float?)venta.TotalPagado;
+            _caja.FechaModificacion = _clock.Now;
+            _caja.SucursalModificacionId = 1;
+            _caja.OperadorModificacionId = Guid.Empty;
+
+            if (estado == 0)
+                Uow.Cajas.Agregar(_caja);
+            else
+                Uow.Cajas.Modificar(_caja);
+
+            //Uow.Commit();
+        }
+
+        private void AgregarCajaMovimiento()
+        {
+            var cajaMovimiento = new CajasMovimiento();
+            cajaMovimiento.Id = Guid.NewGuid();
+            cajaMovimiento.CajaId = _caja.Id;
+            cajaMovimiento.TipoMovimientoCajaId = 1; //FACTURA DE VENTA - CUENTA CORRIENTE
+            cajaMovimiento.TipoComprobante = 1; //FAC.VTA.CTA.CTE.
+            cajaMovimiento.ComprobanteId = venta.Id;
+            //cajaMovimiento.Senia = ventaData.Senas + ventaData.CreditosDevolucion;
+           // if (ventaData.CondicionVentaSeleccionada == CondicionVentaEnum.CuentaCorriente)
+                cajaMovimiento.Importe = Anticipo;
+            //else
+            //    cajaMovimiento.Importe = ventaData.TotalPagar;
+
+            cajaMovimiento.ImpFac = MontoVenta;
+
+
+            cajaMovimiento.PcAlta = Environment.MachineName;
+            cajaMovimiento.SucursalAltaId = 1;
+            cajaMovimiento.OperadorAltaId = Guid.Empty;
+            cajaMovimiento.FechaAlta = _clock.Now;
+
+            Uow.CajasMovimientos.Agregar(cajaMovimiento);
+            //Uow.Commit();
+        }
+
        #endregion
 
+        #region Controles
         private void TxtMontoVenta_TextChanged(object sender, EventArgs e)
         {
             Adeuda = MontoVenta - (Anticipo ?? 0);
@@ -278,47 +417,37 @@ namespace Alejandria.Win.Forms.Ventas
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            AgregarVenta()
+            AgregarVenta();
 
-            //CuentaCorriente
+            AgregarCuentaCorriente();
 
-            //Caja
+            AgregarClienteMovimiento();
+
+            ModificarCaja();
+
+            AgregarCajaMovimiento();
+
+            Uow.Commit();
+
+            //using (var crearVenta = FormFactory.Create<FrmComprobantes>(venta.Id))
+            //{
+            //    crearVenta._ventaId =venta.Id;
+            //    //crearVenta._formaPago = ventaResponse.FacturaInfo.FormaPago;
+            //    //crearVenta._recargo = UcTotalesVenta.Recargo.ToString();
+
+            //    crearVenta.ShowDialog();
+            //}
+
+            var crearVenta = FormFactory.Create<FrmComprobantes>(venta.Id);
+            crearVenta.Show();
         }
 
-        private Venta AgregarVenta()
-        {
-            var venta = new Venta();
 
-            venta.Id = Guid.NewGuid();
+      
 
-            venta.NumeroComprobante = nroComprobante;
-            
-            venta.LetraComprobante = "X";
-            venta.LCN = DefinirLCN(cobrador,localidad,cuenta,nroComprobante);
-            venta.ComprobanteId = 1; // FAC.VTA.CTA.CTE.
-            venta.ClienteId = _cliente.Id;
+        #endregion
+       
+      
 
-            venta.PuntoVenta = 1;
-            venta.FechaComprobante = _clock.Now;
-            venta.FechaVencimiento = _clock.Now;
-            venta.CondicionVentaId = CondicionVentaEnum.CuentaCorriente; //CUENTA CORRIENTE
-
-            venta.Concepto = ventaData.TipoComprobanteSeleccionado.ToString();
-            venta.ImporteNeto = ventaData.TotalPagar.GetValueOrDefault();
-            venta.ImporteIva = ImporteIva;
-
-            venta.ImporteSena = ventaData.Senas + ventaData.CreditosDevolucion;
-            venta.FechaUltimoPago = _clock.Now;
-            venta.TotalPagado = ventaData.TotalPagar;
-            venta.EstadoVentaId = EstadoVentaEnum.Entregada;
-
-            venta.FechaAlta = _clock.Now;
-            venta.SucursalAltaId = ventaData.SucursalId;
-            venta.OperadorAltaId = ventaData.OperadorId;
-
-            Uow.Ventas.Agregar(venta);
-
-            return venta;
-        }
     }
 }
