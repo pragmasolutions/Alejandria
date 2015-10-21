@@ -3,7 +3,8 @@
 	
 AS
 	SELECT C.Cuenta, C.Denominacion, C.Domicilio, C.Telefono, V.Concepto , CM.Importe AS Anticipo,
-	COUNT(CCC.Id) AS Cuotas, ccc.Importe as ValorCuota, ccc.Cuota as Cuota, P.Nombre AS Vendedor
+	COUNT(CCC.Id) AS Cuotas, ccc.Importe as ValorCuota, ccc.Cuota as Cuota, P.Nombre AS Vendedor, 
+	CCC.FechaVencimiento
 	FROM Ventas V
 	INNER JOIN ClientesCuentasCorriente CCC
 	ON CCC.VentaId= V.Id
@@ -17,6 +18,6 @@ AS
 	ON P.Id= O.PersonalId
 	WHERE V.id= @ventaId 
 	GROUP BY C.Cuenta, C.Denominacion, C.Denominacion, C.Domicilio, C.Telefono, V.Concepto, CM.Importe, CCC.Importe,
-	CCC.Cuota, P.Nombre
+	CCC.Cuota, P.Nombre, CCC.FechaVencimiento
 	ORDER BY CCC.Cuota
 --RETURN 0

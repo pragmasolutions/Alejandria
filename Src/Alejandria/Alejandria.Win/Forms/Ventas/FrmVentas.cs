@@ -400,7 +400,8 @@ namespace Alejandria.Win.Forms.Ventas
 
         private void TxtCuotas_TextChanged(object sender, EventArgs e)
         {
-            MontoCuota = Adeuda / Cuotas;
+            if (Cuotas!=0)
+                MontoCuota = Adeuda / Cuotas;
         }
 
         private void DdlCobradores_SelectedValueChanged(object sender, EventArgs e)

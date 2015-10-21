@@ -4845,18 +4845,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="ComprobantesByVentaId_Result">
-          <Property Type="Int32" Name="Cuenta" Nullable="true" />
-          <Property Type="String" Name="Denominacion" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="Domicilio" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="40" />
-          <Property Type="String" Name="Concepto" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="Anticipo" Nullable="true" Precision="19" />
-          <Property Type="Int32" Name="Cuotas" Nullable="true" />
-          <Property Type="Single" Name="ValorCuota" Nullable="true" />
-          <Property Type="Byte" Name="Cuota" Nullable="false" />
-          <Property Type="String" Name="Vendedor" Nullable="true" MaxLength="50" />
-        </ComplexType>
         <Association Name="FK_Cobradores_Localidad">
           <End Type="AlejandriaModel.Localidad" Role="Localidad" Multiplicity="0..1" />
           <End Type="AlejandriaModel.Cobrador" Role="Cobradore" Multiplicity="*" />
@@ -5015,6 +5003,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="ComprobantesByVentaId_Result">
+          <Property Type="Int32" Name="Cuenta" Nullable="true" />
+          <Property Type="String" Name="Denominacion" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Domicilio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Concepto" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Anticipo" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="Cuotas" Nullable="true" />
+          <Property Type="Single" Name="ValorCuota" Nullable="true" />
+          <Property Type="Byte" Name="Cuota" Nullable="false" />
+          <Property Type="String" Name="Vendedor" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaVencimiento" Nullable="true" Precision="23" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5503,7 +5504,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ComprobantesByVentaId" FunctionName="AlejandriaModel.Store.ComprobantesByVentaId">
-            <ResultMapping>
+          <ResultMapping>
               <ComplexTypeMapping TypeName="AlejandriaModel.ComprobantesByVentaId_Result">
                 <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
                 <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
@@ -5515,6 +5516,7 @@
                 <ScalarProperty Name="ValorCuota" ColumnName="ValorCuota" />
                 <ScalarProperty Name="Cuota" ColumnName="Cuota" />
                 <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

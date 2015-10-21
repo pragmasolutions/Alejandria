@@ -46,18 +46,6 @@ namespace Alejandria.Win.Forms.Ventas
             if (_ventaId == Guid.Empty)
                 return;
 
-            var venta = Uow.Ventas.Obtener(v => v.Id == _ventaId, v => v.CondicionesVenta);
-
-            var LCN = venta.LCN;
-            var fecha = venta.FechaComprobante.ToString();
-            var cliente = Uow.Clientes.Obtener(c => c.Id == venta.ClienteId, c => c.Provincia, c => c.Localidad);
-            var clienteNombre = "Cliente: " + cliente.Denominacion;
-            var cuenta = cliente.Cuenta;
-            var DNI = "Cuit/DNI: " + cliente.Cuit;
-            var dom = cliente.Domicilio.TrimEnd(' ');
-            var domicilio = "Domicilio: " + dom;
-            var localidad = " Localidad: " + cliente.Localidad.Nombre.TrimEnd(' ');
-            var concepto = venta.Concepto;
 
             this.Cursor = Cursors.WaitCursor;
             RvComprobantes.LocalReport.DataSources.Clear();
@@ -71,8 +59,7 @@ namespace Alejandria.Win.Forms.Ventas
            
             var parametros = new List<ReportParameter>
                                  {
-                                     new ReportParameter("ventaId", _ventaId.ToString())
-                                     
+                                     new ReportParameter("ventaId", _ventaId.ToString()),
                                  };
 
             RvComprobantes.LocalReport.SetParameters(parametros);
