@@ -406,8 +406,11 @@ namespace Alejandria.Win.Forms.Ventas
 
         private void DdlCobradores_SelectedValueChanged(object sender, EventArgs e)
         {
-            cobrador=  int.TryParse(DdlCobradores.SelectedValue.ToString(), out cobrador) ? cobrador : 0;
-            DefinirLCN(cobrador,localidad,cuenta,nroComprobante);
+            if (DdlCobradores.SelectedValue != null)
+            {
+                cobrador=  int.TryParse(DdlCobradores.SelectedValue.ToString(), out cobrador) ? cobrador : 0;
+                DefinirLCN(cobrador,localidad,cuenta,nroComprobante);
+            }
         }
 
         private void DdlLocalidad_SelectedValueChanged(object sender, EventArgs e)
