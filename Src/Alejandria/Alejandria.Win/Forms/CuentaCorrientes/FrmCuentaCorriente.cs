@@ -15,6 +15,7 @@ using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Properties;
 using Framework.Common.Utility;
 using Framework.WinForm.Comun.Notification;
+using Telerik.WinControls.UI;
 
 namespace Alejandria.Win.Forms.CuentaCorrientes
 {
@@ -24,6 +25,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
         private readonly IClienteNegocio _clienteNegocio;
         private Cliente _cliente;
+        private ClientesCuentasCorriente _cuota;
 
         public FrmCuentaCorriente(IAlejandriaUow uow, IClock clock, IMessageBoxDisplayService messageBoxDisplayService,
             IFormFactory formFactory, IClienteNegocio clienteNegocio)
@@ -39,7 +41,31 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         private void FrmCuentaCorriente_Load(object sender, EventArgs e)
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
+            this.GridCuotas.Columns["FechaVencimiento"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["FechaVencimiento"].FormatString = "{0: dd/M/yyyy}";
+
+            this.GridCuotas.Columns["Fecha"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["Fecha"].FormatString = "{0: dd/M/yyyy}";
+
+            this.GridCuotas.Columns["Importe"].DataType = typeof(decimal);
+            this.GridCuotas.Columns["Importe"].FormatString = "{0:N2}";
+
         }
+
+        #region Propiedades
+        public float? TotalPagar
+        {
+            get
+            {
+                float totalpagar;
+                return float.TryParse(TxtTotal.Text, out totalpagar) ? totalpagar : (float?)0;
+            }
+            set
+            {
+                TxtTotal.Text = value.HasValue ? value.Value.ToString("n2") : string.Empty;
+            }
+        }
+        #endregion
 
         private void UcFiltrosClienteOnBuscarFinished(object sender, List<Cliente> clientes)
         {
@@ -116,5 +142,144 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
                 formCrearCliente.ShowDialog();
             }
         }
-    }
+
+        private void GridCuotas_ValueChanged(object sender, EventArgs e)
+        {
+            if (this.GridCuotas.ActiveEditor is RadCheckBoxEditor)
+            {
+               if (GridCuotas.ActiveEditor.Value.ToString()=="On")
+                {
+                    var cuotas = GridCuotas.CurrentRow.DataBoundItem as ClientesCuentasCorriente;
+                    if (cuotas != null)
+                    {
+                        TotalPagar +=  cuotas.Importe;
+                        cuotas.Pagado = cuotas.Importe;
+                    }
+
+                }
+                else if (GridCuotas.ActiveEditor.Value.ToString()=="Off")
+                {
+                    var cuotas = GridCuotas.CurrentRow.DataBoundItem as ClientesCuentasCorriente;
+                    if (cuotas != null)
+                        TotalPagar -= cuotas.Importe;
+                }
+                
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            if (TotalPagar!=0)
+            {
+                foreach (var cuotas in GridCuotas.Rows)
+                {
+                    _cuota = cuotas.DataBoundItem as ClientesCuentasCorriente;
+                    if (_cuota.Pagado != 0)
+                    {
+                        AgregarClienteMovimiento(_cuota);
+                        ModificarCaja(TotalPagar);
+                        AgregarCajaMovimiento();
+                        ModificarCuentaCorriente(_cuota);
+                        ModificarVenta(_cuota.VentaId);
+
+                        Uow.Commit();
+                    }
+                }
+                _messageBoxDisplayService.ShowSuccess("Guardado exitosamente");
+                ActualizarCuotas(_cliente.Id);
+            }
+            
+        }
+
+        private void ModificarVenta(Guid ventaId)
+        {
+            var venta = Uow.Ventas.Obtener(v => v.Id == ventaId);
+            venta.TotalPagado =  (venta.TotalPagado ?? 0) + (decimal?)_cuota.Pagado ;
+
+            venta.FechaModificacion = _clock.Now;
+            venta.SucursalModificacionId = 1;
+            venta.OperadorModificacionId = Guid.Empty;
+        }
+
+        private void AgregarClienteMovimiento(ClientesCuentasCorriente cuota)
+        {
+            var clientesMovimiento = new ClientesMovimiento();
+
+            clientesMovimiento.IdCliente = _cliente.Id;
+            clientesMovimiento.IdTipoComprobante = 2; // PAGOCUOTA
+            clientesMovimiento.IdComprobante = cuota.Id;
+            clientesMovimiento.Concepto = "Pago.Cuota.CtaCte";
+            clientesMovimiento.Haber = (decimal?)cuota.Pagado;
+            //clientesMovimiento.Debe = MontoVenta - Anticipo;
+            clientesMovimiento.FechaGeneracion = _clock.Now;
+            clientesMovimiento.FechaAlta = _clock.Now;
+            clientesMovimiento.SucursalAltaId = 1;
+            clientesMovimiento.OperadorAltaId = Guid.Empty;
+
+            Uow.ClientesMovimientos.Agregar(clientesMovimiento);
+        }
+
+        private void ModificarCaja(float? total)
+        {
+            var _caja = Uow.Cajas.Listado().OrderByDescending(c => c.FechaAlta).FirstOrDefault();
+            var estado = 1; //Modificar Caja
+            if (_caja == null)
+            {
+                _caja = new Caja();
+                _caja.FechaAlta = _clock.Now;
+                _caja.SucursalAltaId = 1;
+                _caja.OperadorAltaId = Guid.Empty;
+                _caja.Fecha = _clock.Now;
+                _caja.SucursalId = 1;
+                estado = 0; //AgregarCaja
+            }
+
+
+            if (_caja.Ingresos == null)
+                _caja.Ingresos = 0;
+            _caja.Ingresos += total;
+            if (_caja.Saldo == null)
+                _caja.Saldo = 0;
+            _caja.Saldo += (float?)total;
+            _caja.FechaModificacion = _clock.Now;
+            _caja.SucursalModificacionId = 1;
+            _caja.OperadorModificacionId = Guid.Empty;
+
+            if (estado == 0)
+                Uow.Cajas.Agregar(_caja);
+            else
+                Uow.Cajas.Modificar(_caja);
+
+        }
+
+        private void AgregarCajaMovimiento()
+        {
+            var _caja = Uow.Cajas.Listado().OrderByDescending(c => c.FechaAlta).FirstOrDefault();
+            var cajaMovimiento = new CajasMovimiento();
+            cajaMovimiento.Id = Guid.NewGuid();
+            cajaMovimiento.CajaId = _caja.Id;
+            cajaMovimiento.TipoMovimientoCajaId = 2; //PAGO CUOTA
+            cajaMovimiento.TipoComprobante = 2; //PAGO CUOTA
+            cajaMovimiento.ComprobanteId = _cuota.Id;
+            cajaMovimiento.Importe = (decimal?) _cuota.Pagado;
+            cajaMovimiento.ImpFac = (decimal?)_cuota.Pagado;
+            cajaMovimiento.PcAlta = Environment.MachineName;
+            cajaMovimiento.SucursalAltaId = 1;
+            cajaMovimiento.OperadorAltaId = Guid.Empty;
+            cajaMovimiento.FechaAlta = _clock.Now;
+
+            Uow.CajasMovimientos.Agregar(cajaMovimiento);
+        }
+
+        private void ModificarCuentaCorriente(ClientesCuentasCorriente clienteCuentaCorriente)
+        {
+            clienteCuentaCorriente.FechaUltimoPago = _clock.Now;
+            clienteCuentaCorriente.FechaModificacion = _clock.Now;
+            clienteCuentaCorriente.SucursalModificacionId = 1;
+            clienteCuentaCorriente.OperadorModificacionId = Guid.Empty;
+
+            Uow.ClientesCuentasCorrientes.Modificar(clienteCuentaCorriente);
+           
+        }
+      }
 }
