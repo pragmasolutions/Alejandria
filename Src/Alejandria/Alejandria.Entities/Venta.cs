@@ -44,6 +44,7 @@ namespace Alejandria.Entities
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
         public Nullable<System.Guid> OperadorAutoriza { get; set; }
         public string ValidacionUsuario { get; set; }
+        public Nullable<int> CobradorId { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
@@ -55,5 +56,6 @@ namespace Alejandria.Entities
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
         public virtual TiposComprobante TiposComprobante { get; set; }
+        public virtual Cobrador Cobradores { get; set; }
     }
 }

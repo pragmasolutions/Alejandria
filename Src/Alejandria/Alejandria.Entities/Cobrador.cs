@@ -14,6 +14,11 @@ namespace Alejandria.Entities
     
     public partial class Cobrador
     {
+        public Cobrador()
+        {
+            this.Ventas = new HashSet<Venta>();
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Abreviatura { get; set; }
@@ -40,5 +45,6 @@ namespace Alejandria.Entities
         public virtual TiposDocumentosIdentidad TiposDocumentosIdentidad { get; set; }
         public virtual Operador OperadoreModificacion { get; set; }
         public virtual Sucursal SucursaleModificacion { get; set; }
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

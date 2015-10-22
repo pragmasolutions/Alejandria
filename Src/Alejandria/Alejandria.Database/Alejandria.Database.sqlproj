@@ -59,6 +59,8 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Stored Procedures" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Post-Deploy" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Alejandria.Database.publish.xml" />
@@ -90,8 +92,14 @@
     <Build Include="Tables\Cobradores.sql" />
     <Build Include="Stored Procedures\ComprobantesByVentaId.sql" />
     <Build Include="Tables\ClientesMovimiento.sql" />
+    <None Include="Scripts\Post-Deploy\TiposDocumentos.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Alejandria.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deploy\Script.PostDeployment.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </PostDeploy>
   </ItemGroup>
 </Project>

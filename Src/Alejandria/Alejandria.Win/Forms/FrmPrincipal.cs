@@ -40,7 +40,8 @@ namespace Alejandria.Win.Forms
 
         private void BtnCobradores_Click(object sender, EventArgs e)
         {
-            var frm = FormFactory.Create<FrmCrearEditarCobrador>(default (int), ActionFormMode.Create);
+       
+            var frm = FormFactory.Create<FrmCobradoresListado>();
             frm.ShowDialog();
         }
 

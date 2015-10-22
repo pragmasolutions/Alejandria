@@ -296,7 +296,7 @@ namespace Alejandria.Win.Forms.Cobradores
 
         protected override void ValidarControles()
         {
-            this.ValidarControl(txtApellidoNombre, "Denominacion");
+            this.ValidarControl(txtApellidoNombre, "Nombre");
             this.ValidarControl(txtDni, "Cuit");
             this.ValidarControl(txtDomicilio, "Domicilio");
             this.ValidarControl(txtCelular, "Celular");

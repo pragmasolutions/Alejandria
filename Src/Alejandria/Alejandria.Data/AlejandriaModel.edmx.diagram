@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1" ZoomLevel="62">
+      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1" ZoomLevel="182">
         <EntityTypeShape EntityType="AlejandriaModel.CategoriaOperador" Width="1.5" PointX="9.75" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.CondicionesIVA" Width="1.5" PointX="3" PointY="43.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.CondicionesVenta" Width="1.5" PointX="7.25" PointY="45.375" IsExpanded="true" />
@@ -146,6 +146,7 @@
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_TipoComprobante" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_Cobradores" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

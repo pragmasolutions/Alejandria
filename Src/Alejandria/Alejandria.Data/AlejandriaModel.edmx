@@ -468,6 +468,7 @@
           <Property Name="OperadorModificacionId" Type="uniqueidentifier" />
           <Property Name="OperadorAutoriza" Type="uniqueidentifier" />
           <Property Name="ValidacionUsuario" Type="nvarchar" MaxLength="50" />
+          <Property Name="CobradorId" Type="int" />
         </EntityType>
         <EntityType Name="Zonas">
           <Key>
@@ -1743,6 +1744,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Ventas_Cobradores">
+          <End Role="Cobradores" Type="Self.Cobradores" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cobradores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="CobradorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Ventas_Comprobante">
           <End Role="TiposComprobantes" Type="Self.TiposComprobantes" Multiplicity="1" />
           <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
@@ -2333,6 +2346,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Ventas_Cliente" Association="Self.FK_Ventas_Cliente">
             <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Cobradores" Association="Self.FK_Ventas_Cobradores">
+            <End Role="Cobradores" EntitySet="Cobradores" />
             <End Role="Ventas" EntitySet="Ventas" />
           </AssociationSet>
           <AssociationSet Name="FK_Ventas_Comprobante" Association="Self.FK_Ventas_Comprobante">
@@ -3329,6 +3346,10 @@
             <End Role="TiposComprobante" EntitySet="TiposComprobantes" />
             <End Role="ClientesMovimiento" EntitySet="ClientesMovimientoes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Cobradores" Association="AlejandriaModel.FK_Ventas_Cobradores">
+            <End Role="Cobrador" EntitySet="Cobrador" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -3696,6 +3717,8 @@
           <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Ventas_SucursalAlta" FromRole="Venta" ToRole="Sucursal" />
           <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Ventas_SucursalModificacion" FromRole="Venta" ToRole="Sucursal" />
           <NavigationProperty Name="TiposComprobante" Relationship="AlejandriaModel.FK_Ventas_Comprobante" FromRole="Venta" ToRole="TiposComprobante" />
+          <Property Name="CobradorId" Type="Int32" />
+          <NavigationProperty Name="Cobradores" Relationship="AlejandriaModel.FK_Ventas_Cobradores" FromRole="Venta" ToRole="Cobrador" />
         </EntityType>
         <Association Name="FK_ClientesCuentasCorriente_Clientes">
           <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="1" />
@@ -4184,6 +4207,7 @@
           <NavigationProperty Name="TiposDocumentosIdentidad" Relationship="AlejandriaModel.FK_Cobradores_TipoDocumento" FromRole="Cobradore" ToRole="TiposDocumentosIdentidad" />
           <NavigationProperty Name="OperadoreModificacion" Relationship="AlejandriaModel.FK_Cobradores_OperadorModificacion" FromRole="Cobradores" ToRole="Operador" />
           <NavigationProperty Name="SucursaleModificacion" Relationship="AlejandriaModel.FK_Cobradores_SucursalModificacion" FromRole="Cobradores" ToRole="Sucursal" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_Cobradores" FromRole="Cobrador" ToRole="Venta" />
         </EntityType>
         <Association Name="FK_Cobradores_OperadorAlta">
           <End Type="AlejandriaModel.Operador" Role="Operador" Multiplicity="1" />
@@ -5016,6 +5040,18 @@
           <Property Type="String" Name="Vendedor" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="FechaVencimiento" Nullable="true" Precision="23" />
         </ComplexType>
+        <Association Name="FK_Ventas_Cobradores">
+          <End Type="AlejandriaModel.Cobrador" Role="Cobrador" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cobrador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="CobradorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5377,6 +5413,7 @@
           <EntitySetMapping Name="Ventas">
             <EntityTypeMapping TypeName="AlejandriaModel.Venta">
               <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="CobradorId" ColumnName="CobradorId" />
                 <ScalarProperty Name="ValidacionUsuario" ColumnName="ValidacionUsuario" />
                 <ScalarProperty Name="OperadorAutoriza" ColumnName="OperadorAutoriza" />
                 <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />

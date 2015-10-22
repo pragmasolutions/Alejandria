@@ -55,7 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessBase.cs" />
+    <Compile Include="CobradorNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
+    <Compile Include="Interfaces\ICobradoresNegocio.cs" />
     <Compile Include="Interfaces\IClienteNegocio.cs" />
     <Compile Include="Interfaces\IReporteNegocio.cs" />
     <Compile Include="Interfaces\IVentaNegocio.cs" />
