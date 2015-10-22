@@ -52,6 +52,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Impresión de comprobantes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmComprobantes_FormClosed);
             this.Load += new System.EventHandler(this.FrmComprobantes_Load);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);

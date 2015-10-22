@@ -32,13 +32,16 @@ namespace Alejandria.Win.Forms.Ventas
         private int cuenta = 0;
         private Venta venta = new Venta();
         private Caja _caja;
+        private readonly IClienteNegocio _clienteNegocio;
 
         public FrmVentas(IAlejandriaUow uow,IClock clock,IMessageBoxDisplayService messageBoxDisplayService,
-            IFormFactory formFactory)
+            IFormFactory formFactory,IClienteNegocio clienteNegocio)
         {
             FormFactory = formFactory;
             Uow = uow;
             _clock = clock;
+             _clienteNegocio = clienteNegocio;
+            _messageBoxDisplayService = messageBoxDisplayService;
             InitializeComponent();
         }
 
@@ -219,8 +222,8 @@ namespace Alejandria.Win.Forms.Ventas
 
             _cliente = cliente;
 
-            var deudaTotal = 0;// _clienteNegocio.DeudaTotal(_cliente.Id, this.Context.SucursalActual.Id);
-            var deudaVencida = 0;// _clienteNegocio.DeudaVencida(_cliente.Id, this.Context.SucursalActual.Id);
+            var deudaTotal =  _clienteNegocio.DeudaTotal(_cliente.Id, 1);
+            var deudaVencida =  _clienteNegocio.DeudaVencida(_cliente.Id, 1);
 
             ucClienteDetalle.ActualizarCliente(_cliente, deudaTotal, deudaVencida);
             cuenta = _cliente.Cuenta?? 0;
@@ -443,7 +446,13 @@ namespace Alejandria.Win.Forms.Ventas
             //}
 
             var crearVenta = FormFactory.Create<FrmComprobantes>(venta.Id);
-            crearVenta.Show();
+           // crearVenta.Show();
+
+            if (crearVenta.ShowDialog() == DialogResult.OK)
+            {
+                _messageBoxDisplayService.ShowSuccess("Cuenta registrada con éxito");
+                this.Close();
+            }
         }
 
 

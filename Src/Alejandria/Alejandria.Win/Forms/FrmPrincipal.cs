@@ -9,6 +9,7 @@ using Alejandria.Data.Interfaces;
 using Alejandria.Win.Enums;
 using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Forms.Cobradores;
+using Alejandria.Win.Forms.CuentaCorrientes;
 using Alejandria.Win.Forms.Ventas;
 using Telerik.WinControls;
 
@@ -40,6 +41,12 @@ namespace Alejandria.Win.Forms
         private void BtnCobradores_Click(object sender, EventArgs e)
         {
             var frm = FormFactory.Create<FrmCrearEditarCobrador>(default (int), ActionFormMode.Create);
+            frm.ShowDialog();
+        }
+
+        private void BtnCuotas_Click(object sender, EventArgs e)
+        {
+            var frm = FormFactory.Create<FrmCuentaCorriente>(default(int), ActionFormMode.Create);
             frm.ShowDialog();
         }
 

@@ -1207,6 +1207,16 @@ namespace Alejandria.Win.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pagoCuota {
+            get {
+                object obj = ResourceManager.GetObject("pagoCuota", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Print_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Print-16x16", resourceCulture);

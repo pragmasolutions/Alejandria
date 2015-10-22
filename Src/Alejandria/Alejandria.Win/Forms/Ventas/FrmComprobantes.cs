@@ -67,5 +67,11 @@ namespace Alejandria.Win.Forms.Ventas
            this.Cursor = Cursors.Default;
 
         }
-    }
+
+        private void FrmComprobantes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.DialogResult=DialogResult.OK;
+        }
+
+      }
 }

@@ -158,6 +158,12 @@
     <Compile Include="Forms\Cobradores\FrmCrearEditarCobrador.Designer.cs">
       <DependentUpon>FrmCrearEditarCobrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CuentaCorrientes\FrmCuentaCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CuentaCorrientes\FrmCuentaCorriente.Designer.cs">
+      <DependentUpon>FrmCuentaCorriente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cobradores\FrmCrearEditarCobrador.resx">
       <DependentUpon>FrmCrearEditarCobrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CuentaCorrientes\FrmCuentaCorriente.resx">
+      <DependentUpon>FrmCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
@@ -293,6 +302,7 @@
     <Content Include="Resources\logo.png" />
     <Content Include="Resources\Money-Credit-Card.png" />
     <Content Include="Resources\Pagar.png" />
+    <None Include="Resources\pagoCuota.png" />
     <Content Include="Resources\Print-16x16.png" />
     <Content Include="Resources\Purchase-Order.png" />
     <Content Include="Resources\Reload.png" />
