@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Data.Entity.SqlServer;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,22 +49,22 @@ namespace Alejandria.Business
             var cuitFormateado = cuit.PadLeft(11, '0');
             var denominacionFormateado = denominacion.ToStringSearch();
 
-            Expression<Func<Cliente, bool>> where =
-                x =>
-                (string.IsNullOrEmpty(denominacionFormateado) || SqlFunctions.PatIndex(denominacionFormateado, x.Denominacion) > 0) &&
-                (string.IsNullOrEmpty(cuit) || SqlFunctions.PatIndex(cuitFormateado, x.Cuit) > 0) &&
-                (!activo.HasValue || x.Activo == activo);
-
             //Expression<Func<Cliente, bool>> where =
-            //  x =>
-            //  (string.IsNullOrEmpty(denominacionFormateado)
-            //   || x.Denominacion.Contains(denominacion)
-            //  )
-            // && (string.IsNullOrEmpty(cuit)
-            // || x.Cuit.Contains(cuit)
-            // )
-            //  && (!activo.HasValue || x.Activo == activo)
-            //  ;
+            //    x =>
+            //    (string.IsNullOrEmpty(denominacionFormateado) || SqlFunctions.PatIndex(denominacionFormateado, x.Denominacion) > 0) &&
+            //    (string.IsNullOrEmpty(cuit) || SqlFunctions.PatIndex(cuitFormateado, x.Cuit) > 0) &&
+            //    (!activo.HasValue || x.Activo == activo);
+
+            Expression<Func<Cliente, bool>> where =
+              x =>
+              (string.IsNullOrEmpty(denominacionFormateado)
+               || x.Denominacion.Contains(denominacion)
+              )
+             && (string.IsNullOrEmpty(cuit)
+             || x.Cuit.Contains(cuit)
+             )
+              && (!activo.HasValue || x.Activo == activo)
+              ;
 
        
             var resultados = Uow.Clientes.Listado(criteros,

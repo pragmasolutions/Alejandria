@@ -87,18 +87,18 @@ namespace Alejandria.Win.Forms.Clientes
             var textBuscarDenominacion = TxtTextoBuscar.Text;
             var textBuscarCuit = TxtCuit.Text.PadLeft(11, '0');
 
-            Expression<Func<Cliente, bool>> where =
-                x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
+            //Expression<Func<Cliente, bool>> where =
+            //    x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
 
-           // Expression<Func<Cliente, bool>> where =
-           // x =>
-           // (string.IsNullOrEmpty(textBuscarDenominacion)
-           //  || x.Denominacion.Contains(textBuscarDenominacion)
-           // )
-           //&& (string.IsNullOrEmpty(textBuscarCuit)
-           //|| x.Cuit.Contains(textBuscarCuit)
-           //)
-           // ;
+            Expression<Func<Cliente, bool>> where =
+            x =>
+            (string.IsNullOrEmpty(textBuscarDenominacion)
+             || x.Denominacion.Contains(textBuscarDenominacion)
+            )
+           && (string.IsNullOrEmpty(textBuscarCuit)
+           || x.Cuit.Contains(textBuscarCuit)
+           )
+            ;
 
             Cursor.Current = Cursors.WaitCursor;
 

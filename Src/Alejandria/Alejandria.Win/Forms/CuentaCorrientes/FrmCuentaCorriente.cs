@@ -15,7 +15,6 @@ using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Properties;
 using Framework.Common.Utility;
 using Framework.WinForm.Comun.Notification;
-using Telerik.WinControls.UI;
 
 namespace Alejandria.Win.Forms.CuentaCorrientes
 {
@@ -25,7 +24,6 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
         private readonly IClienteNegocio _clienteNegocio;
         private Cliente _cliente;
-        private ClientesCuentasCorriente _cuota;
 
         public FrmCuentaCorriente(IAlejandriaUow uow, IClock clock, IMessageBoxDisplayService messageBoxDisplayService,
             IFormFactory formFactory, IClienteNegocio clienteNegocio)
@@ -41,31 +39,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         private void FrmCuentaCorriente_Load(object sender, EventArgs e)
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
-            this.GridCuotas.Columns["FechaVencimiento"].DataType = typeof(DateTime);
-            this.GridCuotas.Columns["FechaVencimiento"].FormatString = "{0: dd/M/yyyy}";
-
-            this.GridCuotas.Columns["Fecha"].DataType = typeof(DateTime);
-            this.GridCuotas.Columns["Fecha"].FormatString = "{0: dd/M/yyyy}";
-
-            this.GridCuotas.Columns["Importe"].DataType = typeof(decimal);
-            this.GridCuotas.Columns["Importe"].FormatString = "{0:N2}";
-
         }
-
-        #region Propiedades
-        public float? TotalPagar
-        {
-            get
-            {
-                float totalpagar;
-                return float.TryParse(TxtTotal.Text, out totalpagar) ? totalpagar : (float?)0;
-            }
-            set
-            {
-                TxtTotal.Text = value.HasValue ? value.Value.ToString("n2") : string.Empty;
-            }
-        }
-        #endregion
 
         private void UcFiltrosClienteOnBuscarFinished(object sender, List<Cliente> clientes)
         {
@@ -142,6 +116,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
                 formCrearCliente.ShowDialog();
             }
         }
+<<<<<<< HEAD
 
         private void GridCuotas_ValueChanged(object sender, EventArgs e)
         {
@@ -288,4 +263,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
            
         }
       }
+=======
+    }
+>>>>>>> origin/master
 }
