@@ -84,20 +84,25 @@ namespace Alejandria.Win.Forms.Clientes
 
         private void BtnBuscarCliente_Click(object sender, EventArgs e)
         {
+           BuscarCliente();
+        }
+
+        private void BuscarCliente()
+        {
             var textBuscarDenominacion = TxtTextoBuscar.Text;
             var textBuscarCuit = TxtCuit.Text.PadLeft(11, '0');
 
-            //Expression<Func<Cliente, bool>> where =
-            //    x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
-
             Expression<Func<Cliente, bool>> where =
-            x =>
-            (string.IsNullOrEmpty(textBuscarDenominacion)
-             || x.Denominacion.Contains(textBuscarDenominacion)
-            )
-           && (string.IsNullOrEmpty(textBuscarCuit)
-           || x.Cuit.Contains(textBuscarCuit)
-           )
+                x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
+
+            // Expression<Func<Cliente, bool>> where =
+            // x =>
+            // (string.IsNullOrEmpty(textBuscarDenominacion)
+            //  || x.Denominacion.Contains(textBuscarDenominacion)
+            // )
+            //&& (string.IsNullOrEmpty(textBuscarCuit)
+            //|| x.Cuit.Contains(textBuscarCuit)
+            //)
             ;
 
             Cursor.Current = Cursors.WaitCursor;
@@ -106,12 +111,12 @@ namespace Alejandria.Win.Forms.Clientes
                                        .Where(where)
                                        .ToList();
 
-           
+
 
             Cursor.Current = Cursors.Default;
 
             OnBuscarFinished(clientes);
-            //OnFiltered();
+            OnFiltered();
         }
 
         private void OnBuscarFinished(List<Cliente> clientes)
@@ -141,8 +146,9 @@ namespace Alejandria.Win.Forms.Clientes
             {
                 if (!_limpiandoFiltros)
                 {
-                    OnFiltered();
+                    //OnFiltered();
                    // BtnBuscarCliente_Click(null, null);
+                    BuscarCliente();
                 }
             }
         }

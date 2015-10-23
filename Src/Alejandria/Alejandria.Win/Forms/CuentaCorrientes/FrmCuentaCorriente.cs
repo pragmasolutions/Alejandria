@@ -15,6 +15,7 @@ using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Properties;
 using Framework.Common.Utility;
 using Framework.WinForm.Comun.Notification;
+using Telerik.WinControls.UI;
 
 namespace Alejandria.Win.Forms.CuentaCorrientes
 {
@@ -24,6 +25,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
         private readonly IClienteNegocio _clienteNegocio;
         private Cliente _cliente;
+        private ClientesCuentasCorriente _cuota;
 
         public FrmCuentaCorriente(IAlejandriaUow uow, IClock clock, IMessageBoxDisplayService messageBoxDisplayService,
             IFormFactory formFactory, IClienteNegocio clienteNegocio)
@@ -40,6 +42,21 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
         }
+
+        #region Properties
+        public float? TotalPagar
+        {
+            get
+            {
+                float totalpagar;
+                return float.TryParse(TxtTotal.Text, out totalpagar) ? totalpagar : (float?)0;
+            }
+            set
+            {
+                TxtTotal.Text = value.HasValue ? value.Value.ToString("n2") : string.Empty;
+            }
+        }
+        #endregion
 
         private void UcFiltrosClienteOnBuscarFinished(object sender, List<Cliente> clientes)
         {
@@ -116,7 +133,6 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
                 formCrearCliente.ShowDialog();
             }
         }
-<<<<<<< HEAD
 
         private void GridCuotas_ValueChanged(object sender, EventArgs e)
         {
@@ -147,7 +163,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             }
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
+         private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
             if (TotalPagar!=0)
             {
@@ -169,8 +185,8 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
                 ActualizarCuotas(_cliente.Id);
                 this.Close();
             }
-            
         }
+        
 
         private void ModificarVenta(Guid ventaId)
         {
@@ -262,8 +278,8 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             Uow.ClientesCuentasCorrientes.Modificar(clienteCuentaCorriente);
            
         }
+
+       
       }
-=======
+
     }
->>>>>>> origin/master
-}

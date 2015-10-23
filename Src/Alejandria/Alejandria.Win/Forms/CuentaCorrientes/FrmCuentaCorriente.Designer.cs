@@ -29,13 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             this.ucFiltrosClientes = new Alejandria.Win.Forms.Clientes.UcFiltrosClientes();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.ucClienteDetalle = new Alejandria.Win.Forms.Clientes.UcClienteDetalle();
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
             this.GridCuotas = new Telerik.WinControls.UI.RadGridView();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.TxtTotal = new Telerik.WinControls.UI.RadTextBox();
+            this.BtnGuardar = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
@@ -44,6 +51,9 @@
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridCuotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridCuotas.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,56 +68,12 @@
             // 
             // radPanel1
             // 
-<<<<<<< HEAD
-            this.GridCuotas.MasterTemplate.AllowAddNewRow = false;
-            this.GridCuotas.MasterTemplate.AllowColumnReorder = false;
-            this.GridCuotas.MasterTemplate.AutoGenerateColumns = false;
-            this.GridCuotas.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.FieldName = "FechaVencimiento";
-            gridViewTextBoxColumn1.FormatString = "";
-            gridViewTextBoxColumn1.HeaderText = "Fecha de vencimiento";
-            gridViewTextBoxColumn1.Name = "FechaVencimiento";
-            gridViewTextBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn1.Width = 180;
-            gridViewTextBoxColumn2.FieldName = "Cuota";
-            gridViewTextBoxColumn2.HeaderText = "Cuota";
-            gridViewTextBoxColumn2.Name = "Cuota";
-            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn2.Width = 180;
-            gridViewTextBoxColumn3.FieldName = "Fecha";
-            gridViewTextBoxColumn3.HeaderText = "Fecha Compra";
-            gridViewTextBoxColumn3.Name = "Fecha";
-            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn3.Width = 180;
-            gridViewTextBoxColumn4.FieldName = "Importe";
-            gridViewTextBoxColumn4.HeaderText = "Importe";
-            gridViewTextBoxColumn4.Name = "Importe";
-            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn4.Width = 180;
-            gridViewCheckBoxColumn1.HeaderText = "Pagar";
-            gridViewCheckBoxColumn1.Name = "Pagar";
-            gridViewCheckBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewCheckBoxColumn1.Width = 66;
-            this.GridCuotas.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewCheckBoxColumn1});
-            this.GridCuotas.MasterTemplate.EnableGrouping = false;
-            this.GridCuotas.Name = "GridCuotas";
-            this.GridCuotas.Size = new System.Drawing.Size(804, 254);
-            this.GridCuotas.TabIndex = 0;
-            this.GridCuotas.ThemeName = "TelerikMetro";
-            this.GridCuotas.ValueChanged += new System.EventHandler(this.GridCuotas_ValueChanged);
-=======
             this.radPanel1.Controls.Add(this.ucFiltrosClientes);
             this.radPanel1.Location = new System.Drawing.Point(15, 13);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(391, 196);
             this.radPanel1.TabIndex = 1;
             this.radPanel1.ThemeName = "TelerikMetro";
->>>>>>> origin/master
             // 
             // radPanel2
             // 
@@ -133,6 +99,9 @@
             // 
             // radPanel3
             // 
+            this.radPanel3.Controls.Add(this.BtnGuardar);
+            this.radPanel3.Controls.Add(this.TxtTotal);
+            this.radPanel3.Controls.Add(this.radLabel1);
             this.radPanel3.Controls.Add(this.GridCuotas);
             this.radPanel3.Location = new System.Drawing.Point(15, 216);
             this.radPanel3.Name = "radPanel3";
@@ -149,15 +118,73 @@
             this.GridCuotas.MasterTemplate.AllowAddNewRow = false;
             this.GridCuotas.MasterTemplate.AllowColumnReorder = false;
             this.GridCuotas.MasterTemplate.AutoGenerateColumns = false;
-            gridViewTextBoxColumn1.FieldName = "Cuota";
-            gridViewTextBoxColumn1.HeaderText = "Cuota";
-            gridViewTextBoxColumn1.Name = "Cuota";
+            this.GridCuotas.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn5.FieldName = "FechaVencimiento";
+            gridViewTextBoxColumn5.HeaderText = "Fecha Vencimiento";
+            gridViewTextBoxColumn5.Name = "FechaVencimiento";
+            gridViewTextBoxColumn5.Width = 192;
+            gridViewTextBoxColumn6.FieldName = "Cuota";
+            gridViewTextBoxColumn6.FormatString = "";
+            gridViewTextBoxColumn6.HeaderText = "Cuota";
+            gridViewTextBoxColumn6.Name = "Cuota";
+            gridViewTextBoxColumn6.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            gridViewTextBoxColumn6.Width = 148;
+            gridViewTextBoxColumn7.Expression = "";
+            gridViewTextBoxColumn7.FieldName = "Importe";
+            gridViewTextBoxColumn7.HeaderText = "Importe";
+            gridViewTextBoxColumn7.Name = "Importe";
+            gridViewTextBoxColumn7.Width = 148;
+            gridViewTextBoxColumn8.FieldName = "Fecha";
+            gridViewTextBoxColumn8.HeaderText = "FechaCompra";
+            gridViewTextBoxColumn8.Name = "Fecha";
+            gridViewTextBoxColumn8.Width = 148;
+            gridViewCheckBoxColumn2.HeaderText = "Pagar";
+            gridViewCheckBoxColumn2.MaxWidth = 60;
+            gridViewCheckBoxColumn2.MinWidth = 60;
+            gridViewCheckBoxColumn2.Name = "Pagar";
+            gridViewCheckBoxColumn2.Width = 60;
             this.GridCuotas.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1});
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8,
+            gridViewCheckBoxColumn2});
+            this.GridCuotas.MasterTemplate.EnableGrouping = false;
             this.GridCuotas.Name = "GridCuotas";
-            this.GridCuotas.Size = new System.Drawing.Size(1062, 254);
+            this.GridCuotas.Size = new System.Drawing.Size(714, 254);
             this.GridCuotas.TabIndex = 0;
             this.GridCuotas.ThemeName = "TelerikMetro";
+            this.GridCuotas.ValueChanged += new System.EventHandler(this.GridCuotas_ValueChanged);
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel1.Location = new System.Drawing.Point(850, 193);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(49, 24);
+            this.radLabel1.TabIndex = 1;
+            this.radLabel1.Text = "Total:";
+            // 
+            // TxtTotal
+            // 
+            this.TxtTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTotal.Location = new System.Drawing.Point(914, 193);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(100, 26);
+            this.TxtTotal.TabIndex = 2;
+            this.TxtTotal.TabStop = false;
+            this.TxtTotal.ThemeName = "TelerikMetro";
+            // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.Location = new System.Drawing.Point(884, 225);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(130, 42);
+            this.BtnGuardar.TabIndex = 3;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.ThemeName = "TelerikMetro";
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click_1);
             // 
             // FrmCuentaCorriente
             // 
@@ -180,8 +207,12 @@
             this.radPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
             this.radPanel3.ResumeLayout(false);
+            this.radPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridCuotas.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridCuotas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -195,5 +226,8 @@
         private Clientes.UcClienteDetalle ucClienteDetalle;
         private Telerik.WinControls.UI.RadPanel radPanel3;
         private Telerik.WinControls.UI.RadGridView GridCuotas;
+        private Telerik.WinControls.UI.RadButton BtnGuardar;
+        private Telerik.WinControls.UI.RadTextBox TxtTotal;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
     }
 }
