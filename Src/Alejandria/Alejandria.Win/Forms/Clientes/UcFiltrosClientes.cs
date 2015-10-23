@@ -111,7 +111,7 @@ namespace Alejandria.Win.Forms.Clientes
             Cursor.Current = Cursors.Default;
 
             OnBuscarFinished(clientes);
-            OnFiltered();
+            //OnFiltered();
         }
 
         private void OnBuscarFinished(List<Cliente> clientes)
@@ -140,7 +140,10 @@ namespace Alejandria.Win.Forms.Clientes
             if (e.KeyCode == Keys.Enter)
             {
                 if (!_limpiandoFiltros)
+                {
                     OnFiltered();
+                   // BtnBuscarCliente_Click(null, null);
+                }
             }
         }
 

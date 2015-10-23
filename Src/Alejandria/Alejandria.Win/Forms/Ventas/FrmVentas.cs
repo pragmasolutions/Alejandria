@@ -133,6 +133,7 @@ namespace Alejandria.Win.Forms.Ventas
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
+            //this.ucFiltrosClientes.Filtered += UcFiltrosClienteOnFiletered;
             DtpVencimiento.Value = DateTime.Now.AddMonths(1);
             Cuotas = 1;
             DefinirCombos();

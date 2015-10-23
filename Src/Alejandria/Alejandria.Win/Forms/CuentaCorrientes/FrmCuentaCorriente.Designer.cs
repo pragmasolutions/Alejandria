@@ -142,7 +142,6 @@
             gridViewCheckBoxColumn1});
             this.GridCuotas.MasterTemplate.EnableGrouping = false;
             this.GridCuotas.Name = "GridCuotas";
-            this.GridCuotas.ReadOnly = true;
             this.GridCuotas.Size = new System.Drawing.Size(804, 254);
             this.GridCuotas.TabIndex = 0;
             this.GridCuotas.ThemeName = "TelerikMetro";

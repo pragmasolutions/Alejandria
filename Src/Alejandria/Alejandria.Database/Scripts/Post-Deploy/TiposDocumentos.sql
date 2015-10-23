@@ -4,12 +4,12 @@
            ,[Abreviatura]
            ,[Descripcion]
            )
-     VALUES
-           (1
+     SELECT
+           1
            ,'DNI'
            ,'DNI'
            ,'DOCUMENTO NACIONAL DE IDENTIDAD'
-           )
+     WHERE NOT EXISTS (SELECT 1 FROM TiposDocumentosIdentidad WHERE Id=1)
 GO
 
 

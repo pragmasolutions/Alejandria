@@ -112,6 +112,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Alejandria";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.BtnClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCobradores)).EndInit();

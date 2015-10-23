@@ -481,7 +481,6 @@ namespace Alejandria.Win.Forms.Clientes
             // TxtNroCliente
             // 
             this.TxtNroCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtNroCliente.Enabled = false;
             this.TxtNroCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNroCliente.Location = new System.Drawing.Point(161, 93);
             this.TxtNroCliente.Name = "TxtNroCliente";

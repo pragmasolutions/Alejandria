@@ -102,7 +102,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         {
             var cuotas =
                 Uow.ClientesCuentasCorrientes.Listado().Where(
-                    ccc => ccc.ClienteId == _clienteId && ccc.Importe > ccc.Pagado).OrderByDescending(
+                    ccc => ccc.ClienteId == _clienteId && ccc.Importe > ccc.Pagado).OrderBy(
                         ccc => ccc.FechaVencimiento).ToList();
             GridCuotas.DataSource = cuotas;
         }
@@ -161,7 +161,12 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
                 {
                     var cuotas = GridCuotas.CurrentRow.DataBoundItem as ClientesCuentasCorriente;
                     if (cuotas != null)
+                    {
                         TotalPagar -= cuotas.Importe;
+                        cuotas.Pagado = 0;
+                    }
+                    
+
                 }
                 
             }
@@ -187,6 +192,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
                 }
                 _messageBoxDisplayService.ShowSuccess("Guardado exitosamente");
                 ActualizarCuotas(_cliente.Id);
+                this.Close();
             }
             
         }
