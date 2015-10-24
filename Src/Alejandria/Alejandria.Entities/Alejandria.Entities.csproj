@@ -97,6 +97,7 @@
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Metadata\ClienteMetadata.cs" />
+    <Compile Include="Metadata\VentaMetadata.cs" />
     <Compile Include="Operador.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>

@@ -439,6 +439,7 @@ namespace Alejandria.Win.Forms.Ventas
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
+            
             AgregarVenta();
 
             AgregarCuentaCorriente();
@@ -461,18 +462,18 @@ namespace Alejandria.Win.Forms.Ventas
             //}
 
             var crearVenta = FormFactory.Create<FrmComprobantes>(venta.Id);
-           // crearVenta.Show();
+            // crearVenta.Show();
 
             if (crearVenta.ShowDialog() == DialogResult.OK)
             {
                 _messageBoxDisplayService.ShowSuccess("Cuenta registrada con éxito");
                 this.Close();
-            }
+            }  
+             
         }
 
 
-      
-
+        
         #endregion
        
       
