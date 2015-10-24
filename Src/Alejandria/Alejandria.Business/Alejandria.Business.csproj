@@ -59,6 +59,8 @@
     <Compile Include="BusinessBase.cs" />
     <Compile Include="CobradorNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
+    <Compile Include="ClienteCuentaCorrienteNegocio.cs" />
+    <Compile Include="Interfaces\IClienteCuentaCorrienteNegocio.cs" />
     <Compile Include="Interfaces\ICobradoresNegocio.cs" />
     <Compile Include="Interfaces\IClienteNegocio.cs" />
     <Compile Include="Interfaces\IReporteNegocio.cs" />

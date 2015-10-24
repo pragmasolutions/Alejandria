@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Alejandria.Business.Interfaces;
 using Alejandria.Data.Interfaces;
 using Alejandria.Entities;
 using Alejandria.Win.Enums;
@@ -21,14 +22,17 @@ namespace Alejandria.Win.Forms.Cobradores
         private readonly IClock _clock;
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
         private Cobrador _cobrador;
+        private readonly IClienteCuentaCorrienteNegocio _clientecuentacorrienteNegocio;
 
         public FrmCuentasCorrientesCobrador(IAlejandriaUow uow, IClock clock, IMessageBoxDisplayService messageBoxDisplayService,
-            IFormFactory formFactory)
+            IFormFactory formFactory, IClienteCuentaCorrienteNegocio clientecuentacorrienteNegocio)
         {
             FormFactory = formFactory;
             Uow = uow;
             _clock = clock;
             _messageBoxDisplayService = messageBoxDisplayService;
+            _clientecuentacorrienteNegocio = clientecuentacorrienteNegocio;
+
 
             InitializeComponent();
         }
@@ -84,9 +88,11 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void ActualizarCuotas(int cobradorId)
         {
-            var cuotas =
-                Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta.CobradorId == cobradorId && ccc.Importe > ccc.Pagado, ccc => ccc.Venta).OrderBy(
-                        ccc => ccc.FechaVencimiento).ToList();
+            //var cuotas2 =
+            //    Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta.CobradorId == cobradorId && ccc.Importe > ccc.Pagado, ccc => ccc.Venta).OrderBy(
+            //            ccc => ccc.FechaVencimiento).ToList();
+
+            var cuotas = _clientecuentacorrienteNegocio.ListadoPorCobrador(cobradorId).ToList(); 
             GridCuotas.DataSource = cuotas;
 
         }
@@ -94,7 +100,7 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void Crear()
         {
-            using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(default(Guid), ActionFormMode.Create))
+            using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(default(int), ActionFormMode.Create))
             {
                 int i = 0;
                 if (int.TryParse(ucFiltrosCobradores.Cuit, out i))

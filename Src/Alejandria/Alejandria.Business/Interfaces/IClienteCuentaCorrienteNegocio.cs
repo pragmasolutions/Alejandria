@@ -9,9 +9,9 @@ using Alejandria.Entities.Dto;
 
 namespace Alejandria.Business.Interfaces
 {
-    public interface ICobradoresNegocio : IDisposable
+    public interface IClienteCuentaCorrienteNegocio : IDisposable
     {
-        List<CobradoresDto> Listado(string sortBy, string sortDirection, string nombre, string cuit,bool? activo, int pageIndex, int pageSize, out int pageTotal);
-        Cobrador ObtenerPorId(int cobradorGuid);
+        List<ClienteCuentaCorrienteDto> ListadoPorCobrador(int id);
+
     }
 }

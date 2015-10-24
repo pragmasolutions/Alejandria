@@ -111,7 +111,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.BtnCancelar.Location = new System.Drawing.Point(339, 481);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(100, 30);
-            this.BtnCancelar.TabIndex = 12;
+            this.BtnCancelar.TabIndex = 13;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.ThemeName = "TelerikMetro";
             // 
@@ -122,7 +122,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.BtnGuardar.Location = new System.Drawing.Point(226, 481);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(100, 30);
-            this.BtnGuardar.TabIndex = 11;
+            this.BtnGuardar.TabIndex = 12;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.ThemeName = "TelerikMetro";
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -216,7 +216,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxLocalidad.Name = "cbxLocalidad";
             this.cbxLocalidad.ShowImageInEditorArea = true;
             this.cbxLocalidad.Size = new System.Drawing.Size(277, 27);
-            this.cbxLocalidad.TabIndex = 9;
+            this.cbxLocalidad.TabIndex = 10;
             this.cbxLocalidad.ThemeName = "TelerikMetro";
             // 
             // ckbLlamar
@@ -248,7 +248,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.txtMail.Location = new System.Drawing.Point(161, 250);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(277, 26);
-            this.txtMail.TabIndex = 7;
+            this.txtMail.TabIndex = 8;
             this.txtMail.TabStop = false;
             this.txtMail.ThemeName = "TelerikMetro";
             // 
@@ -273,7 +273,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.cbxProvincia.Name = "cbxProvincia";
             this.cbxProvincia.ShowImageInEditorArea = true;
             this.cbxProvincia.Size = new System.Drawing.Size(277, 27);
-            this.cbxProvincia.TabIndex = 8;
+            this.cbxProvincia.TabIndex = 9;
             this.cbxProvincia.ThemeName = "TelerikMetro";
             this.cbxProvincia.SelectedValueChanged += new System.EventHandler(this.cbxProvincia_SelectedValueChanged);
             // 
@@ -347,7 +347,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.txtCelular.Location = new System.Drawing.Point(161, 209);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(277, 26);
-            this.txtCelular.TabIndex = 6;
+            this.txtCelular.TabIndex = 7;
             this.txtCelular.TabStop = false;
             this.txtCelular.ThemeName = "TelerikMetro";
             // 
@@ -357,7 +357,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.txtTelefono.Location = new System.Drawing.Point(161, 168);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(277, 26);
-            this.txtTelefono.TabIndex = 5;
+            this.txtTelefono.TabIndex = 6;
             this.txtTelefono.TabStop = false;
             this.txtTelefono.ThemeName = "TelerikMetro";
             // 
@@ -368,7 +368,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.txtDomicilio.Location = new System.Drawing.Point(161, 127);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(277, 26);
-            this.txtDomicilio.TabIndex = 4;
+            this.txtDomicilio.TabIndex = 5;
             this.txtDomicilio.TabStop = false;
             this.txtDomicilio.ThemeName = "TelerikMetro";
             // 
@@ -467,7 +467,7 @@ namespace Alejandria.Win.Forms.Clientes
             // 
             this.TxtComentarios.RootElement.StretchVertically = true;
             this.TxtComentarios.Size = new System.Drawing.Size(277, 91);
-            this.TxtComentarios.TabIndex = 10;
+            this.TxtComentarios.TabIndex = 11;
             this.TxtComentarios.TabStop = false;
             this.TxtComentarios.ThemeName = "TelerikMetro";
             // 
@@ -488,7 +488,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.TxtNroCliente.Location = new System.Drawing.Point(161, 93);
             this.TxtNroCliente.Name = "TxtNroCliente";
             this.TxtNroCliente.Size = new System.Drawing.Size(277, 26);
-            this.TxtNroCliente.TabIndex = 5;
+            this.TxtNroCliente.TabIndex = 4;
             this.TxtNroCliente.TabStop = false;
             this.TxtNroCliente.ThemeName = "TelerikMetro";
             // 

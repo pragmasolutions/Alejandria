@@ -28,13 +28,6 @@ namespace Alejandria.Business
                 numeroFactura=0;
             else
                 numeroFactura = (numeroComprobante.NumeroComprobante);
-            
-           
-            //if (numeroFactura > loteFactura.NroHasta)
-            //{
-            //    throw new ApplicationException("Ya se ha alcanzado el último número de factura dentro del lote");
-            //}
-
             return numeroFactura + 1;
         }
     }

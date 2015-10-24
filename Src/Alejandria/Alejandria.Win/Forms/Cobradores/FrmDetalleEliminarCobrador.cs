@@ -177,14 +177,7 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            var tieneDeuda = _cobradorNegocio.DeudaTotal(_cobradorId, null) > 0;
-
-            if (tieneDeuda)
-            {
-                _messageBoxDisplayService.Show(Resources.ErrorMessageClienteConDeuda, Resources.LabelClientes);
-                return;
-            }
-
+           
             var cobrador = Uow.Cobradores.Obtener(p => p.Id == _cobradorId);
 
             cobrador.Activo = false;

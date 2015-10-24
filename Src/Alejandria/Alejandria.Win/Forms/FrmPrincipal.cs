@@ -51,6 +51,13 @@ namespace Alejandria.Win.Forms
             frm.ShowDialog();
         }
 
+        private void BtnCuotasCobrador_Click(object sender, EventArgs e)
+        {
+            var frm = FormFactory.Create<FrmCuentasCorrientesCobrador>(default(int), ActionFormMode.Create);
+            frm.ShowDialog();
+        }
+
+       
       
     }
 }
