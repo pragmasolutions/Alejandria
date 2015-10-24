@@ -134,6 +134,7 @@ namespace Alejandria.Win.Forms.Ventas
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
             DtpVencimiento.Value = DateTime.Now.AddMonths(1);
+            DtpVencimientoHasta.Value = DateTime.Now.AddMonths(1);
             Cuotas = 1;
             DefinirCombos();
             CargarCombos();

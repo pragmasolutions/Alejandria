@@ -93,8 +93,8 @@
           <DataField>Mes</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Año">
-          <DataField>Año</DataField>
+        <Field Name="Anio">
+          <DataField>Anio</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
@@ -807,7 +807,7 @@
                             </Border>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dashed</Style>
+                              <Style>None</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                           </Style>
@@ -1031,7 +1031,7 @@
                             </Border>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dashed</Style>
+                              <Style>None</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                           </Style>
@@ -1345,7 +1345,7 @@
                             </Border>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dashed</Style>
+                              <Style>None</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                           </Style>
@@ -1469,7 +1469,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>Año:</Value>
+                                  <Value>Año: </Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1477,14 +1477,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value xml:space="preserve"> </Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                    <Format>dd/MM/yyyy</Format>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>=Fields!Año.Value</Value>
+                                  <Value>=Fields!Anio.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1646,7 +1639,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>Año:</Value>
+                                  <Value>Año: </Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1654,14 +1647,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value xml:space="preserve"> </Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                    <Format>dd/MM/yyyy</Format>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>=Fields!Año.Value</Value>
+                                  <Value>=Fields!Anio.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2064,13 +2050,13 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Hasta">
+                        <Textbox Name="Anio">
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Hasta.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2079,7 +2065,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Hasta</rd:DefaultName>
+                          <rd:DefaultName>Anio</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2257,6 +2243,7 @@
   <ReportParameters>
     <ReportParameter Name="ventaId">
       <DataType>String</DataType>
+      <Nullable>true</Nullable>
       <Prompt>venta Id</Prompt>
     </ReportParameter>
   </ReportParameters>
