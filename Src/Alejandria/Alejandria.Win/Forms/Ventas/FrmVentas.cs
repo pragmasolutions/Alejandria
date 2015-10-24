@@ -285,6 +285,7 @@ namespace Alejandria.Win.Forms.Ventas
             venta.CobradorId = cobrador;
             int vendedor;
             venta.VendedorId = int.TryParse(DdlVendedor.SelectedValue.ToString(), out vendedor) ? vendedor : 0;
+            venta.CantidadCuota = Cuotas;
 
             venta.FechaAlta = _clock.Now;
             venta.SucursalAltaId = 1;
@@ -296,7 +297,7 @@ namespace Alejandria.Win.Forms.Ventas
         private void AgregarCuentaCorriente()
         {
             var cuotas = Cuotas;
-            for (int i = 2; i <= cuotas; i++)
+            for (int i = 2; i <= cuotas +1; i++)
             {
                 var clienteCuentaCorriente = new ClientesCuentasCorriente();
                 clienteCuentaCorriente.Id = Guid.NewGuid();

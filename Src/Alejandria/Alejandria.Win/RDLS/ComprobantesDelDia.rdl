@@ -1198,10 +1198,9 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes")</Value>
+                                  <Value>=Fields!Cuotas.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
@@ -1304,10 +1303,9 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes")</Value>
+                                  <Value>=Fields!Cuotas.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
@@ -1687,7 +1685,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes") - Fields!Cuota.Value +1</Value>
+                                  <Value>=Fields!Cuotas.Value - Fields!Cuota.Value +1</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -1755,7 +1753,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes") - Fields!Cuota.Value +1</Value>
+                                  <Value>=Fields!Cuotas.Value - Fields!Cuota.Value +1</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -2045,13 +2043,13 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Anio">
+                        <Textbox Name="Cuotas">
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Cuotas.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2060,7 +2058,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Anio</rd:DefaultName>
+                          <rd:DefaultName>Cuotas</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>

@@ -2003,6 +2003,7 @@
         <Function Name="ComprobantesByVentaId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ventaId" Type="uniqueidentifier" Mode="In" />
         </Function>
+        <Function Name="ComprobantesDelDia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="AlejandriaModelStoreContainer">
           <EntitySet Name="Cajas" EntityType="Self.Cajas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CajasMovimientos" EntityType="Self.CajasMovimientos" Schema="dbo" store:Type="Tables" />
@@ -3433,7 +3434,7 @@
             <End Role="Vendedore" EntitySet="Vendedors" />
             <End Role="Venta" EntitySet="Ventas" />
           </AssociationSet>
-          <FunctionImport Name="ComprobantesDelDia" ReturnType="Collection(AlejandriaModel.ComprobantesDelDia_Result)" />
+          <FunctionImport Name="ComprobantesDelDia" ReturnType="Collection(AlejandriaModel.ComprobantesDelDia1_Result)" />
           </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -5350,6 +5351,26 @@
           <Property Type="Int32" Name="Mes" Nullable="true" />
           <Property Type="Int32" Name="Año" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="ComprobantesDelDia1_Result">
+          <Property Type="Int32" Name="VentaNro" Nullable="false" />
+          <Property Type="Int32" Name="Cuenta" Nullable="true" />
+          <Property Type="String" Name="Denominacion" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Domicilio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Referencia" Nullable="true" />
+          <Property Type="String" Name="Concepto" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Anticipo" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="Cuotas" Nullable="true" />
+          <Property Type="Single" Name="ValorCuota" Nullable="true" />
+          <Property Type="Byte" Name="Cuota" Nullable="false" />
+          <Property Type="String" Name="Vendedor" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Cobrador" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaVencimiento" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Desde" Nullable="true" />
+          <Property Type="Int32" Name="Hasta" Nullable="true" />
+          <Property Type="Int32" Name="Mes" Nullable="true" />
+          <Property Type="Int32" Name="Año" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5899,6 +5920,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ComprobantesDelDia" FunctionName="AlejandriaModel.Store.ComprobantesDelDia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AlejandriaModel.ComprobantesDelDia1_Result">
+                <ScalarProperty Name="VentaNro" ColumnName="VentaNro" />
+                <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Anticipo" ColumnName="Anticipo" />
+                <ScalarProperty Name="Cuotas" ColumnName="Cuotas" />
+                <ScalarProperty Name="ValorCuota" ColumnName="ValorCuota" />
+                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
+                <ScalarProperty Name="Cobrador" ColumnName="Cobrador" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="Desde" ColumnName="Desde" />
+                <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

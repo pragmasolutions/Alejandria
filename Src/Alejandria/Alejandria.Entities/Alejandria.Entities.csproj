@@ -69,6 +69,9 @@
     <Compile Include="ComprobantesByVentaId_Result.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ComprobantesDelDia1_Result.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ComprobantesDelDia_Result.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>

@@ -62,9 +62,9 @@ namespace Alejandria.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ComprobantesByVentaId_Result>("ComprobantesByVentaId", ventaIdParameter);
         }
     
-        public virtual ObjectResult<ComprobantesDelDia_Result> ComprobantesDelDia()
+        public virtual ObjectResult<ComprobantesDelDia1_Result> ComprobantesDelDia()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ComprobantesDelDia_Result>("ComprobantesDelDia");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ComprobantesDelDia1_Result>("ComprobantesDelDia");
         }
     }
 }

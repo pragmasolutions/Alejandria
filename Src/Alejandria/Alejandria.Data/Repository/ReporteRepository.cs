@@ -25,7 +25,7 @@ namespace Alejandria.Data.Repository
             return AlejandriaDbContext.ComprobantesByVentaId(ventaId).AsQueryable();
         }
 
-        public IQueryable<ComprobantesDelDia_Result> ComprobantesDelDia()
+        public IQueryable<ComprobantesDelDia1_Result> ComprobantesDelDia()
         {
             return AlejandriaDbContext.ComprobantesDelDia().AsQueryable();
         }
