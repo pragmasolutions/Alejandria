@@ -65,9 +65,11 @@ namespace Alejandria.Win.Forms
             frm.ShowDialog();
         }
 
-       
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            var crear = FormFactory.Create<FrmComprobantesdelDia>();
+            crear.Show();
+        }
 
-       
-      
-    }
+       }
 }

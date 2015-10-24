@@ -260,6 +260,12 @@
     <Compile Include="Forms\Vendedores\UcFiltrosVendedor.Designer.cs">
       <DependentUpon>UcFiltrosVendedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmComprobantesDelDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmComprobantesDelDia.Designer.cs">
+      <DependentUpon>FrmComprobantesDelDia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmComprobantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendedores\UcFiltrosVendedor.resx">
       <DependentUpon>UcFiltrosVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmComprobantesDelDia.resx">
+      <DependentUpon>FrmComprobantesDelDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmComprobantes.resx">
       <DependentUpon>FrmComprobantes.cs</DependentUpon>

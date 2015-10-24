@@ -10,6 +10,7 @@ namespace Alejandria.Data.Interfaces
     public interface IReporteRepository
     {
         IQueryable<ComprobantesByVentaId_Result> ComprobantesByVentaId(Guid ventaId);
+        IQueryable<ComprobantesDelDia_Result> ComprobantesDelDia();
 
         
     }
