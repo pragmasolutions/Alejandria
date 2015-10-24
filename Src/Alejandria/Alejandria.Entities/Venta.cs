@@ -58,6 +58,6 @@ namespace Alejandria.Entities
         public virtual Operador Operadore { get; set; }
         public virtual Operador Operadore1 { get; set; }
         public virtual Operador Operadore2 { get; set; }
-        public virtual Vendedore Vendedor { get; set; }
+        public virtual Vendedor Vendedor { get; set; }
     }
 }

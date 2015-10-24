@@ -53,8 +53,8 @@ namespace Alejandria.Entities
             this.TiposComprobantes1 = new HashSet<TiposComprobante>();
             this.TiposDocumentosIdentidads = new HashSet<TiposDocumentosIdentidad>();
             this.TiposDocumentosIdentidads1 = new HashSet<TiposDocumentosIdentidad>();
-            this.Vendedores = new HashSet<Vendedore>();
-            this.Vendedores1 = new HashSet<Vendedore>();
+            this.Vendedores = new HashSet<Vendedor>();
+            this.Vendedores1 = new HashSet<Vendedor>();
             this.Ventas = new HashSet<Venta>();
             this.Ventas1 = new HashSet<Venta>();
             this.Ventas2 = new HashSet<Venta>();
@@ -118,8 +118,8 @@ namespace Alejandria.Entities
         public virtual ICollection<TiposComprobante> TiposComprobantes1 { get; set; }
         public virtual ICollection<TiposDocumentosIdentidad> TiposDocumentosIdentidads { get; set; }
         public virtual ICollection<TiposDocumentosIdentidad> TiposDocumentosIdentidads1 { get; set; }
-        public virtual ICollection<Vendedore> Vendedores { get; set; }
-        public virtual ICollection<Vendedore> Vendedores1 { get; set; }
+        public virtual ICollection<Vendedor> Vendedores { get; set; }
+        public virtual ICollection<Vendedor> Vendedores1 { get; set; }
         public virtual ICollection<Venta> Ventas { get; set; }
         public virtual ICollection<Venta> Ventas1 { get; set; }
         public virtual ICollection<Venta> Ventas2 { get; set; }

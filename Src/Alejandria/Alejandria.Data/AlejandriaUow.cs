@@ -40,6 +40,7 @@ namespace Alejandria.Data
         public IRepository<TiposMovimientosCaja> TiposMovimientosCajas { get { return GetStandardRepo<TiposMovimientosCaja>(); } }
         public IRepository<Cobrador> Cobradores { get { return GetStandardRepo<Cobrador>(); } }
         public IRepository<ClientesMovimiento> ClientesMovimientos { get { return GetStandardRepo<ClientesMovimiento>(); } }
+        public IRepository<Vendedor> Vendedores { get { return GetStandardRepo<Vendedor>(); } }
 
         public IReporteRepository Reportes { get { return GetRepo<IReporteRepository>(); } }
 

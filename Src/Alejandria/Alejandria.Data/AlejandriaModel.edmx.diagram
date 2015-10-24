@@ -98,7 +98,7 @@
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_TipoComprobante" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_Cobradores" />
-        <EntityTypeShape EntityType="AlejandriaModel.Vendedore" Width="1.5" PointX="16.5" PointY="21.25" />
+        <EntityTypeShape EntityType="AlejandriaModel.Vendedor" Width="1.5" PointX="16.5" PointY="21.25" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Vendedores" />
         <AssociationConnector Association="AlejandriaModel.FK_Vendedores_Localidad" />
         <AssociationConnector Association="AlejandriaModel.FK_Vendedores_Provincia" />

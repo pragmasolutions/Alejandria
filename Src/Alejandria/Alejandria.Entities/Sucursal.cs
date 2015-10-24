@@ -57,8 +57,8 @@ namespace Alejandria.Entities
             this.Cobradores1 = new HashSet<Cobrador>();
             this.ClientesMovimientoes = new HashSet<ClientesMovimiento>();
             this.ClientesMovimientoes1 = new HashSet<ClientesMovimiento>();
-            this.Vendedores = new HashSet<Vendedore>();
-            this.Vendedores1 = new HashSet<Vendedore>();
+            this.Vendedores = new HashSet<Vendedor>();
+            this.Vendedores1 = new HashSet<Vendedor>();
             this.Operadores = new HashSet<Operador>();
             this.Operadores1 = new HashSet<Operador>();
         }
@@ -129,8 +129,8 @@ namespace Alejandria.Entities
         public virtual ICollection<Cobrador> Cobradores1 { get; set; }
         public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
         public virtual ICollection<ClientesMovimiento> ClientesMovimientoes1 { get; set; }
-        public virtual ICollection<Vendedore> Vendedores { get; set; }
-        public virtual ICollection<Vendedore> Vendedores1 { get; set; }
+        public virtual ICollection<Vendedor> Vendedores { get; set; }
+        public virtual ICollection<Vendedor> Vendedores1 { get; set; }
         public virtual ICollection<Operador> Operadores { get; set; }
         public virtual ICollection<Operador> Operadores1 { get; set; }
         public virtual Operador Operadore { get; set; }

@@ -50,7 +50,7 @@ namespace Alejandria.Data
         public virtual DbSet<TiposMovimientosCaja> TiposMovimientosCajas { get; set; }
         public virtual DbSet<Cobrador> Cobrador { get; set; }
         public virtual DbSet<ClientesMovimiento> ClientesMovimientoes { get; set; }
-        public virtual DbSet<Vendedore> Vendedores { get; set; }
+        public virtual DbSet<Vendedor> Vendedors { get; set; }
         public virtual DbSet<Operador> Operadors { get; set; }
     
         public virtual ObjectResult<ComprobantesByVentaId_Result> ComprobantesByVentaId(Nullable<System.Guid> ventaId)

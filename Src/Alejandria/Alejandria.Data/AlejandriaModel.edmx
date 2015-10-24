@@ -3214,30 +3214,30 @@
             <End Role="Cobrador" EntitySet="Cobrador" />
             <End Role="Venta" EntitySet="Ventas" />
           </AssociationSet>
-          <EntitySet Name="Vendedores" EntityType="AlejandriaModel.Vendedore" />
+          <EntitySet Name="Vendedors" EntityType="AlejandriaModel.Vendedor" />
           <AssociationSet Name="FK_Clientes_Vendedores" Association="AlejandriaModel.FK_Clientes_Vendedores">
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
             <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK_Vendedores_Localidad" Association="AlejandriaModel.FK_Vendedores_Localidad">
             <End Role="Localidad" EntitySet="Localidads" />
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
           </AssociationSet>
           <AssociationSet Name="FK_Vendedores_Provincia" Association="AlejandriaModel.FK_Vendedores_Provincia">
             <End Role="Provincia" EntitySet="Provincias" />
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
           </AssociationSet>
           <AssociationSet Name="FK_Vendedores_SucursalAlta" Association="AlejandriaModel.FK_Vendedores_SucursalAlta">
             <End Role="Sucursal" EntitySet="Sucursals" />
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
           </AssociationSet>
           <AssociationSet Name="FK_Vendedores_SucursalModificacion" Association="AlejandriaModel.FK_Vendedores_SucursalModificacion">
             <End Role="Sucursal" EntitySet="Sucursals" />
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
           </AssociationSet>
           <AssociationSet Name="FK_Vendedores_TipoDocumento" Association="AlejandriaModel.FK_Vendedores_TipoDocumento">
             <End Role="TiposDocumentosIdentidad" EntitySet="TiposDocumentosIdentidads" />
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
           </AssociationSet>
           <EntitySet Name="Operadors" EntityType="AlejandriaModel.Operador" />
           <AssociationSet Name="FK_Cajas_Operador" Association="AlejandriaModel.FK_Cajas_Operador">
@@ -3402,11 +3402,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_Vendedores_OperadorAlta" Association="AlejandriaModel.FK_Vendedores_OperadorAlta">
             <End Role="Operadore" EntitySet="Operadors" />
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
           </AssociationSet>
           <AssociationSet Name="FK_Vendedores_OperadorModificacion" Association="AlejandriaModel.FK_Vendedores_OperadorModificacion">
             <End Role="Operadore" EntitySet="Operadors" />
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
           </AssociationSet>
           <AssociationSet Name="FK_Ventas_OperadorAlta" Association="AlejandriaModel.FK_Ventas_OperadorAlta">
             <End Role="Operadore" EntitySet="Operadors" />
@@ -3429,7 +3429,7 @@
             <End Role="Zona" EntitySet="Zonas" />
           </AssociationSet>
           <AssociationSet Name="FK_Ventas_Vendedor" Association="AlejandriaModel.FK_Ventas_Vendedor">
-            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Vendedore" EntitySet="Vendedors" />
             <End Role="Venta" EntitySet="Ventas" />
           </AssociationSet>
           </EntityContainer>
@@ -4573,7 +4573,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Vendedore">
+        <EntityType Name="Vendedor">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -4596,17 +4596,17 @@
           <Property Name="OperadorModificacionId" Type="Guid" />
           <Property Name="SucursalModificacionId" Type="Int32" />
           <NavigationProperty Name="Clientes" Relationship="AlejandriaModel.FK_Clientes_Vendedores" FromRole="Vendedore" ToRole="Cliente" />
-          <NavigationProperty Name="Localidade" Relationship="AlejandriaModel.FK_Vendedores_Localidad" FromRole="Vendedore" ToRole="Localidad" />
+          <NavigationProperty Name="Localidad" Relationship="AlejandriaModel.FK_Vendedores_Localidad" FromRole="Vendedore" ToRole="Localidad" />
           <NavigationProperty Name="Provincia" Relationship="AlejandriaModel.FK_Vendedores_Provincia" FromRole="Vendedore" ToRole="Provincia" />
-          <NavigationProperty Name="Sucursale" Relationship="AlejandriaModel.FK_Vendedores_SucursalAlta" FromRole="Vendedore" ToRole="Sucursal" />
-          <NavigationProperty Name="Sucursale1" Relationship="AlejandriaModel.FK_Vendedores_SucursalModificacion" FromRole="Vendedore" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalAlta" Relationship="AlejandriaModel.FK_Vendedores_SucursalAlta" FromRole="Vendedore" ToRole="Sucursal" />
+          <NavigationProperty Name="SucursalModificacion" Relationship="AlejandriaModel.FK_Vendedores_SucursalModificacion" FromRole="Vendedore" ToRole="Sucursal" />
           <NavigationProperty Name="TiposDocumentosIdentidad" Relationship="AlejandriaModel.FK_Vendedores_TipoDocumento" FromRole="Vendedore" ToRole="TiposDocumentosIdentidad" />
           <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Vendedores_OperadorAlta" FromRole="Vendedore" ToRole="Operadore" />
           <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Vendedores_OperadorModificacion" FromRole="Vendedore" ToRole="Operadore" />
           <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_Vendedor" FromRole="Vendedore" ToRole="Venta" />
         </EntityType>
         <Association Name="FK_Clientes_Vendedores">
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="0..1" />
           <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vendedore">
@@ -4619,7 +4619,7 @@
         </Association>
         <Association Name="FK_Vendedores_Localidad">
           <End Type="AlejandriaModel.Localidad" Role="Localidad" Multiplicity="0..1" />
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="*" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Localidad">
               <PropertyRef Name="Id" />
@@ -4631,7 +4631,7 @@
         </Association>
         <Association Name="FK_Vendedores_Provincia">
           <End Type="AlejandriaModel.Provincia" Role="Provincia" Multiplicity="0..1" />
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="*" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Provincia">
               <PropertyRef Name="Id" />
@@ -4643,7 +4643,7 @@
         </Association>
         <Association Name="FK_Vendedores_SucursalAlta">
           <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="1" />
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="*" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sucursal">
               <PropertyRef Name="Id" />
@@ -4655,7 +4655,7 @@
         </Association>
         <Association Name="FK_Vendedores_SucursalModificacion">
           <End Type="AlejandriaModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="*" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sucursal">
               <PropertyRef Name="Id" />
@@ -4667,7 +4667,7 @@
         </Association>
         <Association Name="FK_Vendedores_TipoDocumento">
           <End Type="AlejandriaModel.TiposDocumentosIdentidad" Role="TiposDocumentosIdentidad" Multiplicity="0..1" />
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="*" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TiposDocumentosIdentidad">
               <PropertyRef Name="Id" />
@@ -5226,7 +5226,7 @@
         </Association>
         <Association Name="FK_Vendedores_OperadorAlta">
           <End Type="AlejandriaModel.Operador" Role="Operadore" Multiplicity="0..1" />
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="*" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Operadore">
               <PropertyRef Name="Id" />
@@ -5238,7 +5238,7 @@
         </Association>
         <Association Name="FK_Vendedores_OperadorModificacion">
           <End Type="AlejandriaModel.Operador" Role="Operadore" Multiplicity="0..1" />
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="*" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Operadore">
               <PropertyRef Name="Id" />
@@ -5309,7 +5309,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ventas_Vendedor">
-          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Vendedor" Role="Vendedore" Multiplicity="0..1" />
           <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vendedore">
@@ -5818,8 +5818,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vendedores">
-            <EntityTypeMapping TypeName="AlejandriaModel.Vendedore">
+          <EntitySetMapping Name="Vendedors">
+            <EntityTypeMapping TypeName="AlejandriaModel.Vendedor">
               <MappingFragment StoreEntitySet="Vendedores">
                 <ScalarProperty Name="SucursalModificacionId" ColumnName="SucursalModificacionId" />
                 <ScalarProperty Name="OperadorModificacionId" ColumnName="OperadorModificacionId" />

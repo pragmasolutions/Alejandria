@@ -75,7 +75,7 @@ namespace Alejandria.Entities
         public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
         public virtual ICollection<Venta> Ventas { get; set; }
         public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
-        public virtual Vendedore Vendedore { get; set; }
+        public virtual Vendedor Vendedore { get; set; }
         public virtual Operador Operadore { get; set; }
         public virtual Operador Operadore1 { get; set; }
     }

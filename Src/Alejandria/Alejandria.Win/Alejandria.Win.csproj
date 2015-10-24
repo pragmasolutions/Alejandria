@@ -224,6 +224,12 @@
     <Compile Include="Forms\Util\UcProgressSpinner.Designer.cs">
       <DependentUpon>UcProgressSpinner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vendedor\UcFiltrosVendedor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendedor\UcFiltrosVendedor.Designer.cs">
+      <DependentUpon>UcFiltrosVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmComprobantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Util\UcProgressSpinner.resx">
       <DependentUpon>UcProgressSpinner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendedor\UcFiltrosVendedor.resx">
+      <DependentUpon>UcFiltrosVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmComprobantes.resx">
       <DependentUpon>FrmComprobantes.cs</DependentUpon>
