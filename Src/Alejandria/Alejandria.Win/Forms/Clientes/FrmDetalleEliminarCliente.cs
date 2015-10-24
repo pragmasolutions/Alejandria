@@ -72,6 +72,12 @@ namespace Alejandria.Win.Forms.Clientes
             set { txtDni.Text = value; }
         }
 
+        public string Cuenta
+        {
+            get { return TxtNroCliente.Text; }
+            set { TxtNroCliente.Text = value; }
+        }
+
         public string Domicilio
         {
             get { return txtDomicilio.Text; }
@@ -165,6 +171,7 @@ namespace Alejandria.Win.Forms.Clientes
 
             this.ApellidoNombre = cliente.Denominacion;
             this.Domicilio = cliente.Domicilio;
+            this.Cuenta = cliente.Cuenta.ToString();
             this.Telefono = cliente.Telefono;
             this.Celular = cliente.Celular;
             this.Mail = cliente.Mail;

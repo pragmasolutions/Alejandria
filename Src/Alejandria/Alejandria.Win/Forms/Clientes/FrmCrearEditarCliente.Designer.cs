@@ -65,6 +65,7 @@ namespace Alejandria.Win.Forms.Clientes
             this.TxtComentarios = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.TxtNroCliente = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EpvCliente)).BeginInit();
@@ -99,6 +100,7 @@ namespace Alejandria.Win.Forms.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.TxtComentarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtNroCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -447,9 +449,10 @@ namespace Alejandria.Win.Forms.Clientes
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel1.Location = new System.Drawing.Point(24, 375);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(97, 24);
+            this.radLabel1.Size = new System.Drawing.Size(104, 24);
             this.radLabel1.TabIndex = 93;
-            this.radLabel1.Text = "Comentarios:";
+            this.radLabel1.Text = "Comentarios /";
+            this.radLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.radLabel1.ThemeName = "TelerikMetroBlue";
             // 
             // TxtComentarios
@@ -489,11 +492,23 @@ namespace Alejandria.Win.Forms.Clientes
             this.TxtNroCliente.TabStop = false;
             this.TxtNroCliente.ThemeName = "TelerikMetro";
             // 
+            // radLabel3
+            // 
+            this.radLabel3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel3.Location = new System.Drawing.Point(24, 405);
+            this.radLabel3.Name = "radLabel3";
+            this.radLabel3.Size = new System.Drawing.Size(89, 24);
+            this.radLabel3.TabIndex = 94;
+            this.radLabel3.Text = "Referencias:";
+            this.radLabel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radLabel3.ThemeName = "TelerikMetroBlue";
+            // 
             // FrmCrearEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 526);
+            this.Controls.Add(this.radLabel3);
             this.Controls.Add(this.TxtNroCliente);
             this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.TxtComentarios);
@@ -570,6 +585,7 @@ namespace Alejandria.Win.Forms.Clientes
             ((System.ComponentModel.ISupportInitialize)(this.TxtComentarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtNroCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -612,5 +628,6 @@ namespace Alejandria.Win.Forms.Clientes
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadTextBox TxtNroCliente;
         private Telerik.WinControls.UI.RadLabel radLabel2;
+        private Telerik.WinControls.UI.RadLabel radLabel3;
     }
 }

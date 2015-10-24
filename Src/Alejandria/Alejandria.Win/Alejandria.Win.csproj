@@ -164,11 +164,29 @@
     <Compile Include="Forms\Cobradores\FrmCrearEditarCobrador.Designer.cs">
       <DependentUpon>FrmCrearEditarCobrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Cobradores\FrmCuentasCorrientesCobrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cobradores\FrmCuentasCorrientesCobrador.Designer.cs">
+      <DependentUpon>FrmCuentasCorrientesCobrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Cobradores\FrmDetalleEliminarCobrador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Cobradores\FrmDetalleEliminarCobrador.Designer.cs">
       <DependentUpon>FrmDetalleEliminarCobrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cobradores\FrmSeleccionarCobrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cobradores\FrmSeleccionarCobrador.Designer.cs">
+      <DependentUpon>FrmSeleccionarCobrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cobradores\UcCobradorDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Cobradores\UcCobradorDetalle.Designer.cs">
+      <DependentUpon>UcCobradorDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Cobradores\UcFiltrosCobrador.cs">
       <SubType>UserControl</SubType>
@@ -246,8 +264,17 @@
     <EmbeddedResource Include="Forms\Cobradores\FrmCrearEditarCobrador.resx">
       <DependentUpon>FrmCrearEditarCobrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cobradores\FrmCuentasCorrientesCobrador.resx">
+      <DependentUpon>FrmCuentasCorrientesCobrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cobradores\FrmDetalleEliminarCobrador.resx">
       <DependentUpon>FrmDetalleEliminarCobrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cobradores\FrmSeleccionarCobrador.resx">
+      <DependentUpon>FrmSeleccionarCobrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cobradores\UcCobradorDetalle.resx">
+      <DependentUpon>UcCobradorDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cobradores\UcFiltrosCobrador.resx">
       <DependentUpon>UcFiltrosCobrador.cs</DependentUpon>
