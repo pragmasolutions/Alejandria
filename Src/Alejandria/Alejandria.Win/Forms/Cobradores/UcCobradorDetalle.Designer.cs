@@ -173,7 +173,7 @@ namespace Alejandria.Win.Forms.Cobradores
             this.LnkVerDetalleCobrador.Enabled = false;
             this.LnkVerDetalleCobrador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LnkVerDetalleCobrador.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.LnkVerDetalleCobrador.Location = new System.Drawing.Point(563, 116);
+            this.LnkVerDetalleCobrador.Location = new System.Drawing.Point(229, 125);
             this.LnkVerDetalleCobrador.Name = "LnkVerDetalleCobrador";
             this.LnkVerDetalleCobrador.Size = new System.Drawing.Size(91, 23);
             this.LnkVerDetalleCobrador.TabIndex = 10;
@@ -186,7 +186,7 @@ namespace Alejandria.Win.Forms.Cobradores
             this.LnkEditarCobrador.Enabled = false;
             this.LnkEditarCobrador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LnkEditarCobrador.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.LnkEditarCobrador.Location = new System.Drawing.Point(431, 116);
+            this.LnkEditarCobrador.Location = new System.Drawing.Point(97, 125);
             this.LnkEditarCobrador.Name = "LnkEditarCobrador";
             this.LnkEditarCobrador.Size = new System.Drawing.Size(118, 23);
             this.LnkEditarCobrador.TabIndex = 9;
@@ -211,7 +211,7 @@ namespace Alejandria.Win.Forms.Cobradores
             this.Controls.Add(this.TxtCobrador);
             this.Controls.Add(this.metroLabel7);
             this.Name = "UcCobradorDetalle";
-            this.Size = new System.Drawing.Size(674, 150);
+            this.Size = new System.Drawing.Size(674, 158);
             ((System.ComponentModel.ISupportInitialize)(this.TxtCobrador)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroLabel7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtDomicilio)).EndInit();

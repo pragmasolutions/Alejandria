@@ -40,6 +40,9 @@ namespace Alejandria.Entities.Dto
         public Nullable<int> SucursalModificacionId { get; set; }
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
         public Nullable<System.DateTime> FechaVencimientoHasta { get; set; }
+
+        //public int VentaCobradorId { get; set; }
+       // public string ClienteDenominacion { get; set; }
         
     }
 }
