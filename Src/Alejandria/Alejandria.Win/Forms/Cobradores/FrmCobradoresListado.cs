@@ -103,28 +103,28 @@ namespace Alejandria.Win.Forms.Cobradores
             if (selectedRow == null)
                 return;
 
-            var cliente = selectedRow.DataBoundItem as ClienteDto;
+            var cobrador = selectedRow.DataBoundItem as CobradoresDto;
 
-            if (cliente == null)
+            if (cobrador == null)
                 return;
 
             switch (commandCell.ColumnInfo.Name)
             {
                 case "ColumnaDetalle":
-                    Detalle(cliente.Id);
+                    Detalle(cobrador.Id);
                     break;
                 case "ColumnaEditar":
-                    Editar(cliente.Id);
+                    Editar(cobrador.Id);
                     break;
                 case "ColumnaEliminar":
-                    Eliminar(cliente.Id);
+                    Eliminar(cobrador.Id);
                     break;
             }
         }
 
-        private void Detalle(Guid clientId)
+        private void Detalle(int cobradorId)
         {
-            using (var formCrear = FormFactory.Create<FrmDetalleEliminarCobrador>(clientId, ActionFormMode.Detail))
+            using (var formCrear = FormFactory.Create<FrmDetalleEliminarCobrador>(cobradorId, ActionFormMode.Detail))
             {
                 var result = formCrear.ShowDialog();
                 if (result == DialogResult.OK)
@@ -135,7 +135,9 @@ namespace Alejandria.Win.Forms.Cobradores
             }
         }
 
-        private void Editar(Guid clienteId)
+       
+
+        private void Editar(int clienteId)
         {
             using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(clienteId, ActionFormMode.Edit))
             {
@@ -148,7 +150,7 @@ namespace Alejandria.Win.Forms.Cobradores
             }
         }
 
-        private void Eliminar(Guid clienteId)
+        private void Eliminar(int clienteId)
         {
             using (var formCrear = FormFactory.Create<FrmDetalleEliminarCobrador>(clienteId, ActionFormMode.Delete))
             {

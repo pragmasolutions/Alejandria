@@ -135,7 +135,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
@@ -163,7 +163,7 @@
             this.UcFiltrosCobradores.Cuit = "";
             this.UcFiltrosCobradores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UcFiltrosCobradores.Location = new System.Drawing.Point(5, 54);
-            this.UcFiltrosCobradores.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.UcFiltrosCobradores.Margin = new System.Windows.Forms.Padding(5);
             this.UcFiltrosCobradores.Name = "UcFiltrosCobradores";
             this.UcFiltrosCobradores.Nombre = "";
             this.UcFiltrosCobradores.Size = new System.Drawing.Size(1030, 106);
@@ -178,7 +178,7 @@
             this.tableLayoutPanel2.Controls.Add(this.ucProgressSpinner1, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -202,7 +202,7 @@
             // 
             this.ucProgressSpinner1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ucProgressSpinner1.Location = new System.Drawing.Point(811, 5);
-            this.ucProgressSpinner1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucProgressSpinner1.Margin = new System.Windows.Forms.Padding(5);
             this.ucProgressSpinner1.Name = "ucProgressSpinner1";
             this.ucProgressSpinner1.Size = new System.Drawing.Size(216, 31);
             this.ucProgressSpinner1.TabIndex = 15;
@@ -212,7 +212,7 @@
             this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClientes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvClientes.Location = new System.Drawing.Point(0, 0);
-            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4);
             // 
             // dgvClientes
             // 
@@ -228,9 +228,9 @@
             gridViewTextBoxColumn1.IsVisible = false;
             gridViewTextBoxColumn1.Name = "Id";
             gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn2.FieldName = "Denominacion";
+            gridViewTextBoxColumn2.FieldName = "Nombre";
             gridViewTextBoxColumn2.HeaderText = "Apellido, Nombre";
-            gridViewTextBoxColumn2.Name = "Denominacion";
+            gridViewTextBoxColumn2.Name = "Nombre";
             gridViewTextBoxColumn2.ReadOnly = true;
             gridViewTextBoxColumn2.Width = 179;
             gridViewTextBoxColumn3.FieldName = "TiposDocumentosIdentidadNombre";
@@ -314,7 +314,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 725);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCobradoresListado";
             // 
             // 
