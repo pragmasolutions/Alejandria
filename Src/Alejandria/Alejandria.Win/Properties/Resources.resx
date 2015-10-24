@@ -253,6 +253,9 @@
   <data name="LabelEditarCobrador" xml:space="preserve">
     <value>Editar Cobrador</value>
   </data>
+  <data name="LabelEditarVendedor" xml:space="preserve">
+    <value>Editar Vendedor</value>
+  </data>
   <data name="LabelDetalleProveedor" xml:space="preserve">
     <value>Detalle Proveedor</value>
   </data>
@@ -460,6 +463,10 @@
   <data name="LabelCrearCobrador" xml:space="preserve">
     <value>Crear Cobrador</value>
   </data>
+  <data name="LabelCrearVendedor" xml:space="preserve">
+    <value>Crear Vendedor</value>
+  </data>
+  
   <data name="Login-01_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login-01_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

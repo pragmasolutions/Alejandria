@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace Alejandria.Win.Forms.Cobradores
+namespace Alejandria.Win.Forms.Vendedores
 {
-    partial class UcCobradorDetalle
+    partial class UcVendedorDetalle
     {
         /// <summary> 
         /// Required designer variable.

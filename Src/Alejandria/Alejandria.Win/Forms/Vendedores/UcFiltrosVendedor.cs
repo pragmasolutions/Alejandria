@@ -13,7 +13,7 @@ using Framework.Ioc;
 using Alejandria.Data.Interfaces;
 using Alejandria.Entities;
 
-namespace Alejandria.Win.Forms.Vendedor
+namespace Alejandria.Win.Forms.Vendedores
 {
     public partial class UcFiltrosVendedor : UserControlBase
     {

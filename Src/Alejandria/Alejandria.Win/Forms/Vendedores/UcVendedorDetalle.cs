@@ -12,15 +12,15 @@ using Alejandria.Win.Enums;
 using Framework.Ioc;
 
 
-namespace Alejandria.Win.Forms.Cobradores
+namespace Alejandria.Win.Forms.Vendedores
 {
-    public partial class UcCobradorDetalle : UserControlBase
+    public partial class UcVendedorDetalle : UserControlBase
     {
-        public event EventHandler<Cobrador> CobradorEdited;
+        public event EventHandler<Vendedor> VendedoresEdited;
 
-        private Cobrador _cobrador;
+        private Vendedor _vendedor;
 
-        public UcCobradorDetalle()
+        public UcVendedorDetalle()
         {
             if (Ioc.Container != null)
             {
@@ -30,7 +30,7 @@ namespace Alejandria.Win.Forms.Cobradores
         }
 
         #region Propiedades
-        public string CobradorNombre
+        public string VendedorNombre
         {
             get { return TxtCobrador.Text; }
             set { TxtCobrador.Text = value; }
@@ -62,15 +62,15 @@ namespace Alejandria.Win.Forms.Cobradores
 
         #endregion
 
-        public void ActualizarCobrador(Cobrador cobrador)
+        public void ActualizarVendedor(Vendedor vendedor)
         {
-            _cobrador = cobrador;
+            _vendedor = vendedor;
 
-            this.CobradorNombre = cobrador.Nombre;
-            this.Domicilio = cobrador.Domicilio;
-            this.Cuit = cobrador.Cuit;
-            this.Localidad = cobrador.Localidad != null ? cobrador.Localidad.Nombre : string.Empty;
-            this.Provincia = cobrador.Provincia != null ? cobrador.Provincia.Nombre : string.Empty;
+            this.VendedorNombre = vendedor.Nombre;
+            this.Domicilio = vendedor.Domicilio;
+            this.Cuit = vendedor.Cuit;
+            this.Localidad = vendedor.Localidad != null ? vendedor.Localidad.Nombre : string.Empty;
+            this.Provincia = vendedor.Provincia != null ? vendedor.Provincia.Nombre : string.Empty;
 
             LnkVerDetalleCobrador.Enabled = true;
             LnkEditarCobrador.Enabled = true;
@@ -78,31 +78,31 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void LnkVerDetalleCliente_Click(object sender, EventArgs e)
         {
-            if (_cobrador == null)
+            if (_vendedor == null)
             {
                 return;
             }
 
-            DetalleCobrador(_cobrador);
+            DetalleCobrador(_vendedor);
         }
 
-        private void DetalleCobrador(Cobrador cobrador)
+        private void DetalleCobrador(Vendedor vendedor)
         {
-            using (var formDetalle = FormFactory.Create<FrmDetalleEliminarCobrador>(cobrador.Id, ActionFormMode.Detail))
+            using (var formDetalle = FormFactory.Create<FrmDetalleEliminarVendedores>(vendedor.Id, ActionFormMode.Detail))
             {
                 formDetalle.ShowDialog(); 
             }
         }
 
-        private void EditarCobrador(Cobrador cobrador)
+        private void EditarVendedor(Vendedor vendedor)
         {
-            using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(cobrador.Id, ActionFormMode.Edit))
+            using (var formCrear = FormFactory.Create<FrmCrearEditarVendedor>(vendedor.Id, ActionFormMode.Edit))
             {
                 if (formCrear.ShowDialog() == DialogResult.OK)
                 {
-                    if (CobradorEdited != null)
+                    if (VendedoresEdited != null)
                     {
-                        CobradorEdited(this, cobrador);
+                        VendedoresEdited(this, vendedor);
                     }
                 } 
             }
@@ -110,12 +110,12 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void LnkEditarCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (_cobrador == null)
+            if (_vendedor == null)
             {
                 return;
             }
 
-            EditarCobrador(_cobrador);
+            EditarVendedor(_vendedor);
         }
 
        }

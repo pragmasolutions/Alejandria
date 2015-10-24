@@ -10,6 +10,7 @@ using Alejandria.Win.Enums;
 using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Forms.Cobradores;
 using Alejandria.Win.Forms.CuentaCorrientes;
+using Alejandria.Win.Forms.Vendedores;
 using Alejandria.Win.Forms.Ventas;
 using Telerik.WinControls;
 
@@ -56,6 +57,15 @@ namespace Alejandria.Win.Forms
             var frm = FormFactory.Create<FrmCuentasCorrientesCobrador>(default(int), ActionFormMode.Create);
             frm.ShowDialog();
         }
+
+        private void BtnVendedores_Click(object sender, EventArgs e)
+        {
+
+            var frm = FormFactory.Create<FrmVendedoresListado>();
+            frm.ShowDialog();
+        }
+
+       
 
        
       

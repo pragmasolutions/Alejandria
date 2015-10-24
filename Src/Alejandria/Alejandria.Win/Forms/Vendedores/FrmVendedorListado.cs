@@ -13,13 +13,13 @@ using Alejandria.Win.Forms;
 using Alejandria.Win.Helpers;
 using Telerik.WinControls.UI;
 
-namespace Alejandria.Win.Forms.Cobradores
+namespace Alejandria.Win.Forms.Vendedores
 {
-    public partial class FrmCobradoresListado : FormBaseListado
+    public partial class FrmVendedoresListado : FormBaseListado
     {
-        private readonly ICobradoresNegocio _conbradorNegocio;
+        private readonly IVendedoresNegocio _vendedorNegocio;
 
-        public FrmCobradoresListado(IFormFactory formFactory, IAlejandriaUow uow, ICobradoresNegocio cobradorNegocio)
+        public FrmVendedoresListado(IFormFactory formFactory, IAlejandriaUow uow, IVendedoresNegocio vendedorNegocio)
         {
             FormFactory = formFactory;
 
@@ -30,7 +30,7 @@ namespace Alejandria.Win.Forms.Cobradores
             SortColumnMappings = new Dictionary<string, string>();
             SortColumnMappings["TipoDocumentoDi"] = "TiposDocumentosIdentidad.Abreviatura";
 
-            _conbradorNegocio = cobradorNegocio;
+            _vendedorNegocio = vendedorNegocio;
 
             InitializeComponent();
 
@@ -48,11 +48,11 @@ namespace Alejandria.Win.Forms.Cobradores
             ClientesPager.RefreshActionAsync = RefrescarListado;
         }
 
-        private void FrmClienteListado_Load(object sender, EventArgs e)
+        private void FrmVendedorListado_Load(object sender, EventArgs e)
         {
             base.FormBaseListado_Load(sender, e);
             RefrescarListado();
-            UcFiltrosCobradores.Filtered += Filtered;
+            UcFiltrosVendedor.Filtered += Filtered;
         }
 
         private void Filtered(object sender, EventArgs eventArgs)
@@ -65,16 +65,16 @@ namespace Alejandria.Win.Forms.Cobradores
             ucProgressSpinner1.Show();
 
             int pageTotal = 0;
-            var nombre = UcFiltrosCobradores.Nombre;
-            var cuit = UcFiltrosCobradores.Cuit;
+            var nombre = UcFiltrosVendedor.Nombre;
+            var cuit = UcFiltrosVendedor.Cuit;
 
-            var clientes = await Task.Run(() => _conbradorNegocio.Listado(SortColumn, SortDirection,
+            var vendedores = await Task.Run(() => _vendedorNegocio.Listado(SortColumn, SortDirection,
                                                                         nombre, cuit, true,
                                                                         ClientesPager.CurrentPage,
                                                                         ClientesPager.PageSize,
                                                                         out pageTotal));
 
-            dgvClientes.DataSource = clientes;
+            dgvClientes.DataSource = vendedores;
 
             ClientesPager.UpdateState(pageTotal);
 
@@ -83,7 +83,7 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void BtnCrearCliente_Click(object sender, EventArgs e)
         {
-            using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(default(int), ActionFormMode.Create))
+            using (var formCrear = FormFactory.Create<FrmCrearEditarVendedor>(default(int), ActionFormMode.Create))
             {
                 var result = formCrear.ShowDialog();
                 if (result == DialogResult.OK)
@@ -103,28 +103,28 @@ namespace Alejandria.Win.Forms.Cobradores
             if (selectedRow == null)
                 return;
 
-            var cobrador = selectedRow.DataBoundItem as CobradoresDto;
+            var vendedor = selectedRow.DataBoundItem as VendedoresDto;
 
-            if (cobrador == null)
+            if (vendedor == null)
                 return;
 
             switch (commandCell.ColumnInfo.Name)
             {
                 case "ColumnaDetalle":
-                    Detalle(cobrador.Id);
+                    Detalle(vendedor.Id);
                     break;
                 case "ColumnaEditar":
-                    Editar(cobrador.Id);
+                    Editar(vendedor.Id);
                     break;
                 case "ColumnaEliminar":
-                    Eliminar(cobrador.Id);
+                    Eliminar(vendedor.Id);
                     break;
             }
         }
 
-        private void Detalle(int cobradorId)
+        private void Detalle(int vendedorId)
         {
-            using (var formCrear = FormFactory.Create<FrmDetalleEliminarCobrador>(cobradorId, ActionFormMode.Detail))
+            using (var formCrear = FormFactory.Create<FrmDetalleEliminarVendedores>(vendedorId, ActionFormMode.Detail))
             {
                 var result = formCrear.ShowDialog();
                 if (result == DialogResult.OK)
@@ -137,9 +137,9 @@ namespace Alejandria.Win.Forms.Cobradores
 
        
 
-        private void Editar(int clienteId)
+        private void Editar(int vendedorId)
         {
-            using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(clienteId, ActionFormMode.Edit))
+            using (var formCrear = FormFactory.Create<FrmCrearEditarVendedor>(vendedorId, ActionFormMode.Edit))
             {
                 var result = formCrear.ShowDialog();
                 if (result == DialogResult.OK)
@@ -150,9 +150,9 @@ namespace Alejandria.Win.Forms.Cobradores
             }
         }
 
-        private void Eliminar(int clienteId)
+        private void Eliminar(int vendedorId)
         {
-            using (var formCrear = FormFactory.Create<FrmDetalleEliminarCobrador>(clienteId, ActionFormMode.Delete))
+            using (var formCrear = FormFactory.Create<FrmDetalleEliminarVendedores>(vendedorId, ActionFormMode.Delete))
             {
                 var result = formCrear.ShowDialog();
                 if (result == DialogResult.OK)

@@ -17,20 +17,20 @@ using Alejandria.Win.Properties;
 using Framework.Common.Utility;
 using Ninject.Activation;
 
-namespace Alejandria.Win.Forms.Cobradores
+namespace Alejandria.Win.Forms.Vendedores
 {
-    public partial class FrmCrearEditarCobrador : EditFormBase
+    public partial class FrmCrearEditarVendedor : EditFormBase
     {
-        private readonly int _cobradorId;
+        private readonly int _vendedorId;
         private readonly IClock _clock;
         private readonly ActionFormMode _formMode;
-        private Cobrador _cobrador;
+        private Vendedor _vendedor;
 
-        public FrmCrearEditarCobrador(IAlejandriaUow uow, IClock clock, int id, ActionFormMode mode)
+        public FrmCrearEditarVendedor(IAlejandriaUow uow, IClock clock, int id, ActionFormMode mode)
         {
             Uow = uow;
 
-            _cobradorId = id;
+            _vendedorId = id;
             _clock = clock;
             _formMode = mode;
 
@@ -39,7 +39,7 @@ namespace Alejandria.Win.Forms.Cobradores
         }
 
         #region Eventos
-        public event EventHandler<Cobrador> CobradorAgregado;
+        public event EventHandler<Vendedor> VendedorAgregado;
         #endregion
 
         #region Propiedades
@@ -122,44 +122,44 @@ namespace Alejandria.Win.Forms.Cobradores
             switch (mode)
             {
                 case ActionFormMode.Create:
-                    this.Text = Resources.LabelCrearCobrador;
+                    this.Text = Resources.LabelCrearVendedor;
                     break;
                 case ActionFormMode.Edit:
-                    this.Text = Resources.LabelEditarCobrador;
+                    this.Text = Resources.LabelEditarVendedor;
                     break;
             }
         }
 
-   private void FrmCrearEditarCobrador_Load(object sender, EventArgs e)
+   private void FrmCrearEditarVendedor_Load(object sender, EventArgs e)
         {
             DefinirCombos();
             CargarCombos();
-            CargarNroCobrador();
-            CargarCobrador(_cobradorId);
+            CargarNroVendedor();
+            CargarVendedor(_vendedorId);
         }
 
-       private void CargarCobrador(int cobradorId)
+       private void CargarVendedor(int vendedorId)
         {
-            if (cobradorId == default(int))
+            if (vendedorId == default(int))
             {
-                _cobrador = new Cobrador();
+                _vendedor = new Vendedor();
                 return;
             }
             else
             {
-                _cobrador = Uow.Cobradores.Obtener(c => c.Id == cobradorId);
+                _vendedor = Uow.Vendedores.Obtener(c => c.Id == vendedorId);
             }
 
-            this.ApellidoNombre = _cobrador.Nombre;
-            this.Domicilio = _cobrador.Domicilio;
-            this.Telefono = _cobrador.Telefono;
-            this.Celular = _cobrador.Celular;
-            this.Mail = _cobrador.Mail;
-            this.ProvinciaId = _cobrador.ProvinciaId;
-            this.LocalidadId = _cobrador.LocalidadId;
-            this.TipoDocumentoId = _cobrador.TipoDocumentoId;
-            this.Cuit = _cobrador.Cuit;
-            this.Cuenta = _cobrador.Id;
+            this.ApellidoNombre = _vendedor.Nombre;
+            this.Domicilio = _vendedor.Domicilio;
+            this.Telefono = _vendedor.Telefono;
+            this.Celular = _vendedor.Celular;
+            this.Mail = _vendedor.Mail;
+            this.ProvinciaId = _vendedor.ProvinciaId;
+            this.LocalidadId = _vendedor.LocalidadId;
+            this.TipoDocumentoId = _vendedor.TipoDocumentoId;
+            this.Cuit = _vendedor.Cuit;
+            this.Cuenta = _vendedor.Id;
         }
 
         private void DefinirCombos()
@@ -204,21 +204,21 @@ namespace Alejandria.Win.Forms.Cobradores
             CargarLocalidad((int?)cbxProvincia.SelectedValue);
         }
 
-        private void CargarNroCobrador()
+        private void CargarNroVendedor()
         {
-            var nroCobrador =Uow.Cobradores.Listado().OrderByDescending(c => c.Id).FirstOrDefault();
-            if (nroCobrador == null)
+            var nroVendedor =Uow.Vendedores.Listado().OrderByDescending(c => c.Id).FirstOrDefault();
+            if (nroVendedor == null)
                 Cuenta = 1;
             else
-                Cuenta = nroCobrador.Id + 1;
+                Cuenta = nroVendedor.Id + 1;
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            CrearEditarCobrador();
+            CrearEditarVendedor();
         }
 
-        private void CrearEditarCobrador()
+        private void CrearEditarVendedor()
         {
             var esValido = this.ValidarForm();
 
@@ -228,70 +228,70 @@ namespace Alejandria.Win.Forms.Cobradores
             }
             else
             {
-                var cobrador = ObtenerCobradorDesdeForm();
+                var vendedor = ObtenerVendedorDesdeForm();
                 if (_formMode == ActionFormMode.Create)
                 {
-                    Uow.Cobradores.Agregar(cobrador);
+                    Uow.Vendedores.Agregar(vendedor);
                 }
                 else
                 {
-                    Uow.Cobradores.Modificar(cobrador);
+                    Uow.Vendedores.Modificar(vendedor);
                 }
 
                 Uow.Commit();
 
                 if (_formMode == ActionFormMode.Create)
                 {
-                    OnCobradorAgregado(cobrador);
+                    OnVendedorAgregado(vendedor);
                 }
             }
         }
 
-        private void OnCobradorAgregado(Cobrador cliente)
+        private void OnVendedorAgregado(Vendedor vendedor)
         {
-            if (CobradorAgregado != null)
+            if (VendedorAgregado != null)
             {
-                CobradorAgregado(this, cliente);
+                VendedorAgregado(this, vendedor);
             }
         }
 
-        private Cobrador ObtenerCobradorDesdeForm()
+        private Vendedor ObtenerVendedorDesdeForm()
         {
-            _cobrador.Id = _cobradorId == default(int) ? 1 : _cobradorId;
-            _cobrador.Nombre = ApellidoNombre;
-            _cobrador.Domicilio = Domicilio;
-            _cobrador.Telefono = Telefono;
-            _cobrador.Celular = Celular;
-            _cobrador.Mail = Mail;
-            _cobrador.ProvinciaId = ProvinciaId;
-            _cobrador.LocalidadId = LocalidadId;
-            _cobrador.TipoDocumentoId = TipoDocumentoId;
-            _cobrador.Cuit = Cuit.PadLeft(11, '0');
-            _cobrador.FechaAlta = _formMode == ActionFormMode.Create ? _clock.Now : _cobrador.FechaAlta;
-            _cobrador.FechaModificacion = _formMode == ActionFormMode.Create ? (DateTime?)null : _clock.Now;
-            _cobrador.SucursalAltaId = _formMode == ActionFormMode.Create
+            _vendedor.Id = _vendedorId == default(int) ? 1 : _vendedorId;
+            _vendedor.Nombre = ApellidoNombre;
+            _vendedor.Domicilio = Domicilio;
+            _vendedor.Telefono = Telefono;
+            _vendedor.Celular = Celular;
+            _vendedor.Mail = Mail;
+            _vendedor.ProvinciaId = ProvinciaId;
+            _vendedor.LocalidadId = LocalidadId;
+            _vendedor.TipoDocumentoId = TipoDocumentoId;
+            _vendedor.Cuit = Cuit.PadLeft(11, '0');
+            _vendedor.FechaAlta = _formMode == ActionFormMode.Create ? _clock.Now : _vendedor.FechaAlta;
+            _vendedor.FechaModificacion = _formMode == ActionFormMode.Create ? (DateTime?)null : _clock.Now;
+            _vendedor.SucursalAltaId = _formMode == ActionFormMode.Create
                                           ? 1
-                                          : _cobrador.SucursalAltaId;
+                                          : _vendedor.SucursalAltaId;
 
-            _cobrador.SucursalModificacionId = _formMode == ActionFormMode.Create
+            _vendedor.SucursalModificacionId = _formMode == ActionFormMode.Create
                                                   ? null
-                                                  : _cobrador.SucursalModificacionId;
+                                                  : _vendedor.SucursalModificacionId;
 
-            _cobrador.OperadorAltaId = _formMode == ActionFormMode.Create
+            _vendedor.OperadorAltaId = _formMode == ActionFormMode.Create
                                           ? Guid.Empty
-                                          : _cobrador.OperadorAltaId;
+                                          : _vendedor.OperadorAltaId;
 
-            _cobrador.OperadorModificacionId = _formMode == ActionFormMode.Create
+            _vendedor.OperadorModificacionId = _formMode == ActionFormMode.Create
                                                   ? null
-                                                  : _cobrador.OperadorModificacionId;
-            _cobrador.Activo = true;
+                                                  : _vendedor.OperadorModificacionId;
+            _vendedor.Activo = true;
 
-            return _cobrador;
+            return _vendedor;
        }
 
         protected override object ObtenerEntidad()
         {
-            return ObtenerCobradorDesdeForm();
+            return ObtenerVendedorDesdeForm();
         }
 
         protected override void ValidarControles()

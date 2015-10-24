@@ -1,6 +1,6 @@
-﻿namespace Alejandria.Win.Forms.Cobradores
+﻿namespace Alejandria.Win.Forms.Vendedores
 {
-    partial class FrmCobradoresListado
+    partial class FrmVendedoresListado
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ClientesPager = new Framework.WinForm.Controls.MetroPager();
-            this.UcFiltrosCobradores = new Alejandria.Win.Forms.Cobradores.UcFiltrosCobradores();
+            this.UcFiltrosVendedor = new Alejandria.Win.Forms.Vendedores.UcFiltrosVendedor();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnCrearCliente = new Telerik.WinControls.UI.RadButton();
             this.ucProgressSpinner1 = new Alejandria.Win.Forms.Util.UcProgressSpinner();
@@ -131,7 +131,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.ClientesPager, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.UcFiltrosCobradores, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.UcFiltrosVendedor, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -158,16 +158,16 @@
             this.ClientesPager.Size = new System.Drawing.Size(508, 47);
             this.ClientesPager.TabIndex = 11;
             // 
-            // UcFiltrosCobradores
+            // UcFiltrosVendedor
             // 
-            this.UcFiltrosCobradores.Cuit = "";
-            this.UcFiltrosCobradores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UcFiltrosCobradores.Location = new System.Drawing.Point(5, 54);
-            this.UcFiltrosCobradores.Margin = new System.Windows.Forms.Padding(5);
-            this.UcFiltrosCobradores.Name = "UcFiltrosCobradores";
-            this.UcFiltrosCobradores.Nombre = "";
-            this.UcFiltrosCobradores.Size = new System.Drawing.Size(1030, 106);
-            this.UcFiltrosCobradores.TabIndex = 14;
+            this.UcFiltrosVendedor.Cuit = "";
+            this.UcFiltrosVendedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UcFiltrosVendedor.Location = new System.Drawing.Point(5, 54);
+            this.UcFiltrosVendedor.Margin = new System.Windows.Forms.Padding(5);
+            this.UcFiltrosVendedor.Name = "UcFiltrosVendedor";
+            this.UcFiltrosVendedor.Nombre = "";
+            this.UcFiltrosVendedor.Size = new System.Drawing.Size(1030, 106);
+            this.UcFiltrosVendedor.TabIndex = 14;
             // 
             // tableLayoutPanel2
             // 
@@ -308,20 +308,20 @@
             this.dgvClientes.ThemeName = "TelerikMetro";
             this.dgvClientes.CommandCellClick += new Telerik.WinControls.UI.CommandCellClickEventHandler(this.dgvClientes_CommandCellClick);
             // 
-            // FrmCobradoresListado
+            // FrmVendedoresListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 725);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmCobradoresListado";
+            this.Name = "FrmVendedoresListado";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "Cobradores";
-            this.Load += new System.EventHandler(this.FrmClienteListado_Load);
+            this.Text = "Vendedores";
+            this.Load += new System.EventHandler(this.FrmVendedorListado_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -355,7 +355,7 @@
         private Controls.DeleteCell.DeleteColumn ClienteEliminar;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Framework.WinForm.Controls.MetroPager ClientesPager;
-        private UcFiltrosCobradores UcFiltrosCobradores;
+        private UcFiltrosVendedor UcFiltrosVendedor;
         private Telerik.WinControls.UI.RadGridView dgvClientes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

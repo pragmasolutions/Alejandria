@@ -1,4 +1,4 @@
-﻿namespace Alejandria.Win.Forms.Vendedor
+﻿namespace Alejandria.Win.Forms.Vendedores
 {
     partial class UcFiltrosVendedor
     {

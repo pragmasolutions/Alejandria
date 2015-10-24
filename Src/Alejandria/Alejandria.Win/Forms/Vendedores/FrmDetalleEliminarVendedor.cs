@@ -17,16 +17,16 @@ using Alejandria.Win.Properties;
 using Framework.WinForm.Comun.Notification;
 
 
-namespace Alejandria.Win.Forms.Cobradores
+namespace Alejandria.Win.Forms.Vendedores
 {
-    public partial class FrmDetalleEliminarCobrador : FormBase
+    public partial class FrmDetalleEliminarVendedores : FormBase
     {
-        private readonly int _cobradorId;
+        private readonly int _vendedorId;
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
-        private readonly ICobradoresNegocio _cobradorNegocio;
+        private readonly IVendedoresNegocio _vendedorNegocio;
 
-        public FrmDetalleEliminarCobrador(IAlejandriaUow uow,
-                                         ICobradoresNegocio cobradorNegocio,
+        public FrmDetalleEliminarVendedores(IAlejandriaUow uow,
+                                         IVendedoresNegocio vendedorNegocio,
                                          IMessageBoxDisplayService messageBoxDisplayService,
                                          int id, ActionFormMode mode, IFormFactory formFactory)
         {
@@ -34,8 +34,8 @@ namespace Alejandria.Win.Forms.Cobradores
             Uow = uow;
 
             _messageBoxDisplayService = messageBoxDisplayService;
-            _cobradorId = id;
-            _cobradorNegocio = cobradorNegocio;
+            _vendedorId = id;
+            _vendedorNegocio = vendedorNegocio;
 
             InitializeComponent();
 
@@ -47,11 +47,11 @@ namespace Alejandria.Win.Forms.Cobradores
             switch (mode)
             {
                 case ActionFormMode.Detail:
-                    this.Text = "Detalle Cliente";
+                    this.Text = "Detalle Vendedor";
                     this.BtnEliminar.Visible = false;
                     break;
                 case ActionFormMode.Delete:
-                    this.Text = "Eliminar Cliente";
+                    this.Text = "Eliminar Vendedor";
                     this.BtnEliminar.Visible = true;
                     break;
             }
@@ -153,36 +153,36 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void FrmDetalleEliminarCliente_Load(object sender, EventArgs e)
         {
-            CargarCobrador(_cobradorId);
+            CargarVendedor(_vendedorId);
         }
 
-        private void CargarCobrador(int cobradorId)
+        private void CargarVendedor(int vendedorId)
         {
-            Cobrador cobrador = Uow.Cobradores.Obtener(c => c.Id == cobradorId, c => c.Provincia,
+            Vendedor vendedor = Uow.Vendedores.Obtener(c => c.Id == vendedorId, c => c.Provincia,
                                                     c => c.Localidad,
                                                     c => c.TiposDocumentosIdentidad);
 
-            this.ApellidoNombre = cobrador.Nombre;
-            this.Domicilio = cobrador.Domicilio;
-            this.Telefono = cobrador.Telefono;
-            this.Celular = cobrador.Celular;
-            this.Mail = cobrador.Mail;
-            this.Provincia = cobrador.Provincia != null ? cobrador.Provincia.Nombre : string.Empty;
-            this.Localidad = cobrador.Localidad != null ? cobrador.Localidad.Nombre : string.Empty;
-            
-            this.TipoDocumento = cobrador.TiposDocumentosIdentidad != null ? cobrador.TiposDocumentosIdentidad.Nombre : string.Empty;
-            this.Cuit = cobrador.Cuit;
+            this.ApellidoNombre = vendedor.Nombre;
+            this.Domicilio = vendedor.Domicilio;
+            this.Telefono = vendedor.Telefono;
+            this.Celular = vendedor.Celular;
+            this.Mail = vendedor.Mail;
+            this.Provincia = vendedor.Provincia != null ? vendedor.Provincia.Nombre : string.Empty;
+            this.Localidad = vendedor.Localidad != null ? vendedor.Localidad.Nombre : string.Empty;
+
+            this.TipoDocumento = vendedor.TiposDocumentosIdentidad != null ? vendedor.TiposDocumentosIdentidad.Nombre : string.Empty;
+            this.Cuit = vendedor.Cuit;
             
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
            
-            var cobrador = Uow.Cobradores.Obtener(p => p.Id == _cobradorId);
+            var vendedor = Uow.Vendedores.Obtener(p => p.Id == _vendedorId);
 
-            cobrador.Activo = false;
+            vendedor.Activo = false;
 
-            Uow.Cobradores.Modificar(cobrador);
+            Uow.Vendedores.Modificar(vendedor);
 
             Uow.Commit();
         }

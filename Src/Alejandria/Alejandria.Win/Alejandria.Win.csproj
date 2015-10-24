@@ -224,10 +224,40 @@
     <Compile Include="Forms\Util\UcProgressSpinner.Designer.cs">
       <DependentUpon>UcProgressSpinner.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Vendedor\UcFiltrosVendedor.cs">
+    <Compile Include="Forms\Vendedores\FrmCrearEditarVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendedores\FrmCrearEditarVendedor.Designer.cs">
+      <DependentUpon>FrmCrearEditarVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendedores\FrmDetalleEliminarVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendedores\FrmDetalleEliminarVendedor.Designer.cs">
+      <DependentUpon>FrmDetalleEliminarVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendedores\FrmSeleccionarVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendedores\FrmSeleccionarVendedor.Designer.cs">
+      <DependentUpon>FrmSeleccionarVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendedores\FrmVendedorListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendedores\FrmVendedorListado.Designer.cs">
+      <DependentUpon>FrmVendedorListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendedores\UcVendedorDetalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Vendedor\UcFiltrosVendedor.Designer.cs">
+    <Compile Include="Forms\Vendedores\UcVendedorDetalle.Designer.cs">
+      <DependentUpon>UcVendedorDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendedores\UcFiltrosVendedor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendedores\UcFiltrosVendedor.Designer.cs">
       <DependentUpon>UcFiltrosVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Ventas\FrmComprobantes.cs">
@@ -303,7 +333,22 @@
     <EmbeddedResource Include="Forms\Util\UcProgressSpinner.resx">
       <DependentUpon>UcProgressSpinner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Vendedor\UcFiltrosVendedor.resx">
+    <EmbeddedResource Include="Forms\Vendedores\FrmCrearEditarVendedor.resx">
+      <DependentUpon>FrmCrearEditarVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendedores\FrmDetalleEliminarVendedor.resx">
+      <DependentUpon>FrmDetalleEliminarVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendedores\FrmSeleccionarVendedor.resx">
+      <DependentUpon>FrmSeleccionarVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendedores\FrmVendedorListado.resx">
+      <DependentUpon>FrmVendedorListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendedores\UcVendedorDetalle.resx">
+      <DependentUpon>UcVendedorDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendedores\UcFiltrosVendedor.resx">
       <DependentUpon>UcFiltrosVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmComprobantes.resx">

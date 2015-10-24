@@ -1,6 +1,6 @@
-﻿namespace Alejandria.Win.Forms.Cobradores
+﻿namespace Alejandria.Win.Forms.Vendedores
 {
-    partial class FrmSeleccionarCobrador
+    partial class FrmSeleccionarVendedor
     {
         /// <summary>
         /// Required designer variable.
@@ -89,22 +89,23 @@
             this.GrillaSeleccionar.CommandCellClick += new Telerik.WinControls.UI.CommandCellClickEventHandler(this.GrillaSeleccionar_CommandCellClick);
             this.GrillaSeleccionar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GrillaSeleccionar_KeyUp);
             // 
-            // FrmSeleccionarCobrador
+            // FrmSeleccionarVendedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 441);
+            this.ClientSize = new System.Drawing.Size(636, 549);
             this.Controls.Add(this.GrillaSeleccionar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmSeleccionarCobrador";
+            this.Name = "FrmSeleccionarVendedor";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "Seleccionar Cobrador";
-            this.Load += new System.EventHandler(this.FrmSeleccionarCobrador_Load);
+            this.Text = "Seleccionar Vendedor";
+            this.Load += new System.EventHandler(this.FrmSeleccionarVendedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GrillaSeleccionar.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaSeleccionar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();

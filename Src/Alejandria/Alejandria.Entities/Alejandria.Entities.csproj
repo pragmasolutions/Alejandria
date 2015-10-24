@@ -75,6 +75,7 @@
     <Compile Include="CondicionesVenta.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dto\VendedoresDto.cs" />
     <Compile Include="Dto\CobradoresDto.cs" />
     <Compile Include="Dto\ClienteDto.cs" />
     <Compile Include="Dto\ClienteCuentaCorrienteDto.cs" />

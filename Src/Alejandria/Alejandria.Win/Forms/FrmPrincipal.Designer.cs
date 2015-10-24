@@ -33,11 +33,13 @@
             this.BtnCobradores = new Telerik.WinControls.UI.RadButton();
             this.BtnCuotas = new Telerik.WinControls.UI.RadButton();
             this.BtnCuotasCobrador = new Telerik.WinControls.UI.RadButton();
+            this.BtnVendedores = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCobradores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCuotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCuotasCobrador)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnVendedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,16 +115,33 @@
             this.BtnCuotasCobrador.ThemeName = "TelerikMetro";
             this.BtnCuotasCobrador.Click += new System.EventHandler(this.BtnCuotasCobrador_Click);
             // 
+            // BtnVendedores
+            // 
+            this.BtnVendedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnVendedores.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVendedores.Image = global::Alejandria.Win.Properties.Resources.cobradores;
+            this.BtnVendedores.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnVendedores.Location = new System.Drawing.Point(602, 345);
+            this.BtnVendedores.Name = "BtnVendedores";
+            this.BtnVendedores.Size = new System.Drawing.Size(156, 148);
+            this.BtnVendedores.TabIndex = 4;
+            this.BtnVendedores.Text = "Vendedores";
+            this.BtnVendedores.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnVendedores.ThemeName = "TelerikMetro";
+            this.BtnVendedores.Click += new System.EventHandler(this.BtnVendedores_Click);
+            // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 534);
+            this.ClientSize = new System.Drawing.Size(1143, 663);
+            this.Controls.Add(this.BtnVendedores);
             this.Controls.Add(this.BtnCuotasCobrador);
             this.Controls.Add(this.BtnCuotas);
             this.Controls.Add(this.BtnCobradores);
             this.Controls.Add(this.BtnVentas);
             this.Controls.Add(this.BtnClientes);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
             // 
             // 
@@ -135,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnCobradores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCuotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCuotasCobrador)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnVendedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -147,5 +167,6 @@
         private Telerik.WinControls.UI.RadButton BtnCobradores;
         private Telerik.WinControls.UI.RadButton BtnCuotas;
         private Telerik.WinControls.UI.RadButton BtnCuotasCobrador;
+        private Telerik.WinControls.UI.RadButton BtnVendedores;
     }
 }
