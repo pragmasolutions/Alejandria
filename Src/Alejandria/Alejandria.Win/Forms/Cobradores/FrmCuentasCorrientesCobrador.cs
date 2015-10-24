@@ -112,12 +112,8 @@ namespace Alejandria.Win.Forms.Cobradores
                                                                                     ccc.Importe>ccc.Pagado).OrderBy(
                         ccc => ccc.FechaVencimiento).ToList();
 
-
-
-            //var cuotas = _clientecuentacorrienteNegocio.ListadoPorCobrador(cobradorId); 
             GridCuotas.DataSource = cuotas;
-
-        }
+       }
 
 
         private void Crear()

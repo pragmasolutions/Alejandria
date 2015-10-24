@@ -133,7 +133,6 @@ namespace Alejandria.Win.Forms.Ventas
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
-            //this.ucFiltrosClientes.Filtered += UcFiltrosClienteOnFiletered;
             DtpVencimiento.Value = DateTime.Now.AddMonths(1);
             Cuotas = 1;
             DefinirCombos();
@@ -169,6 +168,10 @@ namespace Alejandria.Win.Forms.Ventas
             cobradores.Insert(0, new Cobrador { Id = 0, Nombre = "SELECCIONE ..." });
             DdlCobradores.DataSource = cobradores;
 
+            var vendedores = Uow.Vendedores.Listado().ToList();
+            vendedores.Insert(0, new Entities.Vendedor { Id = 0, Nombre = "SELECCIONE ..." });
+            DdlVendedor.DataSource = vendedores;
+
             var localidades = Uow.Localidades.Listado().Where(l => l.ProvinciaId == ProvinciaId).ToList();
             DdlLocalidad.DataSource = localidades;
 
@@ -181,6 +184,9 @@ namespace Alejandria.Win.Forms.Ventas
 
             DdlCobradores.DisplayMember = "Nombre";
             DdlCobradores.ValueMember = "Id";
+
+            DdlVendedor.DisplayMember = "Nombre";
+            DdlVendedor.ValueMember = "Id";
         }
 
         private void UcFiltrosClienteOnBuscarFinished(object sender, List<Cliente> clientes)
@@ -276,13 +282,14 @@ namespace Alejandria.Win.Forms.Ventas
             venta.EstadoVentaId = 1; //Entregada
 
             venta.CobradorId = cobrador;
+            int vendedor;
+            venta.VendedorId = int.TryParse(DdlVendedor.SelectedValue.ToString(), out vendedor) ? vendedor : 0;
 
             venta.FechaAlta = _clock.Now;
             venta.SucursalAltaId = 1;
             venta.OperadorAltaId = Guid.Empty;
 
             Uow.Ventas.Agregar(venta);
-           // Uow.Commit();
         }
 
         private void AgregarCuentaCorriente()
