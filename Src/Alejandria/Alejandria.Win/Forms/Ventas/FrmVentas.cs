@@ -275,6 +275,8 @@ namespace Alejandria.Win.Forms.Ventas
             venta.TotalPagado = Anticipo;
             venta.EstadoVentaId = 1; //Entregada
 
+            venta.CobradorId = cobrador;
+
             venta.FechaAlta = _clock.Now;
             venta.SucursalAltaId = 1;
             venta.OperadorAltaId = Guid.Empty;

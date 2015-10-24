@@ -92,7 +92,7 @@ namespace Alejandria.Win.Forms.Cobradores
             //    Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta.CobradorId == cobradorId && ccc.Importe > ccc.Pagado, ccc => ccc.Venta).OrderBy(
             //            ccc => ccc.FechaVencimiento).ToList();
 
-            var cuotas = _clientecuentacorrienteNegocio.ListadoPorCobrador(cobradorId).ToList(); 
+            var cuotas = _clientecuentacorrienteNegocio.ListadoPorCobrador(cobradorId); 
             GridCuotas.DataSource = cuotas;
 
         }
