@@ -25,11 +25,13 @@
 	[OperadorAutoriza] [uniqueidentifier] NULL,
 	[ValidacionUsuario] [nvarchar](50) NULL,
  [CobradorId] INT NULL, 
+    [VendedorId] INT NULL, 
     CONSTRAINT [PK_Ventas] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY], 
-    CONSTRAINT [FK_Ventas_Cobradores] FOREIGN KEY (CobradorId) REFERENCES Cobradores(Id)
+    CONSTRAINT [FK_Ventas_Cobradores] FOREIGN KEY (CobradorId) REFERENCES Cobradores(Id), 
+    CONSTRAINT [FK_Ventas_Vendedor] FOREIGN KEY (VendedorId) REFERENCES Vendedores(Id)
 ) ON [PRIMARY]
 
 GO

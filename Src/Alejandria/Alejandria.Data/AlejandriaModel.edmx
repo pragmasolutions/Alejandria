@@ -483,6 +483,7 @@
           <Property Name="OperadorAutoriza" Type="uniqueidentifier" />
           <Property Name="ValidacionUsuario" Type="nvarchar" MaxLength="50" />
           <Property Name="CobradorId" Type="int" />
+          <Property Name="VendedorId" Type="int" />
         </EntityType>
         <EntityType Name="Zonas">
           <Key>
@@ -1938,6 +1939,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Ventas_Vendedor">
+          <End Role="Vendedores" Type="Self.Vendedores" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="VendedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Zonas_OperadorAlta">
           <End Role="Operadores" Type="Self.Operadores" Multiplicity="0..1" />
           <End Role="Zonas" Type="Self.Zonas" Multiplicity="*" />
@@ -2492,6 +2505,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Ventas_SucursalModificacion" Association="Self.FK_Ventas_SucursalModificacion">
             <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Vendedor" Association="Self.FK_Ventas_Vendedor">
+            <End Role="Vendedores" EntitySet="Vendedores" />
             <End Role="Ventas" EntitySet="Ventas" />
           </AssociationSet>
           <AssociationSet Name="FK_Zonas_OperadorAlta" Association="Self.FK_Zonas_OperadorAlta">
@@ -3411,6 +3428,10 @@
             <End Role="Operadore" EntitySet="Operadors" />
             <End Role="Zona" EntitySet="Zonas" />
           </AssociationSet>
+          <AssociationSet Name="FK_Ventas_Vendedor" Association="AlejandriaModel.FK_Ventas_Vendedor">
+            <End Role="Vendedore" EntitySet="Vendedores" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -3733,6 +3754,8 @@
           <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Ventas_OperadorAlta" FromRole="Venta" ToRole="Operadore" />
           <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Ventas_OperadorAutoriza" FromRole="Venta" ToRole="Operadore" />
           <NavigationProperty Name="Operadore2" Relationship="AlejandriaModel.FK_Ventas_OperadorModificacion" FromRole="Venta" ToRole="Operadore" />
+          <Property Name="VendedorId" Type="Int32" />
+          <NavigationProperty Name="Vendedore" Relationship="AlejandriaModel.FK_Ventas_Vendedor" FromRole="Venta" ToRole="Vendedore" />
         </EntityType>
         <Association Name="FK_ClientesCuentasCorriente_Clientes">
           <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="1" />
@@ -4580,6 +4603,7 @@
           <NavigationProperty Name="TiposDocumentosIdentidad" Relationship="AlejandriaModel.FK_Vendedores_TipoDocumento" FromRole="Vendedore" ToRole="TiposDocumentosIdentidad" />
           <NavigationProperty Name="Operadore" Relationship="AlejandriaModel.FK_Vendedores_OperadorAlta" FromRole="Vendedore" ToRole="Operadore" />
           <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Vendedores_OperadorModificacion" FromRole="Vendedore" ToRole="Operadore" />
+          <NavigationProperty Name="Ventas" Relationship="AlejandriaModel.FK_Ventas_Vendedor" FromRole="Vendedore" ToRole="Venta" />
         </EntityType>
         <Association Name="FK_Clientes_Vendedores">
           <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="0..1" />
@@ -5284,6 +5308,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Ventas_Vendedor">
+          <End Type="AlejandriaModel.Vendedore" Role="Vendedore" Multiplicity="0..1" />
+          <End Type="AlejandriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedore">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="VendedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5616,6 +5652,7 @@
           <EntitySetMapping Name="Ventas">
             <EntityTypeMapping TypeName="AlejandriaModel.Venta">
               <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="VendedorId" ColumnName="VendedorId" />
                 <ScalarProperty Name="CobradorId" ColumnName="CobradorId" />
                 <ScalarProperty Name="ValidacionUsuario" ColumnName="ValidacionUsuario" />
                 <ScalarProperty Name="OperadorAutoriza" ColumnName="OperadorAutoriza" />

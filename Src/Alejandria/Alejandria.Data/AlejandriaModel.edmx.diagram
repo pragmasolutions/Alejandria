@@ -153,6 +153,7 @@
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Zonas_OperadorAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Zonas_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_Vendedor" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
