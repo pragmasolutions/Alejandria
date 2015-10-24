@@ -26,6 +26,7 @@
 	[ValidacionUsuario] [nvarchar](50) NULL,
  [CobradorId] INT NULL, 
     [VendedorId] INT NULL, 
+    [CantidadCuota] INT NULL, 
     CONSTRAINT [PK_Ventas] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
