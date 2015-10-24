@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1" ZoomLevel="182">
+      <Diagram DiagramId="12da29d5e6f549ab9cfce91cf12b232e" Name="Diagram1" ZoomLevel="97">
         <EntityTypeShape EntityType="AlejandriaModel.CategoriaOperador" Width="1.5" PointX="9.75" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.CondicionesIVA" Width="1.5" PointX="3" PointY="43.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.CondicionesVenta" Width="1.5" PointX="7.25" PointY="45.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.Especialidad" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.EstadosCliente" Width="1.5" PointX="3" PointY="35.125" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.Localidad" Width="1.5" PointX="1.375" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlejandriaModel.Operador" Width="1.5" PointX="3.375" PointY="21.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.Personal" Width="1.5" PointX="0.75" PointY="23.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.Profesion" Width="1.5" PointX="3.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AlejandriaModel.Provincia" Width="1.5" PointX="3" PointY="39.125" IsExpanded="true" />
@@ -21,24 +20,19 @@
         <AssociationConnector Association="AlejandriaModel.FK_Personal_CategoriasOperadores" ManuallyRouted="false" />
         <AssociationConnector Association="AlejandriaModel.FK_Especialidades_Profesion" ManuallyRouted="false" />
         <AssociationConnector Association="AlejandriaModel.FK_Sucursales_Localidades" ManuallyRouted="false" />
-        <AssociationConnector Association="AlejandriaModel.FK_Operadores_Personal" ManuallyRouted="false" />
         <AssociationConnector Association="AlejandriaModel.FK_Sucursales_Provincias" ManuallyRouted="false" />
         <EntityTypeShape EntityType="AlejandriaModel.Cliente" Width="1.5" PointX="5.25" PointY="1.375" />
-        <EntityTypeShape EntityType="AlejandriaModel.Vendedor" Width="1.5" PointX="0.625" PointY="12.25" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_CondicionIva" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_CondicionVenta" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Especialidad" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_EstadoClienteId" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Localidad" />
-        <AssociationConnector Association="AlejandriaModel.FK_Clientes_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Clientes_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Profesion" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Provincia" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Sucursales" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_TipoDocumento" />
-        <AssociationConnector Association="AlejandriaModel.FK_Clientes_Vendedores" />
         <AssociationConnector Association="AlejandriaModel.FK_Clientes_Zona" />
         <EntityTypeShape EntityType="AlejandriaModel.ClientesCuentasCorriente" Width="1.5" PointX="8.875" PointY="7.125" />
         <EntityTypeShape EntityType="AlejandriaModel.EstadosVenta" Width="1.5" PointX="5.25" PointY="26.25" />
@@ -46,78 +40,38 @@
         <EntityTypeShape EntityType="AlejandriaModel.Venta" Width="1.5" PointX="7.5" PointY="22.25" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_Clientes" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_Cliente" />
-        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId" />
-        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalAltaId" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_SucursalModificacionId" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_VentasId" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_CondicionVenta" />
-        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_OperadorAltaId" />
-        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_OperadorModificacionId" />
         <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_SucursalAltaId" />
         <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_SucursalModificacionId" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_EstadoVenta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorAutoriza" />
-        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_Comprobante" />
         <EntityTypeShape EntityType="AlejandriaModel.Caja" Width="1.5" PointX="14.875" PointY="14.5" />
         <EntityTypeShape EntityType="AlejandriaModel.CajasMovimiento" Width="1.5" PointX="11.5" PointY="15.125" />
         <EntityTypeShape EntityType="AlejandriaModel.TiposMovimientosCaja" Width="1.5" PointX="8.25" PointY="31.125" />
-        <AssociationConnector Association="AlejandriaModel.FK_Cajas_Operador" />
-        <AssociationConnector Association="AlejandriaModel.FK_Cajas_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Cajas_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Cajas_Sucursal" />
         <AssociationConnector Association="AlejandriaModel.FK_Cajas_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Cajas_SucursalModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoComprobante" />
         <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_TipoMovimientoCaja" />
         <EntityTypeShape EntityType="AlejandriaModel.Cobrador" Width="1.5" PointX="11.25" PointY="28.25" />
-        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_SucursalModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_CondicionesIVA_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_CondicionesIVA_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_CondicionesIVA_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_CondicionesIVA_SucursalModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Especialidades_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Especialidades_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Especialidades_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Especialidades_SucursalModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Localidades_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Localidades_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Localidades_Provincia" />
         <AssociationConnector Association="AlejandriaModel.FK_Localidades_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_Localidades_SucursalModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Operadores_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Operadores_OperadorModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Operadores_SucursalAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Operadores_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Personal_Localidad" />
-        <AssociationConnector Association="AlejandriaModel.FK_Personal_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Personal_OperadorModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Profesiones_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Profesiones_OperadorModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Provincias_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Provincias_OperadorModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Sucursales_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Sucursales_OperadorModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_TiposComprobantes_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_TiposComprobantes_OperadorModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_TiposDocumentosIdentidad_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_TiposDocumentosIdentidad_OperadorModificacion" />
-        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_Operador" />
-        <AssociationConnector Association="AlejandriaModel.FK_Zonas_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_Zonas_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Personal_Provincia" />
         <AssociationConnector Association="AlejandriaModel.FK_Personal_Sucursal" />
         <AssociationConnector Association="AlejandriaModel.FK_Personal_SucursalAlta" />
@@ -137,17 +91,69 @@
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_Localidad" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_Provincia" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_TipoDocumento" />
-        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_Cobradores_SucursalModificacion" />
         <EntityTypeShape EntityType="AlejandriaModel.ClientesMovimiento" Width="1.5" PointX="17.5" PointY="15.375" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_Cliente" />
-        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_OperadorAlta" />
-        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_OperadorModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_SucursalAlta" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_SucursalModificacion" />
         <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_TipoComprobante" />
         <AssociationConnector Association="AlejandriaModel.FK_Ventas_Cobradores" />
-      </Diagram>
+        <EntityTypeShape EntityType="AlejandriaModel.Vendedore" Width="1.5" PointX="16.5" PointY="21.25" />
+        <AssociationConnector Association="AlejandriaModel.FK_Clientes_Vendedores" />
+        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_Localidad" />
+        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_Provincia" />
+        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_SucursalAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_SucursalModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_TipoDocumento" />
+        <EntityTypeShape EntityType="AlejandriaModel.Operador" Width="1.5" PointX="20.5" PointY="12.75" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_Operador" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cajas_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_CajasMovimientos_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_CategoriasOperadores_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Clientes_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Clientes_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorAltaId" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesCuentasCorriente_OperadorModificacionId" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_ClientesMovimiento_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Cobradores_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_CondicionesIVA_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_CondicionesIVA_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Especialidades_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Especialidades_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_OperadorAltaId" />
+        <AssociationConnector Association="AlejandriaModel.FK_EstadosVenta_OperadorModificacionId" />
+        <AssociationConnector Association="AlejandriaModel.FK_Localidades_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Localidades_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Operadores_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Operadores_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Operadores_Personal" />
+        <AssociationConnector Association="AlejandriaModel.FK_Operadores_SucursalAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Operadores_SucursalModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Personal_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Personal_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Profesiones_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Profesiones_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Provincias_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Provincias_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Sucursales_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Sucursales_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_TiposComprobantes_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_TiposComprobantes_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_TiposDocumentosIdentidad_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_TiposDocumentosIdentidad_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Vendedores_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorAutoriza" />
+        <AssociationConnector Association="AlejandriaModel.FK_Ventas_OperadorModificacion" />
+        <AssociationConnector Association="AlejandriaModel.FK_Zonas_OperadorAlta" />
+        <AssociationConnector Association="AlejandriaModel.FK_Zonas_OperadorModificacion" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -31,10 +31,10 @@ namespace Alejandria.Entities
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
         public Nullable<int> SucursalModificacionId { get; set; }
     
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
         public virtual ICollection<Venta> Ventas { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }

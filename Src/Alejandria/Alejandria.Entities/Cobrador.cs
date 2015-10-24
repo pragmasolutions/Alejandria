@@ -38,13 +38,13 @@ namespace Alejandria.Entities
         public Nullable<int> TipoDocumentoId { get; set; }
         public bool Activo { get; set; }
     
-        public virtual Operador OperadorAlta { get; set; }
         public virtual Sucursal SucursalAlta { get; set; }
         public virtual Localidad Localidad { get; set; }
         public virtual Provincia Provincia { get; set; }
         public virtual TiposDocumentosIdentidad TiposDocumentosIdentidad { get; set; }
-        public virtual Operador OperadoreModificacion { get; set; }
         public virtual Sucursal SucursaleModificacion { get; set; }
         public virtual ICollection<Venta> Ventas { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }

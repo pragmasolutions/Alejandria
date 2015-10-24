@@ -16,27 +16,27 @@ namespace Alejandria.Entities
     {
         public Operador()
         {
-            this.Clientes = new HashSet<Cliente>();
-            this.Clientes1 = new HashSet<Cliente>();
-            this.ClientesCuentasCorrientes = new HashSet<ClientesCuentasCorriente>();
-            this.ClientesCuentasCorrientes1 = new HashSet<ClientesCuentasCorriente>();
-            this.EstadosVentas = new HashSet<EstadosVenta>();
-            this.EstadosVentas1 = new HashSet<EstadosVenta>();
-            this.Ventas = new HashSet<Venta>();
-            this.Ventas1 = new HashSet<Venta>();
-            this.Ventas2 = new HashSet<Venta>();
             this.Cajas = new HashSet<Caja>();
             this.Cajas1 = new HashSet<Caja>();
             this.Cajas2 = new HashSet<Caja>();
             this.CajasMovimientos = new HashSet<CajasMovimiento>();
             this.CajasMovimientos1 = new HashSet<CajasMovimiento>();
-            this.Cobradores = new HashSet<Cobrador>();
             this.CategoriasOperadores = new HashSet<CategoriaOperador>();
             this.CategoriasOperadores1 = new HashSet<CategoriaOperador>();
+            this.Clientes = new HashSet<Cliente>();
+            this.Clientes1 = new HashSet<Cliente>();
+            this.ClientesCuentasCorrientes = new HashSet<ClientesCuentasCorriente>();
+            this.ClientesCuentasCorrientes1 = new HashSet<ClientesCuentasCorriente>();
+            this.ClientesMovimientoes = new HashSet<ClientesMovimiento>();
+            this.ClientesMovimientoes1 = new HashSet<ClientesMovimiento>();
+            this.Cobradores = new HashSet<Cobrador>();
+            this.Cobradores1 = new HashSet<Cobrador>();
             this.CondicionesIVAs = new HashSet<CondicionesIVA>();
             this.CondicionesIVAs1 = new HashSet<CondicionesIVA>();
             this.Especialidades = new HashSet<Especialidad>();
             this.Especialidades1 = new HashSet<Especialidad>();
+            this.EstadosVentas = new HashSet<EstadosVenta>();
+            this.EstadosVentas1 = new HashSet<EstadosVenta>();
             this.Localidades = new HashSet<Localidad>();
             this.Localidades1 = new HashSet<Localidad>();
             this.Operadores1 = new HashSet<Operador>();
@@ -53,12 +53,13 @@ namespace Alejandria.Entities
             this.TiposComprobantes1 = new HashSet<TiposComprobante>();
             this.TiposDocumentosIdentidads = new HashSet<TiposDocumentosIdentidad>();
             this.TiposDocumentosIdentidads1 = new HashSet<TiposDocumentosIdentidad>();
-            this.Vendedores = new HashSet<Vendedor>();
+            this.Vendedores = new HashSet<Vendedore>();
+            this.Vendedores1 = new HashSet<Vendedore>();
+            this.Ventas = new HashSet<Venta>();
+            this.Ventas1 = new HashSet<Venta>();
+            this.Ventas2 = new HashSet<Venta>();
             this.Zonas = new HashSet<Zona>();
             this.Zonas1 = new HashSet<Zona>();
-            this.Cobradores1 = new HashSet<Cobrador>();
-            this.ClientesMovimientoes = new HashSet<ClientesMovimiento>();
-            this.ClientesMovimientoes1 = new HashSet<ClientesMovimiento>();
         }
     
         public System.Guid Id { get; set; }
@@ -75,34 +76,34 @@ namespace Alejandria.Entities
         public Nullable<int> SucursalModificacionId { get; set; }
         public bool Habilitado { get; set; }
     
-        public virtual Personal Personal { get; set; }
-        public virtual ICollection<Cliente> Clientes { get; set; }
-        public virtual ICollection<Cliente> Clientes1 { get; set; }
-        public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
-        public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes1 { get; set; }
-        public virtual ICollection<EstadosVenta> EstadosVentas { get; set; }
-        public virtual ICollection<EstadosVenta> EstadosVentas1 { get; set; }
-        public virtual ICollection<Venta> Ventas { get; set; }
-        public virtual ICollection<Venta> Ventas1 { get; set; }
-        public virtual ICollection<Venta> Ventas2 { get; set; }
         public virtual ICollection<Caja> Cajas { get; set; }
         public virtual ICollection<Caja> Cajas1 { get; set; }
         public virtual ICollection<Caja> Cajas2 { get; set; }
         public virtual ICollection<CajasMovimiento> CajasMovimientos { get; set; }
         public virtual ICollection<CajasMovimiento> CajasMovimientos1 { get; set; }
-        public virtual ICollection<Cobrador> Cobradores { get; set; }
         public virtual ICollection<CategoriaOperador> CategoriasOperadores { get; set; }
         public virtual ICollection<CategoriaOperador> CategoriasOperadores1 { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Cliente> Clientes1 { get; set; }
+        public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
+        public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes1 { get; set; }
+        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
+        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes1 { get; set; }
+        public virtual ICollection<Cobrador> Cobradores { get; set; }
+        public virtual ICollection<Cobrador> Cobradores1 { get; set; }
         public virtual ICollection<CondicionesIVA> CondicionesIVAs { get; set; }
         public virtual ICollection<CondicionesIVA> CondicionesIVAs1 { get; set; }
         public virtual ICollection<Especialidad> Especialidades { get; set; }
         public virtual ICollection<Especialidad> Especialidades1 { get; set; }
+        public virtual ICollection<EstadosVenta> EstadosVentas { get; set; }
+        public virtual ICollection<EstadosVenta> EstadosVentas1 { get; set; }
         public virtual ICollection<Localidad> Localidades { get; set; }
         public virtual ICollection<Localidad> Localidades1 { get; set; }
         public virtual ICollection<Operador> Operadores1 { get; set; }
         public virtual Operador Operadore1 { get; set; }
         public virtual ICollection<Operador> Operadores11 { get; set; }
         public virtual Operador Operadore2 { get; set; }
+        public virtual Personal Personal { get; set; }
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
         public virtual ICollection<Personal> Personals { get; set; }
@@ -117,11 +118,12 @@ namespace Alejandria.Entities
         public virtual ICollection<TiposComprobante> TiposComprobantes1 { get; set; }
         public virtual ICollection<TiposDocumentosIdentidad> TiposDocumentosIdentidads { get; set; }
         public virtual ICollection<TiposDocumentosIdentidad> TiposDocumentosIdentidads1 { get; set; }
-        public virtual ICollection<Vendedor> Vendedores { get; set; }
+        public virtual ICollection<Vendedore> Vendedores { get; set; }
+        public virtual ICollection<Vendedore> Vendedores1 { get; set; }
+        public virtual ICollection<Venta> Ventas { get; set; }
+        public virtual ICollection<Venta> Ventas1 { get; set; }
+        public virtual ICollection<Venta> Ventas2 { get; set; }
         public virtual ICollection<Zona> Zonas { get; set; }
         public virtual ICollection<Zona> Zonas1 { get; set; }
-        public virtual ICollection<Cobrador> Cobradores1 { get; set; }
-        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
-        public virtual ICollection<ClientesMovimiento> ClientesMovimientoes1 { get; set; }
     }
 }

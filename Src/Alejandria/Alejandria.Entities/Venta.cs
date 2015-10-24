@@ -50,12 +50,12 @@ namespace Alejandria.Entities
         public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
         public virtual CondicionesVenta CondicionesVenta { get; set; }
         public virtual EstadosVenta EstadosVenta { get; set; }
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
-        public virtual Operador Operadore2 { get; set; }
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
         public virtual TiposComprobante TiposComprobante { get; set; }
         public virtual Cobrador Cobradores { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
+        public virtual Operador Operadore2 { get; set; }
     }
 }

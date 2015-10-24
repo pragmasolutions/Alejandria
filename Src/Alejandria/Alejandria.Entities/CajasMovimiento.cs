@@ -42,11 +42,11 @@ namespace Alejandria.Entities
         public Nullable<int> SucursalModificacionId { get; set; }
         public Nullable<decimal> Transferencia { get; set; }
     
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
         public virtual TiposComprobante TiposComprobante { get; set; }
         public virtual TiposMovimientosCaja TiposMovimientosCaja { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }

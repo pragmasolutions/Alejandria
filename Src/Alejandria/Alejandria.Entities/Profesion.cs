@@ -34,9 +34,9 @@ namespace Alejandria.Entities
     
         public virtual ICollection<Especialidad> Especialidades { get; set; }
         public virtual ICollection<Cliente> Clientes { get; set; }
-        public virtual Operador OperadorAlta { get; set; }
-        public virtual Operador OperadorModificacion { get; set; }
         public virtual Sucursal SucursalAlta { get; set; }
         public virtual Sucursal SucursalModificacion { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }

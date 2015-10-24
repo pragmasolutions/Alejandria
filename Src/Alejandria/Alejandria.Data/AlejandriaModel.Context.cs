@@ -34,7 +34,6 @@ namespace Alejandria.Data
         public virtual DbSet<Especialidad> Especialidads { get; set; }
         public virtual DbSet<EstadosCliente> EstadosClientes { get; set; }
         public virtual DbSet<Localidad> Localidads { get; set; }
-        public virtual DbSet<Operador> Operadors { get; set; }
         public virtual DbSet<Personal> Personals { get; set; }
         public virtual DbSet<Profesion> Profesions { get; set; }
         public virtual DbSet<Provincia> Provincias { get; set; }
@@ -42,7 +41,6 @@ namespace Alejandria.Data
         public virtual DbSet<TiposDocumentosIdentidad> TiposDocumentosIdentidads { get; set; }
         public virtual DbSet<Zona> Zonas { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Vendedor> Vendedors { get; set; }
         public virtual DbSet<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
         public virtual DbSet<EstadosVenta> EstadosVentas { get; set; }
         public virtual DbSet<TiposComprobante> TiposComprobantes { get; set; }
@@ -52,6 +50,8 @@ namespace Alejandria.Data
         public virtual DbSet<TiposMovimientosCaja> TiposMovimientosCajas { get; set; }
         public virtual DbSet<Cobrador> Cobrador { get; set; }
         public virtual DbSet<ClientesMovimiento> ClientesMovimientoes { get; set; }
+        public virtual DbSet<Vendedore> Vendedores { get; set; }
+        public virtual DbSet<Operador> Operadors { get; set; }
     
         public virtual ObjectResult<ComprobantesByVentaId_Result> ComprobantesByVentaId(Nullable<System.Guid> ventaId)
         {

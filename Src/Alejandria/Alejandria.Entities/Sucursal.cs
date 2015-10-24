@@ -39,8 +39,6 @@ namespace Alejandria.Entities
             this.Especialidades1 = new HashSet<Especialidad>();
             this.Localidades = new HashSet<Localidad>();
             this.Localidades1 = new HashSet<Localidad>();
-            this.Operadores = new HashSet<Operador>();
-            this.Operadores1 = new HashSet<Operador>();
             this.Personals = new HashSet<Personal>();
             this.Personals1 = new HashSet<Personal>();
             this.Personals2 = new HashSet<Personal>();
@@ -59,6 +57,10 @@ namespace Alejandria.Entities
             this.Cobradores1 = new HashSet<Cobrador>();
             this.ClientesMovimientoes = new HashSet<ClientesMovimiento>();
             this.ClientesMovimientoes1 = new HashSet<ClientesMovimiento>();
+            this.Vendedores = new HashSet<Vendedore>();
+            this.Vendedores1 = new HashSet<Vendedore>();
+            this.Operadores = new HashSet<Operador>();
+            this.Operadores1 = new HashSet<Operador>();
         }
     
         public int Id { get; set; }
@@ -107,10 +109,6 @@ namespace Alejandria.Entities
         public virtual ICollection<Especialidad> Especialidades1 { get; set; }
         public virtual ICollection<Localidad> Localidades { get; set; }
         public virtual ICollection<Localidad> Localidades1 { get; set; }
-        public virtual ICollection<Operador> Operadores { get; set; }
-        public virtual ICollection<Operador> Operadores1 { get; set; }
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
         public virtual ICollection<Personal> Personals { get; set; }
         public virtual ICollection<Personal> Personals1 { get; set; }
         public virtual ICollection<Personal> Personals2 { get; set; }
@@ -131,5 +129,11 @@ namespace Alejandria.Entities
         public virtual ICollection<Cobrador> Cobradores1 { get; set; }
         public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
         public virtual ICollection<ClientesMovimiento> ClientesMovimientoes1 { get; set; }
+        public virtual ICollection<Vendedore> Vendedores { get; set; }
+        public virtual ICollection<Vendedore> Vendedores1 { get; set; }
+        public virtual ICollection<Operador> Operadores { get; set; }
+        public virtual ICollection<Operador> Operadores1 { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }

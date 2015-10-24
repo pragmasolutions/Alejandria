@@ -65,18 +65,18 @@ namespace Alejandria.Entities
         public virtual Especialidad Especialidad { get; set; }
         public virtual EstadosCliente EstadosCliente { get; set; }
         public virtual Localidad Localidad { get; set; }
-        public virtual Operador OperadorAlta { get; set; }
-        public virtual Operador OperadorModificacion { get; set; }
         public virtual Profesion Profesione { get; set; }
         public virtual Provincia Provincia { get; set; }
         public virtual Sucursal Sucursal { get; set; }
         public virtual Sucursal SucursalAlta { get; set; }
         public virtual Sucursal SucursalModificacion { get; set; }
         public virtual TiposDocumentosIdentidad TiposDocumentosIdentidad { get; set; }
-        public virtual Vendedor Vendedor { get; set; }
         public virtual Zona Zona { get; set; }
         public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
         public virtual ICollection<Venta> Ventas { get; set; }
         public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
+        public virtual Vendedore Vendedore { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }

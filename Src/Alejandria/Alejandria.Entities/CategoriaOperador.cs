@@ -32,9 +32,9 @@ namespace Alejandria.Entities
         public Nullable<System.Guid> OperadorModificacionId { get; set; }
     
         public virtual ICollection<Personal> Personales { get; set; }
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }

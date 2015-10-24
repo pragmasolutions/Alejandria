@@ -117,7 +117,7 @@
     <Compile Include="TiposMovimientosCaja.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vendedor.cs">
+    <Compile Include="Vendedore.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Venta.cs">

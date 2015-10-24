@@ -37,10 +37,10 @@ namespace Alejandria.Entities
     
         public virtual ICollection<Venta> Ventas { get; set; }
         public virtual ICollection<CajasMovimiento> CajasMovimientos { get; set; }
-        public virtual Operador Operadore { get; set; }
-        public virtual Operador Operadore1 { get; set; }
         public virtual Sucursal Sucursale { get; set; }
         public virtual Sucursal Sucursale1 { get; set; }
         public virtual ICollection<ClientesMovimiento> ClientesMovimientoes { get; set; }
+        public virtual Operador Operadore { get; set; }
+        public virtual Operador Operadore1 { get; set; }
     }
 }
