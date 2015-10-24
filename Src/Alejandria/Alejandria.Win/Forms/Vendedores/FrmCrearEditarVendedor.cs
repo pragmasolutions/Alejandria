@@ -257,7 +257,7 @@ namespace Alejandria.Win.Forms.Vendedores
 
         private Vendedor ObtenerVendedorDesdeForm()
         {
-            _vendedor.Id = _vendedorId == default(int) ? 1 : _vendedorId;
+            //_vendedor.Id = _vendedorId == default(int) ? 1 : _vendedorId;
             _vendedor.Nombre = ApellidoNombre;
             _vendedor.Domicilio = Domicilio;
             _vendedor.Telefono = Telefono;
