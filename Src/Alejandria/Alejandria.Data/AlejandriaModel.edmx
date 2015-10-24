@@ -484,6 +484,7 @@
           <Property Name="ValidacionUsuario" Type="nvarchar" MaxLength="50" />
           <Property Name="CobradorId" Type="int" />
           <Property Name="VendedorId" Type="int" />
+          <Property Name="CantidadCuota" Type="int" />
         </EntityType>
         <EntityType Name="Zonas">
           <Key>
@@ -2002,7 +2003,6 @@
         <Function Name="ComprobantesByVentaId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ventaId" Type="uniqueidentifier" Mode="In" />
         </Function>
-        <Function Name="ComprobantesDelDia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="AlejandriaModelStoreContainer">
           <EntitySet Name="Cajas" EntityType="Self.Cajas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CajasMovimientos" EntityType="Self.CajasMovimientos" Schema="dbo" store:Type="Tables" />
@@ -3758,6 +3758,7 @@
           <NavigationProperty Name="Operadore2" Relationship="AlejandriaModel.FK_Ventas_OperadorModificacion" FromRole="Venta" ToRole="Operadore" />
           <Property Name="VendedorId" Type="Int32" />
           <NavigationProperty Name="Vendedor" Relationship="AlejandriaModel.FK_Ventas_Vendedor" FromRole="Venta" ToRole="Vendedore" />
+          <Property Name="CantidadCuota" Type="Int32" />
         </EntityType>
         <Association Name="FK_ClientesCuentasCorriente_Clientes">
           <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="1" />
@@ -5681,6 +5682,7 @@
           <EntitySetMapping Name="Ventas">
             <EntityTypeMapping TypeName="AlejandriaModel.Venta">
               <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="CantidadCuota" ColumnName="CantidadCuota" />
                 <ScalarProperty Name="VendedorId" ColumnName="VendedorId" />
                 <ScalarProperty Name="CobradorId" ColumnName="CobradorId" />
                 <ScalarProperty Name="ValidacionUsuario" ColumnName="ValidacionUsuario" />
@@ -5897,30 +5899,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ComprobantesDelDia" FunctionName="AlejandriaModel.Store.ComprobantesDelDia">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AlejandriaModel.ComprobantesDelDia_Result">
-                <ScalarProperty Name="VentaNro" ColumnName="VentaNro" />
-                <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
-                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
-                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
-                <ScalarProperty Name="Anticipo" ColumnName="Anticipo" />
-                <ScalarProperty Name="Cuotas" ColumnName="Cuotas" />
-                <ScalarProperty Name="ValorCuota" ColumnName="ValorCuota" />
-                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
-                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
-                <ScalarProperty Name="Cobrador" ColumnName="Cobrador" />
-                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
-                <ScalarProperty Name="Desde" ColumnName="Desde" />
-                <ScalarProperty Name="Hasta" ColumnName="Hasta" />
-                <ScalarProperty Name="Mes" ColumnName="Mes" />
-                <ScalarProperty Name="Año" ColumnName="Año" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

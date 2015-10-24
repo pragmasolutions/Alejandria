@@ -46,6 +46,7 @@ namespace Alejandria.Entities
         public string ValidacionUsuario { get; set; }
         public Nullable<int> CobradorId { get; set; }
         public Nullable<int> VendedorId { get; set; }
+        public Nullable<int> CantidadCuota { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         public virtual ICollection<ClientesCuentasCorriente> ClientesCuentasCorrientes { get; set; }
