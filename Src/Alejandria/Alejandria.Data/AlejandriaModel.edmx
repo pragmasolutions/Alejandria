@@ -3755,7 +3755,7 @@
           <NavigationProperty Name="Operadore1" Relationship="AlejandriaModel.FK_Ventas_OperadorAutoriza" FromRole="Venta" ToRole="Operadore" />
           <NavigationProperty Name="Operadore2" Relationship="AlejandriaModel.FK_Ventas_OperadorModificacion" FromRole="Venta" ToRole="Operadore" />
           <Property Name="VendedorId" Type="Int32" />
-          <NavigationProperty Name="Vendedore" Relationship="AlejandriaModel.FK_Ventas_Vendedor" FromRole="Venta" ToRole="Vendedore" />
+          <NavigationProperty Name="Vendedor" Relationship="AlejandriaModel.FK_Ventas_Vendedor" FromRole="Venta" ToRole="Vendedore" />
         </EntityType>
         <Association Name="FK_ClientesCuentasCorriente_Clientes">
           <End Type="AlejandriaModel.Cliente" Role="Cliente" Multiplicity="1" />

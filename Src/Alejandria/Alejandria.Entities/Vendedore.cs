@@ -17,6 +17,7 @@ namespace Alejandria.Entities
         public Vendedore()
         {
             this.Clientes = new HashSet<Cliente>();
+            this.Ventas = new HashSet<Venta>();
         }
     
         public int Id { get; set; }
@@ -46,5 +47,6 @@ namespace Alejandria.Entities
         public virtual TiposDocumentosIdentidad TiposDocumentosIdentidad { get; set; }
         public virtual Operador Operadore { get; set; }
         public virtual Operador Operadore1 { get; set; }
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }
