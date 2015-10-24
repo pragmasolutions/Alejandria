@@ -50,14 +50,16 @@
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
+            this.DdlVendedor = new Telerik.WinControls.UI.RadDropDownList();
+            this.radLabel11 = new Telerik.WinControls.UI.RadLabel();
             this.TxtLCN = new Framework.WinForm.Controls.CustomControls.DecimalTextBox();
             this.DdlLocalidad = new Telerik.WinControls.UI.RadDropDownList();
             this.DdlCobradores = new Telerik.WinControls.UI.RadDropDownList();
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel8 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel7 = new Telerik.WinControls.UI.RadLabel();
-            this.DdlVendedor = new Telerik.WinControls.UI.RadDropDownList();
-            this.radLabel11 = new Telerik.WinControls.UI.RadLabel();
+            this.DtpVencimientoHasta = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.radLabel12 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
@@ -81,21 +83,23 @@
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
             this.radPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlVendedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtLCN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DdlLocalidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DdlCobradores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DdlVendedor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtpVencimientoHasta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radLabel1
             // 
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(36, 277);
+            this.radLabel1.Location = new System.Drawing.Point(44, 280);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(101, 24);
             this.radLabel1.TabIndex = 1;
@@ -104,7 +108,7 @@
             // radLabel2
             // 
             this.radLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(70, 154);
+            this.radLabel2.Location = new System.Drawing.Point(81, 126);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(64, 24);
             this.radLabel2.TabIndex = 2;
@@ -113,7 +117,7 @@
             // radLabel3
             // 
             this.radLabel3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel3.Location = new System.Drawing.Point(70, 114);
+            this.radLabel3.Location = new System.Drawing.Point(77, 88);
             this.radLabel3.Name = "radLabel3";
             this.radLabel3.Size = new System.Drawing.Size(68, 24);
             this.radLabel3.TabIndex = 2;
@@ -122,7 +126,7 @@
             // radLabel4
             // 
             this.radLabel4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel4.Location = new System.Drawing.Point(79, 194);
+            this.radLabel4.Location = new System.Drawing.Point(87, 164);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(58, 24);
             this.radLabel4.TabIndex = 2;
@@ -131,7 +135,7 @@
             // radLabel5
             // 
             this.radLabel5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel5.Location = new System.Drawing.Point(37, 74);
+            this.radLabel5.Location = new System.Drawing.Point(44, 51);
             this.radLabel5.Name = "radLabel5";
             this.radLabel5.Size = new System.Drawing.Size(101, 24);
             this.radLabel5.TabIndex = 2;
@@ -140,17 +144,17 @@
             // radLabel6
             // 
             this.radLabel6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel6.Location = new System.Drawing.Point(15, 234);
+            this.radLabel6.Location = new System.Drawing.Point(4, 204);
             this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(122, 24);
+            this.radLabel6.Size = new System.Drawing.Size(141, 24);
             this.radLabel6.TabIndex = 2;
-            this.radLabel6.Text = "1er Vencimiento:";
+            this.radLabel6.Text = "Vencimiento desde:";
             // 
             // TxtMontoVenta
             // 
             this.TxtMontoVenta.AceptaNegativos = false;
             this.TxtMontoVenta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMontoVenta.Location = new System.Drawing.Point(140, 74);
+            this.TxtMontoVenta.Location = new System.Drawing.Point(150, 49);
             this.TxtMontoVenta.Name = "TxtMontoVenta";
             this.TxtMontoVenta.Size = new System.Drawing.Size(273, 26);
             this.TxtMontoVenta.TabIndex = 2;
@@ -163,7 +167,7 @@
             // 
             this.TxtAnticipo.AceptaNegativos = false;
             this.TxtAnticipo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAnticipo.Location = new System.Drawing.Point(140, 114);
+            this.TxtAnticipo.Location = new System.Drawing.Point(150, 86);
             this.TxtAnticipo.Name = "TxtAnticipo";
             this.TxtAnticipo.Size = new System.Drawing.Size(273, 26);
             this.TxtAnticipo.TabIndex = 3;
@@ -176,7 +180,7 @@
             // 
             this.TxtAdeuda.AceptaNegativos = false;
             this.TxtAdeuda.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdeuda.Location = new System.Drawing.Point(140, 154);
+            this.TxtAdeuda.Location = new System.Drawing.Point(150, 124);
             this.TxtAdeuda.Name = "TxtAdeuda";
             this.TxtAdeuda.Size = new System.Drawing.Size(273, 26);
             this.TxtAdeuda.TabIndex = 4;
@@ -187,7 +191,7 @@
             // TxtCuotas
             // 
             this.TxtCuotas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCuotas.Location = new System.Drawing.Point(140, 194);
+            this.TxtCuotas.Location = new System.Drawing.Point(150, 162);
             this.TxtCuotas.Name = "TxtCuotas";
             this.TxtCuotas.Size = new System.Drawing.Size(273, 26);
             this.TxtCuotas.TabIndex = 5;
@@ -199,7 +203,7 @@
             // 
             this.TxtMontoCuota.AceptaNegativos = false;
             this.TxtMontoCuota.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMontoCuota.Location = new System.Drawing.Point(140, 277);
+            this.TxtMontoCuota.Location = new System.Drawing.Point(150, 278);
             this.TxtMontoCuota.Name = "TxtMontoCuota";
             this.TxtMontoCuota.Size = new System.Drawing.Size(273, 26);
             this.TxtMontoCuota.TabIndex = 7;
@@ -220,7 +224,7 @@
             // 
             this.DtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DtpVencimiento.Location = new System.Drawing.Point(140, 234);
+            this.DtpVencimiento.Location = new System.Drawing.Point(150, 199);
             this.DtpVencimiento.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DtpVencimiento.MinDate = new System.DateTime(((long)(0)));
             this.DtpVencimiento.Name = "DtpVencimiento";
@@ -235,13 +239,15 @@
             // 
             // radPanel1
             // 
+            this.radPanel1.Controls.Add(this.DtpVencimientoHasta);
+            this.radPanel1.Controls.Add(this.radLabel12);
             this.radPanel1.Controls.Add(this.TxtConcepto);
             this.radPanel1.Controls.Add(this.radLabel10);
+            this.radPanel1.Controls.Add(this.radLabel6);
             this.radPanel1.Controls.Add(this.BtnGuardar);
             this.radPanel1.Controls.Add(this.radLabel5);
             this.radPanel1.Controls.Add(this.DtpVencimiento);
             this.radPanel1.Controls.Add(this.radLabel1);
-            this.radPanel1.Controls.Add(this.radLabel6);
             this.radPanel1.Controls.Add(this.TxtMontoCuota);
             this.radPanel1.Controls.Add(this.radLabel2);
             this.radPanel1.Controls.Add(this.TxtCuotas);
@@ -259,7 +265,7 @@
             // TxtConcepto
             // 
             this.TxtConcepto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtConcepto.Location = new System.Drawing.Point(140, 35);
+            this.TxtConcepto.Location = new System.Drawing.Point(150, 13);
             this.TxtConcepto.Name = "TxtConcepto";
             this.TxtConcepto.Size = new System.Drawing.Size(273, 26);
             this.TxtConcepto.TabIndex = 1;
@@ -269,7 +275,7 @@
             // radLabel10
             // 
             this.radLabel10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel10.Location = new System.Drawing.Point(89, 35);
+            this.radLabel10.Location = new System.Drawing.Point(100, 15);
             this.radLabel10.Name = "radLabel10";
             this.radLabel10.Size = new System.Drawing.Size(45, 24);
             this.radLabel10.TabIndex = 9;
@@ -278,7 +284,7 @@
             // BtnGuardar
             // 
             this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.Location = new System.Drawing.Point(283, 309);
+            this.BtnGuardar.Location = new System.Drawing.Point(293, 318);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(130, 33);
             this.BtnGuardar.TabIndex = 8;
@@ -303,9 +309,9 @@
             // radPanel2
             // 
             this.radPanel2.Controls.Add(this.ucFiltrosClientes);
-            this.radPanel2.Location = new System.Drawing.Point(8, 40);
+            this.radPanel2.Location = new System.Drawing.Point(8, 34);
             this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(682, 134);
+            this.radPanel2.Size = new System.Drawing.Size(682, 140);
             this.radPanel2.TabIndex = 1;
             this.radPanel2.ThemeName = "TelerikMetro";
             // 
@@ -328,17 +334,38 @@
             this.radPanel4.Controls.Add(this.radLabel9);
             this.radPanel4.Controls.Add(this.radLabel8);
             this.radPanel4.Controls.Add(this.radLabel7);
-            this.radPanel4.Location = new System.Drawing.Point(692, 40);
+            this.radPanel4.Location = new System.Drawing.Point(692, 34);
             this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(442, 134);
+            this.radPanel4.Size = new System.Drawing.Size(442, 140);
             this.radPanel4.TabIndex = 2;
             this.radPanel4.ThemeName = "TelerikMetro";
+            // 
+            // DdlVendedor
+            // 
+            this.DdlVendedor.DropDownAnimationEnabled = true;
+            this.DdlVendedor.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DdlVendedor.Location = new System.Drawing.Point(145, 73);
+            this.DdlVendedor.MaxDropDownItems = 0;
+            this.DdlVendedor.Name = "DdlVendedor";
+            this.DdlVendedor.ShowImageInEditorArea = true;
+            this.DdlVendedor.Size = new System.Drawing.Size(273, 27);
+            this.DdlVendedor.TabIndex = 6;
+            this.DdlVendedor.ThemeName = "TelerikMetro";
+            // 
+            // radLabel11
+            // 
+            this.radLabel11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel11.Location = new System.Drawing.Point(7, 74);
+            this.radLabel11.Name = "radLabel11";
+            this.radLabel11.Size = new System.Drawing.Size(78, 24);
+            this.radLabel11.TabIndex = 7;
+            this.radLabel11.Text = "Vendedor:";
             // 
             // TxtLCN
             // 
             this.TxtLCN.AceptaNegativos = false;
             this.TxtLCN.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtLCN.Location = new System.Drawing.Point(140, 3);
+            this.TxtLCN.Location = new System.Drawing.Point(145, 7);
             this.TxtLCN.Name = "TxtLCN";
             this.TxtLCN.Size = new System.Drawing.Size(273, 26);
             this.TxtLCN.TabIndex = 1;
@@ -350,7 +377,7 @@
             // 
             this.DdlLocalidad.DropDownAnimationEnabled = true;
             this.DdlLocalidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DdlLocalidad.Location = new System.Drawing.Point(140, 101);
+            this.DdlLocalidad.Location = new System.Drawing.Point(145, 105);
             this.DdlLocalidad.MaxDropDownItems = 0;
             this.DdlLocalidad.Name = "DdlLocalidad";
             this.DdlLocalidad.ShowImageInEditorArea = true;
@@ -363,7 +390,7 @@
             // 
             this.DdlCobradores.DropDownAnimationEnabled = true;
             this.DdlCobradores.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DdlCobradores.Location = new System.Drawing.Point(140, 36);
+            this.DdlCobradores.Location = new System.Drawing.Point(145, 40);
             this.DdlCobradores.MaxDropDownItems = 0;
             this.DdlCobradores.Name = "DdlCobradores";
             this.DdlCobradores.ShowImageInEditorArea = true;
@@ -375,7 +402,7 @@
             // radLabel9
             // 
             this.radLabel9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel9.Location = new System.Drawing.Point(7, 102);
+            this.radLabel9.Location = new System.Drawing.Point(7, 106);
             this.radLabel9.Name = "radLabel9";
             this.radLabel9.Size = new System.Drawing.Size(76, 24);
             this.radLabel9.TabIndex = 5;
@@ -384,7 +411,7 @@
             // radLabel8
             // 
             this.radLabel8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel8.Location = new System.Drawing.Point(7, 37);
+            this.radLabel8.Location = new System.Drawing.Point(7, 41);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(75, 24);
             this.radLabel8.TabIndex = 4;
@@ -393,32 +420,37 @@
             // radLabel7
             // 
             this.radLabel7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel7.Location = new System.Drawing.Point(8, 3);
+            this.radLabel7.Location = new System.Drawing.Point(8, 7);
             this.radLabel7.Name = "radLabel7";
             this.radLabel7.Size = new System.Drawing.Size(130, 24);
             this.radLabel7.TabIndex = 3;
             this.radLabel7.Text = "Número de venta:";
             // 
-            // DdlVendedor
+            // DtpVencimientoHasta
             // 
-            this.DdlVendedor.DropDownAnimationEnabled = true;
-            this.DdlVendedor.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DdlVendedor.Location = new System.Drawing.Point(140, 69);
-            this.DdlVendedor.MaxDropDownItems = 0;
-            this.DdlVendedor.Name = "DdlVendedor";
-            this.DdlVendedor.ShowImageInEditorArea = true;
-            this.DdlVendedor.Size = new System.Drawing.Size(273, 27);
-            this.DdlVendedor.TabIndex = 6;
-            this.DdlVendedor.ThemeName = "TelerikMetro";
+            this.DtpVencimientoHasta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpVencimientoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DtpVencimientoHasta.Location = new System.Drawing.Point(151, 238);
+            this.DtpVencimientoHasta.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DtpVencimientoHasta.MinDate = new System.DateTime(((long)(0)));
+            this.DtpVencimientoHasta.Name = "DtpVencimientoHasta";
+            this.DtpVencimientoHasta.NullableValue = new System.DateTime(2015, 10, 15, 17, 3, 19, 724);
+            this.DtpVencimientoHasta.NullDate = new System.DateTime(((long)(0)));
+            this.DtpVencimientoHasta.Size = new System.Drawing.Size(273, 29);
+            this.DtpVencimientoHasta.TabIndex = 11;
+            this.DtpVencimientoHasta.TabStop = false;
+            this.DtpVencimientoHasta.Text = "jueves, 15 de octubre de 2015";
+            this.DtpVencimientoHasta.ThemeName = "TelerikMetro";
+            this.DtpVencimientoHasta.Value = new System.DateTime(2015, 10, 15, 17, 3, 19, 724);
             // 
-            // radLabel11
+            // radLabel12
             // 
-            this.radLabel11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel11.Location = new System.Drawing.Point(7, 70);
-            this.radLabel11.Name = "radLabel11";
-            this.radLabel11.Size = new System.Drawing.Size(78, 24);
-            this.radLabel11.TabIndex = 7;
-            this.radLabel11.Text = "Vendedor:";
+            this.radLabel12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel12.Location = new System.Drawing.Point(8, 243);
+            this.radLabel12.Name = "radLabel12";
+            this.radLabel12.Size = new System.Drawing.Size(137, 24);
+            this.radLabel12.TabIndex = 10;
+            this.radLabel12.Text = "Vencimiento hasta:";
             // 
             // FrmVentas
             // 
@@ -461,14 +493,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
             this.radPanel4.ResumeLayout(false);
             this.radPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlVendedor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtLCN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DdlLocalidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DdlCobradores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DdlVendedor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtpVencimientoHasta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -505,6 +539,8 @@
         private Telerik.WinControls.UI.RadTextBox TxtConcepto;
         private Telerik.WinControls.UI.RadDropDownList DdlVendedor;
         private Telerik.WinControls.UI.RadLabel radLabel11;
+        private Telerik.WinControls.UI.RadDateTimePicker DtpVencimientoHasta;
+        private Telerik.WinControls.UI.RadLabel radLabel12;
 
     }
 }

@@ -295,7 +295,7 @@ namespace Alejandria.Win.Forms.Ventas
         private void AgregarCuentaCorriente()
         {
             var cuotas = Cuotas;
-            for (int i = 1; i <= cuotas; i++)
+            for (int i = 2; i <= cuotas; i++)
             {
                 var clienteCuentaCorriente = new ClientesCuentasCorriente();
                 clienteCuentaCorriente.Id = Guid.NewGuid();
@@ -305,6 +305,10 @@ namespace Alejandria.Win.Forms.Ventas
                 clienteCuentaCorriente.Fecha = _clock.Now;
                 DateTime venc = DtpVencimiento.Value;
                 clienteCuentaCorriente.FechaVencimiento = venc.AddMonths(i - 1);
+
+                DateTime vencHasta = DtpVencimientoHasta.Value;
+                clienteCuentaCorriente.FechaVencimientoHasta = vencHasta.AddMonths(i - 1);
+
                 clienteCuentaCorriente.Importe = (float) MontoCuota;
                 clienteCuentaCorriente.Pagado = 0;
                 clienteCuentaCorriente.FechaGeneracion = _clock.Now;

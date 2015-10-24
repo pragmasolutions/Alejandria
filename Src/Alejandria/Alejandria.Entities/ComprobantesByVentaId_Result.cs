@@ -24,5 +24,8 @@ namespace Alejandria.Entities
         public byte Cuota { get; set; }
         public string Vendedor { get; set; }
         public Nullable<System.DateTime> FechaVencimiento { get; set; }
+        public int VentaNro { get; set; }
+        public string Referencia { get; set; }
+        public string Cobrador { get; set; }
     }
 }

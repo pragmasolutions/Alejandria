@@ -4558,8 +4558,11 @@
           <Property Type="Int32" Name="Cuotas" Nullable="true" />
           <Property Type="Single" Name="ValorCuota" Nullable="true" />
           <Property Type="Byte" Name="Cuota" Nullable="false" />
-          <Property Type="String" Name="Vendedor" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Vendedor" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="FechaVencimiento" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="VentaNro" Nullable="false" />
+          <Property Type="String" Name="Referencia" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Cobrador" Nullable="false" MaxLength="50" />
         </ComplexType>
         <Association Name="FK_Ventas_Cobradores">
           <End Type="AlejandriaModel.Cobrador" Role="Cobrador" Multiplicity="0..1" />
@@ -5794,6 +5797,9 @@
                 <ScalarProperty Name="Cuota" ColumnName="Cuota" />
                 <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
                 <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="VentaNro" ColumnName="VentaNro" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Cobrador" ColumnName="Cobrador" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
