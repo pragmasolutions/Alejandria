@@ -30,7 +30,7 @@ namespace Alejandria.Entities
         //public string Mail { get; set; }
 
         [Required(ErrorMessage = "Debe seleccionar una opción")]
-        [Range(1, 150, ErrorMessage = "Debe seleccionar una opción")]
+        [Range(1, 5000, ErrorMessage = "Debe seleccionar una opción")]
         public int? LocalidadId { get; set; }
 
         [MaxLength(15, ErrorMessage = "Debe tener como máximo 15 elementos")]

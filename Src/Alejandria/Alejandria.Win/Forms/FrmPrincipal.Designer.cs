@@ -51,7 +51,7 @@
             this.BtnClientes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClientes.Image = global::Alejandria.Win.Properties.Resources.CustomerAlejandria;
             this.BtnClientes.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnClientes.Location = new System.Drawing.Point(602, 37);
+            this.BtnClientes.Location = new System.Drawing.Point(519, 37);
             this.BtnClientes.Name = "BtnClientes";
             this.BtnClientes.Size = new System.Drawing.Size(156, 148);
             this.BtnClientes.TabIndex = 0;
@@ -65,7 +65,7 @@
             this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVentas.Image = global::Alejandria.Win.Properties.Resources.Sales_Order;
             this.BtnVentas.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnVentas.Location = new System.Drawing.Point(23, 37);
+            this.BtnVentas.Location = new System.Drawing.Point(41, 37);
             this.BtnVentas.Name = "BtnVentas";
             this.BtnVentas.Size = new System.Drawing.Size(156, 148);
             this.BtnVentas.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.BtnCobradores.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCobradores.Image = global::Alejandria.Win.Properties.Resources.cobradores;
             this.BtnCobradores.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnCobradores.Location = new System.Drawing.Point(602, 191);
+            this.BtnCobradores.Location = new System.Drawing.Point(681, 191);
             this.BtnCobradores.Name = "BtnCobradores";
             this.BtnCobradores.Size = new System.Drawing.Size(156, 148);
             this.BtnCobradores.TabIndex = 3;
@@ -94,7 +94,7 @@
             this.BtnCuotas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCuotas.Image = global::Alejandria.Win.Properties.Resources.pagoCuota;
             this.BtnCuotas.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnCuotas.Location = new System.Drawing.Point(23, 191);
+            this.BtnCuotas.Location = new System.Drawing.Point(41, 191);
             this.BtnCuotas.Name = "BtnCuotas";
             this.BtnCuotas.Size = new System.Drawing.Size(156, 148);
             this.BtnCuotas.TabIndex = 4;
@@ -108,7 +108,7 @@
             this.BtnCuotasCobrador.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCuotasCobrador.Image = global::Alejandria.Win.Properties.Resources.pagoCuotaCobradores;
             this.BtnCuotasCobrador.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnCuotasCobrador.Location = new System.Drawing.Point(197, 191);
+            this.BtnCuotasCobrador.Location = new System.Drawing.Point(203, 191);
             this.BtnCuotasCobrador.Name = "BtnCuotasCobrador";
             this.BtnCuotasCobrador.Size = new System.Drawing.Size(156, 148);
             this.BtnCuotasCobrador.TabIndex = 5;
@@ -123,7 +123,7 @@
             this.BtnVendedores.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVendedores.Image = global::Alejandria.Win.Properties.Resources.cobradores;
             this.BtnVendedores.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnVendedores.Location = new System.Drawing.Point(602, 345);
+            this.BtnVendedores.Location = new System.Drawing.Point(519, 191);
             this.BtnVendedores.Name = "BtnVendedores";
             this.BtnVendedores.Size = new System.Drawing.Size(156, 148);
             this.BtnVendedores.TabIndex = 4;
@@ -137,7 +137,7 @@
             this.BtnImprimir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnImprimir.Image = global::Alejandria.Win.Properties.Resources.Printer;
             this.BtnImprimir.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnImprimir.Location = new System.Drawing.Point(197, 37);
+            this.BtnImprimir.Location = new System.Drawing.Point(203, 37);
             this.BtnImprimir.Name = "BtnImprimir";
             this.BtnImprimir.Size = new System.Drawing.Size(156, 148);
             this.BtnImprimir.TabIndex = 6;
@@ -151,14 +151,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 540);
+            this.ClientSize = new System.Drawing.Size(863, 426);
+            this.Controls.Add(this.BtnVentas);
             this.Controls.Add(this.BtnImprimir);
-            this.Controls.Add(this.BtnVendedores);
-            this.Controls.Add(this.BtnCuotasCobrador);
             this.Controls.Add(this.BtnCuotas);
             this.Controls.Add(this.BtnCobradores);
-            this.Controls.Add(this.BtnVentas);
+            this.Controls.Add(this.BtnCuotasCobrador);
             this.Controls.Add(this.BtnClientes);
+            this.Controls.Add(this.BtnVendedores);
             this.Name = "FrmPrincipal";
             // 
             // 

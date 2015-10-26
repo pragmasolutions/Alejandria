@@ -18,6 +18,8 @@ namespace Alejandria.Entities.Dto
         public string Telefono { get; set; }
         public string Celular { get; set; }
         public string Mail { get; set; }
+        public int? Cuenta { get; set; }
+
         //public string LocalidadeNombre { get; set; }
         //public string ProfesioneNombre { get; set; }
         //public string EspecialidadeNombre { get; set; }

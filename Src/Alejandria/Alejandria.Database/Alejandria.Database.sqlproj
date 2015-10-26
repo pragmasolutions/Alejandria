@@ -94,6 +94,12 @@
     <Build Include="Tables\ClientesMovimiento.sql" />
     <None Include="Scripts\Post-Deploy\TiposDocumentos.sql" />
     <Build Include="Stored Procedures\ComprobantesDelDia.sql" />
+    <None Include="Scripts\Post-Deploy\CondicionesVenta.sql" />
+    <None Include="Scripts\Post-Deploy\EstadosVenta.sql" />
+    <None Include="Scripts\Post-Deploy\Operadores.sql" />
+    <None Include="Scripts\Post-Deploy\Personal.sql" />
+    <None Include="Scripts\Post-Deploy\Sucursales.sql" />
+    <None Include="Scripts\Post-Deploy\TiposComprobantes.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Alejandria.Database.refactorlog" />

@@ -37,10 +37,10 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn1 = new Telerik.WinControls.UI.GridViewCommandColumn();
             Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn2 = new Telerik.WinControls.UI.GridViewCommandColumn();
             Telerik.WinControls.UI.GridViewCommandColumn gridViewCommandColumn3 = new Telerik.WinControls.UI.GridViewCommandColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.Data.FilterDescriptor filterDescriptor1 = new Telerik.WinControls.Data.FilterDescriptor();
             this.ClienteDetalle = new Alejandria.Win.Controls.DetailCell.DetailsColumn();
             this.ClienteEditar = new Alejandria.Win.Controls.EditCell.EditColumn();
@@ -219,46 +219,50 @@
             this.dgvClientes.MasterTemplate.AllowDragToGroup = false;
             this.dgvClientes.MasterTemplate.AutoGenerateColumns = false;
             this.dgvClientes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.FieldName = "Id";
-            gridViewTextBoxColumn1.HeaderText = "Id";
-            gridViewTextBoxColumn1.IsVisible = false;
-            gridViewTextBoxColumn1.Name = "Id";
-            gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn2.FieldName = "Denominacion";
-            gridViewTextBoxColumn2.HeaderText = "Apellido, Nombre";
-            gridViewTextBoxColumn2.Name = "Denominacion";
+            gridViewTextBoxColumn1.FieldName = "Cuenta";
+            gridViewTextBoxColumn1.HeaderText = "Nro Cliente";
+            gridViewTextBoxColumn1.Name = "Cuenta";
+            gridViewTextBoxColumn1.Width = 48;
+            gridViewTextBoxColumn2.FieldName = "Id";
+            gridViewTextBoxColumn2.HeaderText = "Id";
+            gridViewTextBoxColumn2.IsVisible = false;
+            gridViewTextBoxColumn2.Name = "Id";
             gridViewTextBoxColumn2.ReadOnly = true;
-            gridViewTextBoxColumn2.Width = 139;
-            gridViewTextBoxColumn3.FieldName = "TiposDocumentosIdentidadNombre";
-            gridViewTextBoxColumn3.HeaderText = "Tipo Doc.";
-            gridViewTextBoxColumn3.Name = "TipoDocumentoDi";
+            gridViewTextBoxColumn3.FieldName = "Denominacion";
+            gridViewTextBoxColumn3.HeaderText = "Apellido, Nombre";
+            gridViewTextBoxColumn3.Name = "Denominacion";
             gridViewTextBoxColumn3.ReadOnly = true;
-            gridViewTextBoxColumn3.Width = 94;
-            gridViewTextBoxColumn4.FieldName = "Cuit";
-            gridViewTextBoxColumn4.HeaderText = "Numero";
-            gridViewTextBoxColumn4.Name = "Cuit";
+            gridViewTextBoxColumn3.Width = 139;
+            gridViewTextBoxColumn4.FieldName = "TiposDocumentosIdentidadNombre";
+            gridViewTextBoxColumn4.HeaderText = "Tipo Doc.";
+            gridViewTextBoxColumn4.Name = "TipoDocumentoDi";
             gridViewTextBoxColumn4.ReadOnly = true;
-            gridViewTextBoxColumn4.Width = 92;
-            gridViewTextBoxColumn5.FieldName = "Telefono";
-            gridViewTextBoxColumn5.HeaderText = "Teléfono";
-            gridViewTextBoxColumn5.Name = "Telefono";
+            gridViewTextBoxColumn4.Width = 94;
+            gridViewTextBoxColumn5.FieldName = "Cuit";
+            gridViewTextBoxColumn5.HeaderText = "Numero";
+            gridViewTextBoxColumn5.Name = "Cuit";
             gridViewTextBoxColumn5.ReadOnly = true;
             gridViewTextBoxColumn5.Width = 92;
-            gridViewTextBoxColumn6.FieldName = "Celular";
-            gridViewTextBoxColumn6.HeaderText = "Celular";
-            gridViewTextBoxColumn6.Name = "Celular";
+            gridViewTextBoxColumn6.FieldName = "Telefono";
+            gridViewTextBoxColumn6.HeaderText = "Teléfono";
+            gridViewTextBoxColumn6.Name = "Telefono";
             gridViewTextBoxColumn6.ReadOnly = true;
             gridViewTextBoxColumn6.Width = 92;
-            gridViewTextBoxColumn7.FieldName = "Domicilio";
-            gridViewTextBoxColumn7.HeaderText = "Domicilio";
-            gridViewTextBoxColumn7.Name = "Domicilio";
+            gridViewTextBoxColumn7.FieldName = "Celular";
+            gridViewTextBoxColumn7.HeaderText = "Celular";
+            gridViewTextBoxColumn7.Name = "Celular";
             gridViewTextBoxColumn7.ReadOnly = true;
-            gridViewTextBoxColumn7.Width = 139;
-            gridViewTextBoxColumn8.FieldName = "mail";
-            gridViewTextBoxColumn8.HeaderText = "Email";
-            gridViewTextBoxColumn8.Name = "Mail";
+            gridViewTextBoxColumn7.Width = 92;
+            gridViewTextBoxColumn8.FieldName = "Domicilio";
+            gridViewTextBoxColumn8.HeaderText = "Domicilio";
+            gridViewTextBoxColumn8.Name = "Domicilio";
             gridViewTextBoxColumn8.ReadOnly = true;
-            gridViewTextBoxColumn8.Width = 77;
+            gridViewTextBoxColumn8.Width = 139;
+            gridViewTextBoxColumn9.FieldName = "mail";
+            gridViewTextBoxColumn9.HeaderText = "Email";
+            gridViewTextBoxColumn9.Name = "Mail";
+            gridViewTextBoxColumn9.ReadOnly = true;
+            gridViewTextBoxColumn9.Width = 77;
             gridViewCommandColumn1.HeaderText = "";
             gridViewCommandColumn1.Image = global::Alejandria.Win.Properties.Resources.View_Details;
             gridViewCommandColumn1.ImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -280,10 +284,6 @@
             gridViewCommandColumn3.MinWidth = 30;
             gridViewCommandColumn3.Name = "ColumnaEliminar";
             gridViewCommandColumn3.Width = 30;
-            gridViewTextBoxColumn9.FieldName = "Cuenta";
-            gridViewTextBoxColumn9.HeaderText = "Nro Cliente";
-            gridViewTextBoxColumn9.Name = "Cuenta";
-            gridViewTextBoxColumn9.Width = 48;
             this.dgvClientes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -293,10 +293,10 @@
             gridViewTextBoxColumn6,
             gridViewTextBoxColumn7,
             gridViewTextBoxColumn8,
+            gridViewTextBoxColumn9,
             gridViewCommandColumn1,
             gridViewCommandColumn2,
-            gridViewCommandColumn3,
-            gridViewTextBoxColumn9});
+            gridViewCommandColumn3});
             this.dgvClientes.MasterTemplate.EnableGrouping = false;
             filterDescriptor1.IsFilterEditor = true;
             filterDescriptor1.PropertyName = "CUIT";
