@@ -20,7 +20,7 @@ using Telerik.WinControls;
 
 namespace Alejandria.Win.Forms.Ventas
 {
-    public partial class FrmVentas : FormBase
+    public partial class FrmVentas : EditFormBase
     {
         private readonly IClock _clock;
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
@@ -136,6 +136,7 @@ namespace Alejandria.Win.Forms.Ventas
             DtpVencimiento.Value = DateTime.Now.AddMonths(1);
             DtpVencimientoHasta.Value = DateTime.Now.AddMonths(1);
             Cuotas = 1;
+            Anticipo = 0;
             DefinirCombos();
             CargarCombos();
             nroComprobante = NumeroComprobante();
@@ -259,39 +260,7 @@ namespace Alejandria.Win.Forms.Ventas
 
         private void AgregarVenta()
         {
-            venta.Id = Guid.NewGuid();
-
-            venta.NumeroComprobante = nroComprobante;
-
-            venta.LetraComprobante = "X";
-            venta.LCN = DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
-            venta.ComprobanteId = 1; // FAC.VTA.CTA.CTE.
-            venta.ClienteId = _cliente.Id;
-
-            venta.PuntoVenta = 1;
-            venta.FechaComprobante = _clock.Now;
-            venta.FechaVencimiento = _clock.Now;
-            venta.CondicionVentaId = CondicionVentaEnum.CuentaCorriente; //CUENTA CORRIENTE
-
-            venta.Concepto = Concepto;
-            venta.ImporteNeto = MontoVenta ?? 0;
-            venta.ImporteIva = 0;
-
-            venta.ImporteSena = 0;
-            venta.FechaUltimoPago = _clock.Now;
-            venta.TotalPagado = Anticipo;
-            venta.EstadoVentaId = 1; //Entregada
-
-            venta.CobradorId = cobrador;
-            int vendedor;
-            venta.VendedorId = int.TryParse(DdlVendedor.SelectedValue.ToString(), out vendedor) ? vendedor : 0;
-            venta.CantidadCuota = Cuotas;
-
-            venta.FechaAlta = _clock.Now;
-            venta.SucursalAltaId = 1;
-            venta.OperadorAltaId = Guid.Empty;
-
-            Uow.Ventas.Agregar(venta);
+           Uow.Ventas.Agregar(venta);
         }
 
         private void AgregarCuentaCorriente()
@@ -440,37 +409,103 @@ namespace Alejandria.Win.Forms.Ventas
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            
-            AgregarVenta();
-
-            AgregarCuentaCorriente();
-
-            AgregarClienteMovimiento();
-
-            ModificarCaja();
-
-            AgregarCajaMovimiento();
-
-            Uow.Commit();
-
-            //using (var crearVenta = FormFactory.Create<FrmComprobantes>(venta.Id))
-            //{
-            //    crearVenta._ventaId =venta.Id;
-            //    //crearVenta._formaPago = ventaResponse.FacturaInfo.FormaPago;
-            //    //crearVenta._recargo = UcTotalesVenta.Recargo.ToString();
-
-            //    crearVenta.ShowDialog();
-            //}
-
-            var crearVenta = FormFactory.Create<FrmComprobantes>(venta.Id);
-            // crearVenta.Show();
-
-            if (crearVenta.ShowDialog() == DialogResult.OK)
+            if (_cliente ==null)
             {
-                _messageBoxDisplayService.ShowSuccess("Cuenta registrada con éxito");
-                this.Close();
-            }  
+                _messageBoxDisplayService.ShowWarning("Debe seleccionar un cliente");
+                return;
+            }
+
+            if (MontoVenta == 0)
+            {
+                _messageBoxDisplayService.ShowWarning("Debe ingresar un importe");
+                return;
+            }
+            var esValido = this.ValidarForm();
+
+            if (!esValido)
+            {
+                this.DialogResult = DialogResult.None;
+            }
+            else
+            {
+
+                AgregarVenta();
+
+                AgregarCuentaCorriente();
+
+                AgregarClienteMovimiento();
+
+                ModificarCaja();
+
+                AgregarCajaMovimiento();
+
+                Uow.Commit();
+
+                var crearVenta = FormFactory.Create<FrmComprobantes>(venta.Id);
              
+                if (crearVenta.ShowDialog() == DialogResult.OK)
+                {
+                    _messageBoxDisplayService.ShowSuccess("Cuenta registrada con éxito");
+                    this.Close();
+                }
+            }
+
+        }
+        protected override object ObtenerEntidad()
+        {
+            return ObtenerVentaDesdeForm();
+        }
+
+        private object ObtenerVentaDesdeForm()
+        {
+            venta.Id = Guid.NewGuid();
+
+            venta.NumeroComprobante = nroComprobante;
+
+            venta.LetraComprobante = "X";
+            venta.LCN = DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
+            venta.ComprobanteId = 1; // FAC.VTA.CTA.CTE.
+            if (_cliente != null)
+                venta.ClienteId = _cliente.Id ;
+            else
+                venta.ClienteId = Guid.Empty;
+
+            venta.PuntoVenta = 1;
+            venta.FechaComprobante = _clock.Now;
+            venta.FechaVencimiento = _clock.Now;
+            venta.CondicionVentaId = CondicionVentaEnum.CuentaCorriente; //CUENTA CORRIENTE
+
+            venta.Concepto = Concepto;
+            venta.ImporteNeto = MontoVenta ?? 0;
+            venta.ImporteIva = 0;
+
+            venta.ImporteSena = 0;
+            venta.FechaUltimoPago = _clock.Now;
+            venta.TotalPagado = Anticipo;
+            venta.EstadoVentaId = 1; //Entregada
+
+            venta.CobradorId = cobrador;
+            int vendedor;
+            venta.VendedorId = int.TryParse(DdlVendedor.SelectedValue.ToString(), out vendedor) ? vendedor : 0;
+            venta.CantidadCuota = Cuotas;
+
+            venta.FechaAlta = _clock.Now;
+            venta.SucursalAltaId = 1;
+            venta.OperadorAltaId = Guid.Empty;
+
+            return venta;
+        }
+
+        protected override void ValidarControles()
+        {
+            this.ValidarControl(DdlCobradores, "CobradorId");
+            this.ValidarControl(DdlVendedor, "VendedorId");
+            this.ValidarControl(TxtMontoVenta, "ImporteNeto");
+            //this.ValidarControl(txtCelular, "Celular");
+            //this.ValidarControl(txtMail, "Mail");
+            //this.ValidarControl(cbxCondicionVenta, "CondicionVentaId");
+            //this.ValidarControl(cbxLocalidad, "LocalidadId");
+            //this.ValidarControl(TxtNroCliente, "Cuenta");
         }
 
 

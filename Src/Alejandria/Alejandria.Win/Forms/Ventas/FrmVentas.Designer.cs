@@ -43,6 +43,8 @@
             this.ucFiltrosClientes = new Alejandria.Win.Forms.Clientes.UcFiltrosClientes();
             this.DtpVencimiento = new Telerik.WinControls.UI.RadDateTimePicker();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            this.DtpVencimientoHasta = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.radLabel12 = new Telerik.WinControls.UI.RadLabel();
             this.TxtConcepto = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
             this.BtnGuardar = new Telerik.WinControls.UI.RadButton();
@@ -58,8 +60,7 @@
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel8 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel7 = new Telerik.WinControls.UI.RadLabel();
-            this.DtpVencimientoHasta = new Telerik.WinControls.UI.RadDateTimePicker();
-            this.radLabel12 = new Telerik.WinControls.UI.RadLabel();
+            this.EpvVenta = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
@@ -74,6 +75,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtpVencimiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtpVencimientoHasta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtConcepto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).BeginInit();
@@ -91,8 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtpVencimientoHasta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EpvVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,6 +264,32 @@
             this.radPanel1.TabIndex = 3;
             this.radPanel1.ThemeName = "TelerikMetro";
             // 
+            // DtpVencimientoHasta
+            // 
+            this.DtpVencimientoHasta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpVencimientoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DtpVencimientoHasta.Location = new System.Drawing.Point(151, 238);
+            this.DtpVencimientoHasta.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DtpVencimientoHasta.MinDate = new System.DateTime(((long)(0)));
+            this.DtpVencimientoHasta.Name = "DtpVencimientoHasta";
+            this.DtpVencimientoHasta.NullableValue = new System.DateTime(2015, 10, 15, 17, 3, 19, 724);
+            this.DtpVencimientoHasta.NullDate = new System.DateTime(((long)(0)));
+            this.DtpVencimientoHasta.Size = new System.Drawing.Size(273, 29);
+            this.DtpVencimientoHasta.TabIndex = 11;
+            this.DtpVencimientoHasta.TabStop = false;
+            this.DtpVencimientoHasta.Text = "jueves, 15 de octubre de 2015";
+            this.DtpVencimientoHasta.ThemeName = "TelerikMetro";
+            this.DtpVencimientoHasta.Value = new System.DateTime(2015, 10, 15, 17, 3, 19, 724);
+            // 
+            // radLabel12
+            // 
+            this.radLabel12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel12.Location = new System.Drawing.Point(8, 243);
+            this.radLabel12.Name = "radLabel12";
+            this.radLabel12.Size = new System.Drawing.Size(137, 24);
+            this.radLabel12.TabIndex = 10;
+            this.radLabel12.Text = "Vencimiento hasta:";
+            // 
             // TxtConcepto
             // 
             this.TxtConcepto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -426,31 +454,9 @@
             this.radLabel7.TabIndex = 3;
             this.radLabel7.Text = "Número de venta:";
             // 
-            // DtpVencimientoHasta
+            // EpvVenta
             // 
-            this.DtpVencimientoHasta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtpVencimientoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DtpVencimientoHasta.Location = new System.Drawing.Point(151, 238);
-            this.DtpVencimientoHasta.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DtpVencimientoHasta.MinDate = new System.DateTime(((long)(0)));
-            this.DtpVencimientoHasta.Name = "DtpVencimientoHasta";
-            this.DtpVencimientoHasta.NullableValue = new System.DateTime(2015, 10, 15, 17, 3, 19, 724);
-            this.DtpVencimientoHasta.NullDate = new System.DateTime(((long)(0)));
-            this.DtpVencimientoHasta.Size = new System.Drawing.Size(273, 29);
-            this.DtpVencimientoHasta.TabIndex = 11;
-            this.DtpVencimientoHasta.TabStop = false;
-            this.DtpVencimientoHasta.Text = "jueves, 15 de octubre de 2015";
-            this.DtpVencimientoHasta.ThemeName = "TelerikMetro";
-            this.DtpVencimientoHasta.Value = new System.DateTime(2015, 10, 15, 17, 3, 19, 724);
-            // 
-            // radLabel12
-            // 
-            this.radLabel12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel12.Location = new System.Drawing.Point(8, 243);
-            this.radLabel12.Name = "radLabel12";
-            this.radLabel12.Size = new System.Drawing.Size(137, 24);
-            this.radLabel12.TabIndex = 10;
-            this.radLabel12.Text = "Vencimiento hasta:";
+            this.EpvVenta.ContainerControl = this;
             // 
             // FrmVentas
             // 
@@ -483,6 +489,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             this.radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtpVencimientoHasta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtConcepto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).EndInit();
@@ -501,8 +509,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtpVencimientoHasta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EpvVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -541,6 +548,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel11;
         private Telerik.WinControls.UI.RadDateTimePicker DtpVencimientoHasta;
         private Telerik.WinControls.UI.RadLabel radLabel12;
+        private System.Windows.Forms.ErrorProvider EpvVenta;
 
     }
 }
