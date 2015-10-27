@@ -25,7 +25,7 @@ namespace Alejandria.Win.Forms.Ventas
         private readonly IClock _clock;
         private readonly IMessageBoxDisplayService _messageBoxDisplayService;
         private Cliente _cliente;
-        int ProvinciaId = 1;
+        int ProvinciaId = 3;
         private int localidad = 0;
         private int cobrador = 0;
         private int nroComprobante = 0;
