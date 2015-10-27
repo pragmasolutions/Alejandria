@@ -298,7 +298,7 @@ namespace Alejandria.Win.Forms.Vendedores
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(166, 29);
             this.radLabel2.TabIndex = 94;
-            this.radLabel2.Text = "Número cobrador:";
+            this.radLabel2.Text = "Número vendedor:";
             this.radLabel2.ThemeName = "TelerikMetroBlue";
             // 
             // TxtNroCliente
@@ -339,7 +339,7 @@ namespace Alejandria.Win.Forms.Vendedores
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.BtnCancelar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmCrearEditarVendedor";
             // 
