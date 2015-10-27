@@ -9,10 +9,10 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-:r .\TiposDocumentos.sql
-:r .\Sucursales.sql
-:r .\Personal.sql
-:r .\Operadores.sql
-:r .\EstadosVenta.sql
-:r .\CondicionesVenta.sql
-:r .\TiposComprobantes.sql
+
+--:r .\Sucursales.sql
+--:r .\Personal.sql
+--:r .\Operadores.sql
+--:r .\EstadosVenta.sql
+--:r .\CondicionesVenta.sql
+--:r .\TiposComprobantes.sql

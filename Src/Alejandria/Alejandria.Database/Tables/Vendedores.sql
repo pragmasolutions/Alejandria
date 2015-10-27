@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Vendedores](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](50) NOT NULL,
 	[Abreviatura] [nvarchar](10) NULL,
 	[OperadorAltaId] [uniqueidentifier] NULL,
