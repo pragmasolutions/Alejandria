@@ -2039,7 +2039,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>5.53738mm</Height>
+                  <Height>2.89155mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2208,7 +2208,7 @@
             <DataSetName>Comprobantes</DataSetName>
             <Top>1.02658mm</Top>
             <Left>0.762mm</Left>
-            <Height>87.69587mm</Height>
+            <Height>85.05004mm</Height>
             <Width>200.93541mm</Width>
             <Style>
               <Border>
@@ -2217,7 +2217,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>88.72245mm</Height>
+        <Height>86.87037mm</Height>
         <Style>
           <Border>
             <Style>None</Style>
