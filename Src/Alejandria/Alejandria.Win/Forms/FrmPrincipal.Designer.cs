@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.BtnClientes = new Telerik.WinControls.UI.RadButton();
             this.BtnVentas = new Telerik.WinControls.UI.RadButton();
             this.BtnCobradores = new Telerik.WinControls.UI.RadButton();
@@ -149,9 +150,9 @@
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 426);
+            this.ClientSize = new System.Drawing.Size(1148, 530);
             this.Controls.Add(this.BtnVentas);
             this.Controls.Add(this.BtnImprimir);
             this.Controls.Add(this.BtnCuotas);
@@ -159,6 +160,8 @@
             this.Controls.Add(this.BtnCuotasCobrador);
             this.Controls.Add(this.BtnClientes);
             this.Controls.Add(this.BtnVendedores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
             // 
             // 

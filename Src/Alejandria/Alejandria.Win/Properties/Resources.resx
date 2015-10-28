@@ -151,9 +151,6 @@
   <data name="LabelEditarOrdenDePago" xml:space="preserve">
     <value>Editar Orden de Pago</value>
   </data>
-  <data name="TooltipAnulacionParcial" xml:space="preserve">
-    <value>Anulación Parcial</value>
-  </data>
   <data name="LabelImprimir" xml:space="preserve">
     <value>Imprimir</value>
   </data>
@@ -270,6 +267,9 @@
   </data>
   <data name="LabelEditarCliente" xml:space="preserve">
     <value>Editar Cliente</value>
+  </data>
+  <data name="View_Details" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View-Details.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LabelDetalleTema" xml:space="preserve">
     <value>Detalle Tema</value>
@@ -439,14 +439,14 @@
   <data name="ComboBoxOptionSeleccionarCondicionCompra" xml:space="preserve">
     <value>SELECCIONE CONDICION</value>
   </data>
-  <data name="Data-Edit-Con" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Data-Edit-Con.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="RendirConsignacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RendirConsignacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Van - 01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Van - 01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Garbage_Closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garbage-Closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LabelClientes" xml:space="preserve">
     <value>Clientes</value>
@@ -487,6 +487,9 @@
   <data name="MessageSuccessSeniaExitosa" xml:space="preserve">
     <value>La seña se cargó con éxito</value>
   </data>
+  <data name="pagoCuotaCobradores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pagoCuotaCobradores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -501,6 +504,9 @@
   </data>
   <data name="ComboBoxOptionSeleccionarProvincia" xml:space="preserve">
     <value>SELECCIONE PROVINCIA</value>
+  </data>
+  <data name="04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LabelEditarProveedor" xml:space="preserve">
     <value>Editar Proveedor</value>
@@ -538,8 +544,8 @@
   <data name="LabelEditarOperador" xml:space="preserve">
     <value>Editar Usuario/Operador</value>
   </data>
-  <data name="Garbage_Closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Garbage-Closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Data-Edit-Con" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Data-Edit-Con.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LabelDetalleLibro" xml:space="preserve">
     <value>Detalle Libro</value>
@@ -556,13 +562,13 @@
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="View_Details" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View-Details.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TooltipAnulacionParcial" xml:space="preserve">
+    <value>Anulación Parcial</value>
   </data>
   <data name="Pagar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pagoCuotaCobradores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pagoCuotaCobradores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="devlights" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\devlights.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -29,7 +29,7 @@
     <SuiteName>Alejandria</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -68,6 +68,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>alejandria.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -420,6 +426,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="alejandria.ico" />
     <Content Include="RDLS\Comprobantes.rdl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -432,6 +439,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\04.png" />
     <Content Include="Resources\Add-New-blue.png" />
     <Content Include="Resources\Bank.png" />
     <Content Include="Resources\Book-Open.png" />
@@ -448,6 +456,7 @@
     <Content Include="Resources\Data-Edit-Con1.png" />
     <Content Include="Resources\Data-Edit.png" />
     <Content Include="Resources\Data-Files.png" />
+    <None Include="Resources\devlights.png" />
     <Content Include="Resources\devoluviones.png" />
     <Content Include="Resources\devolver.png" />
     <Content Include="Resources\error.png" />
