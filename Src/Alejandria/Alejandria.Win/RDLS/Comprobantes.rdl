@@ -125,7 +125,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>11.19791mm</Height>
+                  <Height>12.55862mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -329,7 +329,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>6.03779mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -366,6 +366,7 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
@@ -444,6 +445,7 @@
                               <Style>None</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
@@ -453,7 +455,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.14792mm</Height>
+                  <Height>5.50863mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -577,7 +579,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.14792mm</Height>
+                  <Height>5.50863mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -705,7 +707,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>6.03779mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -819,7 +821,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>6.03779mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -919,7 +921,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.14792mm</Height>
+                  <Height>5.50863mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1043,7 +1045,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>6.03779mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1167,7 +1169,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>6.03779mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1357,7 +1359,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.4125mm</Height>
+                  <Height>5.77321mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1675,7 +1677,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.4125mm</Height>
+                  <Height>5.77321mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1783,14 +1785,13 @@
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>6.03779mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1914,7 +1915,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>6.03779mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2047,7 +2048,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.23336mm</Height>
+                  <Height>5.59407mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2215,7 +2216,7 @@
             <DataSetName>Comprobantes</DataSetName>
             <Top>1.02658mm</Top>
             <Left>0.762mm</Left>
-            <Height>69.43959mm</Height>
+            <Height>88.48959mm</Height>
             <Width>200.93541mm</Width>
             <Style>
               <Border>
@@ -2224,7 +2225,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>70.46617mm</Height>
+        <Height>89.51617mm</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2233,7 +2234,7 @@
       </Body>
       <Width>201.69741mm</Width>
       <Page>
-        <PageHeight>27.94cm</PageHeight>
+        <PageHeight>35.56cm</PageHeight>
         <PageWidth>21.59cm</PageWidth>
         <LeftMargin>0.5cm</LeftMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>

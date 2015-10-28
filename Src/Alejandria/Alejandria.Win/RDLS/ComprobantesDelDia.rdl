@@ -120,7 +120,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>11.19791mm</Height>
+                  <Height>12.50193mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -324,7 +324,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>5.9811mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -448,7 +448,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.14792mm</Height>
+                  <Height>5.45194mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -572,7 +572,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.14792mm</Height>
+                  <Height>5.45194mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -700,7 +700,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>5.9811mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -814,7 +814,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>5.9811mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -914,7 +914,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.14792mm</Height>
+                  <Height>5.45194mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1038,7 +1038,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>5.9811mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1162,7 +1162,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>5.9811mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1350,7 +1350,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.4125mm</Height>
+                  <Height>5.71652mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1668,7 +1668,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.4125mm</Height>
+                  <Height>5.71652mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1782,7 +1782,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>5.9811mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1906,7 +1906,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.67708mm</Height>
+                  <Height>5.9811mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2039,17 +2039,18 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>4.23336mm</Height>
+                  <Height>5.53738mm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Cuotas">
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Cuotas.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2058,7 +2059,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Cuotas</rd:DefaultName>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2207,7 +2208,7 @@
             <DataSetName>Comprobantes</DataSetName>
             <Top>1.02658mm</Top>
             <Left>0.762mm</Left>
-            <Height>69.43959mm</Height>
+            <Height>87.69587mm</Height>
             <Width>200.93541mm</Width>
             <Style>
               <Border>
@@ -2216,7 +2217,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>70.46617mm</Height>
+        <Height>88.72245mm</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2225,7 +2226,7 @@
       </Body>
       <Width>201.69741mm</Width>
       <Page>
-        <PageHeight>27.94cm</PageHeight>
+        <PageHeight>35.56cm</PageHeight>
         <PageWidth>21.59cm</PageWidth>
         <LeftMargin>0.5cm</LeftMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
