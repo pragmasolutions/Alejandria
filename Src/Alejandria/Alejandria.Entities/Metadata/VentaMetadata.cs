@@ -10,11 +10,11 @@ namespace Alejandria.Entities
     public class VentaMetadata
     {
         [Required(ErrorMessage = "Debe ingresar un vendedor")]
-        [Range(0, 5000, ErrorMessage = "Debe seleccionar una opción")]
+        [Range(1, 5000, ErrorMessage = "Debe seleccionar una opción")]
         public int VendedorId { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar un cobrador")]
-        [Range(0, 5000, ErrorMessage = "Debe seleccionar una opción")]
+        [Range(1, 5000, ErrorMessage = "Debe seleccionar una opción")]
         public int CobradorId { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar un cliente")]

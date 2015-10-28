@@ -126,6 +126,19 @@ namespace Alejandria.Win.Forms.Ventas
                 TxtConcepto.Text = value;
             }
         }
+
+        public int NroVenta
+        {
+            get
+            {
+                int nroventa;
+                return int.TryParse(TxtNroVenta.Text, out nroventa) ? nroventa : 0;
+            }
+            set
+            {
+                TxtNroVenta.Text = value.ToString();
+            }
+        }
         #endregion
 
         #region Funciones
@@ -139,7 +152,7 @@ namespace Alejandria.Win.Forms.Ventas
             Anticipo = 0;
             DefinirCombos();
             CargarCombos();
-            nroComprobante = NumeroComprobante();
+            nroComprobante = NroVenta ;// NumeroComprobante();
             DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
         }
 
@@ -397,14 +410,14 @@ namespace Alejandria.Win.Forms.Ventas
             if (DdlCobradores.SelectedValue != null)
             {
                 cobrador=  int.TryParse(DdlCobradores.SelectedValue.ToString(), out cobrador) ? cobrador : 0;
-                DefinirLCN(cobrador,localidad,cuenta,nroComprobante);
+                DefinirLCN(cobrador,localidad,cuenta,NroVenta);
             }
         }
 
         private void DdlLocalidad_SelectedValueChanged(object sender, EventArgs e)
         {
             localidad = int.TryParse(DdlLocalidad.SelectedValue.ToString(), out localidad) ? localidad : 0;
-            DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
+            DefinirLCN(cobrador, localidad, cuenta, NroVenta);
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -418,6 +431,12 @@ namespace Alejandria.Win.Forms.Ventas
             if (MontoVenta == 0)
             {
                 _messageBoxDisplayService.ShowWarning("Debe ingresar un importe");
+                return;
+            }
+
+            if (NroVenta == 0)
+            {
+                _messageBoxDisplayService.ShowWarning("Debe ingresar un numero de venta");
                 return;
             }
             var esValido = this.ValidarForm();
@@ -460,10 +479,10 @@ namespace Alejandria.Win.Forms.Ventas
         {
             venta.Id = Guid.NewGuid();
 
-            venta.NumeroComprobante = nroComprobante;
+            venta.NumeroComprobante = NroVenta;
 
             venta.LetraComprobante = "X";
-            venta.LCN = DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
+            venta.LCN = DefinirLCN(cobrador, localidad, cuenta, NroVenta);
             venta.ComprobanteId = 1; // FAC.VTA.CTA.CTE.
             if (_cliente != null)
                 venta.ClienteId = _cliente.Id ;
@@ -511,6 +530,11 @@ namespace Alejandria.Win.Forms.Ventas
 
         
         #endregion
+
+        private void TxtNroVenta_TextChanged(object sender, EventArgs e)
+        {
+            DefinirLCN(cobrador, localidad, cuenta, NroVenta);
+        }
        
       
 
