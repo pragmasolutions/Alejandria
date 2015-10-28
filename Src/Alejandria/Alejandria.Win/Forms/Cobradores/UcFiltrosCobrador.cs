@@ -85,9 +85,7 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void BtnBuscarCliente_Click(object sender, EventArgs e)
         {
-            if (!_limpiandoFiltros)
-                OnFiltered();
-            //BuscarCobrador();
+           BuscarCobrador();
         }
 
         //private void BuscarCobrador()
@@ -142,6 +140,7 @@ namespace Alejandria.Win.Forms.Cobradores
 
                 Cursor.Current = Cursors.Default;
                 OnBuscarFinished(cobradores);
+                OnFiltered();
             }
             catch (Exception e)
             {
@@ -175,7 +174,8 @@ namespace Alejandria.Win.Forms.Cobradores
             if (e.KeyCode == Keys.Enter)
             {
                 if (!_limpiandoFiltros)
-                    OnFiltered();
+                    //OnFiltered();
+                    BuscarCobrador();
             }
         }
 
