@@ -122,8 +122,8 @@ namespace Alejandria.Win.Forms.Clientes
 
         private void BuscarCliente()
         {
-            var textBuscarCuit = TxtTextoBuscar.Text.PadLeft(11, '0');
-            var textBuscarDenominacion = TxtCuit.Text.ToStringSearch();
+            var textBuscarCuit = TxtCuit.Text.PadLeft(11, '0');
+            var textBuscarDenominacion = TxtTextoBuscar.Text.ToStringSearch();
 
             Expression<Func<Cliente, bool>> where =
                 x =>
