@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Alejandria.Business.Interfaces;
 using Alejandria.Data.Interfaces;
@@ -146,6 +147,7 @@ namespace Alejandria.Win.Forms.Ventas
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
+            //this.ucFiltrosClientes.BuscarFinished += Filtered;
             DtpVencimiento.Value = DateTime.Now.AddMonths(1);
             DtpVencimientoHasta.Value = DateTime.Now.AddMonths(1);
             Cuotas = 1;
@@ -155,6 +157,31 @@ namespace Alejandria.Win.Forms.Ventas
             nroComprobante = NroVenta ;// NumeroComprobante();
             DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
         }
+
+        //private void Filtered(object sender, EventArgs eventArgs)
+        //{
+        //    RefrescarListado();
+        //}
+
+        //public override async Task<int> RefrescarListado()
+        //{
+
+        //    int pageTotal = 0;
+        //    var denominacion = UcFiltrosClientes.Denominacion;
+        //    var cuit = UcFiltrosClientes.Cuit;
+
+        //    var clientes = await Task.Run(() => _clienteNegocio.Listado(SortColumn, SortDirection,
+        //                                                                denominacion, cuit, true,
+        //                                                                ClientesPager.CurrentPage,
+        //                                                                ClientesPager.PageSize,
+        //                                                                out pageTotal));
+
+        //    dgvClientes.DataSource = clientes;
+
+        //    ClientesPager.UpdateState(pageTotal);
+
+        //    return pageTotal;
+        //}
 
         private string DefinirLCN(int? cobrador, int? localidad, int? cuenta, int numeroComprobante)
         {

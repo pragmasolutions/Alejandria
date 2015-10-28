@@ -9,6 +9,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Framework.Common.Extentensions;
 using Framework.Ioc;
 using Alejandria.Data.Interfaces;
 using Alejandria.Entities;
@@ -87,36 +88,65 @@ namespace Alejandria.Win.Forms.Clientes
            BuscarCliente();
         }
 
+        //private void BuscarCliente()
+        //{
+        //    var textBuscarDenominacion = TxtTextoBuscar.Text;
+        //    var textBuscarCuit = TxtCuit.Text.PadLeft(11, '0');
+
+        //    Expression<Func<Cliente, bool>> where =
+        //        x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
+
+        //    // Expression<Func<Cliente, bool>> where =
+        //    // x =>
+        //    // (string.IsNullOrEmpty(textBuscarDenominacion)
+        //    //  || x.Denominacion.Contains(textBuscarDenominacion)
+        //    // )
+        //    //&& (string.IsNullOrEmpty(textBuscarCuit)
+        //    //|| x.Cuit.Contains(textBuscarCuit)
+        //    //)
+        //    ;
+
+        //    Cursor.Current = Cursors.WaitCursor;
+
+        //    var clientes = Uow.Clientes.Listado(x => x.CondicionesVenta, x => x.Localidad, x => x.Provincia)
+        //                               .Where(where)
+        //                               .ToList();
+
+
+
+        //    Cursor.Current = Cursors.Default;
+
+        //    OnBuscarFinished(clientes);
+        //    OnFiltered();
+        //}
+
         private void BuscarCliente()
         {
-            var textBuscarDenominacion = TxtTextoBuscar.Text;
-            var textBuscarCuit = TxtCuit.Text.PadLeft(11, '0');
+            var textBuscarCuit = TxtTextoBuscar.Text.PadLeft(11, '0');
+            var textBuscarDenominacion = TxtTextoBuscar.Text.ToStringSearch();
 
             Expression<Func<Cliente, bool>> where =
-                x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
-
-            // Expression<Func<Cliente, bool>> where =
-            // x =>
-            // (string.IsNullOrEmpty(textBuscarDenominacion)
-            //  || x.Denominacion.Contains(textBuscarDenominacion)
-            // )
-            //&& (string.IsNullOrEmpty(textBuscarCuit)
-            //|| x.Cuit.Contains(textBuscarCuit)
-            //)
-            ;
+                x =>
+                SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 ||
+                SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
 
             Cursor.Current = Cursors.WaitCursor;
 
-            var clientes = Uow.Clientes.Listado(x => x.CondicionesVenta, x => x.Localidad, x => x.Provincia)
-                                       .Where(where)
-                                       .ToList();
+            try
+            {
+                var clientes = Uow.Clientes.Listado(x => x.CondicionesVenta, x => x.Localidad, x => x.Provincia)
+                .Where(@where)
+                .OrderBy(c => c.Denominacion)
+                .ToList();
 
-
-
-            Cursor.Current = Cursors.Default;
-
-            OnBuscarFinished(clientes);
-            OnFiltered();
+                Cursor.Current = Cursors.Default;
+                OnBuscarFinished(clientes);
+                OnFiltered();
+            }
+            catch (Exception e)
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void OnBuscarFinished(List<Cliente> clientes)

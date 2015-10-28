@@ -43,6 +43,15 @@ namespace Alejandria.Win.Forms.Cobradores
         private void FrmCuentasCorrientesCobrador_Load(object sender, EventArgs e)
         {
             this.ucFiltrosCobradores.BuscarFinished += UcFiltrosCobradoresOnBuscarFinished;
+
+            this.GridCuotas.Columns["FechaVencimiento"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["FechaVencimiento"].FormatString = "{0: dd/M/yyyy}";
+
+            this.GridCuotas.Columns["FechaVencimientoHasta"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["FechaVencimientoHasta"].FormatString = "{0: dd/M/yyyy}";
+
+            this.GridCuotas.Columns["Fecha"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["Fecha"].FormatString = "{0: dd/M/yyyy}";
         }
 
         #region Properties
@@ -107,10 +116,15 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void ActualizarCuotas(int cobradorId)
         {
+            //var cuotas =
+            //    Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta, ccc => ccc.Cliente).Where(ccc => ccc.Venta.CobradorId == cobradorId &&
+            //                                                                        ccc.Importe>ccc.Pagado).OrderBy(
+            //            ccc => ccc.FechaVencimiento).ToList();
+
             var cuotas =
                 Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta, ccc => ccc.Cliente).Where(ccc => ccc.Venta.CobradorId == cobradorId &&
-                                                                                    ccc.Importe>ccc.Pagado).OrderBy(
-                        ccc => ccc.FechaVencimiento).ToList();
+                                                                                    ccc.Importe > ccc.Pagado).GroupBy(ccc=>ccc.VentaId).FirstOrDefault();
+            //.OrderBy(ccc => ccc.FechaVencimiento).ToList();
 
             GridCuotas.DataSource = cuotas;
        }
