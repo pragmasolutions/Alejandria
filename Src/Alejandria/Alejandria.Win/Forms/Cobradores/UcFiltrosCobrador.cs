@@ -88,38 +88,7 @@ namespace Alejandria.Win.Forms.Cobradores
            BuscarCobrador();
         }
 
-        //private void BuscarCobrador()
-        //{
-        //    var textBuscarNombre = TxtTextoBuscar.Text;
-        //    var textBuscarCuit = TxtCuit.Text.PadLeft(11, '0');
-
-        //    //Expression<Func<Cliente, bool>> where =
-        //    //    x => SqlFunctions.PatIndex(textBuscarCuit, x.Cuit) > 0 || SqlFunctions.PatIndex(textBuscarDenominacion, x.Denominacion) > 0;
-
-        //    Expression<Func<Cobrador, bool>> where =
-        //        x =>
-        //        (string.IsNullOrEmpty(textBuscarNombre)
-        //         || x.Nombre.Contains(textBuscarNombre)
-        //        )
-        //        && (string.IsNullOrEmpty(textBuscarCuit)
-        //            || x.Cuit.Contains(textBuscarCuit)
-        //           )
-        //        ;
-
-        //    Cursor.Current = Cursors.WaitCursor;
-
-        //    var cobrador = Uow.Cobradores.Listado(x => x.Localidad, x => x.Provincia)
-        //        .Where(@where)
-        //        .ToList();
-
-
-        //    Cursor.Current = Cursors.Default;
-
-        //    OnBuscarFinished(cobrador);
-        //    OnFiltered();
-        //}
-
-        private void BuscarCobrador()
+     private void BuscarCobrador()
         {
             var textBuscarCuit = TxtTextoBuscar.Text.PadLeft(11, '0');
             var textBuscarDenominacion = TxtTextoBuscar.Text.ToStringSearch();

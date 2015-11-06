@@ -29,6 +29,10 @@ namespace Alejandria.Data.Repository
         {
             return AlejandriaDbContext.ComprobantesDelDia().AsQueryable();
         }
-        
+
+        public IQueryable<ProximasCuotasByCobrador_Result> ProximasCuotasByCobrador(int cobradorId)
+        {
+            return AlejandriaDbContext.ProximasCuotasByCobrador(cobradorId).AsQueryable();
+        }
     }
 }

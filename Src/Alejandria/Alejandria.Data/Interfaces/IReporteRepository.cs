@@ -11,7 +11,7 @@ namespace Alejandria.Data.Interfaces
     {
         IQueryable<ComprobantesByVentaId_Result> ComprobantesByVentaId(Guid ventaId);
         IQueryable<ComprobantesDelDia1_Result> ComprobantesDelDia();
-
+        IQueryable<ProximasCuotasByCobrador_Result> ProximasCuotasByCobrador(int cobradorId);
         
     }
 

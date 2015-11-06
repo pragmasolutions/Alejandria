@@ -66,5 +66,14 @@ namespace Alejandria.Data
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ComprobantesDelDia1_Result>("ComprobantesDelDia");
         }
+    
+        public virtual ObjectResult<ProximasCuotasByCobrador_Result> ProximasCuotasByCobrador(Nullable<int> cobradorId)
+        {
+            var cobradorIdParameter = cobradorId.HasValue ?
+                new ObjectParameter("cobradorId", cobradorId) :
+                new ObjectParameter("cobradorId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProximasCuotasByCobrador_Result>("ProximasCuotasByCobrador", cobradorIdParameter);
+        }
     }
 }

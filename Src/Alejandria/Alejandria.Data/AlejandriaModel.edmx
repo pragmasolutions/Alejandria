@@ -2004,6 +2004,9 @@
           <Parameter Name="ventaId" Type="uniqueidentifier" Mode="In" />
         </Function>
         <Function Name="ComprobantesDelDia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ProximasCuotasByCobrador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cobradorId" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="AlejandriaModelStoreContainer">
           <EntitySet Name="Cajas" EntityType="Self.Cajas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CajasMovimientos" EntityType="Self.CajasMovimientos" Schema="dbo" store:Type="Tables" />
@@ -3435,6 +3438,9 @@
             <End Role="Venta" EntitySet="Ventas" />
           </AssociationSet>
           <FunctionImport Name="ComprobantesDelDia" ReturnType="Collection(AlejandriaModel.ComprobantesDelDia1_Result)" />
+          <FunctionImport Name="ProximasCuotasByCobrador" ReturnType="Collection(AlejandriaModel.ProximasCuotasByCobrador_Result)">
+            <Parameter Name="cobradorId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -5371,6 +5377,16 @@
           <Property Type="Int32" Name="Mes" Nullable="true" />
           <Property Type="Int32" Name="Año" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="ProximasCuotasByCobrador_Result">
+          <Property Type="String" Name="Denominacion" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="FechaCompra" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="VentaNro" Nullable="false" />
+          <Property Type="Byte" Name="CuotaNro" Nullable="true" />
+          <Property Type="Single" Name="Importe" Nullable="true" />
+          <Property Type="String" Name="FechaVencimiento" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Desde" Nullable="true" />
+          <Property Type="Int32" Name="Hasta" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5941,6 +5957,20 @@
                 <ScalarProperty Name="Hasta" ColumnName="Hasta" />
                 <ScalarProperty Name="Mes" ColumnName="Mes" />
                 <ScalarProperty Name="Año" ColumnName="Año" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProximasCuotasByCobrador" FunctionName="AlejandriaModel.Store.ProximasCuotasByCobrador">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AlejandriaModel.ProximasCuotasByCobrador_Result">
+                <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+                <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+                <ScalarProperty Name="VentaNro" ColumnName="VentaNro" />
+                <ScalarProperty Name="CuotaNro" ColumnName="CuotaNro" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="Desde" ColumnName="Desde" />
+                <ScalarProperty Name="Hasta" ColumnName="Hasta" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

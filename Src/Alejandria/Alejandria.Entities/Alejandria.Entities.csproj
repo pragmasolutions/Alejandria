@@ -114,6 +114,9 @@
     <Compile Include="Provincia.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProximasCuotasByCobrador_Result.cs">
+      <DependentUpon>AlejandriaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sucursal.cs">
       <DependentUpon>AlejandriaModel.tt</DependentUpon>
     </Compile>

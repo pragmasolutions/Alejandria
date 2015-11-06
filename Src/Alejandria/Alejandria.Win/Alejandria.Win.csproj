@@ -239,6 +239,12 @@
     <Compile Include="Forms\CuentaCorrientes\FrmCuentaCorriente.Designer.cs">
       <DependentUpon>FrmCuentaCorriente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CuentaCorrientes\FrmProximosVencimientosCobrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CuentaCorrientes\FrmProximosVencimientosCobrador.Designer.cs">
+      <DependentUpon>FrmProximosVencimientosCobrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CuentaCorrientes\FrmCuentaCorriente.resx">
       <DependentUpon>FrmCuentaCorriente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CuentaCorrientes\FrmProximosVencimientosCobrador.resx">
+      <DependentUpon>FrmProximosVencimientosCobrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
