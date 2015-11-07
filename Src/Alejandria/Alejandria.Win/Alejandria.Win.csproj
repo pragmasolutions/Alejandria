@@ -481,6 +481,7 @@
     <None Include="Resources\pagoCuotaCobradores.png" />
     <Content Include="Resources\Print-16x16.png" />
     <None Include="Resources\Printer.png" />
+    <None Include="Resources\ProximosVencimientos.png" />
     <Content Include="Resources\Purchase-Order.png" />
     <Content Include="Resources\Reload.png" />
     <Content Include="Resources\Reload_16x16.png" />

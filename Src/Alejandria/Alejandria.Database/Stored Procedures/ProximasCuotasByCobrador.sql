@@ -3,9 +3,9 @@
 	
 AS
 	SELECT C.Denominacion,CONVERT (char(10), (V.FechaAlta), 103)  as FechaCompra, V.NumeroComprobante as VentaNro,
-MAX(CCC.Cuota) as CuotaNro, CCC.Importe,
-CONVERT (char(10), MAX(CCC.FechaVencimiento), 103) as FechaVencimiento,
-MAX(DAY(CCC.FechaVencimiento)) as Desde, MAX(DAY(CCC.FechaVencimientoHasta)) as Hasta
+MIN(CCC.Cuota) as CuotaNro, CCC.Importe,
+CONVERT (char(10), MIN(CCC.FechaVencimiento), 103) as FechaVencimiento,
+MIN(DAY(CCC.FechaVencimiento)) as Desde, MIN(DAY(CCC.FechaVencimientoHasta)) as Hasta
 FROM ClientesCuentasCorriente CCC
 INNER JOIN Ventas V
 ON V.Id= CCC.VentaId
@@ -24,6 +24,7 @@ IN
 		AND CobradorId=@cobradorId
 		GROUP BY CCC.VentaId
 	)
+		AND CCC.Importe > CCC.Pagado
 	GROUP BY CCC.VentaId, V.NumeroComprobante,V.FechaAlta, C.Denominacion,
 	CCC.Importe
 	ORDER BY V.FechaAlta

@@ -42,77 +42,66 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             InitializeComponent();
         }
 
+        #region Inicializacion
+        
+
         private void FrmCuentasCorrientesCobrador_Load(object sender, EventArgs e)
         {
-            this.ucFiltrosCobradores.BuscarFinished += UcFiltrosCobradoresOnBuscarFinished;
             this.RvProximas.RefreshReport();
+            DefinirCombos();
+            CargarCombos();
         }
 
-        #region Cobrador
-        
-        private void UcFiltrosCobradoresOnBuscarFinished(object sender, List<Cobrador> cobradores)
+        private void CargarCombos()
         {
-            if (cobradores.Any())
-            {
-                if (cobradores.Count == 1)
-                {
-                    ActualizarCobrador(cobradores.Single());
-                    Refresh();
-                }
-                else
-                {
-                    //Mas de uno encontrado.
-                    using (var seleccionarCobrador = new FrmSeleccionarCobrador(cobradores))
-                    {
-                        seleccionarCobrador.CobradorSelected += (o, cliente) =>
-                        {
-                            ActualizarCobrador(cliente);
-                            seleccionarCobrador.Close();
-                        };
+            var cobradores = Uow.Cobradores.Listado().Where(c => c.Activo).ToList();
+            cobradores.Insert(0, new Cobrador { Id = 0, Nombre = "SELECCIONE ..." });
+            DdlCobradores.DataSource = cobradores;
+        }
 
-                        seleccionarCobrador.ShowDialog();
-                    }
-                }
+        private void DefinirCombos()
+        {
+            DdlCobradores.DisplayMember = "Nombre";
+            DdlCobradores.ValueMember = "Id";
+        }
 
-            }
-            else
+        #endregion
+
+        #region Cobrador
+
+        private void DdlCobradores_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (DdlCobradores.SelectedValue != null)
             {
-                Crear();
+                int cobrador = int.TryParse(DdlCobradores.SelectedValue.ToString(), out cobrador) ? cobrador : 0;
+                _cobrador = Uow.Cobradores.Obtener(c => c.Id == cobrador, c=>c.Localidad, c=>c.Provincia);
+                ActualizarCobrador(_cobrador);
             }
+        }
+
+        private void BtnRefrescar_Click(object sender, EventArgs e)
+        {
+            if (_cobrador != null)
+                Refresh();
         }
 
         private void ActualizarCobrador(Cobrador cobrador)
         {
-            if (!cobrador.Activo)
+            if (cobrador!=null)
             {
-                _messageBoxDisplayService.Show(this, string.Format("Cobrador Inactivo", cobrador.Nombre, cobrador.Cuit), Resources.LabelVentas);
-                return;
+                if (!cobrador.Activo)
+                {
+                    _messageBoxDisplayService.Show(this, string.Format("Cobrador Inactivo", cobrador.Nombre, cobrador.Cuit), Resources.LabelVentas);
+                    return;
+                }
+
+                _cobrador = cobrador;
+
+                ucCobradorDetalle.ActualizarCobrador(_cobrador);
             }
-
-            _cobrador = cobrador;
-
-            ucCobradorDetalle.ActualizarCobrador(_cobrador);
+            
         }
         
-        private void Crear()
-        {
-            using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(default(int), ActionFormMode.Create))
-            {
-                int i = 0;
-                if (int.TryParse(ucFiltrosCobradores.Cuit, out i))
-                    formCrear.SetearDni(ucFiltrosCobradores.Cuit);
-
-
-                formCrear.CobradorAgregado += (sender, cobrador) =>
-                {
-                    ActualizarCobrador(cobrador);
-                    formCrear.Close();
-                };
-
-                formCrear.ShowDialog();
-            }
-        }
-
         #endregion
 
         #region ClientesCuentasCorrientes
@@ -131,7 +120,8 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
 
             var parametros = new List<ReportParameter>
                                 {
-                                    new ReportParameter("Cobrador", _cobrador.Nombre)
+                                    new ReportParameter("Cobrador", _cobrador.Nombre),
+                                    new ReportParameter("cobradorId", _cobrador.Id.ToString())
                                 };
 
             RvProximas.LocalReport.SetParameters(parametros);
@@ -141,6 +131,8 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         }
 
         #endregion
+
+      
 
     }
 }

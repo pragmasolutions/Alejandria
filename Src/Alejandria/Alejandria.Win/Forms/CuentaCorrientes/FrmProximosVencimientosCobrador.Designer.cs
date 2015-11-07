@@ -33,15 +33,17 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             this.components = new System.ComponentModel.Container();
             this.ucClienteDetalle1 = new Alejandria.Win.Forms.Clientes.UcClienteDetalle();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.ucFiltrosCobradores = new Alejandria.Win.Forms.Cobradores.UcFiltrosCobradores();
             this.ucCobradorDetalle = new Alejandria.Win.Forms.Cobradores.UcCobradorDetalle();
-            this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
+            this.BtnRefrescar = new Telerik.WinControls.UI.RadButton();
+            this.DdlCobradores = new Telerik.WinControls.UI.RadDropDownList();
+            this.radLabel8 = new Telerik.WinControls.UI.RadLabel();
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
             this.RvProximas = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
-            this.radPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnRefrescar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlCobradores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -62,21 +64,15 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             // 
             // radPanel1
             // 
-            this.radPanel1.Controls.Add(this.ucFiltrosCobradores);
+            this.radPanel1.Controls.Add(this.ucCobradorDetalle);
+            this.radPanel1.Controls.Add(this.BtnRefrescar);
+            this.radPanel1.Controls.Add(this.DdlCobradores);
+            this.radPanel1.Controls.Add(this.radLabel8);
             this.radPanel1.Location = new System.Drawing.Point(29, 12);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(388, 160);
+            this.radPanel1.Size = new System.Drawing.Size(970, 201);
             this.radPanel1.TabIndex = 1;
             this.radPanel1.ThemeName = "TelerikMetro";
-            // 
-            // ucFiltrosCobradores
-            // 
-            this.ucFiltrosCobradores.Cuit = "";
-            this.ucFiltrosCobradores.Location = new System.Drawing.Point(3, 3);
-            this.ucFiltrosCobradores.Name = "ucFiltrosCobradores";
-            this.ucFiltrosCobradores.Nombre = "";
-            this.ucFiltrosCobradores.Size = new System.Drawing.Size(371, 123);
-            this.ucFiltrosCobradores.TabIndex = 0;
             // 
             // ucCobradorDetalle
             // 
@@ -84,25 +80,51 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             this.ucCobradorDetalle.Cuit = "";
             this.ucCobradorDetalle.Domicilio = "";
             this.ucCobradorDetalle.Localidad = "";
-            this.ucCobradorDetalle.Location = new System.Drawing.Point(12, 6);
+            this.ucCobradorDetalle.Location = new System.Drawing.Point(20, 52);
             this.ucCobradorDetalle.Name = "ucCobradorDetalle";
             this.ucCobradorDetalle.Provincia = "";
-            this.ucCobradorDetalle.Size = new System.Drawing.Size(552, 151);
+            this.ucCobradorDetalle.Size = new System.Drawing.Size(675, 125);
             this.ucCobradorDetalle.TabIndex = 3;
             // 
-            // radPanel2
+            // BtnRefrescar
             // 
-            this.radPanel2.Controls.Add(this.ucCobradorDetalle);
-            this.radPanel2.Location = new System.Drawing.Point(432, 12);
-            this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(567, 160);
-            this.radPanel2.TabIndex = 4;
-            this.radPanel2.ThemeName = "TelerikMetro";
+            this.BtnRefrescar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRefrescar.Location = new System.Drawing.Point(743, 143);
+            this.BtnRefrescar.Name = "BtnRefrescar";
+            this.BtnRefrescar.Size = new System.Drawing.Size(126, 34);
+            this.BtnRefrescar.TabIndex = 7;
+            this.BtnRefrescar.Text = "Buscar";
+            this.BtnRefrescar.ThemeName = "TelerikMetro";
+            this.BtnRefrescar.Click += new System.EventHandler(this.BtnRefrescar_Click);
+            // 
+            // DdlCobradores
+            // 
+            this.DdlCobradores.DropDownAnimationEnabled = true;
+            this.DdlCobradores.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DdlCobradores.Location = new System.Drawing.Point(131, 6);
+            this.DdlCobradores.MaxDropDownItems = 0;
+            this.DdlCobradores.Name = "DdlCobradores";
+            this.DdlCobradores.ShowImageInEditorArea = true;
+            this.DdlCobradores.Size = new System.Drawing.Size(273, 27);
+            this.DdlCobradores.TabIndex = 5;
+            this.DdlCobradores.ThemeName = "TelerikMetro";
+            this.DdlCobradores.SelectedValueChanged += new System.EventHandler(this.DdlCobradores_SelectedValueChanged);
+            // 
+            // radLabel8
+            // 
+            this.radLabel8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel8.Location = new System.Drawing.Point(35, 9);
+            this.radLabel8.Name = "radLabel8";
+            this.radLabel8.Size = new System.Drawing.Size(75, 24);
+            this.radLabel8.TabIndex = 6;
+            this.radLabel8.Text = "Cobrador:";
             // 
             // radPanel3
             // 
+            this.radPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.radPanel3.Controls.Add(this.RvProximas);
-            this.radPanel3.Location = new System.Drawing.Point(29, 178);
+            this.radPanel3.Location = new System.Drawing.Point(29, 222);
             this.radPanel3.Name = "radPanel3";
             this.radPanel3.Size = new System.Drawing.Size(970, 357);
             this.radPanel3.TabIndex = 5;
@@ -122,7 +144,6 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 591);
             this.Controls.Add(this.radPanel3);
-            this.Controls.Add(this.radPanel2);
             this.Controls.Add(this.ucClienteDetalle1);
             this.Controls.Add(this.radPanel1);
             this.Name = "FrmProximosVencimientosCobrador";
@@ -130,12 +151,15 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proximos Vencimientos";
             this.Load += new System.EventHandler(this.FrmCuentasCorrientesCobrador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
-            this.radPanel2.ResumeLayout(false);
+            this.radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnRefrescar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DdlCobradores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
             this.radPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -145,12 +169,13 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
 
         #endregion
 
-        private UcFiltrosCobradores ucFiltrosCobradores;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Clientes.UcClienteDetalle ucClienteDetalle1;
         private UcCobradorDetalle ucCobradorDetalle;
-        private Telerik.WinControls.UI.RadPanel radPanel2;
         private Telerik.WinControls.UI.RadPanel radPanel3;
         private Microsoft.Reporting.WinForms.ReportViewer RvProximas;
+        private Telerik.WinControls.UI.RadDropDownList DdlCobradores;
+        private Telerik.WinControls.UI.RadLabel radLabel8;
+        private Telerik.WinControls.UI.RadButton BtnRefrescar;
     }
 }

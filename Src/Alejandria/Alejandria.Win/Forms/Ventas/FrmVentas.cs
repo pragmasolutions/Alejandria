@@ -158,32 +158,7 @@ namespace Alejandria.Win.Forms.Ventas
             DefinirLCN(cobrador, localidad, cuenta, nroComprobante);
         }
 
-        //private void Filtered(object sender, EventArgs eventArgs)
-        //{
-        //    RefrescarListado();
-        //}
-
-        //public override async Task<int> RefrescarListado()
-        //{
-
-        //    int pageTotal = 0;
-        //    var denominacion = UcFiltrosClientes.Denominacion;
-        //    var cuit = UcFiltrosClientes.Cuit;
-
-        //    var clientes = await Task.Run(() => _clienteNegocio.Listado(SortColumn, SortDirection,
-        //                                                                denominacion, cuit, true,
-        //                                                                ClientesPager.CurrentPage,
-        //                                                                ClientesPager.PageSize,
-        //                                                                out pageTotal));
-
-        //    dgvClientes.DataSource = clientes;
-
-        //    ClientesPager.UpdateState(pageTotal);
-
-        //    return pageTotal;
-        //}
-
-        private string DefinirLCN(int? cobrador, int? localidad, int? cuenta, int numeroComprobante)
+       private string DefinirLCN(int? cobrador, int? localidad, int? cuenta, int numeroComprobante)
         {
             var cob = (cobrador ?? 0).ToString().PadLeft(3, '0');
             var loc = (localidad ?? 0).ToString().PadLeft(4, '0');

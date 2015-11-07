@@ -157,7 +157,7 @@
             gridViewCheckBoxColumn1.HeaderText = "Pagar";
             gridViewCheckBoxColumn1.Name = "Pagar";
             gridViewCheckBoxColumn1.Width = 43;
-            gridViewTextBoxColumn6.Expression = "Venta.NroComprobante";
+            gridViewTextBoxColumn6.Expression = "Venta.NumeroComprobante";
             gridViewTextBoxColumn6.HeaderText = "NroVenta";
             gridViewTextBoxColumn6.Name = "NroVenta";
             gridViewTextBoxColumn6.Width = 43;

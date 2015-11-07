@@ -71,5 +71,11 @@ namespace Alejandria.Win.Forms
             crear.Show();
         }
 
+        private void BtnProximos_Click(object sender, EventArgs e)
+        {
+            var crear = FormFactory.Create<FrmProximosVencimientosCobrador>();
+            crear.Show();
+        }
+
        }
 }

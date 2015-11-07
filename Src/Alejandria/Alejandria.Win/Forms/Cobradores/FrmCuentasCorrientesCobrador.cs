@@ -116,14 +116,14 @@ namespace Alejandria.Win.Forms.Cobradores
 
         private void ActualizarCuotas(int cobradorId)
         {
-            //var cuotas =
-            //    Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta, ccc => ccc.Cliente).Where(ccc => ccc.Venta.CobradorId == cobradorId &&
-            //                                                                        ccc.Importe>ccc.Pagado).OrderBy(
-            //            ccc => ccc.FechaVencimiento).ToList();
-
             var cuotas =
                 Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta, ccc => ccc.Cliente).Where(ccc => ccc.Venta.CobradorId == cobradorId &&
-                                                                                    ccc.Importe > ccc.Pagado).GroupBy(ccc=>ccc.VentaId).FirstOrDefault();
+                                                                                    ccc.Importe > ccc.Pagado).OrderBy(
+                        ccc => ccc.FechaVencimiento).ToList();
+
+            //var cuotas =
+            //    Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta, ccc => ccc.Cliente).Where(ccc => ccc.Venta.CobradorId == cobradorId &&
+            //                                                                        ccc.Importe > ccc.Pagado).GroupBy(ccc=>ccc.VentaId).FirstOrDefault();
             //.OrderBy(ccc => ccc.FechaVencimiento).ToList();
 
             GridCuotas.DataSource = cuotas;
