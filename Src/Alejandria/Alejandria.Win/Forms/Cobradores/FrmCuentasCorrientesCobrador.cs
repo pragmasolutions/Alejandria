@@ -40,9 +40,10 @@ namespace Alejandria.Win.Forms.Cobradores
             InitializeComponent();
         }
 
+        #region Inicializacion
+
         private void FrmCuentasCorrientesCobrador_Load(object sender, EventArgs e)
         {
-            this.ucFiltrosCobradores.BuscarFinished += UcFiltrosCobradoresOnBuscarFinished;
 
             this.GridCuotas.Columns["FechaVencimiento"].DataType = typeof(DateTime);
             this.GridCuotas.Columns["FechaVencimiento"].FormatString = "{0: dd/M/yyyy}";
@@ -52,7 +53,24 @@ namespace Alejandria.Win.Forms.Cobradores
 
             this.GridCuotas.Columns["Fecha"].DataType = typeof(DateTime);
             this.GridCuotas.Columns["Fecha"].FormatString = "{0: dd/M/yyyy}";
+
+            DefinirCombos();
+            CargarCombos();
         }
+
+        private void CargarCombos()
+        {
+            var cobradores = Uow.Cobradores.Listado().Where(c => c.Activo).ToList();
+            cobradores.Insert(0, new Cobrador { Id = 0, Nombre = "SELECCIONE ..." });
+            DdlCobradores.DataSource = cobradores;
+        }
+
+        private void DefinirCombos()
+        {
+            DdlCobradores.DisplayMember = "Nombre";
+            DdlCobradores.ValueMember = "Id";
+        }
+        #endregion
 
         #region Properties
         public float? TotalPagar
@@ -69,49 +87,37 @@ namespace Alejandria.Win.Forms.Cobradores
         }
         #endregion
 
-
-        private void UcFiltrosCobradoresOnBuscarFinished(object sender, List<Cobrador> cobradores)
+        private void DdlCobradores_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cobradores.Any())
+            if (DdlCobradores.SelectedValue != null)
             {
-                if (cobradores.Count == 1)
-                {
-                    ActualizarCobrador(cobradores.Single());
-                    ActualizarCuotas(_cobrador.Id);
-                }
-                else
-                {
-                    //Mas de uno encontrado.
-                    using (var seleccionarCobrador = new FrmSeleccionarCobrador(cobradores))
-                    {
-                        seleccionarCobrador.CobradorSelected += (o, cliente) =>
-                        {
-                            ActualizarCobrador(cliente);
-                            seleccionarCobrador.Close();
-                        };
-
-                        seleccionarCobrador.ShowDialog();
-                    }
-                }
-
+                int cobrador = int.TryParse(DdlCobradores.SelectedValue.ToString(), out cobrador) ? cobrador : 0;
+                _cobrador = Uow.Cobradores.Obtener(c => c.Id == cobrador, c => c.Localidad, c => c.Provincia);
+                ActualizarCobrador(_cobrador);
             }
-            else
-            {
-                Crear();
-            }
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            if (_cobrador != null)
+                ActualizarCuotas(_cobrador.Id);
         }
 
         private void ActualizarCobrador(Cobrador cobrador)
         {
-            if (!cobrador.Activo)
+            if (cobrador!=null)
             {
-                _messageBoxDisplayService.Show(this, string.Format("Cobrador Inactivo", cobrador.Nombre, cobrador.Cuit), Resources.LabelVentas);
-                return;
+                if (!cobrador.Activo)
+                {
+                    _messageBoxDisplayService.Show(this, string.Format("Cobrador Inactivo", cobrador.Nombre, cobrador.Cuit), Resources.LabelVentas);
+                    return;
+                }
+
+                _cobrador = cobrador;
+
+                ucCobradorDetalle.ActualizarCobrador(_cobrador);
             }
-
-            _cobrador = cobrador;
-
-            ucCobradorDetalle.ActualizarCobrador(_cobrador);
+            
         }
 
         private void ActualizarCuotas(int cobradorId)
@@ -121,33 +127,8 @@ namespace Alejandria.Win.Forms.Cobradores
                                                                                     ccc.Importe > ccc.Pagado).OrderBy(
                         ccc => ccc.FechaVencimiento).ToList();
 
-            //var cuotas =
-            //    Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta, ccc => ccc.Cliente).Where(ccc => ccc.Venta.CobradorId == cobradorId &&
-            //                                                                        ccc.Importe > ccc.Pagado).GroupBy(ccc=>ccc.VentaId).FirstOrDefault();
-            //.OrderBy(ccc => ccc.FechaVencimiento).ToList();
-
             GridCuotas.DataSource = cuotas;
        }
-
-
-        private void Crear()
-        {
-            using (var formCrear = FormFactory.Create<FrmCrearEditarCobrador>(default(int), ActionFormMode.Create))
-            {
-                int i = 0;
-                if (int.TryParse(ucFiltrosCobradores.Cuit, out i))
-                    formCrear.SetearDni(ucFiltrosCobradores.Cuit);
-
-
-                formCrear.CobradorAgregado += (sender, cobrador) =>
-                {
-                    ActualizarCobrador(cobrador);
-                    formCrear.Close();
-                };
-
-                formCrear.ShowDialog();
-            }
-        }
 
         private void GridCuotas_ValueChanged(object sender, EventArgs e)
         {
@@ -297,5 +278,7 @@ namespace Alejandria.Win.Forms.Cobradores
             Uow.ClientesCuentasCorrientes.Modificar(clienteCuentaCorriente);
 
         }
+
+       
     }
 }
