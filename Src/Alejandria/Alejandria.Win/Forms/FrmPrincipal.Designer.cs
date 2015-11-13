@@ -38,6 +38,8 @@
             this.BtnImprimir = new Telerik.WinControls.UI.RadButton();
             this.BtnProximos = new Telerik.WinControls.UI.RadButton();
             this.BtnAnular = new Telerik.WinControls.UI.RadButton();
+            this.BtnLocalidad = new Telerik.WinControls.UI.RadButton();
+            this.BtnProvincia = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCobradores)).BeginInit();
@@ -47,6 +49,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnImprimir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnProximos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAnular)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnLocalidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnProvincia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,11 +184,43 @@
             this.BtnAnular.ThemeName = "TelerikMetro";
             this.BtnAnular.Click += new System.EventHandler(this.BtnAnular_Click);
             // 
+            // BtnLocalidad
+            // 
+            this.BtnLocalidad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnLocalidad.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLocalidad.Image = global::Alejandria.Win.Properties.Resources.cobradores;
+            this.BtnLocalidad.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnLocalidad.Location = new System.Drawing.Point(519, 345);
+            this.BtnLocalidad.Name = "BtnLocalidad";
+            this.BtnLocalidad.Size = new System.Drawing.Size(156, 148);
+            this.BtnLocalidad.TabIndex = 9;
+            this.BtnLocalidad.Text = "Nueva Localidad";
+            this.BtnLocalidad.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnLocalidad.ThemeName = "TelerikMetro";
+            this.BtnLocalidad.Click += new System.EventHandler(this.BtnLocalidad_Click);
+            // 
+            // BtnProvincia
+            // 
+            this.BtnProvincia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnProvincia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProvincia.Image = global::Alejandria.Win.Properties.Resources.cobradores;
+            this.BtnProvincia.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnProvincia.Location = new System.Drawing.Point(681, 345);
+            this.BtnProvincia.Name = "BtnProvincia";
+            this.BtnProvincia.Size = new System.Drawing.Size(156, 148);
+            this.BtnProvincia.TabIndex = 10;
+            this.BtnProvincia.Text = "Nueva Provincia";
+            this.BtnProvincia.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnProvincia.ThemeName = "TelerikMetro";
+            this.BtnProvincia.Click += new System.EventHandler(this.BtnProvincia_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 548);
+            this.Controls.Add(this.BtnProvincia);
+            this.Controls.Add(this.BtnLocalidad);
             this.Controls.Add(this.BtnAnular);
             this.Controls.Add(this.BtnProximos);
             this.Controls.Add(this.BtnVentas);
@@ -211,6 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnImprimir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnProximos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAnular)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnLocalidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnProvincia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -227,5 +265,7 @@
         private Telerik.WinControls.UI.RadButton BtnImprimir;
         private Telerik.WinControls.UI.RadButton BtnProximos;
         private Telerik.WinControls.UI.RadButton BtnAnular;
+        private Telerik.WinControls.UI.RadButton BtnLocalidad;
+        private Telerik.WinControls.UI.RadButton BtnProvincia;
     }
 }

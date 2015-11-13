@@ -233,6 +233,12 @@
     <Compile Include="Forms\Cobradores\UcFiltrosCobrador.Designer.cs">
       <DependentUpon>UcFiltrosCobrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Localidades\FrmCrearEditarLocalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Localidades\FrmCrearEditarLocalidad.Designer.cs">
+      <DependentUpon>FrmCrearEditarLocalidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CuentaCorrientes\FrmCuentaCorriente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,12 @@
     </Compile>
     <Compile Include="Forms\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Provincias\FrmCrearEditarProvincia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Provincias\FrmCrearEditarProvincia.Designer.cs">
+      <DependentUpon>FrmCrearEditarProvincia.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserControlBase.cs">
       <SubType>UserControl</SubType>
@@ -372,6 +384,9 @@
     <EmbeddedResource Include="Forms\Cobradores\UcFiltrosCobrador.resx">
       <DependentUpon>UcFiltrosCobrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Localidades\FrmCrearEditarLocalidad.resx">
+      <DependentUpon>FrmCrearEditarLocalidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CuentaCorrientes\FrmCuentaCorriente.resx">
       <DependentUpon>FrmCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
@@ -386,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Provincias\FrmCrearEditarProvincia.resx">
+      <DependentUpon>FrmCrearEditarProvincia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserControlBase.resx">
       <DependentUpon>UserControlBase.cs</DependentUpon>

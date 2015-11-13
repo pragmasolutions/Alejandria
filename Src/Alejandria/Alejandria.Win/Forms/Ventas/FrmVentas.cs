@@ -147,7 +147,6 @@ namespace Alejandria.Win.Forms.Ventas
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
-            //this.ucFiltrosClientes.BuscarFinished += Filtered;
             DtpVencimiento.Value = DateTime.Now.AddMonths(1);
             DtpVencimientoHasta.Value = DateTime.Now.AddMonths(1);
             Cuotas = 1;
@@ -293,11 +292,22 @@ namespace Alejandria.Win.Forms.Ventas
                     clienteCuentaCorriente.Cuota = (byte)i;
                 
                 clienteCuentaCorriente.Fecha = _clock.Now;
+                
                 DateTime venc = DtpVencimiento.Value;
-                clienteCuentaCorriente.FechaVencimiento = venc.AddMonths(i - 1);
+                if (RbMensual.IsChecked)
+                    clienteCuentaCorriente.FechaVencimiento = venc.AddMonths(i - 2);
+                else if (RbQuincenal.IsChecked)
+                    clienteCuentaCorriente.FechaVencimiento = venc.AddDays(15 * (i - 2));
+                else if (RbSemanal.IsChecked)
+                    clienteCuentaCorriente.FechaVencimiento = venc.AddDays(7 * (i - 2));
 
                 DateTime vencHasta = DtpVencimientoHasta.Value;
-                clienteCuentaCorriente.FechaVencimientoHasta = vencHasta.AddMonths(i - 1);
+                if (RbMensual.IsChecked)
+                    clienteCuentaCorriente.FechaVencimientoHasta = vencHasta.AddMonths(i - 2);
+                else if (RbQuincenal.IsChecked)
+                    clienteCuentaCorriente.FechaVencimientoHasta = vencHasta.AddDays(15 * (i - 2));
+                else if (RbSemanal.IsChecked)
+                    clienteCuentaCorriente.FechaVencimientoHasta = vencHasta.AddDays(7 * (i - 2));
 
                 clienteCuentaCorriente.Importe = (float) MontoCuota;
                 clienteCuentaCorriente.Pagado = 0;
@@ -546,6 +556,24 @@ namespace Alejandria.Win.Forms.Ventas
         private void TxtNroVenta_TextChanged(object sender, EventArgs e)
         {
             DefinirLCN(cobrador, localidad, cuenta, NroVenta);
+        }
+
+        private void RbMensual_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            DtpVencimiento.Value = DateTime.Now.AddMonths(1);
+            DtpVencimientoHasta.Value = DateTime.Now.AddMonths(1);
+        }
+
+        private void RbQuincenal_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            DtpVencimiento.Value = DateTime.Now.AddDays(15);
+            DtpVencimientoHasta.Value = DateTime.Now.AddDays(15);
+        }
+
+        private void RbSemanal_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            DtpVencimiento.Value = DateTime.Now.AddDays(7);
+            DtpVencimientoHasta.Value = DateTime.Now.AddDays(7);
         }
        
       

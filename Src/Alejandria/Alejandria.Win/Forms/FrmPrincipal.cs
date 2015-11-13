@@ -10,6 +10,8 @@ using Alejandria.Win.Enums;
 using Alejandria.Win.Forms.Clientes;
 using Alejandria.Win.Forms.Cobradores;
 using Alejandria.Win.Forms.CuentaCorrientes;
+using Alejandria.Win.Forms.Localidades;
+using Alejandria.Win.Forms.Provincias;
 using Alejandria.Win.Forms.Vendedores;
 using Alejandria.Win.Forms.Ventas;
 using Alejandria.Win.Forms.Ventas.AnulacionFacturas;
@@ -84,5 +86,18 @@ namespace Alejandria.Win.Forms
             crear.Show();
         }
 
+        private void BtnProvincia_Click(object sender, EventArgs e)
+        {
+            var crear = FormFactory.Create<FrmCrearEditarProvincia>(default(int), ActionFormMode.Create);
+            crear.Show();
+        }
+
+        private void BtnLocalidad_Click(object sender, EventArgs e)
+        {
+            var crear = FormFactory.Create<FrmCrearEditarLocalidad>(default(int), ActionFormMode.Create);
+            crear.Show();
+        }
+
+      
        }
 }
