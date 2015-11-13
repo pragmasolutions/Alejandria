@@ -37,6 +37,7 @@
             this.BtnVendedores = new Telerik.WinControls.UI.RadButton();
             this.BtnImprimir = new Telerik.WinControls.UI.RadButton();
             this.BtnProximos = new Telerik.WinControls.UI.RadButton();
+            this.BtnAnular = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCobradores)).BeginInit();
@@ -45,6 +46,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnVendedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnImprimir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnProximos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnAnular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,11 +166,26 @@
             this.BtnProximos.ThemeName = "TelerikMetro";
             this.BtnProximos.Click += new System.EventHandler(this.BtnProximos_Click);
             // 
+            // BtnAnular
+            // 
+            this.BtnAnular.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAnular.Image = global::Alejandria.Win.Properties.Resources.Anul_venta;
+            this.BtnAnular.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnAnular.Location = new System.Drawing.Point(203, 345);
+            this.BtnAnular.Name = "BtnAnular";
+            this.BtnAnular.Size = new System.Drawing.Size(156, 148);
+            this.BtnAnular.TabIndex = 8;
+            this.BtnAnular.Text = "Anular Venta";
+            this.BtnAnular.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnAnular.ThemeName = "TelerikMetro";
+            this.BtnAnular.Click += new System.EventHandler(this.BtnAnular_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 548);
+            this.Controls.Add(this.BtnAnular);
             this.Controls.Add(this.BtnProximos);
             this.Controls.Add(this.BtnVentas);
             this.Controls.Add(this.BtnImprimir);
@@ -193,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnVendedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnImprimir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnProximos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnAnular)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -208,5 +226,6 @@
         private Telerik.WinControls.UI.RadButton BtnVendedores;
         private Telerik.WinControls.UI.RadButton BtnImprimir;
         private Telerik.WinControls.UI.RadButton BtnProximos;
+        private Telerik.WinControls.UI.RadButton BtnAnular;
     }
 }

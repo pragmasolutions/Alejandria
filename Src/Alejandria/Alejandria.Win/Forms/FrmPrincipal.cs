@@ -12,6 +12,7 @@ using Alejandria.Win.Forms.Cobradores;
 using Alejandria.Win.Forms.CuentaCorrientes;
 using Alejandria.Win.Forms.Vendedores;
 using Alejandria.Win.Forms.Ventas;
+using Alejandria.Win.Forms.Ventas.AnulacionFacturas;
 using Telerik.WinControls;
 
 namespace Alejandria.Win.Forms
@@ -74,6 +75,12 @@ namespace Alejandria.Win.Forms
         private void BtnProximos_Click(object sender, EventArgs e)
         {
             var crear = FormFactory.Create<FrmProximosVencimientosCobrador>();
+            crear.Show();
+        }
+
+        private void BtnAnular_Click(object sender, EventArgs e)
+        {
+            var crear = FormFactory.Create<FrmAnulacionFactura>();
             crear.Show();
         }
 

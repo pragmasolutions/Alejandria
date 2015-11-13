@@ -13,6 +13,7 @@ Post-Deployment Script Template
 --:r .\Sucursales.sql
 --:r .\Personal.sql
 --:r .\Operadores.sql
---:r .\EstadosVenta.sql
+:r .\EstadosVenta.sql
 --:r .\CondicionesVenta.sql
---:r .\TiposComprobantes.sql
+:r .\TiposComprobantes.sql
+:R .\TiposMovimientosCaja.sql

@@ -1685,7 +1685,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!Cuotas.Value - Fields!Cuota.Value +1</Value>
+                                  <Value>=IIf(Fields!Anticipo.Value = 0,Fields!Cuotas.Value-Fields!Cuota.Value,Fields!Cuotas.Value-Fields!Cuota.Value +1)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -1753,7 +1753,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!Cuotas.Value - Fields!Cuota.Value +1</Value>
+                                  <Value>=IIf(Fields!Anticipo.Value = 0,Fields!Cuotas.Value-Fields!Cuota.Value,Fields!Cuotas.Value-Fields!Cuota.Value +1)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -2208,7 +2208,7 @@
             <DataSetName>Comprobantes</DataSetName>
             <Top>1.02658mm</Top>
             <Left>0.762mm</Left>
-            <Height>88.48962mm</Height>
+            <Height>88.48965mm</Height>
             <Width>200.93541mm</Width>
             <Style>
               <Border>
@@ -2217,7 +2217,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>89.5162mm</Height>
+        <Height>89.51623mm</Height>
         <Style>
           <Border>
             <Style>None</Style>

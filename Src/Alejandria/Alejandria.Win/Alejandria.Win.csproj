@@ -459,6 +459,7 @@
   <ItemGroup>
     <None Include="Resources\04.png" />
     <Content Include="Resources\Add-New-blue.png" />
+    <None Include="Resources\Anul-venta.png" />
     <Content Include="Resources\Bank.png" />
     <Content Include="Resources\Book-Open.png" />
     <Content Include="Resources\Bullets.png" />

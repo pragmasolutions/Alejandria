@@ -1205,7 +1205,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes")</Value>
+                                  <Value>=Fields!Cuotas.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -1311,7 +1311,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes")</Value>
+                                  <Value>=Fields!Cuotas.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -1694,7 +1694,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes") - Fields!Cuota.Value +1</Value>
+                                  <Value>=IIf(Fields!Anticipo.Value = 0,Fields!Cuotas.Value-Fields!Cuota.Value,Fields!Cuotas.Value-Fields!Cuota.Value +1)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -1762,7 +1762,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Cuotas.Value, "Comprobantes") - Fields!Cuota.Value +1</Value>
+                                  <Value>=IIf(Fields!Anticipo.Value = 0,Fields!Cuotas.Value-Fields!Cuota.Value,Fields!Cuotas.Value-Fields!Cuota.Value +1)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>

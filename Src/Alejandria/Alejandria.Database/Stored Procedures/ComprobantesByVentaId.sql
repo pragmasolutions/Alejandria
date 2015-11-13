@@ -5,7 +5,7 @@ AS
 		SELECT V.NumeroComprobante as VentaNro, C.Cuenta, C.Denominacion, C.Domicilio, C.Telefono,
 	convert(nvarchar(max),C.Comentarios) as Referencia,
 	V.Concepto , CM.Importe AS Anticipo,
-	COUNT(CCC.Id) AS Cuotas, ccc.Importe as ValorCuota, ccc.Cuota as Cuota, Vn.Nombre AS Vendedor, 
+	V.CantidadCuota AS Cuotas, ccc.Importe as ValorCuota, ccc.Cuota as Cuota, Vn.Nombre AS Vendedor, 
 	Cb.Nombre as Cobrador,	CCC.FechaVencimiento, DAY(CCC.FechaVencimiento) as Desde, DAY(FechaVencimientoHasta) as Hasta
 	, Month(CCC.FechaVencimiento) as Mes,  Year(CCC.FechaVencimiento) as Anio
 	FROM Ventas V
@@ -23,6 +23,7 @@ AS
 	ON Cb.Id= V.CobradorId
 	WHERE V.id= @ventaId
 	GROUP BY C.Cuenta, C.Denominacion, C.Denominacion, C.Domicilio, C.Telefono, V.Concepto, CM.Importe, CCC.Importe,
-	CCC.Cuota, Vn.Nombre, CCC.FechaVencimiento, CCC.FechaVencimientoHasta, V.NumeroComprobante, C.Denominacion, Cb.Nombre,convert(nvarchar(max),C.Comentarios)
+	CCC.Cuota, Vn.Nombre, CCC.FechaVencimiento, CCC.FechaVencimientoHasta, V.NumeroComprobante, C.Denominacion, Cb.Nombre,
+	convert(nvarchar(max),C.Comentarios),V.CantidadCuota
 	ORDER BY CCC.Cuota
 --RETURN 0

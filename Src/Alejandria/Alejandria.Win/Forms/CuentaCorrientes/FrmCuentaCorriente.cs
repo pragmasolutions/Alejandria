@@ -40,6 +40,16 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
 
         private void FrmCuentaCorriente_Load(object sender, EventArgs e)
         {
+            this.GridCuotas.Columns["FechaVencimiento"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["FechaVencimiento"].FormatString = "{0: dd/M/yyyy}";
+
+            this.GridCuotas.Columns["FechaVencimientoHasta"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["FechaVencimientoHasta"].FormatString = "{0: dd/M/yyyy}";
+
+            this.GridCuotas.Columns["Fecha"].DataType = typeof(DateTime);
+            this.GridCuotas.Columns["Fecha"].FormatString = "{0: dd/M/yyyy}";
+
+
             this.ucFiltrosClientes.BuscarFinished += UcFiltrosClienteOnBuscarFinished;
         }
 
@@ -92,7 +102,7 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         private void ActualizarCuotas(Guid _clienteId)
         {
             var cuotas =
-                Uow.ClientesCuentasCorrientes.Listado().Where(
+                Uow.ClientesCuentasCorrientes.Listado(ccc => ccc.Venta, ccc => ccc.Cliente).Where(
                     ccc => ccc.ClienteId == _clienteId && ccc.Importe > ccc.Pagado).OrderBy(
                         ccc => ccc.FechaVencimiento).ToList();
             GridCuotas.DataSource = cuotas;
@@ -134,21 +144,21 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             }
         }
 
-        private void GridCuotas_ValueChanged(object sender, EventArgs e)
+        private void GridCuotas_ValueChanged_1(object sender, EventArgs e)
         {
             if (this.GridCuotas.ActiveEditor is RadCheckBoxEditor)
             {
-               if (GridCuotas.ActiveEditor.Value.ToString()=="On")
+                if (GridCuotas.ActiveEditor.Value.ToString() == "On")
                 {
                     var cuotas = GridCuotas.CurrentRow.DataBoundItem as ClientesCuentasCorriente;
                     if (cuotas != null)
                     {
-                        TotalPagar +=  cuotas.Importe;
+                        TotalPagar += cuotas.Importe;
                         cuotas.Pagado = cuotas.Importe;
                     }
 
                 }
-                else if (GridCuotas.ActiveEditor.Value.ToString()=="Off")
+                else if (GridCuotas.ActiveEditor.Value.ToString() == "Off")
                 {
                     var cuotas = GridCuotas.CurrentRow.DataBoundItem as ClientesCuentasCorriente;
                     if (cuotas != null)
@@ -156,13 +166,13 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
                         TotalPagar -= cuotas.Importe;
                         cuotas.Pagado = 0;
                     }
-                    
+
 
                 }
-                
+
             }
         }
-
+       
          private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
             if (TotalPagar!=0)
@@ -278,6 +288,8 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
             Uow.ClientesCuentasCorrientes.Modificar(clienteCuentaCorriente);
            
         }
+
+       
 
        
       }

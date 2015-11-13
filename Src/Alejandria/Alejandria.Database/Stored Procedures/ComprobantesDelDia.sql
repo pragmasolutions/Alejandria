@@ -20,7 +20,8 @@
 	INNER JOIN Cobradores Cb
 	ON Cb.Id= V.CobradorId
 	-- WHERE V.id= 'C44A38FD-3B81-4BFA-AC18-ED9D83272C0D' 
-	WHERE CONVERT (char(10), (V.FechaAlta), 103)   =CONVERT (char(10), getdate(), 103) 
+	WHERE V.EstadoVentaId=1 AND
+	 CONVERT (char(10), (V.FechaAlta), 103)   =CONVERT (char(10), getdate(), 103) 
 	GROUP BY V.NumeroComprobante, C.Cuenta, C.Denominacion,  C.Domicilio, C.Telefono, V.Concepto, CM.Importe, CCC.Importe,
 	CCC.Cuota, Vn.Nombre, CCC.FechaVencimiento, CCC.FechaVencimientoHasta, C.Denominacion, Cb.Nombre,V.CantidadCuota
 	,convert(nvarchar(max),C.Comentarios)

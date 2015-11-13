@@ -287,7 +287,11 @@ namespace Alejandria.Win.Forms.Ventas
                 clienteCuentaCorriente.Id = Guid.NewGuid();
                 clienteCuentaCorriente.VentaId = venta.Id;
                 clienteCuentaCorriente.ClienteId = _cliente.Id;
-                clienteCuentaCorriente.Cuota = (byte)i;
+                if (venta.TotalPagado==0)
+                    clienteCuentaCorriente.Cuota = (byte) (i - 1);
+                else
+                    clienteCuentaCorriente.Cuota = (byte)i;
+                
                 clienteCuentaCorriente.Fecha = _clock.Now;
                 DateTime venc = DtpVencimiento.Value;
                 clienteCuentaCorriente.FechaVencimiento = venc.AddMonths(i - 1);
@@ -484,7 +488,11 @@ namespace Alejandria.Win.Forms.Ventas
             venta.NumeroComprobante = NroVenta;
 
             venta.LetraComprobante = "X";
-            venta.LCN = DefinirLCN(cobrador, localidad, cuenta, NroVenta);
+            var _lcn = DefinirLCN(cobrador, localidad, cuenta, NroVenta);
+            if (_lcn.Count() > 15)
+                _lcn = _lcn.Remove(15);
+
+            venta.LCN =_lcn;
             venta.ComprobanteId = 1; // FAC.VTA.CTA.CTE.
             if (_cliente != null)
                 venta.ClienteId = _cliente.Id ;
@@ -509,6 +517,8 @@ namespace Alejandria.Win.Forms.Ventas
             int vendedor;
             venta.VendedorId = int.TryParse(DdlVendedor.SelectedValue.ToString(), out vendedor) ? vendedor : 0;
             venta.CantidadCuota = Cuotas;
+            //if (venta.TotalPagado > 0)
+            //    venta.CantidadCuota += 1;
 
             venta.FechaAlta = _clock.Now;
             venta.SucursalAltaId = 1;

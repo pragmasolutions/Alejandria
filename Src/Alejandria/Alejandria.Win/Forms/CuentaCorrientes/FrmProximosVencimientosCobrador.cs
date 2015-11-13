@@ -29,8 +29,9 @@ namespace Alejandria.Win.Forms.CuentaCorrientes
         private readonly IClienteCuentaCorrienteNegocio _clientecuentacorrienteNegocio;
         private ClientesCuentasCorriente _cuota;
 
-        public FrmProximosVencimientosCobrador(IAlejandriaUow uow, IClock clock, IMessageBoxDisplayService messageBoxDisplayService,
-            IFormFactory formFactory, IClienteCuentaCorrienteNegocio clientecuentacorrienteNegocio)
+        public FrmProximosVencimientosCobrador(IAlejandriaUow uow, IClock clock,
+                                            IMessageBoxDisplayService messageBoxDisplayService,
+                                            IFormFactory formFactory, IClienteCuentaCorrienteNegocio clientecuentacorrienteNegocio)
         {
             FormFactory = formFactory;
             Uow = uow;

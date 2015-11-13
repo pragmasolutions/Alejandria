@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            this.ucBuscadorFactura = new LaPaz.Win.Forms.Ventas.CreditosDevolucion.UcBuscadorFactura();
             this.PnlFactura = new Telerik.WinControls.UI.RadPanel();
+            this.BtnGuardar = new Telerik.WinControls.UI.RadButton();
             this.TxtImporte = new Telerik.WinControls.UI.RadTextBox();
             this.TxtFecha = new Telerik.WinControls.UI.RadTextBox();
             this.TxtConcepto = new Telerik.WinControls.UI.RadTextBox();
@@ -50,11 +43,13 @@
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.GrillaLineasFactura = new Telerik.WinControls.UI.RadGridView();
-            this.BtnGuardar = new Telerik.WinControls.UI.RadButton();
-            this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
+            this.BtnBuscar = new Telerik.WinControls.UI.RadButton();
+            this.txtVentaNro = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PnlFactura)).BeginInit();
             this.PnlFactura.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtImporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtConcepto)).BeginInit();
@@ -73,24 +68,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaLineasFactura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaLineasFactura.MasterTemplate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
-            this.radPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVentaNro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            this.radLabel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // ucBuscadorFactura
-            // 
-            this.ucBuscadorFactura.Location = new System.Drawing.Point(11, 3);
-            this.ucBuscadorFactura.Name = "ucBuscadorFactura";
-            this.ucBuscadorFactura.Size = new System.Drawing.Size(491, 58);
-            this.ucBuscadorFactura.TabIndex = 0;
-            this.ucBuscadorFactura.Load += new System.EventHandler(this.ucBuscadorFactura1_Load);
-            // 
             // PnlFactura
             // 
+            this.PnlFactura.Controls.Add(this.BtnGuardar);
             this.PnlFactura.Controls.Add(this.TxtImporte);
             this.PnlFactura.Controls.Add(this.TxtFecha);
             this.PnlFactura.Controls.Add(this.TxtConcepto);
@@ -101,19 +89,31 @@
             this.PnlFactura.Controls.Add(this.radLabel2);
             this.PnlFactura.Location = new System.Drawing.Point(27, 86);
             this.PnlFactura.Name = "PnlFactura";
-            this.PnlFactura.Size = new System.Drawing.Size(545, 114);
+            this.PnlFactura.Size = new System.Drawing.Size(545, 160);
             this.PnlFactura.TabIndex = 5;
+            this.PnlFactura.ThemeName = "TelerikMetro";
+            // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.Location = new System.Drawing.Point(379, 104);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(123, 29);
+            this.BtnGuardar.TabIndex = 8;
+            this.BtnGuardar.Text = "Anular";
+            this.BtnGuardar.ThemeName = "TelerikMetro";
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // TxtImporte
             // 
             this.TxtImporte.Enabled = false;
             this.TxtImporte.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtImporte.Location = new System.Drawing.Point(354, 77);
+            this.TxtImporte.Location = new System.Drawing.Point(95, 110);
             this.TxtImporte.Name = "TxtImporte";
-            this.TxtImporte.Size = new System.Drawing.Size(148, 26);
+            this.TxtImporte.Size = new System.Drawing.Size(183, 26);
             this.TxtImporte.TabIndex = 8;
             this.TxtImporte.TabStop = false;
-            this.TxtImporte.ThemeName = "TelerikMetroBlue";
+            this.TxtImporte.ThemeName = "TelerikMetro";
             // 
             // TxtFecha
             // 
@@ -124,7 +124,7 @@
             this.TxtFecha.Size = new System.Drawing.Size(182, 26);
             this.TxtFecha.TabIndex = 7;
             this.TxtFecha.TabStop = false;
-            this.TxtFecha.ThemeName = "TelerikMetroBlue";
+            this.TxtFecha.ThemeName = "TelerikMetro";
             // 
             // TxtConcepto
             // 
@@ -135,7 +135,7 @@
             this.TxtConcepto.Size = new System.Drawing.Size(406, 26);
             this.TxtConcepto.TabIndex = 6;
             this.TxtConcepto.TabStop = false;
-            this.TxtConcepto.ThemeName = "TelerikMetroBlue";
+            this.TxtConcepto.ThemeName = "TelerikMetro";
             // 
             // TxtCliente
             // 
@@ -146,17 +146,18 @@
             this.TxtCliente.Size = new System.Drawing.Size(406, 26);
             this.TxtCliente.TabIndex = 5;
             this.TxtCliente.TabStop = false;
-            this.TxtCliente.ThemeName = "TelerikMetroBlue";
+            this.TxtCliente.ThemeName = "TelerikMetro";
             // 
             // radLabel8
             // 
             this.radLabel8.Controls.Add(this.radLabel9);
             this.radLabel8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel8.Location = new System.Drawing.Point(284, 79);
+            this.radLabel8.Location = new System.Drawing.Point(12, 112);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(65, 24);
             this.radLabel8.TabIndex = 4;
             this.radLabel8.Text = "Importe:";
+            this.radLabel8.ThemeName = "TelerikMetro";
             // 
             // radLabel9
             // 
@@ -176,6 +177,7 @@
             this.radLabel4.Size = new System.Drawing.Size(50, 24);
             this.radLabel4.TabIndex = 3;
             this.radLabel4.Text = "Fecha:";
+            this.radLabel4.ThemeName = "TelerikMetro";
             // 
             // radLabel5
             // 
@@ -195,6 +197,7 @@
             this.radLabel6.Size = new System.Drawing.Size(77, 24);
             this.radLabel6.TabIndex = 2;
             this.radLabel6.Text = "Concepto:";
+            this.radLabel6.ThemeName = "TelerikMetro";
             // 
             // radLabel7
             // 
@@ -214,6 +217,7 @@
             this.radLabel2.Size = new System.Drawing.Size(58, 24);
             this.radLabel2.TabIndex = 0;
             this.radLabel2.Text = "Cliente:";
+            this.radLabel2.ThemeName = "TelerikMetro";
             // 
             // radLabel3
             // 
@@ -226,108 +230,61 @@
             // 
             // radPanel1
             // 
-            this.radPanel1.Controls.Add(this.ucBuscadorFactura);
+            this.radPanel1.Controls.Add(this.BtnBuscar);
+            this.radPanel1.Controls.Add(this.txtVentaNro);
+            this.radPanel1.Controls.Add(this.radLabel1);
             this.radPanel1.Location = new System.Drawing.Point(27, 12);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(545, 68);
             this.radPanel1.TabIndex = 6;
+            this.radPanel1.ThemeName = "TelerikMetro";
             // 
-            // GrillaLineasFactura
+            // BtnBuscar
             // 
-            this.GrillaLineasFactura.Location = new System.Drawing.Point(3, 14);
+            this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.Location = new System.Drawing.Point(284, 17);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(123, 29);
+            this.BtnBuscar.TabIndex = 10;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.ThemeName = "TelerikMetro";
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
-            // GrillaLineasFactura
+            // txtVentaNro
             // 
-            this.GrillaLineasFactura.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.FieldName = "TituloNombreTitulo";
-            gridViewTextBoxColumn1.HeaderText = "Titulo";
-            gridViewTextBoxColumn1.Name = "Titulo";
-            gridViewTextBoxColumn1.Width = 265;
-            gridViewTextBoxColumn2.FieldName = "CantidadAuditada";
-            gridViewTextBoxColumn2.FormatString = "";
-            gridViewTextBoxColumn2.HeaderText = "Cantidad";
-            gridViewTextBoxColumn2.MaxWidth = 75;
-            gridViewTextBoxColumn2.MinWidth = 75;
-            gridViewTextBoxColumn2.Name = "Cantidad";
-            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn2.Width = 75;
-            gridViewTextBoxColumn3.Expression = "IIF(Descuento>0,  PrecioBase -(PrecioBase * Descuento / 100), PrecioBase)";
-            gridViewTextBoxColumn3.HeaderText = "Precio";
-            gridViewTextBoxColumn3.Name = "PrecioUnitario";
-            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn3.Width = 104;
-            gridViewTextBoxColumn4.Expression = "";
-            gridViewTextBoxColumn4.FieldName = "Precio";
-            gridViewTextBoxColumn4.FormatString = "";
-            gridViewTextBoxColumn4.HeaderText = "Total";
-            gridViewTextBoxColumn4.MaxWidth = 75;
-            gridViewTextBoxColumn4.MinWidth = 75;
-            gridViewTextBoxColumn4.Name = "Precio";
-            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            gridViewTextBoxColumn4.Width = 75;
-            gridViewTextBoxColumn5.FieldName = "PrecioBase";
-            gridViewTextBoxColumn5.FormatString = "";
-            gridViewTextBoxColumn5.HeaderText = "PrecioBase";
-            gridViewTextBoxColumn5.IsVisible = false;
-            gridViewTextBoxColumn5.MaxWidth = 75;
-            gridViewTextBoxColumn5.MinWidth = 75;
-            gridViewTextBoxColumn5.Name = "PrecioBase";
-            gridViewTextBoxColumn5.Width = 75;
-            gridViewTextBoxColumn6.FieldName = "Descuento";
-            gridViewTextBoxColumn6.FormatString = "";
-            gridViewTextBoxColumn6.HeaderText = "Descuento";
-            gridViewTextBoxColumn6.IsVisible = false;
-            gridViewTextBoxColumn6.MaxWidth = 75;
-            gridViewTextBoxColumn6.MinWidth = 75;
-            gridViewTextBoxColumn6.Name = "Descuento";
-            gridViewTextBoxColumn6.Width = 75;
-            gridViewTextBoxColumn7.Expression = "Id";
-            gridViewTextBoxColumn7.HeaderText = "Id";
-            gridViewTextBoxColumn7.IsVisible = false;
-            gridViewTextBoxColumn7.Name = "Id";
-            gridViewTextBoxColumn7.Width = 44;
-            this.GrillaLineasFactura.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5,
-            gridViewTextBoxColumn6,
-            gridViewTextBoxColumn7});
-            this.GrillaLineasFactura.MasterTemplate.EnableGrouping = false;
-            this.GrillaLineasFactura.Name = "GrillaLineasFactura";
-            this.GrillaLineasFactura.ReadOnly = true;
-            this.GrillaLineasFactura.Size = new System.Drawing.Size(538, 232);
-            this.GrillaLineasFactura.TabIndex = 7;
-            this.GrillaLineasFactura.Text = "radGridView1";
-            this.GrillaLineasFactura.ThemeName = "TelerikMetroBlue";
+            this.txtVentaNro.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVentaNro.Location = new System.Drawing.Point(130, 17);
+            this.txtVentaNro.Name = "txtVentaNro";
+            this.txtVentaNro.Size = new System.Drawing.Size(148, 26);
+            this.txtVentaNro.TabIndex = 9;
+            this.txtVentaNro.TabStop = false;
+            this.txtVentaNro.ThemeName = "TelerikMetro";
             // 
-            // BtnGuardar
+            // radLabel1
             // 
-            this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.Location = new System.Drawing.Point(447, 492);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(123, 29);
-            this.BtnGuardar.TabIndex = 8;
-            this.BtnGuardar.Text = "Anular";
-            this.BtnGuardar.ThemeName = "TelerikMetroBlue";
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            this.radLabel1.Controls.Add(this.radLabel10);
+            this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel1.Location = new System.Drawing.Point(16, 19);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(108, 24);
+            this.radLabel1.TabIndex = 1;
+            this.radLabel1.Text = "Venta número:";
+            this.radLabel1.ThemeName = "TelerikMetro";
             // 
-            // radPanel2
+            // radLabel10
             // 
-            this.radPanel2.Controls.Add(this.GrillaLineasFactura);
-            this.radPanel2.Location = new System.Drawing.Point(27, 206);
-            this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(545, 280);
-            this.radPanel2.TabIndex = 9;
+            this.radLabel10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel10.Location = new System.Drawing.Point(3, 30);
+            this.radLabel10.Name = "radLabel10";
+            this.radLabel10.Size = new System.Drawing.Size(58, 24);
+            this.radLabel10.TabIndex = 1;
+            this.radLabel10.Text = "Cliente:";
             // 
             // FrmAnulacionFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 526);
-            this.Controls.Add(this.radPanel2);
-            this.Controls.Add(this.BtnGuardar);
+            this.ClientSize = new System.Drawing.Size(612, 273);
             this.Controls.Add(this.radPanel1);
             this.Controls.Add(this.PnlFactura);
             this.Name = "FrmAnulacionFactura";
@@ -335,11 +292,12 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "";
+            this.Text = "Anular Venta";
             this.Load += new System.EventHandler(this.FrmAnulacionFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PnlFactura)).EndInit();
             this.PnlFactura.ResumeLayout(false);
             this.PnlFactura.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtImporte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtFecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtConcepto)).EndInit();
@@ -362,11 +320,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaLineasFactura.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GrillaLineasFactura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnGuardar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
-            this.radPanel2.ResumeLayout(false);
+            this.radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVentaNro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            this.radLabel1.ResumeLayout(false);
+            this.radLabel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -374,7 +334,6 @@
 
         #endregion
 
-        private CreditosDevolucion.UcBuscadorFactura ucBuscadorFactura;
         private Telerik.WinControls.UI.RadPanel PnlFactura;
         private Telerik.WinControls.UI.RadTextBox TxtImporte;
         private Telerik.WinControls.UI.RadTextBox TxtFecha;
@@ -389,8 +348,10 @@
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private Telerik.WinControls.UI.RadPanel radPanel1;
-        private Telerik.WinControls.UI.RadGridView GrillaLineasFactura;
         private Telerik.WinControls.UI.RadButton BtnGuardar;
-        private Telerik.WinControls.UI.RadPanel radPanel2;
+        private Telerik.WinControls.UI.RadButton BtnBuscar;
+        private Telerik.WinControls.UI.RadTextBox txtVentaNro;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadLabel radLabel10;
     }
 }
