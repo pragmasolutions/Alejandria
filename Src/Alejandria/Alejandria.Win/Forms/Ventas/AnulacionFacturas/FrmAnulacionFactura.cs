@@ -182,7 +182,7 @@ namespace Alejandria.Win.Forms.Ventas.AnulacionFacturas
       {
           int numeroComprobante = int.TryParse(txtVentaNro.Text, out numeroComprobante) ? numeroComprobante : 0;
           _venta =
-              Uow.Ventas.Listado(v => v.Cliente).OrderByDescending(v=>v.FechaAlta).FirstOrDefault(v => v.NumeroComprobante == numeroComprobante);
+              Uow.Ventas.Listado(v => v.Cliente).OrderByDescending(v => v.FechaAlta).FirstOrDefault(v => v.NumeroComprobante == numeroComprobante && v.EstadoVentaId == 1);
 
           if (_venta != null)
           {

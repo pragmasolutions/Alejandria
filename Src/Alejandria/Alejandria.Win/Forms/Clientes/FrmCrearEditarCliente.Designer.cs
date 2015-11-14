@@ -507,7 +507,7 @@ namespace Alejandria.Win.Forms.Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 526);
+            this.ClientSize = new System.Drawing.Size(577, 542);
             this.Controls.Add(this.radLabel3);
             this.Controls.Add(this.TxtNroCliente);
             this.Controls.Add(this.radLabel2);

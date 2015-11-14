@@ -97,6 +97,8 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.3-unstable-012\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -323,6 +325,12 @@
     <Compile Include="Forms\Ventas\AnulacionFacturas\FrmAnulacionFactura.Designer.cs">
       <DependentUpon>FrmAnulacionFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\ReimpresionFacturas\FrmReimpresionFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\ReimpresionFacturas\FrmReimpresionFactura.Designer.cs">
+      <DependentUpon>FrmReimpresionFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmComprobantesDelDia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,6 +440,9 @@
     <EmbeddedResource Include="Forms\Ventas\AnulacionFacturas\FrmAnulacionFactura.resx">
       <DependentUpon>FrmAnulacionFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\ReimpresionFacturas\FrmReimpresionFactura.resx">
+      <DependentUpon>FrmReimpresionFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmComprobantesDelDia.resx">
       <DependentUpon>FrmComprobantesDelDia.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,6 +505,7 @@
     <Content Include="Resources\Data-Edit.png" />
     <Content Include="Resources\Data-Files.png" />
     <None Include="Resources\devlights.png" />
+    <None Include="Resources\devlights1.png" />
     <Content Include="Resources\devoluviones.png" />
     <Content Include="Resources\devolver.png" />
     <Content Include="Resources\error.png" />
@@ -515,6 +527,7 @@
     <Content Include="Resources\Reload_16x16.png" />
     <Content Include="Resources\RendirConsignacion.png" />
     <Content Include="Resources\reporte.png" />
+    <None Include="Resources\RePrint.png" />
     <Content Include="Resources\reservada.png" />
     <None Include="Resources\Sales-Order.png" />
     <Content Include="Resources\save-disk.png" />

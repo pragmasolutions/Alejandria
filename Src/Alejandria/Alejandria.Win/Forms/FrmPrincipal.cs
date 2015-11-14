@@ -15,6 +15,7 @@ using Alejandria.Win.Forms.Provincias;
 using Alejandria.Win.Forms.Vendedores;
 using Alejandria.Win.Forms.Ventas;
 using Alejandria.Win.Forms.Ventas.AnulacionFacturas;
+using Alejandria.Win.Forms.Ventas.ReimpresionFacturas;
 using Telerik.WinControls;
 
 namespace Alejandria.Win.Forms
@@ -95,6 +96,12 @@ namespace Alejandria.Win.Forms
         private void BtnLocalidad_Click(object sender, EventArgs e)
         {
             var crear = FormFactory.Create<FrmCrearEditarLocalidad>(default(int), ActionFormMode.Create);
+            crear.Show();
+        }
+
+        private void radButton1_Click_1(object sender, EventArgs e)
+        {
+            var crear = FormFactory.Create<FrmReimpresionFacturas>();
             crear.Show();
         }
 

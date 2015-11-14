@@ -298,6 +298,16 @@ namespace Alejandria.Win.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap devlights1 {
+            get {
+                object obj = ResourceManager.GetObject("devlights1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap devoluviones {
             get {
                 object obj = ResourceManager.GetObject("devoluviones", resourceCulture);
@@ -1348,6 +1358,16 @@ namespace Alejandria.Win.Properties {
         internal static System.Drawing.Bitmap reporte {
             get {
                 object obj = ResourceManager.GetObject("reporte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RePrint {
+            get {
+                object obj = ResourceManager.GetObject("RePrint", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
