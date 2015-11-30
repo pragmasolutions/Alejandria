@@ -293,7 +293,7 @@
             this.radButton2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radButton2.Image = global::Alejandria.Win.Properties.Resources.devlights;
             this.radButton2.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButton2.Location = new System.Drawing.Point(751, 534);
+            this.radButton2.Location = new System.Drawing.Point(750, 534);
             this.radButton2.Name = "radButton2";
             this.radButton2.Size = new System.Drawing.Size(231, 63);
             this.radButton2.TabIndex = 14;
