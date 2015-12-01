@@ -41,9 +41,9 @@
             this.BtnLocalidad = new Telerik.WinControls.UI.RadButton();
             this.BtnProvincia = new Telerik.WinControls.UI.RadButton();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            //this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+           // this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            //this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.radButton2 = new Telerik.WinControls.UI.RadButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -243,38 +243,38 @@
             // 
             // shapeContainer1
             // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2,
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(985, 597);
-            this.shapeContainer1.TabIndex = 12;
-            this.shapeContainer1.TabStop = false;
+            //this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            //this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            //this.shapeContainer1.Name = "shapeContainer1";
+            //this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            //this.lineShape2,
+            //this.lineShape1});
+            //this.shapeContainer1.Size = new System.Drawing.Size(985, 597);
+            //this.shapeContainer1.TabIndex = 12;
+            //this.shapeContainer1.TabStop = false;
             // 
             // lineShape2
             // 
-            this.lineShape2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lineShape2.BorderColor = System.Drawing.Color.DarkRed;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = -1;
-            this.lineShape2.X2 = 986;
-            this.lineShape2.Y1 = 529;
-            this.lineShape2.Y2 = 529;
+            //this.lineShape2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            //| System.Windows.Forms.AnchorStyles.Right)));
+            //this.lineShape2.BorderColor = System.Drawing.Color.DarkRed;
+            //this.lineShape2.Name = "lineShape2";
+            //this.lineShape2.X1 = -1;
+            //this.lineShape2.X2 = 986;
+            //this.lineShape2.Y1 = 529;
+            //this.lineShape2.Y2 = 529;
             // 
             // lineShape1
             // 
-            this.lineShape1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lineShape1.BorderColor = System.Drawing.Color.DarkRed;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = -4;
-            this.lineShape1.X2 = 983;
-            this.lineShape1.Y1 = 13;
-            this.lineShape1.Y2 = 13;
-            // 
+            //this.lineShape1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //| System.Windows.Forms.AnchorStyles.Right)));
+            //this.lineShape1.BorderColor = System.Drawing.Color.DarkRed;
+            //this.lineShape1.Name = "lineShape1";
+            //this.lineShape1.X1 = -4;
+            //this.lineShape1.X2 = 983;
+            //this.lineShape1.Y1 = 13;
+            //this.lineShape1.Y2 = 13;
+            //// 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -337,7 +337,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.radButton2);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.shapeContainer1);
+            //this.Controls.Add(this.shapeContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             // 
@@ -380,9 +380,9 @@
         private Telerik.WinControls.UI.RadButton BtnLocalidad;
         private Telerik.WinControls.UI.RadButton BtnProvincia;
         private Telerik.WinControls.UI.RadButton radButton1;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+    //    private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+      //  private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
+        //private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private Telerik.WinControls.UI.RadButton radButton2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
